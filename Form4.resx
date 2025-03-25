@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TextBox1.Text" xml:space="preserve">
+    <value>Hello! Welcome to Personal_HD2ModManager v1.1!
+
+Table of Contents
+1. Introduction
+2. Adding your Mods to the Mod Manager
+3. Browsing your Helldivers 2 Data Directory
+4. Profile Creation
+5. Mod and Profile Management
+6. Mod Installation
+
+
+1. Introduction
+Thank you for downloading Personal Helldivers 2 Mod Manager! Please be aware that this is
+simple, buggy, experimental mod manager that can inconvenience any user. Meaning you
+may also have to debug or fix problems yourself because I only did very little
+testing on this program. This program will always do a fresh reinstall of mods,
+meaning your old mods in the Helldivers 2 data folder will be deleted and only then
+will new mods be added to it. This program expects you to adjust to the mod manager,
+rather than the other way around. But if it works, it works well.
+Again, I only did very little testing on this program.
+
+
+2. Adding your Mods to the Mod Manager
+First, run then exit program. When you run the program, the following folders and
+files will be created:
+phd2mm_mods folder
+phd2mm_profiles folder (has default.txt inside upon fresh download and start)
+phd2mm_settings.txt
+Once you run and exit the program, put your mods in the phd2mm_mods folder.
+The format should be:
+Each mod should have its own folder.
+Only files, no subfolders/subdirectories.
+No duplicate names and patches, for example, if a mod folder has
+9ba626afa44a3aa3.patch_0 and 9ba626afa44a3aa3.patch_1, then it will not be installed.
+If it has 9ba626afa44a3aa3.patch_0 and 9ba626afa44a3aa3.patch_0.gpu_resources, then
+it can still be installed.
+Different names will work, assuming it is a valid mod file, for example,
+22749a294788af66.patch_0 and e72d3e9b05c3db0b.patch_0 in the same folder will be installed.
+
+
+3. Browsing your Helldivers 2 Data Directory
+Find and select your Helldivers 2 data directory by clicking the "Browse" button.
+It will check if the path to said directory has "Helldivers 2\data" in it.
+
+
+4. Profile Creation
+Each profile contains mods that are used together. It is similar to a mod list.
+If you do not have any profile, a profile named "default" will automatically
+be created for you.
+Otherwise, create or choose a profile by clicking the "Create Profile" button.
+The profile data will be saved in phd2mm_profiles\&lt;your_profile_name_here&gt;.txt.
+This text file contains the mod list saved in the profile.
+
+However, you cannot create a profile with the following characters: \/:*?"&lt;&gt;|
+That is because when creating a profile, it also creates the file name the same
+as the profile name. In Windows at least, these characters cannot be used as file names.
+You also cannot create a profile that are named the following:
+CON, PRN, AUX, NUL, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8,
+COM9, LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9
+That is because these are reserved names for Windows files. However, you can still use,
+for example, CON1 or afdsPRNadsf. The important thing is its not just CON or the like
+as your profile name.
+
+
+5. Mod and Profile Management
+You can now choose any mod you want to save in the profile by selecting a mod in the left
+side of the screen under "Mods not used in the profile" then clicking the "Add Selected
+Mod" button or simply double-left-mouse-button-click the mod. Doing that will transfer
+the mod from the left side to the right side, the "Mods used in the profile".
+
+However, due to bugs, to remove mods from the profile, which are located under "Mods used
+in the profile", either select a mod by left-mouse-button-clicking twice then
+click the "Remove Selected Mod" button or double-right-mouse-button-clicking a mod.
+You can rearrange the mod list order by selecting a mod in the right side then click the 
+"Move Up Selected Mod" or "Move Down Selected Mod" buttons or by dragging the mod and put
+or drop them wherever in the mod list.
+
+Remember to save your profile by clicking the "Save Profile" button or else the mod list will
+not be saved.
+You can also delete your currently selected profile by clicking "Delete Profile" button.
+
+
+6. Mod Installation
+When you're done with choosing your mods and saving the profile, click the Install All
+Mods from Current Profile button.
+If you changed the contents and order of the mod list but you did not save it,
+it is possible to install the modified-yet-unsaved mod list anyway. However,
+it is recommended to save the profile first before installing.
+
+WARNING: This will delete all the mods you have installed in the Helldivers 2 data folder.
+After that, it will put the mods there. Basically, this button will always do a clean
+reinstall of mods to make it easier to install mods.</value>
+  </data>
+</root>
