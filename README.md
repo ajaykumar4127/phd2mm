@@ -15,7 +15,7 @@ The information below are also included in "More Info" inside the phd2mm app.
 7. Changelogs
 
 
-# 1. Introduction
+## 1. Introduction
 Thank you for downloading Personal Helldivers 2 Mod Manager! Please be aware that this is
 simple, buggy, experimental mod manager that can inconvenience any user. Meaning you
 may also have to debug or fix problems yourself because I only did very little
@@ -26,7 +26,7 @@ rather than the other way around. But if it works, it works well.
 Again, I only did very little testing on this program.
 
 
-# 2. Adding your Mods to the Mod Manager
+## 2. Adding your Mods to the Mod Manager
 First, run then exit program. When you run the program, the following folders and
 files will be created: <br/>
 phd2mm_mods folder <br/>
@@ -44,12 +44,12 @@ Different names will work, assuming it is a valid mod file, for example,
 22749a294788af66.patch_0 and e72d3e9b05c3db0b.patch_0 in the same folder will be installed.
 
 
-# 3. Browsing your Helldivers 2 Data Directory
+## 3. Browsing your Helldivers 2 Data Directory
 Find and select your Helldivers 2 data directory by clicking the "Browse" button.
 It will check if the path to said directory has "Helldivers 2\data" in it.
 
 
-# 4. Profile Creation
+## 4. Profile Creation
 Each profile contains mods that are used together. It is similar to a mod list.
 If you do not have any profile, a profile named "default" will automatically
 be created for you.
@@ -68,7 +68,7 @@ for example, CON1 or afdsPRNadsf. The important thing is its not just CON or the
 as your profile name.
 
 
-# 5. Mod and Profile Management
+## 5. Mod and Profile Management
 You can now choose any mod you want to save in the profile by selecting a mod in the left
 side of the screen under "Mods not used in the profile" then clicking the "Add Selected
 Mod" button or simply double-left-mouse-button-click the mod. Doing that will transfer
@@ -93,7 +93,7 @@ As of this time, this simple mod randomization does not take mod conflicts into 
 so be warned.
 
 
-# 6. Mod Installation
+## 6. Mod Installation
 When you're done with choosing your mods and saving the profile, click the Install All
 Mods from Current Profile button.
 If you changed the contents and order of the mod list but you did not save it,
@@ -104,7 +104,7 @@ WARNING: This will delete all the mods you have installed in the Helldivers 2 da
 After that, it will put the mods there. Basically, this button will always do a clean
 reinstall of mods to make it easier to install mods.
 
-7. Changelogs
+## 7. Changelogs
 v1.2
 -Added search bar to easily find mods.
 -Added a simple mod randomization function. You can enable this by clicking "Enable
