@@ -57,7 +57,7 @@ Partial Class Form4_MoreInfo
         Controls.Add(CloseForm4Button)
         Controls.Add(TextBox1)
         Name = "Form4_MoreInfo"
-        Text = "Form4"
+        Text = "More info"
         ResumeLayout(False)
         PerformLayout()
     End Sub

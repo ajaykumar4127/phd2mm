@@ -75,7 +75,7 @@ Partial Class Form2_CreateNewProfile
         Controls.Add(ProfileName_TextBox)
         Controls.Add(Label1)
         Name = "Form2_CreateNewProfile"
-        Text = "Creating new profile"
+        Text = "Creating New Profile"
         ResumeLayout(False)
         PerformLayout()
     End Sub

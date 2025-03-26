@@ -1,5 +1,5 @@
 # Personal Helldivers 2 Mod Manager (phd2mm)
-Hello! Welcome to Personal_HD2ModManager v1.1!
+Hello! Welcome to Personal_HD2ModManager v1.2!
 As the name says, I mainly made this mod manager for myself.
 Any updates to this program, if there will be any, will be infrequent.
 Feel free to copy and edit this app!
@@ -12,6 +12,7 @@ The information below are also included in "More Info" inside the phd2mm app.
 4. Profile Creation
 5. Mod and Profile Management
 6. Mod Installation
+7. Changelogs
 
 
 # 1. Introduction
@@ -84,6 +85,13 @@ Remember to save your profile by clicking the "Save Profile" button or else the 
 not be saved.
 You can also delete your currently selected profile by clicking "Delete Profile" button.
 
+As of v1.2, you can now click "Enable Mod Randomization Option" to allow the
+"Randomly Add and Remove Mods" button to be clicked. Clicking the "Randomly Add and
+Remove Mods" button will randomly add mods. To disable the mod randomization option,
+click "Disable Mod Randomization Option".
+As of this time, this simple mod randomization does not take mod conflicts into account,
+so be warned.
+
 
 # 6. Mod Installation
 When you're done with choosing your mods and saving the profile, click the Install All
@@ -95,3 +103,25 @@ it is recommended to save the profile first before installing.
 WARNING: This will delete all the mods you have installed in the Helldivers 2 data folder.
 After that, it will put the mods there. Basically, this button will always do a clean
 reinstall of mods to make it easier to install mods.
+
+7. Changelogs
+v1.2
+-Added search bar to easily find mods.
+-Added a simple mod randomization function. You can enable this by clicking "Enable
+Mod Randomization Option" to allow the "Randomly Add and Remove Mods" button to be
+clicked. To disable this, click the "Disable Mod Randomization Option".
+The reason for this is for user safety in case they wanted to move the mod
+up or down or to install the mods. This way, users will not accidentally randomize
+their chosen mods.
+As of this time, this simple randomization does not take mod conflicts into account,
+so be warned.
+-Changed text in Form4_MoreInfo from "Form4" to "More Info".
+-Capitalized text initials of Form2_CreateNewProfile from "Creating new profile"
+to "Creating New Profile" for consistency.
+ 
+v1.1
+-Added drag and drop feature to the TextBox under "Mods used in this profile:",
+allowing users to an easier way to rearrange their mod list order.
+
+v1.0
+-First release. Didn't have drag and drop then.

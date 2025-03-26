@@ -10,6 +10,8 @@ Public Class Form1_phd2mm
     Public modDirectoryPath As String = currentDirectoryPath & "\phd2mm_mods"
     Public settingsTextFilePath As String = currentDirectoryPath & "\phd2mm_settings.txt"
     Public lightDarkMode As String = "light"
+    Public usedModsListOriginal As New List(Of String)()
+    Public unusedModsListOriginal As New List(Of String)()
 
     Private Sub Form1_phd2mm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Not Directory.Exists(modDirectoryPath) Then
@@ -155,6 +157,14 @@ Public Class Form1_phd2mm
             ElseIf Not UsedMods_ListBox.Items.Contains(Path.GetFileName(modFolder)) Then
                 UnusedMods_ListBox.Items.Add(Path.GetFileName(modFolder))
             End If
+        Next
+        usedModsListOriginal.Clear()
+        unusedModsListOriginal.Clear()
+        For Each item As String In UsedMods_ListBox.Items
+            usedModsListOriginal.Add(item)
+        Next
+        For Each item As String In UnusedMods_ListBox.Items
+            unusedModsListOriginal.Add(item)
         Next
     End Sub
 
@@ -371,6 +381,90 @@ Public Class Form1_phd2mm
                 UsedMods_ListBox.Items.Insert(index, draggedItem)
             End If
         End If
+    End Sub
+
+    Private Sub SearchMod_TextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchMod_TextBox.TextChanged
+        UnusedMods_ListBox.Items.Clear()
+        UsedMods_ListBox.Items.Clear()
+        If Not String.IsNullOrEmpty(SearchMod_TextBox.Text) Then
+            Dim searchTerm As String = SearchMod_TextBox.Text.ToLower()
+            For Each item As String In usedModsListOriginal
+                If item.ToLower().Contains(searchTerm) Then
+                    UsedMods_ListBox.Items.Add(item)
+                End If
+            Next
+            For Each item As String In unusedModsListOriginal
+                If item.ToLower().Contains(searchTerm) Then
+                    UnusedMods_ListBox.Items.Add(item)
+                End If
+            Next
+        Else
+            For Each item As String In usedModsListOriginal
+                UsedMods_ListBox.Items.Add(item)
+            Next
+            For Each item As String In unusedModsListOriginal
+                UnusedMods_ListBox.Items.Add(item)
+            Next
+        End If
+    End Sub
+
+    Private Sub EnableModRandomization_Button_Click(sender As Object, e As EventArgs) Handles EnableModRandomization_Button.Click
+        Dim tempString1 As String = "Are you sure you want to enable mod randomization?"
+        Dim enableModRandomizationString As String = "Enable Mod Randomization Option"
+        Dim disableModRandomizationString As String = "Disable Mod Randomization Option"
+        If EnableModRandomization_Button.Text = enableModRandomizationString Then
+            Dim confirmEnableRandomizeMods As DialogResult = MessageBox.Show(tempString1, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If confirmEnableRandomizeMods = DialogResult.Yes Then
+                RandomizeMods_Button.Enabled = True
+                EnableModRandomization_Button.Text = disableModRandomizationString
+            End If
+        Else
+            RandomizeMods_Button.Enabled = False
+            EnableModRandomization_Button.Text = enableModRandomizationString
+        End If
+
+    End Sub
+
+    Private Sub RandomizeMods_Button_Click(sender As Object, e As EventArgs) Handles RandomizeMods_Button.Click
+        unusedModsListOriginal.Clear()
+        usedModsListOriginal.Clear()
+        For Each item As String In UsedMods_ListBox.Items
+            usedModsListOriginal.Add(item)
+        Next
+        For Each item As String In UnusedMods_ListBox.Items
+            unusedModsListOriginal.Add(item)
+        Next
+
+        'Making sure there's at least 1 mod in usedMods_ListBox
+        If usedModsListOriginal.Count = 0 AndAlso unusedModsListOriginal.Count > 0 Then
+            Dim rnd As New Random()
+            Dim randomMod As String = unusedModsListOriginal(rnd.Next(unusedModsListOriginal.Count))
+            usedModsListOriginal.Add(randomMod)
+            unusedModsListOriginal.Remove(randomMod)
+        End If
+
+        Dim rndGen As New Random()
+        Dim modsToRemove As Integer = rndGen.Next(0, usedModsListOriginal.Count)
+        Dim shuffledUsedMods As List(Of String) = usedModsListOriginal.OrderBy(Function() rndGen.Next()).ToList()
+        For i As Integer = 0 To modsToRemove - 1
+            unusedModsListOriginal.Add(shuffledUsedMods(i))
+        Next
+        usedModsListOriginal = shuffledUsedMods.Skip(modsToRemove).ToList()
+        Dim modsToAdd As Integer = rndGen.Next(0, unusedModsListOriginal.Count + 1)
+        Dim shuffledUnusedMods As List(Of String) = unusedModsListOriginal.OrderBy(Function() rndGen.Next()).ToList()
+        For i As Integer = 0 To modsToAdd - 1
+            usedModsListOriginal.Add(shuffledUnusedMods(i))
+        Next
+
+        unusedModsListOriginal = shuffledUnusedMods.Skip(modsToAdd).ToList()
+        UsedMods_ListBox.Items.Clear()
+        UnusedMods_ListBox.Items.Clear()
+        For Each modName As String In usedModsListOriginal
+            UsedMods_ListBox.Items.Add(modName)
+        Next
+        For Each modName As String In unusedModsListOriginal
+            UnusedMods_ListBox.Items.Add(modName)
+        Next
     End Sub
 
 End Class

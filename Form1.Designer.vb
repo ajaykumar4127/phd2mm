@@ -45,6 +45,10 @@ Partial Class Form1_phd2mm
         InstallMods_Button = New Button()
         ToggleLightDarkMode_Button = New Button()
         MoreInfo_Button = New Button()
+        Label5 = New Label()
+        SearchMod_TextBox = New TextBox()
+        EnableModRandomization_Button = New Button()
+        RandomizeMods_Button = New Button()
         SuspendLayout()
         ' 
         ' Label1
@@ -126,7 +130,7 @@ Partial Class Form1_phd2mm
         ' 
         Label6.AutoSize = True
         Label6.Font = New Font("Segoe UI", 12F)
-        Label6.Location = New Point(12, 87)
+        Label6.Location = New Point(12, 117)
         Label6.Name = "Label6"
         Label6.Size = New Size(211, 21)
         Label6.TabIndex = 8
@@ -136,7 +140,7 @@ Partial Class Form1_phd2mm
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI", 12F)
-        Label7.Location = New Point(573, 87)
+        Label7.Location = New Point(573, 117)
         Label7.Name = "Label7"
         Label7.Size = New Size(184, 21)
         Label7.TabIndex = 9
@@ -144,7 +148,7 @@ Partial Class Form1_phd2mm
         ' 
         ' CreateProfile_Button
         ' 
-        CreateProfile_Button.Location = New Point(1056, 112)
+        CreateProfile_Button.Location = New Point(1056, 141)
         CreateProfile_Button.Name = "CreateProfile_Button"
         CreateProfile_Button.Size = New Size(97, 31)
         CreateProfile_Button.TabIndex = 12
@@ -153,7 +157,7 @@ Partial Class Form1_phd2mm
         ' 
         ' AddSelectedMod_Button
         ' 
-        AddSelectedMod_Button.Location = New Point(492, 112)
+        AddSelectedMod_Button.Location = New Point(492, 141)
         AddSelectedMod_Button.Name = "AddSelectedMod_Button"
         AddSelectedMod_Button.Size = New Size(75, 57)
         AddSelectedMod_Button.TabIndex = 13
@@ -162,7 +166,7 @@ Partial Class Form1_phd2mm
         ' 
         ' RemoveSelectedMod_Button
         ' 
-        RemoveSelectedMod_Button.Location = New Point(492, 185)
+        RemoveSelectedMod_Button.Location = New Point(492, 210)
         RemoveSelectedMod_Button.Name = "RemoveSelectedMod_Button"
         RemoveSelectedMod_Button.Size = New Size(75, 57)
         RemoveSelectedMod_Button.TabIndex = 14
@@ -171,7 +175,7 @@ Partial Class Form1_phd2mm
         ' 
         ' SaveProfile_Button
         ' 
-        SaveProfile_Button.Location = New Point(1056, 161)
+        SaveProfile_Button.Location = New Point(1056, 188)
         SaveProfile_Button.Name = "SaveProfile_Button"
         SaveProfile_Button.Size = New Size(97, 31)
         SaveProfile_Button.TabIndex = 15
@@ -180,7 +184,7 @@ Partial Class Form1_phd2mm
         ' 
         ' DeleteProfile_Button
         ' 
-        DeleteProfile_Button.Location = New Point(1056, 210)
+        DeleteProfile_Button.Location = New Point(1056, 236)
         DeleteProfile_Button.Name = "DeleteProfile_Button"
         DeleteProfile_Button.Size = New Size(97, 31)
         DeleteProfile_Button.TabIndex = 16
@@ -190,10 +194,10 @@ Partial Class Form1_phd2mm
         ' UnusedMods_ListBox
         ' 
         UnusedMods_ListBox.FormattingEnabled = True
-        UnusedMods_ListBox.Location = New Point(12, 111)
+        UnusedMods_ListBox.Location = New Point(12, 141)
         UnusedMods_ListBox.Name = "UnusedMods_ListBox"
         UnusedMods_ListBox.ScrollAlwaysVisible = True
-        UnusedMods_ListBox.Size = New Size(474, 709)
+        UnusedMods_ListBox.Size = New Size(474, 679)
         UnusedMods_ListBox.Sorted = True
         UnusedMods_ListBox.TabIndex = 17
         ' 
@@ -201,15 +205,15 @@ Partial Class Form1_phd2mm
         ' 
         UsedMods_ListBox.AllowDrop = True
         UsedMods_ListBox.FormattingEnabled = True
-        UsedMods_ListBox.Location = New Point(573, 112)
+        UsedMods_ListBox.Location = New Point(573, 141)
         UsedMods_ListBox.Name = "UsedMods_ListBox"
         UsedMods_ListBox.ScrollAlwaysVisible = True
-        UsedMods_ListBox.Size = New Size(474, 709)
+        UsedMods_ListBox.Size = New Size(474, 679)
         UsedMods_ListBox.TabIndex = 18
         ' 
         ' MoveModUp_Button
         ' 
-        MoveModUp_Button.Location = New Point(1056, 285)
+        MoveModUp_Button.Location = New Point(1056, 329)
         MoveModUp_Button.Name = "MoveModUp_Button"
         MoveModUp_Button.Size = New Size(97, 55)
         MoveModUp_Button.TabIndex = 19
@@ -218,7 +222,7 @@ Partial Class Form1_phd2mm
         ' 
         ' MoveModDown_Button
         ' 
-        MoveModDown_Button.Location = New Point(1056, 369)
+        MoveModDown_Button.Location = New Point(1056, 403)
         MoveModDown_Button.Name = "MoveModDown_Button"
         MoveModDown_Button.Size = New Size(97, 55)
         MoveModDown_Button.TabIndex = 20
@@ -227,7 +231,7 @@ Partial Class Form1_phd2mm
         ' 
         ' InstallMods_Button
         ' 
-        InstallMods_Button.Location = New Point(1056, 480)
+        InstallMods_Button.Location = New Point(1056, 741)
         InstallMods_Button.Name = "InstallMods_Button"
         InstallMods_Button.Size = New Size(97, 79)
         InstallMods_Button.TabIndex = 21
@@ -252,11 +256,51 @@ Partial Class Form1_phd2mm
         MoreInfo_Button.Text = "More Info"
         MoreInfo_Button.UseVisualStyleBackColor = True
         ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Font = New Font("Segoe UI", 12F)
+        Label5.Location = New Point(12, 87)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(96, 21)
+        Label5.TabIndex = 24
+        Label5.Text = "Search Mod:"
+        ' 
+        ' SearchMod_TextBox
+        ' 
+        SearchMod_TextBox.Location = New Point(114, 85)
+        SearchMod_TextBox.Name = "SearchMod_TextBox"
+        SearchMod_TextBox.Size = New Size(520, 23)
+        SearchMod_TextBox.TabIndex = 25
+        ' 
+        ' EnableModRandomization_Button
+        ' 
+        EnableModRandomization_Button.Location = New Point(1056, 508)
+        EnableModRandomization_Button.Name = "EnableModRandomization_Button"
+        EnableModRandomization_Button.Size = New Size(97, 61)
+        EnableModRandomization_Button.TabIndex = 27
+        EnableModRandomization_Button.Text = "Enable Mod Randomization Option"
+        EnableModRandomization_Button.UseVisualStyleBackColor = True
+        ' 
+        ' RandomizeMods_Button
+        ' 
+        RandomizeMods_Button.Enabled = False
+        RandomizeMods_Button.Location = New Point(1056, 575)
+        RandomizeMods_Button.Name = "RandomizeMods_Button"
+        RandomizeMods_Button.Size = New Size(97, 58)
+        RandomizeMods_Button.TabIndex = 29
+        RandomizeMods_Button.Text = "Randomly Add and Remove Mods"
+        RandomizeMods_Button.UseVisualStyleBackColor = True
+        ' 
         ' Form1_phd2mm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1165, 851)
+        Controls.Add(RandomizeMods_Button)
+        Controls.Add(EnableModRandomization_Button)
+        Controls.Add(SearchMod_TextBox)
+        Controls.Add(Label5)
         Controls.Add(MoreInfo_Button)
         Controls.Add(ToggleLightDarkMode_Button)
         Controls.Add(InstallMods_Button)
@@ -280,7 +324,7 @@ Partial Class Form1_phd2mm
         Controls.Add(Label2)
         Controls.Add(Label1)
         Name = "Form1_phd2mm"
-        Text = "Personal Helldivers 2 Mod Manager (phd2mm) v1.1"
+        Text = "Personal Helldivers 2 Mod Manager (phd2mm) v1.2"
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -308,5 +352,9 @@ Partial Class Form1_phd2mm
     Friend WithEvents InstallMods_Button As Button
     Friend WithEvents ToggleLightDarkMode_Button As Button
     Friend WithEvents MoreInfo_Button As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents SearchMod_TextBox As TextBox
+    Friend WithEvents EnableModRandomization_Button As Button
+    Friend WithEvents RandomizeMods_Button As Button
 
 End Class
