@@ -5,7 +5,9 @@ https://www.nexusmods.com/helldivers2/mods/109
 </br>
 This is my own version of a mod manager.
 As the name says, I mainly made this mod manager for myself.
-Any updates to this program, if there will be any at all, will be infrequent.
+Any updates to this program, if there will be any at all, will be infrequent. </br>
+I forgot to mention that if your mods are in zip files, please extract them
+first, this mod only detects folders with ".patch_" files in them. </br>
 Mainly created and tested in Visual Studio 2022,
 Winforms Visual Basic (VB), .NET 9 Framework, Windows 10 64-bit / x64. </br>
 Feel free to copy, edit, and make your own version of this app! </br>
@@ -75,6 +77,7 @@ phd2mm_settings folder (has phd2mm_registry.txt and phd2mm_settings.txt inside
 upon fresh download and start) </br>
 Once you run and exit the program, put your mods in the phd2mm_mods folder. </br>
 The format should be: </br>
+Does not work with mods that are inside compressed files such as zip files, please uncompress/extract them first </br>
 Each mod should have its own folder. </br>
 No duplicate names and patches, for example, if a mod folder has
 9ba626afa44a3aa3.patch_0 and 9ba626afa44a3aa3.patch_1, then it will not be correctly installed.
