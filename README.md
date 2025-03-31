@@ -48,89 +48,11 @@ Mod Randomization Options (doesn't take mod conflict into account)
 
 <details>
 <summary> Click this text to show or hide suggested Items that go with their Category. Unfortunately, this information is not inside the app. </summary>
- You can also click the Category texts below to show or hide them.
+ You can also click some of the Category texts below to show or hide them, if they have arrows in their left.
  
-  <details>
-   <summary> Armor and Helmet </summary>
-   AC-1 Dutiful</br>
-   AC-2 Obedient</br>
-   AF-02 Haz-Master</br>
-   AF-50 Noxious Ranger</br>
-   AF-52 Lockdown</br>
-   AF-91 Field Chemist</br>
-   B-01 Tactical v1</br>
-   B-01 Tactical v2</br>
-   B-01 Tactical v3</br>
-   B-01 Tactical v4</br>
-   B-08 Light Gunner</br>
-   B-22 Model Citizen</br>
-   B-24 Enforcer</br>
-   B-27 Fortified Commando</br>
-   CE-07 Demolition Specialist</br>
-   CE-27 Ground Breaker</br>
-   CE-35 Trench Engineer</br>
-   CE-64 Grenadier</br>
-   CE-67 Titan</br>
-   CE-74 Breaker</br>
-   CE-81 Juggernaut</br>
-   CE-101 Guerilla Gorilla</br>
-   CM-09 Bonesnapper</br>
-   CM-10 Clinician</br>
-   CM-14 Physician</br>
-   CM-17 Butcher</br>
-   CM-21 Trench Paramedic</br>
-   CW-4 Arctic Ranger</br>
-   CW-9 White Wolf</br>
-   CW-22 Kodiak</br>
-   CW-36 Winter Warrior</br>
-   DP-00 Tactical</br>
-   DP-11 Champion of the People</br>
-   DP-40 Hero of the Federation</br>
-   DP-53 Savior of the Free</br>
-   EX-00 Prototype X</br>
-   EX-03 Prototype 3</br>
-   EX-16 Prototype 16</br>
-   FS-05 Marksman</br>
-   FS-11 Executioner</br>
-   FS-23 Battle Master</br>
-   FS-34 Exterminator</br>
-   FS-37 Ravager</br>
-   FS-38 Eradicator</br>
-   FS-55 Devastator</br>
-   FS-61 Dreadnought</br>
-   GS-11 Democracy's Deputy</br>
-   GS-17 Frontier Marshall</br>
-   GS-66 Lawmaker</br>
-   I-09 Heatseeker</br>
-   I-44 Salamander</br>
-   I-92 Fire Fighter</br>
-   I-102 Draconaught</br>
-   IE-3 Martyr</br>
-   IE-12 Righteous</br>
-   IE-57 Hell-Bent</br>
-   PH-9 Predator</br>
-   PH-56 Jaguar</br>
-   PH-202 Twigsnapper</br>
-   SA-04 Combat Technician</br>
-   SA-12 Servo Assisted</br>
-   SA-25 Steel Trooper</br>
-   SA-32 Dynamo</br>
-   SC-15 Drone Master</br>
-   SC-30 Trailblazer Scout</br>
-   SC-34 Infiltrator</br>
-   SC-37 Legionnaire</br>
-   SR-18 Roadblock</br>
-   SR-24 Street Scout</br>
-   SR-64 Cinderblock</br>
-   TR-7 Ambassador of the Brand</br>
-   TR-9 Cavalier of Democracy</br>
-   TR-40 Gold Eagle</br>
-   TR-62 Knight</br>
-   TR-117 Alpha Commander</br>
-   UF-16 Inspector</br>
-   UF-50 Bloodhound</br>
-   UF-84 Doubt Killer</br>
-  </details>
+  
+   Armor and Helmet </br>
+   -Every Helldiver Armor and Helmet.
 
   <details>
    <summary> Audio</summary>
@@ -154,9 +76,9 @@ Mod Randomization Options (doesn't take mod conflict into account)
    Other</br>
    PA System</br>
    Pelican-1</br>
-   Stratagem Input
-   Ship Map Music
-   Ship Music
+   Stratagem Input</br>
+   Ship Map Music</br>
+   Ship Music</br>
    Stim</br>
    Terminals</br>
    Terminid Music</br>
@@ -186,6 +108,7 @@ Mod Randomization Options (doesn't take mod conflict into account)
    Incendiary Rocket Devastator<br>  
    Marauder<br>  
    MG Raider<br>  
+   Other</br>
    Pyro Trooper<br>  
    Reinforced Scout Strider<br>  
    Rocket Devastator<br>  
@@ -195,30 +118,67 @@ Mod Randomization Options (doesn't take mod conflict into account)
    Trooper<br>   
   </details>
 
-  <details>
-   <summary> Cape</summary>
-  </details>
+  Cape </br>
+  -Every Helldiver Cape.
+  
   <details>
    <summary> Illuminate Audio and Illuminate Skin</summary>
+   Elevated Overseer<br>
+   Harvester<br>
+   Overseer<br>
+   Voteless<br>
+   Warp Ship<br>
+   Watcher<br>
   </details>
-  <details>
-   <summary> Other</summary>
-  </details>
-  <details>
-   <summary> Player Card</summary>
-  </details>
-  <details>
-   <summary> Stratagem Audio and Stratagem Skin</summary>
-  </details>
+  
+   Other </br>
+   -Other
+  
+   Player Card </br>
+   -Every Player Card.
+   
+   Stratagem Audio and Stratagem Skin </br>
+   -Every Stratagem, including Stratagem Weapons and Backpacks such as MG-43 Machine Gun, FAF-14 Spear, and SH-32 Shield Generator Pack.
+   
   <details>
    <summary> Terminid Audio and Terminid Skin</summary>
+   Alpha Commander<br>
+   Alpha Warrior<br>
+   Bile Spewer<br>
+   Bile Spitter<br>
+   Bile Titan<br>
+   Bile Warrior<br>
+   Brood Commander<br>
+   Charger Behemoth<br>
+   Charger<br>
+   Hive Guard<br>
+   Hunter<br>
+   Impaler<br>
+   Nursing Spewer<br>
+   Predator Hunter<br>
+   Predator Stalker<br>
+   Pouncer<br>
+   Scavenger<br>
+   Shrieker<br>
+   Spore Burst Hunter<br>
+   Spore Burst Scavenger<br>
+   Spore Burst Warrior<br>
+   Spore Charger<br>
+   Stalker<br>
+   Warrior<br>
   </details>
+  
   <details>
    <summary> Visual</summary>
+   Title<br>
+   Icons<br>
+   Loading Screen<br>
+   Other<br>
+   Ship<br>
   </details>
-    <details>
-   <summary> Weapon Audio and Weapon Skin</summary>
-  </details>
+  
+  Weapon Audio and Weapon Skin </br>
+   -Every non-Stratagem Weapon, including Grenades.
 </details>
 
 
