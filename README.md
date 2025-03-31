@@ -11,8 +11,36 @@ Winforms Visual Basic (VB), .NET 9 Framework, Windows 10 64-bit / x64. </br>
 Feel free to copy, edit, and make your own version of this app! </br>
 However, I do not allow selling this app or any of its parts.
 If you must share this app, please share it for free. </br>
+There are some screenshots below on how the app looks like. </br>
+The information below starting from Table of Contents are also included in "More Info" inside the phd2mm app. </br>
 Anyway, I hope you enjoy using this app!
-The information below are also included in "More Info" inside the phd2mm app.
+
+<details open>
+<summary> Click this text to show or hide screenshots of phd2mm app!</summary>
+Main Page of phd2mm
+ 
+![image](https://github.com/user-attachments/assets/159ce652-61d0-4f7e-9828-8e7b3d544909)
+Creating Profile
+![image](https://github.com/user-attachments/assets/25df7729-2436-46e6-8023-084ea23a25dd)
+Selecting Category
+![image](https://github.com/user-attachments/assets/df4a4238-06b8-4137-8cb4-c51c9fa9f849)
+Selecting Item
+![image](https://github.com/user-attachments/assets/1cd5b226-50bf-4150-9a58-d267dd110a98)
+Installing Mods
+![image](https://github.com/user-attachments/assets/0f4e23bd-ccc4-44ad-a3a3-1397b6ecdb80)
+Toggling Dark Mode
+![image](https://github.com/user-attachments/assets/069396e8-acd9-415e-8e37-94bbc9f50c1d)
+Searching for mod with either name, category, item, or description with "las"
+![image](https://github.com/user-attachments/assets/23e3e340-33a2-470d-9ec3-29ad24e41255)
+Mod Randomization Options (doesn't take mod conflict into account)
+![image](https://github.com/user-attachments/assets/62521a36-d66b-4ac1-b361-0ae3e920d22f)
+</details>
+
+
+
+
+
+
 
 ### Table of Contents
 1. Introduction
