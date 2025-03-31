@@ -6,6 +6,6 @@ Public Class Form4_MoreInfo
     End Sub
 
     Private Sub Form4_MoreInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ThemeManager.ApplyTheme(Me)
+        Class1.ThemeManager.ApplyTheme(Me)
     End Sub
 End Class

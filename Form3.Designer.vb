@@ -37,13 +37,13 @@ Partial Class Form3_InstallMods
         ' 
         ProgressBar1.Location = New Point(12, 70)
         ProgressBar1.Name = "ProgressBar1"
-        ProgressBar1.Size = New Size(796, 23)
+        ProgressBar1.Size = New Size(866, 23)
         ProgressBar1.TabIndex = 1
         ' 
         ' AmountOfModsFinishedIntalling_Label
         ' 
         AmountOfModsFinishedIntalling_Label.Font = New Font("Segoe UI", 12F)
-        AmountOfModsFinishedIntalling_Label.Location = New Point(680, 44)
+        AmountOfModsFinishedIntalling_Label.Location = New Point(750, 44)
         AmountOfModsFinishedIntalling_Label.Name = "AmountOfModsFinishedIntalling_Label"
         AmountOfModsFinishedIntalling_Label.Size = New Size(50, 23)
         AmountOfModsFinishedIntalling_Label.TabIndex = 2
@@ -53,7 +53,7 @@ Partial Class Form3_InstallMods
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI", 12F)
-        Label3.Location = New Point(736, 43)
+        Label3.Location = New Point(806, 44)
         Label3.Name = "Label3"
         Label3.Size = New Size(16, 21)
         Label3.TabIndex = 3
@@ -62,7 +62,7 @@ Partial Class Form3_InstallMods
         ' TotalAmountOfModsToBeInstalled_Label
         ' 
         TotalAmountOfModsToBeInstalled_Label.Font = New Font("Segoe UI", 12F)
-        TotalAmountOfModsToBeInstalled_Label.Location = New Point(758, 44)
+        TotalAmountOfModsToBeInstalled_Label.Location = New Point(828, 44)
         TotalAmountOfModsToBeInstalled_Label.Name = "TotalAmountOfModsToBeInstalled_Label"
         TotalAmountOfModsToBeInstalled_Label.Size = New Size(50, 23)
         TotalAmountOfModsToBeInstalled_Label.TabIndex = 4
@@ -71,7 +71,7 @@ Partial Class Form3_InstallMods
         ' Finish_Button
         ' 
         Finish_Button.Font = New Font("Segoe UI", 12F)
-        Finish_Button.Location = New Point(732, 432)
+        Finish_Button.Location = New Point(802, 487)
         Finish_Button.Name = "Finish_Button"
         Finish_Button.Size = New Size(76, 38)
         Finish_Button.TabIndex = 6
@@ -104,14 +104,14 @@ Partial Class Form3_InstallMods
         InstallationStatus_TextBox.Name = "InstallationStatus_TextBox"
         InstallationStatus_TextBox.ReadOnly = True
         InstallationStatus_TextBox.ScrollBars = ScrollBars.Both
-        InstallationStatus_TextBox.Size = New Size(796, 327)
+        InstallationStatus_TextBox.Size = New Size(866, 382)
         InstallationStatus_TextBox.TabIndex = 9
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI", 12F)
-        Label2.Location = New Point(560, 46)
+        Label2.Location = New Point(630, 44)
         Label2.Name = "Label2"
         Label2.Size = New Size(114, 21)
         Label2.TabIndex = 10
@@ -121,7 +121,7 @@ Partial Class Form3_InstallMods
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(820, 482)
+        ClientSize = New Size(890, 537)
         Controls.Add(Label2)
         Controls.Add(InstallationStatus_TextBox)
         Controls.Add(Label1)

@@ -35,14 +35,14 @@ Partial Class Form4_MoreInfo
         TextBox1.Name = "TextBox1"
         TextBox1.ReadOnly = True
         TextBox1.ScrollBars = ScrollBars.Both
-        TextBox1.Size = New Size(683, 535)
+        TextBox1.Size = New Size(749, 574)
         TextBox1.TabIndex = 0
         TextBox1.Text = resources.GetString("TextBox1.Text")
         ' 
         ' CloseForm4Button
         ' 
         CloseForm4Button.Font = New Font("Segoe UI", 12F)
-        CloseForm4Button.Location = New Point(614, 553)
+        CloseForm4Button.Location = New Point(680, 592)
         CloseForm4Button.Name = "CloseForm4Button"
         CloseForm4Button.Size = New Size(81, 34)
         CloseForm4Button.TabIndex = 1
@@ -53,7 +53,7 @@ Partial Class Form4_MoreInfo
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(707, 599)
+        ClientSize = New Size(773, 638)
         Controls.Add(CloseForm4Button)
         Controls.Add(TextBox1)
         Name = "Form4_MoreInfo"
