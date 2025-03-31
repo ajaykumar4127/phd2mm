@@ -16,7 +16,7 @@ The information below starting from Table of Contents are also included in "More
 Anyway, I hope you enjoy using this app!
 
 <details open>
-<summary> Click this text to show or hide screenshots of phd2mm app!</summary>
+<summary> Click this text to show or hide some screenshots of phd2mm app!</summary>
 Main Page of phd2mm
  
 ![image](https://github.com/user-attachments/assets/159ce652-61d0-4f7e-9828-8e7b3d544909)
