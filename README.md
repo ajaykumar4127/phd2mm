@@ -17,6 +17,9 @@ There are some screenshots below on how the app looks like. </br>
 The information below starting from Table of Contents are also included in "More Info" inside the phd2mm app. </br>
 Anyway, I hope you enjoy using this app!
 
+To download the app, click the Releases which should be on the right. </br>
+Or you can just click this link https://github.com/ajaykumar4127/phd2mm/releases and download the latest version of the app.
+
 <details open>
 <summary> Click this text to show or hide some screenshots of phd2mm app!</summary>
 Main Page of phd2mm
