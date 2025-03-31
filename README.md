@@ -20,6 +20,7 @@ Anyway, I hope you enjoy using this app!
 To download the app, click the Releases which should be on the right. </br>
 Or you can just click this link https://github.com/ajaykumar4127/phd2mm/releases and download the latest version of the app.
 
+### Screenshots of phd2mm App
 <details open>
 <summary> Click this text to show or hide some screenshots of phd2mm app!</summary>
 Main Page of phd2mm
@@ -41,8 +42,184 @@ Mod Randomization Options (doesn't take mod conflict into account)
 ![image](https://github.com/user-attachments/assets/62521a36-d66b-4ac1-b361-0ae3e920d22f)
 </details>
 
+</br>
 
+### Suggested Category and Item Combo
 
+<details>
+<summary> Click this text to show or hide suggested Items that go with their Category. Unfortunately, this information is not inside the app. </summary>
+ You can also click the Category texts below to show or hide them.
+ 
+  <details>
+   <summary> Armor and Helmet </summary>
+   AC-1 Dutiful</br>
+   AC-2 Obedient</br>
+   AF-02 Haz-Master</br>
+   AF-50 Noxious Ranger</br>
+   AF-52 Lockdown</br>
+   AF-91 Field Chemist</br>
+   B-01 Tactical v1</br>
+   B-01 Tactical v2</br>
+   B-01 Tactical v3</br>
+   B-01 Tactical v4</br>
+   B-08 Light Gunner</br>
+   B-22 Model Citizen</br>
+   B-24 Enforcer</br>
+   B-27 Fortified Commando</br>
+   CE-07 Demolition Specialist</br>
+   CE-27 Ground Breaker</br>
+   CE-35 Trench Engineer</br>
+   CE-64 Grenadier</br>
+   CE-67 Titan</br>
+   CE-74 Breaker</br>
+   CE-81 Juggernaut</br>
+   CE-101 Guerilla Gorilla</br>
+   CM-09 Bonesnapper</br>
+   CM-10 Clinician</br>
+   CM-14 Physician</br>
+   CM-17 Butcher</br>
+   CM-21 Trench Paramedic</br>
+   CW-4 Arctic Ranger</br>
+   CW-9 White Wolf</br>
+   CW-22 Kodiak</br>
+   CW-36 Winter Warrior</br>
+   DP-00 Tactical</br>
+   DP-11 Champion of the People</br>
+   DP-40 Hero of the Federation</br>
+   DP-53 Savior of the Free</br>
+   EX-00 Prototype X</br>
+   EX-03 Prototype 3</br>
+   EX-16 Prototype 16</br>
+   FS-05 Marksman</br>
+   FS-11 Executioner</br>
+   FS-23 Battle Master</br>
+   FS-34 Exterminator</br>
+   FS-37 Ravager</br>
+   FS-38 Eradicator</br>
+   FS-55 Devastator</br>
+   FS-61 Dreadnought</br>
+   GS-11 Democracy's Deputy</br>
+   GS-17 Frontier Marshall</br>
+   GS-66 Lawmaker</br>
+   I-09 Heatseeker</br>
+   I-44 Salamander</br>
+   I-92 Fire Fighter</br>
+   I-102 Draconaught</br>
+   IE-3 Martyr</br>
+   IE-12 Righteous</br>
+   IE-57 Hell-Bent</br>
+   PH-9 Predator</br>
+   PH-56 Jaguar</br>
+   PH-202 Twigsnapper</br>
+   SA-04 Combat Technician</br>
+   SA-12 Servo Assisted</br>
+   SA-25 Steel Trooper</br>
+   SA-32 Dynamo</br>
+   SC-15 Drone Master</br>
+   SC-30 Trailblazer Scout</br>
+   SC-34 Infiltrator</br>
+   SC-37 Legionnaire</br>
+   SR-18 Roadblock</br>
+   SR-24 Street Scout</br>
+   SR-64 Cinderblock</br>
+   TR-7 Ambassador of the Brand</br>
+   TR-9 Cavalier of Democracy</br>
+   TR-40 Gold Eagle</br>
+   TR-62 Knight</br>
+   TR-117 Alpha Commander</br>
+   UF-16 Inspector</br>
+   UF-50 Bloodhound</br>
+   UF-84 Doubt Killer</br>
+  </details>
+
+  <details>
+   <summary> Audio</summary>
+   Automaton Music</br>
+   Death - Team</br>
+   Death - Yours</br>
+   Democracy Officer</br>
+   Descent</br>
+   Eagle-1</br>
+   Experimental Infusion</br>
+   Extraction</br>
+   Flag Raise</br>
+   Hellbomb</br>
+   Helldiver Voice 1</br>
+   Helldiver Voice 2</br>
+   Helldiver Voice 3</br>
+   Helldiver Voice 4</br>
+   ICBM</br>
+   Illuminate Music</br>
+   Mission Control</br>
+   Other</br>
+   PA System</br>
+   Pelican-1</br>
+   Stratagem Input
+   Ship Map Music
+   Ship Music
+   Stim</br>
+   Terminals</br>
+   Terminid Music</br>
+  </details>
+
+  <details>
+   <summary> Automaton Audio and Automaton Skin</summary>
+   Annihilator Tank<br>  
+   Assault Raider<br>  
+   Barrager Tank<br>  
+   Berserker<br>  
+   Brawler<br>  
+   Cannon Turret<br>  
+   Commissar<br>  
+   Conflagration Devastator<br>  
+   Devastator<br>  
+   Dropship<br>  
+   Factory Strider<br>  
+   Gunship<br>  
+   Heavy Devastator<br>  
+   Hulk<br>  
+   Hulk Bruiser<br>  
+   Hulk Firebomber<br>  
+   Hulk Obliterator<br>  
+   Hulk Scorcher<br>  
+   Incendiary MG Devastator<br>  
+   Incendiary Rocket Devastator<br>  
+   Marauder<br>  
+   MG Raider<br>  
+   Pyro Trooper<br>  
+   Reinforced Scout Strider<br>  
+   Rocket Devastator<br>  
+   Rocket Raider<br>  
+   Scout Strider<br>  
+   Shredder Tank<br>  
+   Trooper<br>   
+  </details>
+
+  <details>
+   <summary> Cape</summary>
+  </details>
+  <details>
+   <summary> Illuminate Audio and Illuminate Skin</summary>
+  </details>
+  <details>
+   <summary> Other</summary>
+  </details>
+  <details>
+   <summary> Player Card</summary>
+  </details>
+  <details>
+   <summary> Stratagem Audio and Stratagem Skin</summary>
+  </details>
+  <details>
+   <summary> Terminid Audio and Terminid Skin</summary>
+  </details>
+  <details>
+   <summary> Visual</summary>
+  </details>
+    <details>
+   <summary> Weapon Audio and Weapon Skin</summary>
+  </details>
+</details>
 
 
 
