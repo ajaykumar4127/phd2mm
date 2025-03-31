@@ -222,10 +222,11 @@ Once you run and exit the program, put your mods in the phd2mm_mods folder. </br
 The format should be: </br>
 Does not work with mods that are inside compressed files such as zip files, please uncompress/extract them first </br>
 Each mod should have its own folder. </br>
-No duplicate names and patches, for example, if a mod folder has
+No duplicate names and patches in the same folder, for example, if a mod folder has
 9ba626afa44a3aa3.patch_0 and 9ba626afa44a3aa3.patch_1, then it will not be correctly installed.
 If it has 9ba626afa44a3aa3.patch_0 and 9ba626afa44a3aa3.patch_0.gpu_resources, then
-it will be correctly installed. </br>
+it will be correctly installed. If you have duplicate files in the same folder,
+just make another folder and put the duplicate files there. </br>
 Different names will work, assuming it is a valid mod file, for example,
 22749a294788af66.patch_0 and e72d3e9b05c3db0b.patch_0 in the same folder will be installed.
 
