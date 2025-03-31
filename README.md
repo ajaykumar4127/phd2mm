@@ -6,8 +6,6 @@ https://www.nexusmods.com/helldivers2/mods/109
 This is my own version of a mod manager.
 As the name says, I mainly made this mod manager for myself.
 Any updates to this program, if there will be any at all, will be infrequent. </br>
-I forgot to mention that if your mods are in zip files, please extract them
-first, this mod only detects folders with ".patch_" files in them. </br>
 Mainly created and tested in Visual Studio 2022,
 Winforms Visual Basic (VB), .NET 9 Framework, Windows 10 64-bit / x64. </br>
 Feel free to copy, edit, and make your own version of this app! </br>
