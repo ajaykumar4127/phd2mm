@@ -262,16 +262,16 @@ WARNING: This simple mod randomization does not take mod conflicts into account.
 ============================================================================
 8. Credits:
 teutinsa, their team, and their popular project HD2ModManager for the inspiration to create this app.
-(https://www.nexusmods.com/helldivers2/mods/109)
+https://www.nexusmods.com/helldivers2/mods/109
 Helldivers Wiki Team and their contributors for easy lookup of all things in the game
 to easily allow me to create categories and items for this app.
-(https://helldivers.wiki.gg/)
+https://helldivers.wiki.gg/
 ModOrganizerTeam, their contributors, and their project Mod Organizer 2
 for the UI inspiration related to the mod window, categories, and styling.
-(https://www.nexusmods.com/skyrimspecialedition/mods/6194)
+https://www.nexusmods.com/skyrimspecialedition/mods/6194
 Microsoft for Visual Studio 2022 and .NET 9, allowing me to create phd2mm in the first place.
-(https://visualstudio.microsoft.com/vs/) Has Visual Studio License Agreement.
-(https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview) Has MIT License.
+https://visualstudio.microsoft.com/vs/ Has Visual Studio License Agreement.
+https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview Has MIT License.
 
 ============================================================================
 9. Changelogs
