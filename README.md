@@ -177,8 +177,6 @@ Mod Randomization Options (doesn't take mod conflict into account)
    Icons<br>
    Loading Screen<br>
    Other<br>
-   Reticle<br>
-   Scope and Sights<br>
    Ship<br>
    Title<br>
   </details>
