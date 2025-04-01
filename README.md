@@ -52,7 +52,7 @@ Mod Randomization Options (doesn't take mod conflict into account)
  
   
    Armor and Helmet </br>
-   -Every Helldiver Armor and Helmet, including Other if it isn't listed in the app.
+   -Every Helldiver Armor and Helmet. Also "Other" if you aren't sure or its missing in the app.
 
   <details>
    <summary> Audio</summary>
@@ -136,11 +136,11 @@ Mod Randomization Options (doesn't take mod conflict into account)
    -Other
   
    Player Card </br>
-   -Every Player Card, including Other if it isn't listed in the app.
+   -Every Player Card. Also "Other" if you aren't sure or its missing in the app.
    
    Stratagem Audio and Stratagem Skin </br>
    -Every Stratagem, including Stratagem Weapons and Backpacks such as MG-43 Machine Gun, FAF-14 Spear, and SH-32 Shield Generator Pack.
-   Include Other if it isn't listed in the app.
+    Also "Other" if you aren't sure or its missing in the app.
    
   <details>
    <summary> Terminid Audio and Terminid Skin</summary>
@@ -177,12 +177,14 @@ Mod Randomization Options (doesn't take mod conflict into account)
    Icons<br>
    Loading Screen<br>
    Other<br>
+   Reticle<br>
+   Scope and Sights<br>
    Ship<br>
    Title<br>
   </details>
   
   Weapon Audio and Weapon Skin </br>
-   -Every non-Stratagem Weapon, including Grenades. Also including Other if it isn't listed in the app.
+   -Every non-Stratagem Weapon, including Grenades. Also "Other" if you aren't sure or its missing in the app.
 </details>
 
 
