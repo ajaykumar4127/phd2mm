@@ -173,11 +173,12 @@ Mod Randomization Options (doesn't take mod conflict into account)
   
   <details>
    <summary> Visual</summary>
-   Title<br>
+   Eagle-1
    Icons<br>
    Loading Screen<br>
    Other<br>
    Ship<br>
+   Title<br>
   </details>
   
   Weapon Audio and Weapon Skin </br>
