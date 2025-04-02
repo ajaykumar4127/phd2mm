@@ -302,7 +302,7 @@ Public Class Form1_phd2mm
         ' Update the ModOrderNumber_Column to reflect the current row index
         For i As Integer = 0 To UsedMods_DataGridView.Rows.Count - 1
             If Not UsedMods_DataGridView.Rows(i).IsNewRow Then
-                UsedMods_DataGridView.Rows(i).Cells("UsedMods_DataGridView_ModOrderNumber_Column").Value = i + 1
+                UsedMods_DataGridView.Rows(i).Cells("UsedMods_DataGridView_ModOrderNumber_Column").Value = i
             End If
         Next
     End Sub
