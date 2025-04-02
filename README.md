@@ -173,7 +173,7 @@ Mod Randomization Options (doesn't take mod conflict into account)
   
   <details>
    <summary> Visual</summary>
-   Eagle-1
+   Eagle-1<br>
    Icons<br>
    Loading Screen<br>
    Other<br>
