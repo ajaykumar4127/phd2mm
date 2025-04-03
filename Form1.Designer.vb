@@ -58,19 +58,19 @@ Partial Class Form1_phd2mm
         RandomizeMods_Button = New Button()
         DeleteAllInstalledMods_Button = New Button()
         UnusedMods_DataGridView = New DataGridView()
-        UsedMods_DataGridView = New DataGridView()
-        ModRandomizationOptions_Button = New Button()
-        UnusedMods_DataGridView_ContextMenuStrip = New ContextMenuStrip(components)
-        UsedMods_DataGridView_ContextMenuStrip = New ContextMenuStrip(components)
         UnusedMods_DataGridView_ModFolderPathName_Column = New DataGridViewTextBoxColumn()
         UnusedMods_DataGridView_Category_Column = New DataGridViewComboBoxColumn()
         UnusedMods_DataGridView_Item_Column = New DataGridViewComboBoxColumn()
         UnusedMods_DataGridView_Description_Column = New DataGridViewTextBoxColumn()
+        UsedMods_DataGridView = New DataGridView()
         UsedMods_DataGridView_ModOrderNumber_Column = New DataGridViewTextBoxColumn()
         UsedMods_DataGridView_ModFolderPathName_Column = New DataGridViewTextBoxColumn()
         UsedMods_DataGridView_Category_Column = New DataGridViewComboBoxColumn()
         UsedMods_DataGridView_Item_Column = New DataGridViewComboBoxColumn()
         UsedMods_DataGridView_Description_Column = New DataGridViewTextBoxColumn()
+        ModRandomizationOptions_Button = New Button()
+        UnusedMods_DataGridView_ContextMenuStrip = New ContextMenuStrip(components)
+        UsedMods_DataGridView_ContextMenuStrip = New ContextMenuStrip(components)
         CType(UnusedMods_DataGridView, ComponentModel.ISupportInitialize).BeginInit()
         CType(UsedMods_DataGridView, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -311,42 +311,6 @@ Partial Class Form1_phd2mm
         UnusedMods_DataGridView.Size = New Size(853, 734)
         UnusedMods_DataGridView.TabIndex = 31
         ' 
-        ' UsedMods_DataGridView
-        ' 
-        UsedMods_DataGridView.AllowDrop = True
-        UsedMods_DataGridView.AllowUserToAddRows = False
-        UsedMods_DataGridView.AllowUserToDeleteRows = False
-        UsedMods_DataGridView.AllowUserToOrderColumns = True
-        UsedMods_DataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
-        UsedMods_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        UsedMods_DataGridView.Columns.AddRange(New DataGridViewColumn() {UsedMods_DataGridView_ModOrderNumber_Column, UsedMods_DataGridView_ModFolderPathName_Column, UsedMods_DataGridView_Category_Column, UsedMods_DataGridView_Item_Column, UsedMods_DataGridView_Description_Column})
-        UsedMods_DataGridView.EnableHeadersVisualStyles = False
-        UsedMods_DataGridView.Location = New Point(878, 143)
-        UsedMods_DataGridView.MultiSelect = False
-        UsedMods_DataGridView.Name = "UsedMods_DataGridView"
-        UsedMods_DataGridView.Size = New Size(853, 734)
-        UsedMods_DataGridView.TabIndex = 32
-        ' 
-        ' ModRandomizationOptions_Button
-        ' 
-        ModRandomizationOptions_Button.Enabled = False
-        ModRandomizationOptions_Button.Location = New Point(1275, 79)
-        ModRandomizationOptions_Button.Name = "ModRandomizationOptions_Button"
-        ModRandomizationOptions_Button.Size = New Size(126, 40)
-        ModRandomizationOptions_Button.TabIndex = 33
-        ModRandomizationOptions_Button.Text = "Mod Randomization Options"
-        ModRandomizationOptions_Button.UseVisualStyleBackColor = True
-        ' 
-        ' UnusedMods_DataGridView_ContextMenuStrip
-        ' 
-        UnusedMods_DataGridView_ContextMenuStrip.Name = "ContextMenuStrip1"
-        UnusedMods_DataGridView_ContextMenuStrip.Size = New Size(61, 4)
-        ' 
-        ' UsedMods_DataGridView_ContextMenuStrip
-        ' 
-        UsedMods_DataGridView_ContextMenuStrip.Name = "UsedMods_DataGridView_ContextMenuStrip"
-        UsedMods_DataGridView_ContextMenuStrip.Size = New Size(61, 4)
-        ' 
         ' UnusedMods_DataGridView_ModFolderPathName_Column
         ' 
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
@@ -392,6 +356,22 @@ Partial Class Form1_phd2mm
         UnusedMods_DataGridView_Description_Column.MinimumWidth = 50
         UnusedMods_DataGridView_Description_Column.Name = "UnusedMods_DataGridView_Description_Column"
         UnusedMods_DataGridView_Description_Column.Width = 150
+        ' 
+        ' UsedMods_DataGridView
+        ' 
+        UsedMods_DataGridView.AllowDrop = True
+        UsedMods_DataGridView.AllowUserToAddRows = False
+        UsedMods_DataGridView.AllowUserToDeleteRows = False
+        UsedMods_DataGridView.AllowUserToOrderColumns = True
+        UsedMods_DataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        UsedMods_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        UsedMods_DataGridView.Columns.AddRange(New DataGridViewColumn() {UsedMods_DataGridView_ModOrderNumber_Column, UsedMods_DataGridView_ModFolderPathName_Column, UsedMods_DataGridView_Category_Column, UsedMods_DataGridView_Item_Column, UsedMods_DataGridView_Description_Column})
+        UsedMods_DataGridView.EnableHeadersVisualStyles = False
+        UsedMods_DataGridView.Location = New Point(878, 143)
+        UsedMods_DataGridView.MultiSelect = False
+        UsedMods_DataGridView.Name = "UsedMods_DataGridView"
+        UsedMods_DataGridView.Size = New Size(853, 734)
+        UsedMods_DataGridView.TabIndex = 32
         ' 
         ' UsedMods_DataGridView_ModOrderNumber_Column
         ' 
@@ -451,6 +431,26 @@ Partial Class Form1_phd2mm
         UsedMods_DataGridView_Description_Column.Name = "UsedMods_DataGridView_Description_Column"
         UsedMods_DataGridView_Description_Column.Width = 150
         ' 
+        ' ModRandomizationOptions_Button
+        ' 
+        ModRandomizationOptions_Button.Enabled = False
+        ModRandomizationOptions_Button.Location = New Point(1275, 79)
+        ModRandomizationOptions_Button.Name = "ModRandomizationOptions_Button"
+        ModRandomizationOptions_Button.Size = New Size(126, 40)
+        ModRandomizationOptions_Button.TabIndex = 33
+        ModRandomizationOptions_Button.Text = "Mod Randomization Options"
+        ModRandomizationOptions_Button.UseVisualStyleBackColor = True
+        ' 
+        ' UnusedMods_DataGridView_ContextMenuStrip
+        ' 
+        UnusedMods_DataGridView_ContextMenuStrip.Name = "ContextMenuStrip1"
+        UnusedMods_DataGridView_ContextMenuStrip.Size = New Size(61, 4)
+        ' 
+        ' UsedMods_DataGridView_ContextMenuStrip
+        ' 
+        UsedMods_DataGridView_ContextMenuStrip.Name = "UsedMods_DataGridView_ContextMenuStrip"
+        UsedMods_DataGridView_ContextMenuStrip.Size = New Size(61, 4)
+        ' 
         ' Form1_phd2mm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -484,7 +484,7 @@ Partial Class Form1_phd2mm
         Controls.Add(BrowseHd2DataPath_Button)
         Controls.Add(Label2)
         Name = "Form1_phd2mm"
-        Text = "Personal Helldivers 2 Mod Manager (phd2mm) v1.4"
+        Text = "Personal Helldivers 2 Mod Manager (phd2mm) v1.3.1"
         CType(UnusedMods_DataGridView, ComponentModel.ISupportInitialize).EndInit()
         CType(UsedMods_DataGridView, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)

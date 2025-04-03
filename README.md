@@ -362,7 +362,7 @@ https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview Has MI
 
 ============================================================================
 ### 9. Changelogs
-v1.4 </br>
+v1.3.1 </br>
 -Fixed UnusedMods_DataGridView not sorting by name by default even when adding new mods
 when it should have.
 -Replaced "Armor" in Category selection with "Armor Both Bodies", "Armor Brawny Body", and
