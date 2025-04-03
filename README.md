@@ -51,11 +51,21 @@ Mod Randomization Options (doesn't take mod conflict into account)
  You can also click some of the Category texts below to show or hide them, if they have arrows in their left.
  
   
-   Armor and Helmet </br>
+   Armor Brawny Body, Armor Lean Body, Armor Both Bodies, and Helmet </br>
    -Every Helldiver Armor and Helmet. Also "Other" if you aren't sure or its missing in the app.
+   -If the mod replaces both armor and helmet but are combined in the same files instead of being separate, then just
+   put it in the Armor Brawny Body, Armor Lean Body, or Armor Both Bodies category depending on what armor
+   body the mod replaces.
+   -Also, it has to be its full name, for example, "DP-40 Hero of the Federation" and not just "Hero of the Federation".
+   -For B-01 Tactical, its as follows: </br>
+   -B-01 Tactical v1</br>
+   -B-01 Tactical v2</br>
+   -B-01 Tactical v3</br>
+   -B-01 Tactical v4</br>
 
   <details>
    <summary> Audio</summary>
+   Automaton Chant</br>
    Automaton Music</br>
    Death - Team</br>
    Death - Yours</br>
@@ -74,13 +84,14 @@ Mod Randomization Options (doesn't take mod conflict into account)
    Illuminate Music</br>
    Mission Control</br>
    Other</br>
-   PA System</br>
    Pelican-1</br>
    Stratagem Input</br>
    Ship Map Music</br>
    Ship Music</br>
+   Ship PA System</br>
+   Ship TV</br>
    Stim</br>
-   Terminals</br>
+   Terminal</br>
    Terminid Music</br>
   </details>
 
@@ -141,6 +152,7 @@ Mod Randomization Options (doesn't take mod conflict into account)
    Stratagem Audio and Stratagem Skin </br>
    -Every Stratagem, including Stratagem Weapons and Backpacks such as MG-43 Machine Gun, FAF-14 Spear, and SH-32 Shield Generator Pack.
     Also "Other" if you aren't sure or its missing in the app.
+   -Also, it has to be its full name, for example, "LAS-99 Quasar Cannon" and not just "Quasar" or "Quasar Cannon".
    
   <details>
    <summary> Terminid Audio and Terminid Skin</summary>
@@ -173,10 +185,12 @@ Mod Randomization Options (doesn't take mod conflict into account)
   
   <details>
    <summary> Visual</summary>
+   Democracy Officer<br>
    Eagle-1<br>
    Icons<br>
    Loading Screen<br>
    Other<br>
+   Pelican-1<br>
    Ship<br>
    Title<br>
   </details>

@@ -155,6 +155,7 @@ Public Class Form1_phd2mm
                 UnusedMods_DataGridView.Rows.Add(tempModFolderPathName, tempCategory, tempItem, tempDescription)
             End If
         Next
+        UnusedMods_DataGridView.Sort(UnusedMods_DataGridView.Columns("UnusedMods_DataGridView_ModFolderPathName_Column"), System.ComponentModel.ListSortDirection.Ascending)
     End Sub
 
     Private Sub Form1_phd2mm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -216,6 +217,7 @@ Public Class Form1_phd2mm
                 UnusedMods_DataGridView.Rows.Add(tempModInfo.Modfolderpathname, tempModInfo.Category, tempModInfo.Item, tempModInfo.Description)
             End If
         Next
+        UnusedMods_DataGridView.Sort(UnusedMods_DataGridView.Columns("UnusedMods_DataGridView_ModFolderPathName_Column"), System.ComponentModel.ListSortDirection.Ascending)
     End Sub
 
     ' Drag and drop functionality for reordering rows in the DataGridView.
