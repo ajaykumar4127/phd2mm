@@ -97,6 +97,7 @@ Mod Randomization Options (doesn't take mod conflict into account)
 
   <details>
    <summary> Automaton Audio and Automaton Skin</summary>
+   In short, all Automaton units only. Stuff like Automaton Music and Automaton Chants are in Audio category.<br>
    Annihilator Tank<br>  
    Assault Raider<br>  
    Barrager Tank<br>  
@@ -130,10 +131,11 @@ Mod Randomization Options (doesn't take mod conflict into account)
   </details>
 
   Cape </br>
-  -Every Helldiver Cape.
+  -Every Helldiver Cape. Also "Other" if you aren't sure or its missing in the app.
   
   <details>
    <summary> Illuminate Audio and Illuminate Skin</summary>
+   In short, all Illuminate units only. Stuff like Illuminate Music are in Audio category.<br>
    Elevated Overseer<br>
    Harvester<br>
    Other<br>
@@ -156,6 +158,7 @@ Mod Randomization Options (doesn't take mod conflict into account)
    
   <details>
    <summary> Terminid Audio and Terminid Skin</summary>
+   In short, all Terminid units only. Stuff like Terminid Music are in Audio category.<br>
    Alpha Commander<br>
    Alpha Warrior<br>
    Bile Spewer<br>
