@@ -359,6 +359,15 @@ https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview Has MI
 
 ============================================================================
 ### 9. Changelogs
+v1.4 </br>
+-Fixed UnusedMods_DataGridView not sorting by name by default even when adding new mods
+when it should have.
+-Replaced "Armor" in Category selection with "Armor Both Bodies", "Armor Brawny Body", and
+"Armor Lean Body".
+-Added "Automaton Chant", "Ship Screen", and "Ship TV" to Item column selection.
+-Replaced "PA System" to "Ship PA System" in Item column selection for clarity.
+-Fixed UnusedMods_DataGridView Category column having minimum width of 5 instead of 50.
+
 v1.3 </br>
 Form1_phd2mm Personal Helldivers 2 Mod Manager (phd2mm) v1.3 Main Page: </br>
 -Redesigned UI. </br>
