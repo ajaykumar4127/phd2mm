@@ -234,7 +234,7 @@ First, run then exit program. When you run the program, the following folders an
 files will be created: </br>
 phd2mm_mods folder </br>
 phd2mm_profiles folder (has default.txt inside upon fresh download and start) </br>
-phd2mm_settings folder (has phd2mm_registry.txt and phd2mm_settings.txt inside
+phd2mm_settings folder (has phd2mm_registry.json and phd2mm_settings.txt inside
 upon fresh download and start) </br>
 Once you run and exit the program, put your mods in the phd2mm_mods folder. </br>
 The format should be: </br>
