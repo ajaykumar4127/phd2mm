@@ -376,6 +376,10 @@ you chose "JAR-5 Dominator" as Item, then the Category column options will be li
 to "Weapon Audio" and "Weapon Skin" only, rather than all of the Category column options.
 Now, only Item "Other" can show the entire Category column options. </br>
 -Replaced "phd2mm_registry.txt" with "phd2mm_registry.json". </br>
+-Removing mods from the currently used profile will now also auto-sort the unused mods
+in alphabetical order. </br>
+-Resizing the app beyond its original resolution will actually make all the things in it
+bigger rather than just the app itself. However, the act of resizing them may create lag. </br>
 
 v1.3 </br>
 Form1_phd2mm Personal Helldivers 2 Mod Manager (phd2mm) v1.3 Main Page: </br>

@@ -90,6 +90,69 @@ Public Class Class1
         End Sub
     End Class
 
+    Public Class FormResizer
+        Private ReadOnly form As Form
+        Private Const MinWidth As Integer = 1759
+        Private Const MinHeight As Integer = 928
+        Private originalSizes As Dictionary(Of Control, Size)
+        Private originalPositions As Dictionary(Of Control, Point)
+
+        ' Constructor to initialize the form to be resized
+        Public Sub New(form As Form)
+            Me.form = form
+            originalSizes = New Dictionary(Of Control, Size)
+            originalPositions = New Dictionary(Of Control, Point)
+            AddHandler form.Resize, AddressOf OnFormResize
+        End Sub
+
+        ' Resize event handler to scale the form and contents
+        Private Sub OnFormResize(sender As Object, e As EventArgs)
+            If form.Width > MinWidth AndAlso form.Height > MinHeight Then
+                ' When the form is larger than the minimum size, scale the contents
+                ScaleFormContents(True)
+            Else
+                ' If the form is smaller or equal to the minimum size, restore original size
+                ScaleFormContents(False)
+            End If
+        End Sub
+
+        ' Scales the form and its contents proportionally or restores original sizes
+        Private Sub ScaleFormContents(isGrowing As Boolean)
+            If isGrowing Then
+                ' Calculate scaling factors based on the form's current size
+                Dim scaleX As Double = form.Width / MinWidth
+                Dim scaleY As Double = form.Height / MinHeight
+
+                ' Scale the form controls proportionally
+                For Each ctrl As Control In form.Controls
+                    ' Save the original size and position the first time it's being scaled
+                    If Not originalSizes.ContainsKey(ctrl) Then
+                        originalSizes(ctrl) = ctrl.Size
+                        originalPositions(ctrl) = ctrl.Location
+                    End If
+
+                    ' Scale the width and height of the control
+                    ctrl.Width = CInt(originalSizes(ctrl).Width * scaleX)
+                    ctrl.Height = CInt(originalSizes(ctrl).Height * scaleY)
+
+                    ' Adjust the position based on the scale factors
+                    ctrl.Left = CInt(originalPositions(ctrl).X * scaleX)
+                    ctrl.Top = CInt(originalPositions(ctrl).Y * scaleY)
+                Next
+            Else
+                ' Restore the original size and position of the controls when the form shrinks
+                For Each ctrl As Control In form.Controls
+                    ' Only restore if the control size has been scaled before
+                    If originalSizes.ContainsKey(ctrl) Then
+                        ctrl.Size = originalSizes(ctrl)
+                        ctrl.Location = originalPositions(ctrl)
+                    End If
+                Next
+            End If
+        End Sub
+    End Class
+
+
     Public Class DirectoryValidator
         Public Shared Function ValidateDirectory(directoryPath As String) As Boolean
             If Not Directory.Exists(directoryPath) OrElse String.IsNullOrEmpty(directoryPath) OrElse String.IsNullOrWhiteSpace(directoryPath) OrElse Not directoryPath.EndsWith("Helldivers 2\data") Then

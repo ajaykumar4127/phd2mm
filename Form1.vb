@@ -36,9 +36,7 @@ Public Class Form1_phd2mm
         Next
     End Sub
 
-    Private Sub Form1_phd2mm_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
-        Me.AutoScroll = True
-    End Sub
+
 
     ' Makes scrolling smoother by enabling double buffering for the DataGridViews
     Protected Overrides Sub OnHandleCreated(e As EventArgs)
@@ -350,6 +348,7 @@ Public Class Form1_phd2mm
                 UsedMods_DataGridView.Rows.RemoveAt(e.RowIndex)
             End If
         End If
+        UnusedMods_DataGridView.Sort(UnusedMods_DataGridView.Columns("UnusedMods_DataGridView_ModFolderPathName_Column"), System.ComponentModel.ListSortDirection.Ascending)
     End Sub
     Private Sub RemoveSelectedMod_Button_Click(sender As Object, e As EventArgs) Handles RemoveSelectedMod_Button.Click
         If UsedMods_DataGridView.SelectedRows.Count > 0 Then
@@ -360,6 +359,7 @@ Public Class Form1_phd2mm
                 selectedRow.Cells("UsedMods_DataGridView_Description_Column").Value)
             UsedMods_DataGridView.Rows.Remove(selectedRow)
         End If
+        UnusedMods_DataGridView.Sort(UnusedMods_DataGridView.Columns("UnusedMods_DataGridView_ModFolderPathName_Column"), System.ComponentModel.ListSortDirection.Ascending)
     End Sub
 
     ' Saves all data inside the DataGridViews to the dictionaries as soon as the user finishes editing a cell
@@ -663,6 +663,7 @@ Public Class Form1_phd2mm
     ' "Weapon Audio" and "Weapon Skin" only for that row, unless the Item is changed again.
     ' Only the "Other" Item can have all Category options available.
     ' Add event handlers
+    Private formResizer As FormResizer
     Public Sub New()
         InitializeComponent()
 
@@ -673,6 +674,9 @@ Public Class Form1_phd2mm
         AddHandler UsedMods_DataGridView.CellValueChanged, AddressOf UsedMods_DataGridView_CellValueChanged
         AddHandler UsedMods_DataGridView.CurrentCellDirtyStateChanged, AddressOf UsedMods_DataGridView_CurrentCellDirtyStateChanged
         AddHandler UsedMods_DataGridView.EditingControlShowing, AddressOf UsedMods_DataGridView_EditingControlShowing
+
+        FormResizer = New FormResizer(Me)
+        Me.AutoScroll = True
     End Sub
 
     Private Sub UnusedMods_DataGridView_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs)
