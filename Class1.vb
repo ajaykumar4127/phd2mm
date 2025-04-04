@@ -148,7 +148,7 @@ Public Class Class1
                     Continue For
                 End If
                 If Directory.GetFiles(modFolder, "*.patch_*").Any() Then
-                    Dim relativeModFolderPath As String = Path.GetRelativePath(modDirectoryPath, modFolder)
+                    Dim relativeModFolderPath As String = Path.GetRelativePath(modDirectoryPath, modFolder).Replace("\", "/")
                     If modsRegistryDictionary.ContainsKey(relativeModFolderPath) Then
                         Dim tempModInfo As Class1.ModInfo = modsRegistryDictionary(relativeModFolderPath)
                         allModsOriginalDictionary(relativeModFolderPath) = tempModInfo

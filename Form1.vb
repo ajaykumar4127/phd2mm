@@ -3,6 +3,8 @@ Imports System.Diagnostics.Tracing
 Imports System.Globalization
 Imports System.IO
 Imports System.Reflection.Emit
+Imports System.Text.Json
+Imports System.Text.Json.Nodes
 Imports phd2mm.Class1
 Imports phd2mm.Class2
 
@@ -13,7 +15,7 @@ Public Class Form1_phd2mm
     Public modDirectoryPath As String = currentDirectoryPath & "\phd2mm_mods"
     Public settingsDirectoryPath As String = currentDirectoryPath & "\phd2mm_settings"
     Public settingsTextFilePath As String = settingsDirectoryPath & "\phd2mm_settings.txt"
-    Public registryTextFilePath As String = settingsDirectoryPath & "\phd2mm_registry.txt"
+    Public registryTextFilePath As String = settingsDirectoryPath & "\phd2mm_registry.json"
     Public modsRegistryDictionary As New Dictionary(Of String, Class1.ModInfo)()
     Public usedModsOriginalDictionary As New Dictionary(Of String, Class1.ModInfo)()
     Public allModsOriginalDictionary As New Dictionary(Of String, Class1.ModInfo)()
@@ -95,14 +97,29 @@ Public Class Form1_phd2mm
         End If
 
         If File.Exists(registryTextFilePath) Then
-            For Each registryFileByLineString As String In File.ReadLines(registryTextFilePath)
-                Dim registrySplitString() As String = registryFileByLineString.Split(vbTab)
-                Dim tempModFolderPathName As String = registrySplitString(0)
-                Dim tempModInfo As New ModInfo(tempModFolderPathName, registrySplitString(1), registrySplitString(2), registrySplitString(3))
+            ' Read the entire JSON file content
+            Dim jsonString As String = File.ReadAllText(registryTextFilePath)
+
+            ' Deserialize the JSON string into a List of JsonObject
+            Dim modList As List(Of JsonObject) = JsonSerializer.Deserialize(Of List(Of JsonObject))(jsonString)
+
+            ' Loop through each mod in the list
+            For Each modInfoJson As JsonObject In modList
+                ' Extract the values from the JSON object using GetProperty
+                Dim tempModFolderPathName As String = modInfoJson("Modfolderpathname").ToString()
+                Dim tempItem As String = modInfoJson("Item").ToString()
+                Dim tempCategory As String = modInfoJson("Category").ToString()
+                Dim tempDescription As String = modInfoJson("Description").ToString()
+
+                ' Create a new ModInfo object
+                Dim tempModInfo As New ModInfo(tempModFolderPathName, tempItem, tempCategory, tempDescription)
+
+                ' Add the ModInfo to the dictionary
                 modsRegistryDictionary.Add(tempModFolderPathName, tempModInfo)
             Next
         Else
-            My.Computer.FileSystem.WriteAllText(registryTextFilePath, "", False)
+            ' If the file doesn't exist, create an empty JSON array
+            My.Computer.FileSystem.WriteAllText(registryTextFilePath, "[]", False)
         End If
 
         If Directory.Exists(profileDirectoryPath) Then
@@ -161,20 +178,47 @@ Public Class Form1_phd2mm
 
     Private Sub Form1_phd2mm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Dim tempString1 As String = "current_hd2_data_directory: " & Hd2DataPathPreview_TextBox.Text & vbCrLf &
-            "last_installed_profile: " & LastInstalledProfile_Label.Text & vbCrLf &
-            "toggle_light_dark_mode: " & ThemeManager.CurrentMode
+        "last_installed_profile: " & LastInstalledProfile_Label.Text & vbCrLf &
+        "toggle_light_dark_mode: " & ThemeManager.CurrentMode
         My.Computer.FileSystem.WriteAllText(settingsTextFilePath, tempString1, False)
 
         If modsRegistryDictionary IsNot Nothing AndAlso modsRegistryDictionary.Count > 0 Then
             Using writer As New StreamWriter(registryTextFilePath)
+                ' Start the JSON array
+                writer.WriteLine("[")
+                ' JsonSerializerOptions to prevent escape sequences like \u0027
+                Dim options As New JsonSerializerOptions()
+                options.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                Dim firstMod As Boolean = True
                 For Each modRegistryEntry As KeyValuePair(Of String, ModInfo) In modsRegistryDictionary
                     Dim modInfo As ModInfo = modRegistryEntry.Value
-                    tempString1 = modInfo.Modfolderpathname & vbTab & modInfo.Item & vbTab & modInfo.Category & vbTab & modInfo.Description
-                    writer.WriteLine(tempString1)
+                    ' Replace backslashes with forward slashes in the Modfolderpathname
+                    modInfo.Modfolderpathname = modInfo.Modfolderpathname.Replace("\", "/")
+                    ' Create a new anonymous object representing the mod info
+                    Dim modInfoJson = New With {
+                        Key .Modfolderpathname = modInfo.Modfolderpathname,
+                        Key .Item = modInfo.Item,
+                        Key .Category = modInfo.Category,
+                        Key .Description = modInfo.Description
+                        }
+                    ' Serialize the mod info to JSON format (compact, one line)
+                    Dim json As String = JsonSerializer.Serialize(modInfoJson, options)
+                    ' Write a comma before each mod except the first one
+                    If Not firstMod Then
+                        writer.WriteLine(",")
+                    End If
+                    ' Write the serialized JSON for the current mod
+                    writer.Write(json)
+                    ' After the first mod, set firstMod to False
+                    firstMod = False
                 Next
+                ' End the JSON array
+                writer.WriteLine()
+                writer.WriteLine("]")
             End Using
         End If
     End Sub
+
 
     Private Sub BrowseHd2DataPath_Button_Click(sender As Object, e As EventArgs) Handles BrowseHd2DataPath_Button.Click
         If Hd2DataPath_FolderBrowserDialogue.ShowDialog() = DialogResult.OK Then

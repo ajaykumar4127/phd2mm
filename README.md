@@ -375,6 +375,7 @@ when it should have. </br>
 you chose "JAR-5 Dominator" as Item, then the Category column options will be limited
 to "Weapon Audio" and "Weapon Skin" only, rather than all of the Category column options.
 Now, only Item "Other" can show the entire Category column options. </br>
+-Replaced "phd2mm_registry.txt" with "phd2mm_registry.json". </br>
 
 v1.3 </br>
 Form1_phd2mm Personal Helldivers 2 Mod Manager (phd2mm) v1.3 Main Page: </br>
