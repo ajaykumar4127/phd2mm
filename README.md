@@ -370,6 +370,11 @@ when it should have. </br>
 -Added "Automaton Chant", "Ship Screen", and "Ship TV" to Item column selection. </br>
 -Replaced "PA System" to "Ship PA System" in Item column selection for clarity. </br>
 -Fixed UnusedMods_DataGridView Category column having minimum width of 5 instead of 50. </br>
+-Swapped around Category column and Item column. </br>
+-Linked the Category column options to the Item column options. This means, for example,
+you chose "JAR-5 Dominator" as Item, then the Category column options will be limited
+to "Weapon Audio" and "Weapon Skin" only, rather than all of the Category column options.
+Now, only Item "Other" can show the entire Category column options. </br>
 
 v1.3 </br>
 Form1_phd2mm Personal Helldivers 2 Mod Manager (phd2mm) v1.3 Main Page: </br>
