@@ -249,9 +249,9 @@ phd2mm_settings\phd2mm_settings.txt. If not, try exiting the app first.
 -Rearrange Columns: You can rearrange the columns by dragging the column headers except for the
 leftmost column header.
 -Edit Category, Item, and Description: You can edit the Category, Item, and Description columns by
-double-clicking the cell you want to edit, typing in the new text, then pressing Enter.
-The changes will be saved in phd2mm_settings\phd2mm_registry.txt file. If not, try exiting
-the app first.
+double-clicking the cell you want to edit, choosing from a list of options or typing in the new text,
+then pressing Enter. The changes will be saved in phd2mm_settings\phd2mm_registry.txt file. If not,
+try exiting the app first.
 -Show or Hide Category, Item, and Description: You can right-click any of the column headers except
 for the leftmost column header to show or hide the Category, Item, and Description columns.
 -Mod Randomization: You can enable mod randomization by clicking "Enable Mod Randomization Option".
@@ -288,6 +288,7 @@ when it should have.
 you chose "JAR-5 Dominator" as Item, then the Category column options will be limited to
 "Weapon Audio" and "Weapon Skin" only, rather than all of the Category column options.
 Now, only Item "Other" can show the entire Category column options. 
+-Replaced "phd2mm_registry.txt" with "phd2mm_registry.json".
 
 v1.3
 Form1_phd2mm Personal Helldivers 2 Mod Manager (phd2mm) v1.3 Main Page:
