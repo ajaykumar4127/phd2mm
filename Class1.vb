@@ -3,6 +3,8 @@ Imports System.Diagnostics.Tracing
 Imports System.Globalization
 Imports System.IO
 Imports System.Reflection.Emit
+Imports System.Text.Json
+Imports System.Text.Json.Nodes
 Public Class Class1
 
     Public Class ThemeManager
@@ -126,6 +128,25 @@ Public Class Class1
     End Class
 
     Public Class RegistryEditor
+        Public Shared Sub ReadRegistry(modsRegistryDictionary As Dictionary(Of String, ModInfo), registryTextFilePath As String)
+            ' Read the entire JSON file content
+            Dim jsonString As String = File.ReadAllText(registryTextFilePath)
+            ' Deserialize the JSON string into a List of JsonObject
+            Dim modList As List(Of JsonObject) = JsonSerializer.Deserialize(Of List(Of JsonObject))(jsonString)
+            ' Loop through each mod in the list
+            For Each modInfoJson As JsonObject In modList
+                ' Extract the values from the JSON object using GetProperty
+                Dim tempModFolderPathName As String = modInfoJson("Modfolderpathname").ToString()
+                Dim tempItem As String = modInfoJson("Item").ToString()
+                Dim tempCategory As String = modInfoJson("Category").ToString()
+                Dim tempDescription As String = modInfoJson("Description").ToString()
+                ' Create a new ModInfo object
+                Dim tempModInfo As New ModInfo(tempModFolderPathName, tempItem, tempCategory, tempDescription)
+                ' Add the ModInfo to the dictionary
+                modsRegistryDictionary.Add(tempModFolderPathName, tempModInfo)
+            Next
+        End Sub
+
         Public Shared Sub UpdateRegistry(allModsOriginalDictionary As Dictionary(Of String, Class1.ModInfo), modsRegistryDictionary As Dictionary(Of String, ModInfo))
             For Each newModInfo As ModInfo In allModsOriginalDictionary.Values
                 If modsRegistryDictionary.ContainsKey(newModInfo.Modfolderpathname) Then
@@ -137,6 +158,44 @@ Public Class Class1
                     End If
                 End If
             Next
+        End Sub
+
+        Public Shared Sub OverwriteRegistry(modsRegistryDictionary As Dictionary(Of String, ModInfo), registryTextFilePath As String)
+            If modsRegistryDictionary IsNot Nothing AndAlso modsRegistryDictionary.Count > 0 Then
+                Using writer As New StreamWriter(registryTextFilePath)
+                    ' Start the JSON array
+                    writer.WriteLine("[")
+                    ' JsonSerializerOptions to prevent escape sequences like \u0027
+                    Dim options As New JsonSerializerOptions()
+                    options.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                    Dim firstMod As Boolean = True
+                    For Each modRegistryEntry As KeyValuePair(Of String, ModInfo) In modsRegistryDictionary
+                        Dim modInfo As ModInfo = modRegistryEntry.Value
+                        ' Replace backslashes with forward slashes in the Modfolderpathname
+                        modInfo.Modfolderpathname = modInfo.Modfolderpathname.Replace("\", "/")
+                        ' Create a new anonymous object representing the mod info
+                        Dim modInfoJson = New With {
+                        Key .Modfolderpathname = modInfo.Modfolderpathname,
+                        Key .Item = modInfo.Item,
+                        Key .Category = modInfo.Category,
+                        Key .Description = modInfo.Description
+                        }
+                        ' Serialize the mod info to JSON format (compact, one line)
+                        Dim json As String = JsonSerializer.Serialize(modInfoJson, options)
+                        ' Write a comma before each mod except the first one
+                        If Not firstMod Then
+                            writer.WriteLine(",")
+                        End If
+                        ' Write the serialized JSON for the current mod
+                        writer.Write(json)
+                        ' After the first mod, set firstMod to False
+                        firstMod = False
+                    Next
+                    ' End the JSON array
+                    writer.WriteLine()
+                    writer.WriteLine("]")
+                End Using
+            End If
         End Sub
     End Class
 
