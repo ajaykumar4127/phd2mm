@@ -1,4 +1,5 @@
-﻿Imports System.Diagnostics.Tracing
+﻿Imports System.ComponentModel
+Imports System.Diagnostics.Tracing
 Imports System.Globalization
 Imports System.IO
 Imports System.Reflection.Emit
@@ -140,7 +141,7 @@ Public Class Form1_phd2mm
                 Dim tempItem As String = tempModInfo.Item
                 Dim tempDescription As String = tempModInfo.Description
                 Dim tempRowIndex As Integer = UsedMods_DataGridView.RowCount
-                UsedMods_DataGridView.Rows.Add(tempRowIndex, tempModFolderPathName, tempCategory, tempItem, tempDescription)
+                UsedMods_DataGridView.Rows.Add(tempRowIndex, tempModFolderPathName, tempItem, tempCategory, tempDescription)
                 usedModsInProfile.Add(tempModFolderPathName, tempModInfo)
             Next
         End If
@@ -152,7 +153,7 @@ Public Class Form1_phd2mm
                 Dim tempItem As String = tempModInfo.Item
                 Dim tempDescription As String = tempModInfo.Description
                 Dim tempRowIndex As Integer = UnusedMods_DataGridView.RowCount
-                UnusedMods_DataGridView.Rows.Add(tempModFolderPathName, tempCategory, tempItem, tempDescription)
+                UnusedMods_DataGridView.Rows.Add(tempModFolderPathName, tempItem, tempCategory, tempDescription)
             End If
         Next
         UnusedMods_DataGridView.Sort(UnusedMods_DataGridView.Columns("UnusedMods_DataGridView_ModFolderPathName_Column"), System.ComponentModel.ListSortDirection.Ascending)
@@ -168,7 +169,7 @@ Public Class Form1_phd2mm
             Using writer As New StreamWriter(registryTextFilePath)
                 For Each modRegistryEntry As KeyValuePair(Of String, ModInfo) In modsRegistryDictionary
                     Dim modInfo As ModInfo = modRegistryEntry.Value
-                    tempString1 = modInfo.Modfolderpathname & vbTab & modInfo.Category & vbTab & modInfo.Item & vbTab & modInfo.Description
+                    tempString1 = modInfo.Modfolderpathname & vbTab & modInfo.Item & vbTab & modInfo.Category & vbTab & modInfo.Description
                     writer.WriteLine(tempString1)
                 Next
             End Using
@@ -201,7 +202,7 @@ Public Class Form1_phd2mm
                     tempModInfo.Description = tempModInfo.Description
                 End If
                 Dim tempRowIndex As Integer = UsedMods_DataGridView.RowCount
-                UsedMods_DataGridView.Rows.Add(UsedMods_DataGridView.RowCount, tempModInfo.Modfolderpathname, tempModInfo.Category, tempModInfo.Item, tempModInfo.Description)
+                UsedMods_DataGridView.Rows.Add(UsedMods_DataGridView.RowCount, tempModInfo.Modfolderpathname, tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
                 usedModsInProfile.Add(tempModInfo.Modfolderpathname, tempModInfo)
             Next
         End If
@@ -214,7 +215,7 @@ Public Class Form1_phd2mm
                     tempModInfo.Item = tempModInfo.Item
                     tempModInfo.Description = tempModInfo.Description
                 End If
-                UnusedMods_DataGridView.Rows.Add(tempModInfo.Modfolderpathname, tempModInfo.Category, tempModInfo.Item, tempModInfo.Description)
+                UnusedMods_DataGridView.Rows.Add(tempModInfo.Modfolderpathname, tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
             End If
         Next
         UnusedMods_DataGridView.Sort(UnusedMods_DataGridView.Columns("UnusedMods_DataGridView_ModFolderPathName_Column"), System.ComponentModel.ListSortDirection.Ascending)
@@ -322,8 +323,8 @@ Public Class Form1_phd2mm
                 Dim selectedRow As DataGridViewRow = UnusedMods_DataGridView.Rows(e.RowIndex)
                 UsedMods_DataGridView.Rows.Add(UsedMods_DataGridView.RowCount,
                     selectedRow.Cells("UnusedMods_DataGridView_ModFolderPathName_Column").Value,
-                    selectedRow.Cells("UnusedMods_DataGridView_Category_Column").Value,
                     selectedRow.Cells("UnusedMods_DataGridView_Item_Column").Value,
+                    selectedRow.Cells("UnusedMods_DataGridView_Category_Column").Value,
                     selectedRow.Cells("UnusedMods_DataGridView_Description_Column").Value)
                 UnusedMods_DataGridView.Rows.RemoveAt(e.RowIndex)
             End If
@@ -335,8 +336,8 @@ Public Class Form1_phd2mm
             Dim selectedRow As DataGridViewRow = UnusedMods_DataGridView.SelectedRows(0)
             UsedMods_DataGridView.Rows.Add(UsedMods_DataGridView.RowCount,
                 selectedRow.Cells("UnusedMods_DataGridView_ModFolderPathName_Column").Value,
-                selectedRow.Cells("UnusedMods_DataGridView_Category_Column").Value,
                 selectedRow.Cells("UnusedMods_DataGridView_Item_Column").Value,
+                selectedRow.Cells("UnusedMods_DataGridView_Category_Column").Value,
                 selectedRow.Cells("UnusedMods_DataGridView_Description_Column").Value)
             UnusedMods_DataGridView.Rows.Remove(selectedRow)
         End If
@@ -352,8 +353,8 @@ Public Class Form1_phd2mm
             If e.ColumnIndex = -1 Or e.ColumnIndex = modFolderPathColumnIndex Then
                 Dim selectedRow As DataGridViewRow = UsedMods_DataGridView.Rows(e.RowIndex)
                 UnusedMods_DataGridView.Rows.Add(selectedRow.Cells("UsedMods_DataGridView_ModFolderPathName_Column").Value,
-              selectedRow.Cells("UsedMods_DataGridView_Category_Column").Value,
              selectedRow.Cells("UsedMods_DataGridView_Item_Column").Value,
+              selectedRow.Cells("UsedMods_DataGridView_Category_Column").Value,
             selectedRow.Cells("UsedMods_DataGridView_Description_Column").Value)
                 UsedMods_DataGridView.Rows.RemoveAt(e.RowIndex)
             End If
@@ -363,8 +364,8 @@ Public Class Form1_phd2mm
         If UsedMods_DataGridView.SelectedRows.Count > 0 Then
             Dim selectedRow As DataGridViewRow = UsedMods_DataGridView.SelectedRows(0)
             UnusedMods_DataGridView.Rows.Add(selectedRow.Cells("UsedMods_DataGridView_ModFolderPathName_Column").Value,
-                selectedRow.Cells("UsedMods_DataGridView_Category_Column").Value,
                 selectedRow.Cells("UsedMods_DataGridView_Item_Column").Value,
+                selectedRow.Cells("UsedMods_DataGridView_Category_Column").Value,
                 selectedRow.Cells("UsedMods_DataGridView_Description_Column").Value)
             UsedMods_DataGridView.Rows.Remove(selectedRow)
         End If
@@ -375,8 +376,8 @@ Public Class Form1_phd2mm
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
             ' Ensure the edited row exists and has values
             Dim modfolderPathname As String = If(UsedMods_DataGridView.Rows(e.RowIndex).Cells("UsedMods_DataGridView_ModFolderPathName_Column").Value, "").ToString()
-            Dim category As String = If(UsedMods_DataGridView.Rows(e.RowIndex).Cells("UsedMods_DataGridView_Category_Column").Value, "").ToString()
             Dim item As String = If(UsedMods_DataGridView.Rows(e.RowIndex).Cells("UsedMods_DataGridView_Item_Column").Value, "").ToString()
+            Dim category As String = If(UsedMods_DataGridView.Rows(e.RowIndex).Cells("UsedMods_DataGridView_Category_Column").Value, "").ToString()
             Dim description As String = If(UsedMods_DataGridView.Rows(e.RowIndex).Cells("UsedMods_DataGridView_Description_Column").Value, "").ToString()
 
             If Not String.IsNullOrEmpty(modfolderPathname) AndAlso
@@ -384,7 +385,7 @@ Public Class Form1_phd2mm
            Not String.IsNullOrEmpty(item) AndAlso
            Not String.IsNullOrEmpty(description) Then
 
-                Dim tempModInfo As New ModInfo(modfolderPathname, category, item, description)
+                Dim tempModInfo As New ModInfo(modfolderPathname, item, category, description)
                 Class1.UpdateModsOriginalDictionary.UpdateModsOriginalDictionary(tempModInfo, allModsOriginalDictionary)
                 Class1.RegistryEditor.UpdateRegistry(allModsOriginalDictionary, modsRegistryDictionary)
             End If
@@ -453,11 +454,12 @@ Public Class Form1_phd2mm
            Not String.IsNullOrEmpty(item) AndAlso
            Not String.IsNullOrEmpty(description) Then
 
-                Dim tempModInfo As New ModInfo(modfolderPathname, category, item, description)
+                Dim tempModInfo As New ModInfo(modfolderPathname, item, category, description)
                 Class1.UpdateModsOriginalDictionary.UpdateModsOriginalDictionary(tempModInfo, allModsOriginalDictionary)
                 Class1.RegistryEditor.UpdateRegistry(allModsOriginalDictionary, modsRegistryDictionary)
             End If
         End If
+
     End Sub
 
     Private Sub SearchMod_TextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchMod_TextBox.TextChanged
@@ -662,5 +664,137 @@ Public Class Form1_phd2mm
                 UsedMods_DataGridView_ContextMenuStrip.Show(UsedMods_DataGridView, e.Location)
             End If
         End If
+    End Sub
+
+    ' Code below allows the values/options of Category Column to be linked to the current value of Item Column.
+    ' The changes are done per row, rather than the entire Category Column. For example, if the user
+    ' selects "JAR-5 Dominator" in the Item Column, the Category Column options will be reduced to
+    ' "Weapon Audio" and "Weapon Skin" only for that row, unless the Item is changed again.
+    ' Only the "Other" Item can have all Category options available.
+    ' Add event handlers
+    Public Sub New()
+        InitializeComponent()
+
+        ' Add event handlers after the form is initialized
+        AddHandler UnusedMods_DataGridView.CellValueChanged, AddressOf UnusedMods_DataGridView_CellValueChanged
+        AddHandler UnusedMods_DataGridView.CurrentCellDirtyStateChanged, AddressOf UnusedMods_DataGridView_CurrentCellDirtyStateChanged
+        AddHandler UnusedMods_DataGridView.EditingControlShowing, AddressOf UnusedMods_DataGridView_EditingControlShowing
+        AddHandler UsedMods_DataGridView.CellValueChanged, AddressOf UsedMods_DataGridView_CellValueChanged
+        AddHandler UsedMods_DataGridView.CurrentCellDirtyStateChanged, AddressOf UsedMods_DataGridView_CurrentCellDirtyStateChanged
+        AddHandler UsedMods_DataGridView.EditingControlShowing, AddressOf UsedMods_DataGridView_EditingControlShowing
+    End Sub
+
+    Private Sub UnusedMods_DataGridView_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs)
+        If UnusedMods_DataGridView.IsCurrentCellDirty Then
+            UnusedMods_DataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit)
+        End If
+    End Sub
+
+    ' CellValueChanged handler to handle item value changes
+    Private Sub UnusedMods_DataGridView_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs)
+        If e.ColumnIndex = UnusedMods_DataGridView.Columns("UnusedMods_DataGridView_Item_Column").Index Then
+            Dim itemValue As String = UnusedMods_DataGridView.Rows(e.RowIndex).Cells("UnusedMods_DataGridView_Item_Column").Value?.ToString()
+            Dim validCategories As List(Of String) = CategoryAndItemsManager.GetCategoryForItem(itemValue)
+
+            ' Get the Category ComboBox cell
+            Dim categoryCell As DataGridViewComboBoxCell = CType(UnusedMods_DataGridView.Rows(e.RowIndex).Cells("UnusedMods_DataGridView_Category_Column"), DataGridViewComboBoxCell)
+
+            ' Clear and add unique categories (remove duplicates)
+            categoryCell.Items.Clear()
+            categoryCell.Items.AddRange(validCategories.Distinct().ToArray())
+
+            ' Optionally set the first valid category as the default
+            If validCategories.Count > 0 Then
+                categoryCell.Value = validCategories.First()
+            End If
+        End If
+    End Sub
+
+    ' Handling the EditingControlShowing event to adjust the combo box options when editing the category
+    Private Sub UnusedMods_DataGridView_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs)
+        If UnusedMods_DataGridView.CurrentCell.ColumnIndex = UnusedMods_DataGridView.Columns("UnusedMods_DataGridView_Category_Column").Index Then
+            Dim comboBox As ComboBox = TryCast(e.Control, ComboBox)
+            If comboBox IsNot Nothing Then
+                Dim itemValue As String = UnusedMods_DataGridView.Rows(UnusedMods_DataGridView.CurrentCell.RowIndex).Cells("UnusedMods_DataGridView_Item_Column").Value?.ToString()
+                Dim validCategories As List(Of String) = CategoryAndItemsManager.GetCategoryForItem(itemValue)
+
+                ' Ensure categories are populated
+                If validCategories IsNot Nothing AndAlso validCategories.Count > 0 Then
+                    ' Clear items first, then add new ones
+                    comboBox.Items.Clear()
+                    comboBox.Items.AddRange(validCategories.Distinct().ToArray())
+
+                    ' Set the selected value if available
+                    Dim currentCategory As String = UnusedMods_DataGridView.Rows(UnusedMods_DataGridView.CurrentCell.RowIndex).Cells("UnusedMods_DataGridView_Category_Column").Value?.ToString()
+                    If Not String.IsNullOrEmpty(currentCategory) AndAlso validCategories.Contains(currentCategory) Then
+                        comboBox.SelectedItem = currentCategory
+                    Else
+                        ' If no valid match, set to the first valid category
+                        comboBox.SelectedItem = validCategories.First()
+                    End If
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub UnusedMods_DataGridView_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles UnusedMods_DataGridView.DataError
+        e.Cancel = True
+    End Sub
+
+    Private Sub UsedMods_DataGridView_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs)
+        If UsedMods_DataGridView.IsCurrentCellDirty Then
+            UsedMods_DataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit)
+        End If
+    End Sub
+
+    ' CellValueChanged handler to handle item value changes
+    Private Sub UsedMods_DataGridView_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs)
+        If e.ColumnIndex = UsedMods_DataGridView.Columns("UsedMods_DataGridView_Item_Column").Index Then
+            Dim itemValue As String = UsedMods_DataGridView.Rows(e.RowIndex).Cells("UsedMods_DataGridView_Item_Column").Value?.ToString()
+            Dim validCategories As List(Of String) = CategoryAndItemsManager.GetCategoryForItem(itemValue)
+
+            ' Get the Category ComboBox cell
+            Dim categoryCell As DataGridViewComboBoxCell = CType(UsedMods_DataGridView.Rows(e.RowIndex).Cells("UsedMods_DataGridView_Category_Column"), DataGridViewComboBoxCell)
+
+            ' Clear and add unique categories (remove duplicates)
+            categoryCell.Items.Clear()
+            categoryCell.Items.AddRange(validCategories.Distinct().ToArray())
+
+            ' Optionally set the first valid category as the default
+            If validCategories.Count > 0 Then
+                categoryCell.Value = validCategories.First()
+            End If
+        End If
+    End Sub
+
+    ' Handling the EditingControlShowing event to adjust the combo box options when editing the category
+    Private Sub UsedMods_DataGridView_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs)
+        If UsedMods_DataGridView.CurrentCell.ColumnIndex = UsedMods_DataGridView.Columns("UsedMods_DataGridView_Category_Column").Index Then
+            Dim comboBox As ComboBox = TryCast(e.Control, ComboBox)
+            If comboBox IsNot Nothing Then
+                Dim itemValue As String = UsedMods_DataGridView.Rows(UsedMods_DataGridView.CurrentCell.RowIndex).Cells("UsedMods_DataGridView_Item_Column").Value?.ToString()
+                Dim validCategories As List(Of String) = CategoryAndItemsManager.GetCategoryForItem(itemValue)
+
+                ' Ensure categories are populated
+                If validCategories IsNot Nothing AndAlso validCategories.Count > 0 Then
+                    ' Clear items first, then add new ones
+                    comboBox.Items.Clear()
+                    comboBox.Items.AddRange(validCategories.Distinct().ToArray())
+
+                    ' Set the selected value if available
+                    Dim currentCategory As String = UsedMods_DataGridView.Rows(UsedMods_DataGridView.CurrentCell.RowIndex).Cells("UsedMods_DataGridView_Category_Column").Value?.ToString()
+                    If Not String.IsNullOrEmpty(currentCategory) AndAlso validCategories.Contains(currentCategory) Then
+                        comboBox.SelectedItem = currentCategory
+                    Else
+                        ' If no valid match, set to the first valid category
+                        comboBox.SelectedItem = validCategories.First()
+                    End If
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub UsedMods_DataGridView_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles UsedMods_DataGridView.DataError
+        e.Cancel = True
     End Sub
 End Class

@@ -119,8 +119,8 @@ Public Class Class1
         Public Property Description As String
         Public Sub New(col1 As String, col2 As String, col3 As String, col4 As String)
             Modfolderpathname = col1
-            Category = col2
-            Item = col3
+            Item = col2
+            Category = col3
             Description = col4
         End Sub
     End Class

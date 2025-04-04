@@ -143,6 +143,50 @@ Public Class Class2
             Dim sortedDict = categoriesAndItemsDictionary.OrderBy(Function(entry) entry.Key).ToDictionary(Function(entry) entry.Key, Function(entry) entry.Value.OrderBy(Function(item) item).ToList())
             Return sortedDict
         End Function
+
+        Public Shared Function GetCategoryForItem(selectedItem As String) As List(Of String)
+            Dim matchingCategories As New List(Of String)
+            ' Iterate through the categoriesAndItemsDictionary to find the selected item
+            For Each category As KeyValuePair(Of String, List(Of String)) In categoriesAndItemsDictionary
+                If category.Value.Contains(selectedItem) Then
+                    Select Case category.Key
+                        Case "Other"
+                            matchingCategories.AddRange({"Armor Both Bodies", "Armor Brawny Body", "Armor Lean Body",
+                                                         "Audio", "Automaton Audio", "Automaton Skin", "Cape", "Helmet",
+                                                         "Illuminate Audio", "Illuminate Skin", "Player Card",
+                                                         "Other", "Stratagem Audio", "Stratagem Skin", "Terminid Audio",
+                                                         "Terminid Skin", "Visual", "Weapon Audio", "Weapon Skin"})
+                        Case "Armor_And_Helmet"
+                            matchingCategories.AddRange({"Armor Both Bodies", "Armor Brawny Body", "Armor Lean Body", "Helmet"})
+                        Case "Audio"
+                            matchingCategories.AddRange({"Audio"})
+                        Case "Automaton_Skin_And_Audio"
+                            matchingCategories.AddRange({"Automaton Audio", "Automaton Skin"})
+                        Case "Cape"
+                            matchingCategories.AddRange({"Cape"})
+                        Case "Illuminate_Skin_And_Audio"
+                            matchingCategories.AddRange({"Illuminate Audio", "Illuminate Skin"})
+                        Case "Player_Card"
+                            matchingCategories.AddRange({"Player Card"})
+                        Case "Stratagem_Skin_And_Audio"
+                            matchingCategories.AddRange({"Stratagem Audio", "Stratagem Skin"})
+                        Case "Terminid_Skin_And_Audio"
+                            matchingCategories.AddRange({"Terminid Audio", "Terminid Skin"})
+                        Case "Visual"
+                            matchingCategories.AddRange({"Visual"})
+                        Case "Weapon_Skin_And_Audio"
+                            matchingCategories.AddRange({"Weapon Audio", "Weapon Skin"})
+                        Case Else
+                            matchingCategories.Add(category.Key) ' Use the default category name if no specific case matches
+                    End Select
+                End If
+            Next
+            ' If no matches are found, default to "Other"
+            If matchingCategories.Count = 0 Then
+                matchingCategories.Add("Other")
+            End If
+            Return matchingCategories
+        End Function
     End Class
 
     Public Class ModRandomizer
@@ -156,7 +200,7 @@ Public Class Class2
                         Dim tempCategory As String = row.Cells("UnusedMods_DataGridView_Category_Column").Value.ToString()
                         Dim tempItem As String = row.Cells("UnusedMods_DataGridView_Item_Column").Value.ToString()
                         Dim tempDescription As String = row.Cells("UnusedMods_DataGridView_Description_Column").Value.ToString()
-                        Dim tempModInfo As New Class1.ModInfo(tempModFolderPathName, tempCategory, tempItem, tempDescription)
+                        Dim tempModInfo As New Class1.ModInfo(tempModFolderPathName, tempItem, tempCategory, tempDescription)
                         unusedModsInProfileDictionary.Add(tempModFolderPathName, tempModInfo)
                     Next
                     UnusedMods_DataGridView.Rows.Clear()
@@ -169,13 +213,13 @@ Public Class Class2
                         Dim modFolderPathName As String = modKeys(i)
                         Dim tempModInfo As Class1.ModInfo = unusedModsInProfileDictionary(modFolderPathName)
                         UsedMods_DataGridView.Rows.Add(UsedMods_DataGridView.RowCount, tempModInfo.Modfolderpathname,
-                                       tempModInfo.Category, tempModInfo.Item, tempModInfo.Description)
+                                       tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
                     Next
                     For i As Integer = usedModsCount To totalUnusedModsCount - 1
                         Dim modFolderPathName As String = modKeys(i)
                         Dim tempModInfo As Class1.ModInfo = unusedModsInProfileDictionary(modFolderPathName)
                         UnusedMods_DataGridView.Rows.Add(tempModInfo.Modfolderpathname,
-                                         tempModInfo.Category, tempModInfo.Item, tempModInfo.Description)
+                                         tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
                     Next
 
                 Case "OnlyAddGuaranteeOne"
@@ -185,19 +229,19 @@ Public Class Class2
                     For Each row As DataGridViewRow In UsedMods_DataGridView.Rows
                         Dim category As String = row.Cells("UsedMods_DataGridView_Category_Column").Value.ToString()
                         Dim item As String = row.Cells("UsedMods_DataGridView_Item_Column").Value.ToString()
-                        existingCombinations.Add($"{category}_{item}")
+                        existingCombinations.Add($"{item}_{category}")
                     Next
                     For Each modInfo In uniqueMods
-                        Dim combinationKey As String = $"{modInfo.Category}_{modInfo.Item}"
+                        Dim combinationKey As String = $"{modInfo.Item}_{modInfo.Category}"
                         Dim isCombinationInUsed As Boolean = existingCombinations.Contains(combinationKey)
                         If Not isCombinationInUsed Then
                             UsedMods_DataGridView.Rows.Add(UsedMods_DataGridView.RowCount, modInfo.Modfolderpathname,
-                                                           modInfo.Category, modInfo.Item, modInfo.Description)
+                                                           modInfo.Item, modInfo.Category, modInfo.Description)
                             existingCombinations.Add(combinationKey)
                             For Each unusedRow As DataGridViewRow In UnusedMods_DataGridView.Rows
                                 Dim unusedCategory As String = unusedRow.Cells("UnusedMods_DataGridView_Category_Column").Value.ToString()
                                 Dim unusedItem As String = unusedRow.Cells("UnusedMods_DataGridView_Item_Column").Value.ToString()
-                                If unusedCategory = modInfo.Category AndAlso unusedItem = modInfo.Item Then
+                                If unusedItem = modInfo.Item AndAlso unusedCategory = modInfo.Category Then
                                     UnusedMods_DataGridView.Rows.Remove(unusedRow)
                                     Exit For
                                 End If
@@ -206,10 +250,10 @@ Public Class Class2
                     Next
                     For Each modFolderPathName As String In allModsOriginalDictionary.Keys
                         Dim tempModInfo As ModInfo = allModsOriginalDictionary(modFolderPathName)
-                        Dim combinationKey As String = $"{tempModInfo.Category}_{tempModInfo.Item}"
+                        Dim combinationKey As String = $"{tempModInfo.Item}_{tempModInfo.Category}"
                         If Not existingCombinations.Contains(combinationKey) Then
                             UnusedMods_DataGridView.Rows.Add(tempModInfo.Modfolderpathname,
-                                                             tempModInfo.Category, tempModInfo.Item, tempModInfo.Description)
+                                                             tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
                             existingCombinations.Add(combinationKey)
                         End If
                     Next
@@ -228,13 +272,13 @@ Public Class Class2
                         Dim modFolderPathName As String = modKeys(i)
                         Dim tempModInfo As ModInfo = allModsOriginalDictionary(modFolderPathName)
                         UsedMods_DataGridView.Rows.Add(UsedMods_DataGridView.RowCount, tempModInfo.Modfolderpathname,
-                                                       tempModInfo.Category, tempModInfo.Item, tempModInfo.Description)
+                                                       tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
                     Next
                     For i As Integer = usedModsCount To totalModsCount - 1
                         Dim modFolderPathName As String = modKeys(i)
                         Dim tempModInfo As ModInfo = allModsOriginalDictionary(modFolderPathName)
                         UnusedMods_DataGridView.Rows.Add(tempModInfo.Modfolderpathname,
-                                                         tempModInfo.Category, tempModInfo.Item, tempModInfo.Description)
+                                                         tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
                     Next
 
                 Case "AddRemoveGuaranteeOne"
@@ -245,14 +289,14 @@ Public Class Class2
                     For i As Integer = 0 To uniqueMods.Count - 1
                         Dim tempModInfo As ModInfo = uniqueMods(i)
                         UsedMods_DataGridView.Rows.Add(UsedMods_DataGridView.RowCount, tempModInfo.Modfolderpathname,
-                                       tempModInfo.Category, tempModInfo.Item, tempModInfo.Description)
+                                       tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
                     Next
                     For i As Integer = 0 To totalModsCount - 1
                         Dim modFolderPathName As String = allModsOriginalDictionary.Keys(i)
                         Dim tempModInfo As ModInfo = allModsOriginalDictionary(modFolderPathName)
                         If Not uniqueMods.Any(Function(m) m.Modfolderpathname = tempModInfo.Modfolderpathname) Then
                             UnusedMods_DataGridView.Rows.Add(tempModInfo.Modfolderpathname,
-                                         tempModInfo.Category, tempModInfo.Item, tempModInfo.Description)
+                                         tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
                         End If
                     Next
             End Select
@@ -261,7 +305,7 @@ Public Class Class2
         Public Shared Function SelectUniqueMods(allModsOriginalDictionary As Dictionary(Of String, Class1.ModInfo))
             Dim uniqueMods As New List(Of Class1.ModInfo)()
             Dim groupedMods = allModsOriginalDictionary.Values _
-                                .GroupBy(Function(modInfo) New With {Key .Category = modInfo.Category, Key .Item = modInfo.Item})
+                                .GroupBy(Function(modInfo) New With {Key .Item = modInfo.Item, Key .Category = modInfo.Category})
             For Each group In groupedMods
                 If group.Count() = 1 Then
                     uniqueMods.Add(group.First())
