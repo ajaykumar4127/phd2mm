@@ -149,7 +149,7 @@ First, run then exit program. When you run the program, the following folders an
 files will be created:
 phd2mm_mods folder
 phd2mm_profiles folder (has default.txt inside upon fresh download and start)
-phd2mm_settings folder (has phd2mm_registry.txt and phd2mm_settings.txt inside
+phd2mm_settings folder (has phd2mm_registry.json and phd2mm_settings.txt inside
 upon fresh download and start)
 Once you run and exit the program, put your mods in the phd2mm_mods folder.
 The format should be:
@@ -250,7 +250,7 @@ phd2mm_settings\phd2mm_settings.txt. If not, try exiting the app first.
 leftmost column header.
 -Edit Category, Item, and Description: You can edit the Category, Item, and Description columns by
 double-clicking the cell you want to edit, choosing from a list of options or typing in the new text,
-then pressing Enter. The changes will be saved in phd2mm_settings\phd2mm_registry.txt file. If not,
+then pressing Enter. The changes will be saved in phd2mm_settings\phd2mm_registry.json file. If not,
 try exiting the app first.
 -Show or Hide Category, Item, and Description: You can right-click any of the column headers except
 for the leftmost column header to show or hide the Category, Item, and Description columns.

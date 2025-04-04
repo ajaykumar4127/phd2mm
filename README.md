@@ -337,7 +337,7 @@ phd2mm_settings\phd2mm_settings.txt. If not, try exiting the app first. </br>
 leftmost column header. </br>
 -Edit Category, Item, and Description: You can edit the Category, Item, and Description columns by
 double-clicking the cell you want to edit, choosing from a list of options or typing in the new text,
-then pressing Enter. The changes will be saved in phd2mm_settings\phd2mm_registry.txt file. If not, try exiting
+then pressing Enter. The changes will be saved in phd2mm_settings\phd2mm_registry.json file. If not, try exiting
 the app first. </br>
 -Show or Hide Category, Item, and Description: You can right-click any of the column headers except
 for the leftmost column header to show or hide the Category, Item, and Description columns. </br>
