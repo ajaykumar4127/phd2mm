@@ -348,7 +348,6 @@ Public Class Form1_phd2mm
                 UsedMods_DataGridView.Rows.RemoveAt(e.RowIndex)
             End If
         End If
-        UnusedMods_DataGridView.Sort(UnusedMods_DataGridView.Columns("UnusedMods_DataGridView_ModFolderPathName_Column"), System.ComponentModel.ListSortDirection.Ascending)
     End Sub
     Private Sub RemoveSelectedMod_Button_Click(sender As Object, e As EventArgs) Handles RemoveSelectedMod_Button.Click
         If UsedMods_DataGridView.SelectedRows.Count > 0 Then
@@ -359,7 +358,6 @@ Public Class Form1_phd2mm
                 selectedRow.Cells("UsedMods_DataGridView_Description_Column").Value)
             UsedMods_DataGridView.Rows.Remove(selectedRow)
         End If
-        UnusedMods_DataGridView.Sort(UnusedMods_DataGridView.Columns("UnusedMods_DataGridView_ModFolderPathName_Column"), System.ComponentModel.ListSortDirection.Ascending)
     End Sub
 
     ' Saves all data inside the DataGridViews to the dictionaries as soon as the user finishes editing a cell
