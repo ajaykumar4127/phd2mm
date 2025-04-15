@@ -591,8 +591,8 @@ Public Class Form1_phd2mm
             If Class1.DirectoryValidator.ValidateDirectory(hd2DirectoryPath) Then
                 Class1.ModUninstaller.DeleteModsInThisDirectory(hd2DirectoryPath)
             End If
+            MessageBox.Show("Deleted all currently installed mods.")
         End If
-        MessageBox.Show("Deleted all currently installed mods.")
     End Sub
 
     Private Sub InstallMods_Button_Click(sender As Object, e As EventArgs) Handles InstallMods_Button.Click
