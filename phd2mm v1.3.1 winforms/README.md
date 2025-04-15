@@ -10,9 +10,8 @@ I forgot to mention that if your mods are in compressed files such as zip and ra
 please uncompress/extract them first so that this app can detect and install mods properly. </br>
 Mainly created and tested in Visual Studio 2022,
 Winforms Visual Basic (VB), .NET 9 Framework, Windows 10 64-bit / x64. </br>
+While not explicitly mentioned within the phd2mm v1.3.1 app itself, this application is licensed under the GNU General Public License v3. 
 Feel free to copy, edit, and make your own version of this app! </br>
-However, I do not allow selling this app or any of its parts.
-If you must share this app, please share it for free. </br>
 There are some screenshots below on how the app looks like. </br>
 The information below starting from Table of Contents are also included in "More Info" inside the phd2mm app. </br>
 Anyway, I hope you enjoy using this app!
