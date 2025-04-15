@@ -27,52 +27,76 @@ or version 1.3.1 if you just want something simple.
 <summary> Click this text to show or hide some screenshots of phd2mm app!</summary>
   <details>
    <summary> phd2mm v1.4 </summary>
-    
-  Main Page of phd2mm
-  ![image](https://github.com/user-attachments/assets/417c753d-1b15-422a-9fac-cdaa4a95af5a)
-  Creating Profile
-  ![image](https://github.com/user-attachments/assets/eeba8e3a-0369-48b7-b9f4-12dad9ddf4ca)
-  All the Columns
-  ![image](https://github.com/user-attachments/assets/b36b06c1-80fc-4cfa-9fa3-623d0dc59954)
-  ![image](https://github.com/user-attachments/assets/83e68bae-7d73-46ac-9b30-062a95e098bd)
-  Hiding the Columns
-  ![image](https://github.com/user-attachments/assets/5dd20f46-c4b1-4cbd-bc34-0e0b311eada7)
-  ![image](https://github.com/user-attachments/assets/478fa8cc-2c7d-409c-8844-098ef15e80d9)
-  Selecting Item
-  ![image](https://github.com/user-attachments/assets/c51ad1f6-0719-4194-8bb3-b42466c1b229)
-  Selecting Category
-  ![image](https://github.com/user-attachments/assets/9cdeb868-d45e-45e8-b7e6-60903f5a0938)
-  Installing Mods
-  ![image](https://github.com/user-attachments/assets/abba2ad9-8e37-4cc3-8121-cef8ef6fc8ad)
-  ![image](https://github.com/user-attachments/assets/be4f5129-62f5-440f-9041-2d18a7a94f66)
-  ![image](https://github.com/user-attachments/assets/118927d5-9d21-404f-ac7d-cad24afe9d9b)
-  </br>
-  Searching for mod with either name, category, item, or description with "las"
+      
+  Main Page of phd2mm </br>
+  ![image](https://github.com/user-attachments/assets/417c753d-1b15-422a-9fac-cdaa4a95af5a) </br>
+  Creating Profile </br>
+  ![image](https://github.com/user-attachments/assets/eeba8e3a-0369-48b7-b9f4-12dad9ddf4ca) </br>
+  All the Columns </br>
+  ![image](https://github.com/user-attachments/assets/b36b06c1-80fc-4cfa-9fa3-623d0dc59954) </br>
+  ![image](https://github.com/user-attachments/assets/83e68bae-7d73-46ac-9b30-062a95e098bd) </br>
+  Hiding the Columns </br>
+  ![image](https://github.com/user-attachments/assets/5dd20f46-c4b1-4cbd-bc34-0e0b311eada7) </br>
+  ![image](https://github.com/user-attachments/assets/478fa8cc-2c7d-409c-8844-098ef15e80d9) </br>
+  Selecting Item </br>
+  ![image](https://github.com/user-attachments/assets/c51ad1f6-0719-4194-8bb3-b42466c1b229) </br>
+  Selecting Category </br>
+  ![image](https://github.com/user-attachments/assets/9cdeb868-d45e-45e8-b7e6-60903f5a0938) </br>
+  Installing Mods </br>
+  ![image](https://github.com/user-attachments/assets/abba2ad9-8e37-4cc3-8121-cef8ef6fc8ad) </br>
+  ![image](https://github.com/user-attachments/assets/be4f5129-62f5-440f-9041-2d18a7a94f66) </br>
+  ![image](https://github.com/user-attachments/assets/118927d5-9d21-404f-ac7d-cad24afe9d9b) </br>
+  </br> 
+  Searching for mod with either name, category, item, or description with "las" </br>
   ![image](https://github.com/user-attachments/assets/d919b2fc-4fb0-4625-8d3f-45f3774669c3)
-  Settings and Mod Randomization Options (Full Helldivers 2 data folder path is censored here, but is actually shown in the app)
-  ![image](https://github.com/user-attachments/assets/b47610ad-af07-4145-a7c7-72f05ec42485)
-
+  Settings and Mod Randomization Options (Full Helldivers 2 data folder path is censored here, but is actually shown in the app) </br>
+  ![image](https://github.com/user-attachments/assets/b47610ad-af07-4145-a7c7-72f05ec42485) </br>
+  
+  Themes Tab (NOTE: Due to WinForms limitations, some parts like borders and tabs cannot be colored) </br>
+  ![image](https://github.com/user-attachments/assets/220dee9b-b852-4aa2-9096-e5b3ee5cf231) </br>
+  Testing Profile-Specific Theme  (Full image path is censored here, but is actually shown in the app) </br>
+  ![image](https://github.com/user-attachments/assets/ced64943-1d1d-4b9d-9671-69334b1ccf16) </br>
+  ![image](https://github.com/user-attachments/assets/bb15e951-3316-4f7e-a7b4-a0a43a3fb3cb) </br>
+  ![image](https://github.com/user-attachments/assets/40576966-9647-40f0-84c9-6d54e986261d) </br>
+  ![image](https://github.com/user-attachments/assets/e5985c5d-7164-4874-802e-850a99f3224e) </br>
+  Testing Different Themes </br>
+  Light Theme (phd2mm_light, can't be edited or deleted because it's 1 of 2 default themes) </br>
+  ![image](https://github.com/user-attachments/assets/7dfacd7e-cc0c-4b49-9a0e-be7d2616599f) </br>
+  ![image](https://github.com/user-attachments/assets/25793831-748b-4a34-9356-a19b969f6bf8) </br>
+  Dark Theme (phd2mm_dark, can't be edited or deleted because it's 1 of 2 default themes) </br>
+  ![image](https://github.com/user-attachments/assets/c6fa5d15-1e98-481d-b5e1-5ec8450038d7) </br>
+  ![image](https://github.com/user-attachments/assets/ca1271fa-37ae-4a57-b934-8445dad2e34b) </br>
+  Trepang2 Test Theme (trepang2, custom theme) </br>
+  ![image](https://github.com/user-attachments/assets/ecd54cc8-f811-4796-93d2-250000106934) </br>
+  ![image](https://github.com/user-attachments/assets/a0377aa0-a84b-4d8f-ae1f-0ae87f83534d) </br>
+  Helldiver Test Theme (helldiver_test, custom theme) </br>
+  ![image](https://github.com/user-attachments/assets/2a9d6211-e97e-4252-9957-cf89afcb05b1) </br>
+  ![image](https://github.com/user-attachments/assets/7ab7f58a-e60c-4c80-88c8-c207e21cd5ad) </br>
+  Test Theme (test1, custom theme) </br>
+  WARNING: May damage your eyes, this theme is meant for testing more colors. </br>
+  ![image](https://github.com/user-attachments/assets/6bac671a-723c-4cef-a72b-c129de60ffa6) </br>
+  ![image](https://github.com/user-attachments/assets/dcdad62b-0828-4de4-a552-fe6154f39f19) </br>
   </details>
  
  <details>
   <summary> phd2mm v1.3.1 (Some images show v1.3, but it's similar to v1.3.1. Only big difference is Category column options is now limited to the Item column value.) </summary>
    
-   Main Page of phd2mm
-   ![image](https://github.com/user-attachments/assets/159ce652-61d0-4f7e-9828-8e7b3d544909)
-   Creating Profile
-   ![image](https://github.com/user-attachments/assets/25df7729-2436-46e6-8023-084ea23a25dd)
-   Selecting Item
-   ![image](https://github.com/user-attachments/assets/b2e51ceb-859e-44c9-a225-46c1893fd09a)
-   Selecting Category
-   ![image](https://github.com/user-attachments/assets/a7689a06-3ba2-4378-ac8c-307481e68764)
-   Installing Mods
-   ![image](https://github.com/user-attachments/assets/0f4e23bd-ccc4-44ad-a3a3-1397b6ecdb80)
-   Toggling Dark Mode
-   ![image](https://github.com/user-attachments/assets/069396e8-acd9-415e-8e37-94bbc9f50c1d)
-   Searching for mod with either name, category, item, or description with "las"
-   ![image](https://github.com/user-attachments/assets/23e3e340-33a2-470d-9ec3-29ad24e41255)
-   Mod Randomization Options (doesn't take mod conflict into account)
-   ![image](https://github.com/user-attachments/assets/62521a36-d66b-4ac1-b361-0ae3e920d22f)
+   Main Page of phd2mm </br>
+   ![image](https://github.com/user-attachments/assets/159ce652-61d0-4f7e-9828-8e7b3d544909) </br>
+   Creating Profile </br>
+   ![image](https://github.com/user-attachments/assets/25df7729-2436-46e6-8023-084ea23a25dd) </br>
+   Selecting Item </br>
+   ![image](https://github.com/user-attachments/assets/b2e51ceb-859e-44c9-a225-46c1893fd09a) </br>
+   Selecting Category </br>
+   ![image](https://github.com/user-attachments/assets/a7689a06-3ba2-4378-ac8c-307481e68764) </br>
+   Installing Mods </br>
+   ![image](https://github.com/user-attachments/assets/0f4e23bd-ccc4-44ad-a3a3-1397b6ecdb80) </br>
+   Toggling Dark Mode </br>
+   ![image](https://github.com/user-attachments/assets/069396e8-acd9-415e-8e37-94bbc9f50c1d) </br>
+   Searching for mod with either name, category, item, or description with "las" </br>
+   ![image](https://github.com/user-attachments/assets/23e3e340-33a2-470d-9ec3-29ad24e41255) </br>
+   Mod Randomization Options (doesn't take mod conflict into account) </br>
+   ![image](https://github.com/user-attachments/assets/62521a36-d66b-4ac1-b361-0ae3e920d22f) </br>
   </details>
 </details>
 
@@ -381,7 +405,7 @@ WARNING: This simple mod randomization does not take mod conflicts into account.
 -Themes or Theme Manager: Located in the "Themes" tab. </br>
 You can create, duplicate, edit, and delete custom themes. To change color, ycan set color either by clicking the colored boxes to use the color picker </br>
 or enter a hex code in the text box. </br>
-NOTE: Due to WinForms limitations, some borders cannot be colored. </br>
+NOTE: Due to WinForms limitations, some parts like borders and tabs cannot be colored. </br>
 You can also set an image to be displayed in the top right of the "Mod Manager" tab. </br>
 To add an image, click the "Browse" button to find the image file, or manually enter the image path in the text box. </br>
 NOTE: Only image files in the following formats are accepted: *.png, *.jpg, *.jpeg, *.bmp, *.gif. </br>
@@ -417,7 +441,7 @@ Previously, hidden columns would reset and become visible again. </br>
 -App will now also create phd2mm_themes folder. </br>
 -Replaced "Toggle Light/Dark Mode" with a theme manager, found in the "Themes" tab. </br>
 You can now create, duplicate, edit, and delete custom themes. You cannot edit and delete default themes, "phd2mm_light" and "phd2mm_dark". </br>
-NOTE: Due to WinForms limitations, some borders cannot be colored. </br>
+NOTE: Due to WinForms limitations, some parts like borders and tabs cannot be colored. </br>
 You can now set a global theme or assign profile-specific themes. Profile-specific theme will be prioritized over global theme. </br>
 You can also set an image to be displayed in the top right of the "Mod Manager" tab. </br>
 NOTE: Only image files in the following formats are accepted: *.png, *.jpg, *.jpeg, *.bmp, *.gif. </br>
