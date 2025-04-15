@@ -22,23 +22,24 @@ Or you can just click this link https://github.com/ajaykumar4127/phd2mm/releases
 ### Screenshots of phd2mm App
 <details open>
 <summary> Click this text to show or hide some screenshots of phd2mm app!</summary>
-Main Page of phd2mm
- 
-![image](https://github.com/user-attachments/assets/159ce652-61d0-4f7e-9828-8e7b3d544909)
-Creating Profile
-![image](https://github.com/user-attachments/assets/25df7729-2436-46e6-8023-084ea23a25dd)
-Selecting Category
-![image](https://github.com/user-attachments/assets/df4a4238-06b8-4137-8cb4-c51c9fa9f849)
-Selecting Item
-![image](https://github.com/user-attachments/assets/1cd5b226-50bf-4150-9a58-d267dd110a98)
-Installing Mods
-![image](https://github.com/user-attachments/assets/0f4e23bd-ccc4-44ad-a3a3-1397b6ecdb80)
-Toggling Dark Mode
-![image](https://github.com/user-attachments/assets/069396e8-acd9-415e-8e37-94bbc9f50c1d)
-Searching for mod with either name, category, item, or description with "las"
-![image](https://github.com/user-attachments/assets/23e3e340-33a2-470d-9ec3-29ad24e41255)
-Mod Randomization Options (doesn't take mod conflict into account)
-![image](https://github.com/user-attachments/assets/62521a36-d66b-4ac1-b361-0ae3e920d22f)
+
+   Some images show v1.3, but it's similar to v1.3.1. Only big difference is Category column options is now limited to the Item column value. </br>
+   Main Page of phd2mm </br>
+   ![image](https://github.com/user-attachments/assets/159ce652-61d0-4f7e-9828-8e7b3d544909) </br>
+   Creating Profile </br>
+   ![image](https://github.com/user-attachments/assets/25df7729-2436-46e6-8023-084ea23a25dd) </br>
+   Selecting Item </br>
+   ![image](https://github.com/user-attachments/assets/b2e51ceb-859e-44c9-a225-46c1893fd09a) </br>
+   Selecting Category </br>
+   ![image](https://github.com/user-attachments/assets/a7689a06-3ba2-4378-ac8c-307481e68764) </br>
+   Installing Mods </br>
+   ![image](https://github.com/user-attachments/assets/0f4e23bd-ccc4-44ad-a3a3-1397b6ecdb80) </br>
+   Toggling Dark Mode </br>
+   ![image](https://github.com/user-attachments/assets/069396e8-acd9-415e-8e37-94bbc9f50c1d) </br>
+   Searching for mod with either name, category, item, or description with "las" </br>
+   ![image](https://github.com/user-attachments/assets/23e3e340-33a2-470d-9ec3-29ad24e41255) </br>
+   Mod Randomization Options (doesn't take mod conflict into account) </br>
+   ![image](https://github.com/user-attachments/assets/62521a36-d66b-4ac1-b361-0ae3e920d22f) </br>
 </details>
 
 </br>
