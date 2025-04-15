@@ -1,5 +1,5 @@
 # Personal Helldivers 2 Mod Manager (phd2mm)
-Hello! Welcome to Personal_HD2ModManager v1.3!
+Hello! Welcome to Personal_HD2ModManager v1.4!
 This is NOT the famous teutinsa's HD2ModManager, which is in the link below: </br>
 https://www.nexusmods.com/helldivers2/mods/109
 </br>
