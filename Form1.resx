@@ -147,6 +147,48 @@
   <metadata name="UnusedMods_DataGridView_ModLink_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="UnusedMods_DataGridView_ModFolderPathName_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UnusedMods_DataGridView_ModName_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UnusedMods_DataGridView_Item_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UnusedMods_DataGridView_Category_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UnusedMods_DataGridView_Description_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UnusedMods_DataGridView_ImagePath_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UnusedMods_DataGridView_DateAdded_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UnusedMods_DataGridView_ModVersion_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UnusedMods_DataGridView_ModLink_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UsedMods_DataGridView_ModName_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UsedMods_DataGridView_ImagePath_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UsedMods_DataGridView_DateAdded_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UsedMods_DataGridView_ModVersion_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UsedMods_DataGridView_ModLink_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="UsedMods_DataGridView_ModName_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -167,6 +209,100 @@
   </metadata>
   <metadata name="UsedMods_DataGridView_ContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>570, 17</value>
+  </metadata>
+  <data name="TextBox2.Text" xml:space="preserve">
+    <value>v1.4
+-Redesigned UI.
+-Added columns: Name, Version, Image, Date Added, and Link.
+Previously, it was just Mod Folder Path + Name, Item, Category, and Description columns.
+Now, the columns in order, are Mod Folder Path + Name, Name, Item, Category, Version, Image, Date Added and Link.
+However, image display in the Image column is not implemented, so it's hidden by default.
+-Clarified mod randomization options.
+-Added tab pages to the mod. As a result, 2 windows have been relocated into tabs.
+1. The "More Info" button has been removed, its contents are now found in the "More Info" tab.
+2. The "Mod Randomization Option" button has been removed, its contents are now found in the "Settings" tab.
+-Browsing your Helldivers 2 data folder path is now in the "Settings" tab.
+-Changed settings.txt file with settings.json file.
+WARNING: You will need to set your Helldivers 2 data folder path again.
+-Column visibility is now saved between sessions.
+For example, if you hide the Image column and close the app, it will remain hidden next time you open it.
+Previously, hidden columns would reset and become visible again.
+-App will now also create phd2mm_themes folder.
+-Replaced "Toggle Light/Dark Mode" with a theme manager, found in the "Themes" tab.
+You can now create, duplicate, edit, and delete custom themes. You cannot edit and delete default themes, "phd2mm_light" and "phd2mm_dark".
+NOTE: Due to WinForms limitations, some parts like borders and tabs cannot be colored.
+You can now set a global theme or assign profile-specific themes. Profile-specific theme will be prioritized over global theme.
+You can also set an image to be displayed in the top right of the "Mod Manager" tab.
+NOTE: Only image files in the following formats are accepted: *.png, *.jpg, *.jpeg, *.bmp, *.gif.
+Don't forget to click the "Save Changes" button to save your changes.
+Custom themes are saved in the phd2mm_themes folder. If they are not there or changes aren't saved, try exiting the app first.
+-Added GNU General Public License (GPL) version 3 license.
+
+v1.3.1
+-Fixed UnusedMods_DataGridView not sorting by name by default even when adding new mods when it should have.
+-Replaced "Armor" in Category selection with "Armor Both Bodies", "Armor Brawny Body", and "Armor Lean Body".
+-Added "Automaton Chant", "Ship Screen", and "Ship TV" to Item column selection.
+-Replaced "PA System" to "Ship PA System" in Item column selection for clarity.
+-Fixed UnusedMods_DataGridView Category column having minimum width of 5 instead of 50.
+-Swapped around Category column and Item column.
+-Linked the Category column options to the Item column options. This means, for example, you chose "JAR-5 Dominator" as Item, then the Category column options will be limited to
+"Weapon Audio" and "Weapon Skin" only, rather than all of the Category column options. Now, only Item "Other" can show the entire Category column options. 
+-Replaced "phd2mm_registry.txt" with "phd2mm_registry.json".
+-Resizing the app beyond its original resolution will actually make all the things in it bigger rather than just the app itself. However, the act of resizing them may create lag.
+
+v1.3
+Form1_phd2mm Personal Helldivers 2 Mod Manager (phd2mm) v1.3 Main Page:
+-Redesigned UI.
+-Increased size of the main app, "Form1_phd2mm", from 1181x890 resolution to 1759x928 resolution to fit new UI redesign.
+-Changed the two ListBoxes to DataGridViews to enable categorization and easier sorting of mods.
+-Added "Category" and "Item" ComboBox columns to both of the DataGridViews.
+-Added "#" or Mod Order Number column to the DataGridView on the right side, "Mods used in this profile:". User can directly change the mod order by editing the number in this column.
+-Allowed scrolling when resizing the main app, "Form1_phd2mm".
+-Removed Label1 "Hello! Welcome to Personal Helldivers 2 Mod Manager (phd2mm)"
+-Capitalized the letter M/m of the second word "Search mod:" so now it looks like "Search Mod:" for consistency.
+-Enabled WrapMode to allow text to wrap in both of the DataGridViews, making the row bigger rather than cutting off the text.
+-Drag and drop now only works with the DataGridView on the right side, "Mods used in this profile:". To start drag and dropping, click the row header cell (or the leftmost cell in the row) then drag and drop.
+Due to this, it conflicts with double-clicking the row header cell to add or remove mods. Drag and drop is prioritized over double-clicking in this case. Double clicking row header cell still works with the
+DataGridView on the left side, "Mods not used in the profile:".
+-Changed the way the adding and removing mod works. Now, you can add and remove mods by double-clicking the cell that belongs to the Mod Folder Path + Name column or by
+clicking the row header cell once then click the "Add Selected Mod" or "Remove Selected Mod" buttons. Double-clicking the row header (or the leftmost cell in the row) only works with
+UnusedMods_DataGridView and not with UsedMods_DataGridView due to conflict with drag and drop.
+-App will now create "phd2mm_settings" folder, which includes "phd2mm_settings.txt" (previously in the same directory as the phd2mm app) and a new text file "phd2mm_registry" which
+contains the details of each mod (mod folder path + name, category, item, and description, each separated by tab whitespace).
+-Added check when deleting last remaining profile, not allowing user to delete the last profile unless they create another profile.
+-App will now traverse through subfolders, only getting folders that have files with ".patch_" in their names.
+-Added "Delete All Installed Mods" button.
+-More mod randomization options by clicking "Mod Randomization Options".
+-Added an context menu option to right-click the "Category", "Item", and "Description" columns to toggle their visibility.
+
+Form3_InstallMods Installing Helldivers 2 Mods Page:
+-Slightly increased the size of "Form3_InstalledMods" form from 836x521 resolution to 906x576 resolution.
+-Added the text "Deleted old mods in Helldivers 2 data folder." after deleting old mods in the Helldivers 2 data folder.
+
+Form4_MoreInfo More Info Page:
+-Slightly increased the size of "Form4_MoreInfo" form from 723x638 resolution to 789x677 resolution.
+-Added credits.
+-Updated the text in the "More Info" form.
+
+v1.2
+-Added search bar to easily find mods.
+-Added a simple mod randomization function. You can enable this by clicking "Enable Mod Randomization Option" to allow the "Randomly Add and Remove Mods" button to be
+clicked. To disable this, click the "Disable Mod Randomization Option". The reason for this is for user safety in case they wanted to move the mod up or down or to install the mods.
+This way, users will not accidentally randomize their chosen mods. As of this time, this simple randomization does not take mod conflicts into account, so be warned.
+-Changed text in Form4_MoreInfo from "Form4" to "More Info".
+-Capitalized text initials of Form2_CreateNewProfile from "Creating new profile" to "Creating New Profile" for consistency.
+ 
+v1.1
+-Added drag and drop feature to the TextBox under "Mods used in this profile:", allowing users to an easier way to rearrange their mod list order.
+
+v1.0
+-First release. Didn't have drag and drop then.</value>
+  </data>
+  <metadata name="Themes_ProfileSpecificThemes_DataGridView_Profile_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Themes_ProfileSpecificThemes_DataGridView_Theme_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="Themes_ProfileSpecificThemes_DataGridView_Profile_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -309,7 +445,7 @@ WARNING: This simple mod randomization does not take mod conflicts into account.
 -Themes or Theme Manager: Located in the "Themes" tab.
 You can create, duplicate, edit, and delete custom themes. To change color, ycan set color either by clicking the colored boxes to use the color picker
 or enter a hex code in the text box.
-NOTE: Due to WinForms limitations, some borders cannot be colored.
+NOTE: Due to WinForms limitations, some parts like borders and tabs cannot be colored.
 You can also set an image to be displayed in the top right of the "Mod Manager" tab.
 To add an image, click the "Browse" button to find the image file, or manually enter the image path in the text box.
 NOTE: Only image files in the following formats are accepted: *.png, *.jpg, *.jpeg, *.bmp, *.gif.
@@ -321,97 +457,7 @@ The left column lists profile names.
 The right column lets you select a theme for each profile from a dropdown menu.
 To remove a profile-specific theme, select the empty option in the dropdown. This will make the profile use the global theme instead.
 The custom themes are saved in phd2mm_themes folder, each as a separate &lt;custom_theme_name&gt;.json file.
-If they are not there or the changes are not saved, then try exiting the app first.
-</value>
-  </data>
-  <data name="TextBox2.Text" xml:space="preserve">
-    <value>v1.4
--Redesigned UI.
--Added columns: Name, Version, Image, Date Added, and Link.
-Previously, it was just Mod Folder Path + Name, Item, Category, and Description columns.
-Now, the columns in order, are Mod Folder Path + Name, Name, Item, Category, Version, Image, Date Added and Link.
-However, image display in the Image column is not implemented, so it's hidden by default.
--Clarified mod randomization options.
--Added tab pages to the mod. As a result, 2 windows have been relocated into tabs.
-1. The "More Info" button has been removed, its contents are now found in the "More Info" tab.
-2. The "Mod Randomization Option" button has been removed, its contents are now found in the "Settings" tab.
--Browsing your Helldivers 2 data folder path is now in the "Settings" tab.
--Changed settings.txt file with settings.json file.
-WARNING: You will need to set your Helldivers 2 data folder path again.
--Column visibility is now saved between sessions.
-For example, if you hide the Image column and close the app, it will remain hidden next time you open it.
-Previously, hidden columns would reset and become visible again.
--App will now also create phd2mm_themes folder.
--Replaced "Toggle Light/Dark Mode" with a theme manager, found in the "Themes" tab.
-You can now create, duplicate, edit, and delete custom themes. You cannot edit and delete default themes, "phd2mm_light" and "phd2mm_dark".
-NOTE: Due to WinForms limitations, some borders cannot be colored.
-You can now set a global theme or assign profile-specific themes. Profile-specific theme will be prioritized over global theme.
-You can also set an image to be displayed in the top right of the "Mod Manager" tab.
-NOTE: Only image files in the following formats are accepted: *.png, *.jpg, *.jpeg, *.bmp, *.gif.
-Don't forget to click the "Save Changes" button to save your changes.
-Custom themes are saved in the phd2mm_themes folder. If they are not there or changes aren't saved, try exiting the app first.
--Added GNU General Public License (GPL) version 3 license.
-
-v1.3.1
--Fixed UnusedMods_DataGridView not sorting by name by default even when adding new mods when it should have.
--Replaced "Armor" in Category selection with "Armor Both Bodies", "Armor Brawny Body", and "Armor Lean Body".
--Added "Automaton Chant", "Ship Screen", and "Ship TV" to Item column selection.
--Replaced "PA System" to "Ship PA System" in Item column selection for clarity.
--Fixed UnusedMods_DataGridView Category column having minimum width of 5 instead of 50.
--Swapped around Category column and Item column.
--Linked the Category column options to the Item column options. This means, for example, you chose "JAR-5 Dominator" as Item, then the Category column options will be limited to
-"Weapon Audio" and "Weapon Skin" only, rather than all of the Category column options. Now, only Item "Other" can show the entire Category column options. 
--Replaced "phd2mm_registry.txt" with "phd2mm_registry.json".
--Resizing the app beyond its original resolution will actually make all the things in it bigger rather than just the app itself. However, the act of resizing them may create lag.
-
-v1.3
-Form1_phd2mm Personal Helldivers 2 Mod Manager (phd2mm) v1.3 Main Page:
--Redesigned UI.
--Increased size of the main app, "Form1_phd2mm", from 1181x890 resolution to 1759x928 resolution to fit new UI redesign.
--Changed the two ListBoxes to DataGridViews to enable categorization and easier sorting of mods.
--Added "Category" and "Item" ComboBox columns to both of the DataGridViews.
--Added "#" or Mod Order Number column to the DataGridView on the right side, "Mods used in this profile:". User can directly change the mod order by editing the number in this column.
--Allowed scrolling when resizing the main app, "Form1_phd2mm".
--Removed Label1 "Hello! Welcome to Personal Helldivers 2 Mod Manager (phd2mm)"
--Capitalized the letter M/m of the second word "Search mod:" so now it looks like "Search Mod:" for consistency.
--Enabled WrapMode to allow text to wrap in both of the DataGridViews, making the row bigger rather than cutting off the text.
--Drag and drop now only works with the DataGridView on the right side, "Mods used in this profile:". To start drag and dropping, click the row header cell (or the leftmost cell in the row) then drag and drop.
-Due to this, it conflicts with double-clicking the row header cell to add or remove mods. Drag and drop is prioritized over double-clicking in this case. Double clicking row header cell still works with the
-DataGridView on the left side, "Mods not used in the profile:".
--Changed the way the adding and removing mod works. Now, you can add and remove mods by double-clicking the cell that belongs to the Mod Folder Path + Name column or by
-clicking the row header cell once then click the "Add Selected Mod" or "Remove Selected Mod" buttons. Double-clicking the row header (or the leftmost cell in the row) only works with
-UnusedMods_DataGridView and not with UsedMods_DataGridView due to conflict with drag and drop.
--App will now create "phd2mm_settings" folder, which includes "phd2mm_settings.txt" (previously in the same directory as the phd2mm app) and a new text file "phd2mm_registry" which
-contains the details of each mod (mod folder path + name, category, item, and description, each separated by tab whitespace).
--Added check when deleting last remaining profile, not allowing user to delete the last profile unless they create another profile.
--App will now traverse through subfolders, only getting folders that have files with ".patch_" in their names.
--Added "Delete All Installed Mods" button.
--More mod randomization options by clicking "Mod Randomization Options".
--Added an context menu option to right-click the "Category", "Item", and "Description" columns to toggle their visibility.
-
-Form3_InstallMods Installing Helldivers 2 Mods Page:
--Slightly increased the size of "Form3_InstalledMods" form from 836x521 resolution to 906x576 resolution.
--Added the text "Deleted old mods in Helldivers 2 data folder." after deleting old mods in the Helldivers 2 data folder.
-
-Form4_MoreInfo More Info Page:
--Slightly increased the size of "Form4_MoreInfo" form from 723x638 resolution to 789x677 resolution.
--Added credits.
--Updated the text in the "More Info" form.
-
-v1.2
--Added search bar to easily find mods.
--Added a simple mod randomization function. You can enable this by clicking "Enable Mod Randomization Option" to allow the "Randomly Add and Remove Mods" button to be
-clicked. To disable this, click the "Disable Mod Randomization Option". The reason for this is for user safety in case they wanted to move the mod up or down or to install the mods.
-This way, users will not accidentally randomize their chosen mods. As of this time, this simple randomization does not take mod conflicts into account, so be warned.
--Changed text in Form4_MoreInfo from "Form4" to "More Info".
--Capitalized text initials of Form2_CreateNewProfile from "Creating new profile" to "Creating New Profile" for consistency.
- 
-v1.1
--Added drag and drop feature to the TextBox under "Mods used in this profile:", allowing users to an easier way to rearrange their mod list order.
-
-v1.0
--First release. Didn't have drag and drop then.
-</value>
+If they are not there or the changes are not saved, then try exiting the app first.</value>
   </data>
   <data name="TextBox1.Text" xml:space="preserve">
     <value>1. teutinsa, their team, and their popular project HD2ModManager for the inspiration to create this app.

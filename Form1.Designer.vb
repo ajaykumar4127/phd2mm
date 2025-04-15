@@ -23,25 +23,25 @@ Partial Class Form1_phd2mm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle31 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle32 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle34 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle35 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle36 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle37 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle38 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1_phd2mm))
         Label2 = New Label()
         Hd2DataPathPreview_TextBox = New TextBox()
@@ -471,8 +471,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UnusedMods_DataGridView_ModFolderPathName_Column
         ' 
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        UnusedMods_DataGridView_ModFolderPathName_Column.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle20.WrapMode = DataGridViewTriState.True
+        UnusedMods_DataGridView_ModFolderPathName_Column.DefaultCellStyle = DataGridViewCellStyle20
         UnusedMods_DataGridView_ModFolderPathName_Column.HeaderText = "Mod Folder Path + Name"
         UnusedMods_DataGridView_ModFolderPathName_Column.MinimumWidth = 50
         UnusedMods_DataGridView_ModFolderPathName_Column.Name = "UnusedMods_DataGridView_ModFolderPathName_Column"
@@ -481,8 +481,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UnusedMods_DataGridView_ModName_Column
         ' 
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        UnusedMods_DataGridView_ModName_Column.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle21.WrapMode = DataGridViewTriState.True
+        UnusedMods_DataGridView_ModName_Column.DefaultCellStyle = DataGridViewCellStyle21
         UnusedMods_DataGridView_ModName_Column.HeaderText = "Name"
         UnusedMods_DataGridView_ModName_Column.MinimumWidth = 50
         UnusedMods_DataGridView_ModName_Column.Name = "UnusedMods_DataGridView_ModName_Column"
@@ -490,8 +490,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UnusedMods_DataGridView_Item_Column
         ' 
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
-        UnusedMods_DataGridView_Item_Column.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle22.WrapMode = DataGridViewTriState.True
+        UnusedMods_DataGridView_Item_Column.DefaultCellStyle = DataGridViewCellStyle22
         UnusedMods_DataGridView_Item_Column.FlatStyle = FlatStyle.Flat
         UnusedMods_DataGridView_Item_Column.HeaderText = "Item"
         UnusedMods_DataGridView_Item_Column.Items.AddRange(New Object() {"A/AC-8 Autocannon Sentry", "A/ARC-3 Tesla Tower", "A/FLAM-40 Flame Sentry", "A/G-16 Gatling Sentry", "A/M-12 Mortar Sentry", "A/M-23 EMS Mortar Sentry", "A/MG-43 Machine Gun Sentry", "A/MLS-4X Rocket Sentry", "AC-1 Dutiful", "AC-2 Obedient", "AC-8 Autocannon", "AF-02 Haz-Master", "AF-50 Noxious Ranger", "AF-52 Lockdown", "AF-91 Field Chemist", "Agent of Oblivion", "Alpha Commander", "Alpha Warrior", "Annihilator Tank", "APW-1 Anti-Materiel Rifle", "AR-23 Liberator", "AR-23A Liberator Carbine", "AR-23C Liberator Concussive", "AR-23P Liberator Penetrator", "AR-61 Tenderizer", "ARC-12 Blitzer", "ARC-3 Arc Thrower", "Assault Raider", "Automaton Chant", "Automaton Music", "AX/AR-23 'Guard Dog'", "AX/LAS-5 'Guard Dog' Rover", "AX/TX-13 'Guard Dog' Dog Breath", "B-01 Tactical v1", "B-01 Tactical v2", "B-01 Tactical v3", "B-01 Tactical v4", "B-08 Light Gunner", "B-1 Supply Pack", "B-100 Portable Hellbomb", "B-22 Model Citizen", "B-24 Enforcer", "B-27 Fortified Commando", "Barrager Tank", "Bastion of Integrity", "Berserker", "Bile Spewer", "Bile Spitter", "Bile Titan", "Bile Warrior", "Blazing Samaritan", "Botslayer", "BR-14 Adjudicator", "Brawler", "Brood Commander", "Bunker Turret", "Cannon Turret", "CB-9 Exploding Crossbow", "CE-07 Demolition Specialist", "CE-101 Guerilla Gorilla", "CE-27 Ground Breaker", "CE-35 Trench Engineer", "CE-64 Grenadier", "CE-67 Titan", "CE-74 Breaker", "CE-81 Juggernaut", "Charger", "Charger Behemoth", "Cloak of Posterity's Gratitude", "CM-09 Bonesnapper", "CM-10 Clinician", "CM-14 Physician", "CM-17 Butcher", "CM-21 Trench Paramedic", "Commissar", "Conflagration Devastator", "Cover of Darkness", "CQC-19 Stun Lance", "CQC-30 Stun Baton", "CQC-5 Combat Hatchet", "Cresting Honor", "CW-22 Kodiak", "CW-36 Winter Warrior", "CW-4 Arctic Ranger", "CW-9 White Wolf", "Death - Team", "Death - Yours", "Defender of Our Dream", "Democracy Officer", "Descent", "Devastator", "Dissident's Nightmare", "DP-00 Tactical", "DP-11 Champion of the People", "DP-40 Hero of the Federation", "DP-53 Savior of the Free", "Drape of Glory", "Dropship", "E/AT-12 Anti-Tank Emplacement", "E/GL-21 Grenadier Battlement", "E/MG-101 HMG Emplacement", "Eagle 110mm Rocket Pods", "Eagle 500kg Bomb", "Eagle Airstrike", "Eagle Cluster Bomb", "Eagle Napalm Airstrike", "Eagle Smoke Strike", "Eagle Strafing Run", "Eagle-1", "Eagle's Fury", "EAT-17 Expendable Anti-Tank", "Elevated Overseer", "Emblem of Freedom", "Entrenchment Tool", "EX-00 Prototype X", "EX-03 Prototype 3", "EX-16 Prototype 16", "Executioner's Canopy", "EXO-45 Patriot Exosuit", "EXO-49 Emancipator Exosuit", "Experimental Infusion", "Extraction", "Eye of Freedom", "Factory Strider", "FAF-14 Spear", "Fallen Hero's Vengeance", "Flag Raise", "FLAM-40 Flamethrower", "FLAM-66 Torcher", "Foesmasher", "Fre Liberam", "Freedom's Tapestry", "FS-05 Marksman", "FS-11 Executioner", "FS-23 Battle Master", "FS-34 Exterminator", "FS-37 Ravager", "FS-38 Eradicator", "FS-55 Devastator", "FS-61 Dreadnought", "FX-12 Shield Generator Relay", "G-10 Incendiary", "G-12 High Explosive", "G-123 Thermite", "G-13 Incendiary Impact", "G-16 Impact", "G-23 Stun", "G-3 Smoke", "G-4 Gas", "G-50 Seeker", "G-6 Frag", "GL-21 Grenade Launcher", "GP-31 Grenade Pistol", "GP-31 Ultimatum", "GR-8 Recoilless Rifle", "Greatcloak of Rebar Resolve", "GS-11 Democracy's Deputy", "GS-17 Frontier Marshall", "GS-66 Lawmaker", "Gunship", "Harbinger of True Equality", "Harvester", "Heavy Devastator", "Hellbomb", "Helldiver Voice 1", "Helldiver Voice 2", "Helldiver Voice 3", "Helldiver Voice 4", "Hive Guard", "Holder of the Yellow Line", "Hulk", "Hulk Firebomber", "Hunter", "I-09 Heatseeker", "I-102 Draconaught", "I-44 Salamander", "I-92 Fire Fighter", "ICBM", "Icons", "IE-12 Righteous", "IE-3 Martyr", "IE-57 Hell-Bent", "Illuminate Music", "Impaler", "Incendiary MG Devastator", "Incendiary Rocket Devastator", "Independence Bringer", "JAR-5 Dominator", "Judgment Day", "K-2 Throwing Knife", "LAS-16 Sickle", "LAS-17 Double-Edge Sickle", "LAS-5 Scythe", "LAS-58 Talon", "LAS-7 Dagger", "LAS-98 Laser Cannon", "LAS-99 Quasar Cannon", "Liberty's Herald", "LIFT-850 Jump Pack", "LIFT-860 Hover Pack", "Light of Eternal Liberty", "Loading Screen", "M-102 Fast Recon Vehicle", "M-105 Stalwart", "Mantle of True Citizenship", "Marauder", "Mark of the Crimson Fang", "Martyris Rex", "MD-17 Anti-Tank Mines", "MD-6 Anti-Personnel Minefield", "MD-8 Gas Mines", "MD-I4 Incendiary Mines", "MG Raider", "MG-206 Heavy Machine Gun", "MG-43 Machine Gun", "Mission Control", "MLS-4X Commando", "MP-98 Knight", "Nursing Spewer", "Orbital 120mm HE Barrage", "Orbital 380mm HE Barrage", "Orbital Airburst Strike", "Orbital EMS Strike", "Orbital Gas Strike", "Orbital Gatling Barrage", "Orbital Laser", "Orbital Napalm Barrage", "Orbital Precision Strike", "Orbital Railcannon Strike", "Orbital Smoke Strike", "Orbital Walking Barrage", "Order of the Venerated Ballot", "Other", "Overseer", "P-11 Stim Pistol", "P-113 Verdict", "P-19 Redeemer", "P-2 Peacemaker", "P-4 Senator", "P-72 Crisper", "Patient Zero's Remembrance", "Pelican-1", "Per Democrasum", "PH-202 Twigsnapper", "PH-56 Jaguar", "PH-9 Predator", "Pinions of Everlasting Glory", "PLAS-1 Scorcher", "PLAS-101 Purifier", "PLAS-15 Loyalist", "PLAS-39 Accelerator Rifle", "Pouncer", "Predator Hunter", "Predator Stalker", "Pride of the Whistleblower", "Proof of Faultless Virtue", "Purifying Eclipse", "Pyro Trooper", "R-2124 Constitution", "R-36 Eruptor", "R-6 Deadeye", "R-63 Diligence", "R-63CS Diligence Counter Sniper", "Reaper of Bounties", "Rebar Resolve", "Reinforced Scout Strider", "RL-77 Airburst Rocket Launcher", "Rocket Devastator", "Rocket Raider", "RS-422 Railgun", "SA-04 Combat Technician", "SA-12 Servo Assisted", "SA-25 Steel Trooper", "SA-32 Dynamo", "SC-15 Drone Master", "SC-30 Trailblazer Scout", "SC-34 Infiltrator", "SC-37 Legionnaire", "Scavenger", "Scout Strider", "SG-20 Halt", "SG-22 Bushwhacker", "SG-225 Breaker", "SG-225IE Breaker Incendiary", "SG-225SP Breaker Spray & Pray", "SG-451 Cookout", "SG-8 Punisher", "SG-88 Break-Action Shotgun", "SG-8P Punisher Plasma", "SG-8S Slugger", "SH-20 Ballistic Shield Backpack", "SH-32 Shield Generator Pack", "SH-51 Directional Shield", "Ship", "Ship Map Music", "Ship Music", "Ship PA System", "Ship TV", "Shredder Tank", "Shrieker", "SMG-32 Reprimand", "SMG-37 Defender", "SMG-72 Pummeler", "Solid Black", "Spore Burst Hunter", "Spore Burst Scavenger", "Spore Burst Warrior", "Spore Charger", "SR-18 Roadblock", "SR-24 Street Scout", "SR-64 Cinderblock", "StA-11 SMG", "StA-52 Assault Rifle", "StA-X3 W.A.S.P. Launcher", "Stalker", "Standard of Safe Distance", "Stars and Suffrage", "Stim", "Stone-Wrought Perseverance", "Stratagem Input", "Strength in Our Arms", "TED-63 Dynamite", "Terminal", "Terminid Music", "The Breach", "The Cape of Stars and Suffrage", "Tideturner", "Title", "TR-117 Alpha Commander", "TR-40 Gold Eagle", "TR-62 Knight", "TR-7 Ambassador of the Brand", "TR-9 Cavalier of Democracy", "Trooper", "TX-41 Sterilizer", "Tyrant Hunter", "UF-16 Inspector", "UF-50 Bloodhound", "UF-84 Doubt Killer", "Unblemished Allegiance", "Veil of the Valorous Vagabond", "Vision of Freedom", "Voteless", "Warp Ship", "Warrior", "Watcher", "Way of the Bandolier", "Will of the People"})
@@ -504,8 +504,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UnusedMods_DataGridView_Category_Column
         ' 
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        UnusedMods_DataGridView_Category_Column.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle23.WrapMode = DataGridViewTriState.True
+        UnusedMods_DataGridView_Category_Column.DefaultCellStyle = DataGridViewCellStyle23
         UnusedMods_DataGridView_Category_Column.FlatStyle = FlatStyle.Flat
         UnusedMods_DataGridView_Category_Column.HeaderText = "Category"
         UnusedMods_DataGridView_Category_Column.Items.AddRange(New Object() {"Armor Both Bodies", "Armor Brawny Body", "Armor Lean Body", "Audio", "Automaton Audio", "Automaton Skin", "Cape", "Helmet", "Illuminate Audio", "Illuminate Skin", "Other", "Player Card", "Stratagem Audio", "Stratagem Skin", "Terminid Audio", "Terminid Skin", "Visual", "Weapon Audio", "Weapon Skin"})
@@ -517,8 +517,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UnusedMods_DataGridView_Description_Column
         ' 
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
-        UnusedMods_DataGridView_Description_Column.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle24.WrapMode = DataGridViewTriState.True
+        UnusedMods_DataGridView_Description_Column.DefaultCellStyle = DataGridViewCellStyle24
         UnusedMods_DataGridView_Description_Column.HeaderText = "Description"
         UnusedMods_DataGridView_Description_Column.MinimumWidth = 50
         UnusedMods_DataGridView_Description_Column.Name = "UnusedMods_DataGridView_Description_Column"
@@ -535,8 +535,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UnusedMods_DataGridView_DateAdded_Column
         ' 
-        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
-        UnusedMods_DataGridView_DateAdded_Column.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle25.WrapMode = DataGridViewTriState.True
+        UnusedMods_DataGridView_DateAdded_Column.DefaultCellStyle = DataGridViewCellStyle25
         UnusedMods_DataGridView_DateAdded_Column.HeaderText = "Date Added"
         UnusedMods_DataGridView_DateAdded_Column.MinimumWidth = 40
         UnusedMods_DataGridView_DateAdded_Column.Name = "UnusedMods_DataGridView_DateAdded_Column"
@@ -545,8 +545,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UnusedMods_DataGridView_ModVersion_Column
         ' 
-        DataGridViewCellStyle7.WrapMode = DataGridViewTriState.True
-        UnusedMods_DataGridView_ModVersion_Column.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle26.WrapMode = DataGridViewTriState.True
+        UnusedMods_DataGridView_ModVersion_Column.DefaultCellStyle = DataGridViewCellStyle26
         UnusedMods_DataGridView_ModVersion_Column.HeaderText = "Version"
         UnusedMods_DataGridView_ModVersion_Column.MinimumWidth = 40
         UnusedMods_DataGridView_ModVersion_Column.Name = "UnusedMods_DataGridView_ModVersion_Column"
@@ -554,8 +554,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UnusedMods_DataGridView_ModLink_Column
         ' 
-        DataGridViewCellStyle8.WrapMode = DataGridViewTriState.True
-        UnusedMods_DataGridView_ModLink_Column.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle27.WrapMode = DataGridViewTriState.True
+        UnusedMods_DataGridView_ModLink_Column.DefaultCellStyle = DataGridViewCellStyle27
         UnusedMods_DataGridView_ModLink_Column.HeaderText = "Link"
         UnusedMods_DataGridView_ModLink_Column.MinimumWidth = 50
         UnusedMods_DataGridView_ModLink_Column.Name = "UnusedMods_DataGridView_ModLink_Column"
@@ -579,8 +579,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UsedMods_DataGridView_ModOrderNumber_Column
         ' 
-        DataGridViewCellStyle9.WrapMode = DataGridViewTriState.True
-        UsedMods_DataGridView_ModOrderNumber_Column.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle28.WrapMode = DataGridViewTriState.True
+        UsedMods_DataGridView_ModOrderNumber_Column.DefaultCellStyle = DataGridViewCellStyle28
         UsedMods_DataGridView_ModOrderNumber_Column.HeaderText = "#"
         UsedMods_DataGridView_ModOrderNumber_Column.MinimumWidth = 40
         UsedMods_DataGridView_ModOrderNumber_Column.Name = "UsedMods_DataGridView_ModOrderNumber_Column"
@@ -589,8 +589,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UsedMods_DataGridView_ModFolderPathName_Column
         ' 
-        DataGridViewCellStyle10.WrapMode = DataGridViewTriState.True
-        UsedMods_DataGridView_ModFolderPathName_Column.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle29.WrapMode = DataGridViewTriState.True
+        UsedMods_DataGridView_ModFolderPathName_Column.DefaultCellStyle = DataGridViewCellStyle29
         UsedMods_DataGridView_ModFolderPathName_Column.HeaderText = "Mod Folder Path + Name"
         UsedMods_DataGridView_ModFolderPathName_Column.MinimumWidth = 50
         UsedMods_DataGridView_ModFolderPathName_Column.Name = "UsedMods_DataGridView_ModFolderPathName_Column"
@@ -599,8 +599,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UsedMods_DataGridView_ModName_Column
         ' 
-        DataGridViewCellStyle11.WrapMode = DataGridViewTriState.True
-        UsedMods_DataGridView_ModName_Column.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle30.WrapMode = DataGridViewTriState.True
+        UsedMods_DataGridView_ModName_Column.DefaultCellStyle = DataGridViewCellStyle30
         UsedMods_DataGridView_ModName_Column.HeaderText = "Name"
         UsedMods_DataGridView_ModName_Column.MinimumWidth = 50
         UsedMods_DataGridView_ModName_Column.Name = "UsedMods_DataGridView_ModName_Column"
@@ -608,8 +608,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UsedMods_DataGridView_Item_Column
         ' 
-        DataGridViewCellStyle12.WrapMode = DataGridViewTriState.True
-        UsedMods_DataGridView_Item_Column.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle31.WrapMode = DataGridViewTriState.True
+        UsedMods_DataGridView_Item_Column.DefaultCellStyle = DataGridViewCellStyle31
         UsedMods_DataGridView_Item_Column.FlatStyle = FlatStyle.Flat
         UsedMods_DataGridView_Item_Column.HeaderText = "Item"
         UsedMods_DataGridView_Item_Column.Items.AddRange(New Object() {"A/AC-8 Autocannon Sentry", "A/ARC-3 Tesla Tower", "A/FLAM-40 Flame Sentry", "A/G-16 Gatling Sentry", "A/M-12 Mortar Sentry", "A/M-23 EMS Mortar Sentry", "A/MG-43 Machine Gun Sentry", "A/MLS-4X Rocket Sentry", "AC-1 Dutiful", "AC-2 Obedient", "AC-8 Autocannon", "AF-02 Haz-Master", "AF-50 Noxious Ranger", "AF-52 Lockdown", "AF-91 Field Chemist", "Agent of Oblivion", "Alpha Commander", "Alpha Warrior", "Annihilator Tank", "APW-1 Anti-Materiel Rifle", "AR-23 Liberator", "AR-23A Liberator Carbine", "AR-23C Liberator Concussive", "AR-23P Liberator Penetrator", "AR-61 Tenderizer", "ARC-12 Blitzer", "ARC-3 Arc Thrower", "Assault Raider", "Automaton Chant", "Automaton Music", "AX/AR-23 'Guard Dog'", "AX/LAS-5 'Guard Dog' Rover", "AX/TX-13 'Guard Dog' Dog Breath", "B-01 Tactical v1", "B-01 Tactical v2", "B-01 Tactical v3", "B-01 Tactical v4", "B-08 Light Gunner", "B-1 Supply Pack", "B-100 Portable Hellbomb", "B-22 Model Citizen", "B-24 Enforcer", "B-27 Fortified Commando", "Barrager Tank", "Bastion of Integrity", "Berserker", "Bile Spewer", "Bile Spitter", "Bile Titan", "Bile Warrior", "Blazing Samaritan", "Botslayer", "BR-14 Adjudicator", "Brawler", "Brood Commander", "Bunker Turret", "Cannon Turret", "CB-9 Exploding Crossbow", "CE-07 Demolition Specialist", "CE-101 Guerilla Gorilla", "CE-27 Ground Breaker", "CE-35 Trench Engineer", "CE-64 Grenadier", "CE-67 Titan", "CE-74 Breaker", "CE-81 Juggernaut", "Charger", "Charger Behemoth", "Cloak of Posterity's Gratitude", "CM-09 Bonesnapper", "CM-10 Clinician", "CM-14 Physician", "CM-17 Butcher", "CM-21 Trench Paramedic", "Commissar", "Conflagration Devastator", "Cover of Darkness", "CQC-19 Stun Lance", "CQC-30 Stun Baton", "CQC-5 Combat Hatchet", "Cresting Honor", "CW-22 Kodiak", "CW-36 Winter Warrior", "CW-4 Arctic Ranger", "CW-9 White Wolf", "Death - Team", "Death - Yours", "Defender of Our Dream", "Democracy Officer", "Descent", "Devastator", "Dissident's Nightmare", "DP-00 Tactical", "DP-11 Champion of the People", "DP-40 Hero of the Federation", "DP-53 Savior of the Free", "Drape of Glory", "Dropship", "E/AT-12 Anti-Tank Emplacement", "E/GL-21 Grenadier Battlement", "E/MG-101 HMG Emplacement", "Eagle 110mm Rocket Pods", "Eagle 500kg Bomb", "Eagle Airstrike", "Eagle Cluster Bomb", "Eagle Napalm Airstrike", "Eagle Smoke Strike", "Eagle Strafing Run", "Eagle-1", "Eagle's Fury", "EAT-17 Expendable Anti-Tank", "Elevated Overseer", "Emblem of Freedom", "Entrenchment Tool", "EX-00 Prototype X", "EX-03 Prototype 3", "EX-16 Prototype 16", "Executioner's Canopy", "EXO-45 Patriot Exosuit", "EXO-49 Emancipator Exosuit", "Experimental Infusion", "Extraction", "Eye of Freedom", "Factory Strider", "FAF-14 Spear", "Fallen Hero's Vengeance", "Flag Raise", "FLAM-40 Flamethrower", "FLAM-66 Torcher", "Foesmasher", "Fre Liberam", "Freedom's Tapestry", "FS-05 Marksman", "FS-11 Executioner", "FS-23 Battle Master", "FS-34 Exterminator", "FS-37 Ravager", "FS-38 Eradicator", "FS-55 Devastator", "FS-61 Dreadnought", "FX-12 Shield Generator Relay", "G-10 Incendiary", "G-12 High Explosive", "G-123 Thermite", "G-13 Incendiary Impact", "G-16 Impact", "G-23 Stun", "G-3 Smoke", "G-4 Gas", "G-50 Seeker", "G-6 Frag", "GL-21 Grenade Launcher", "GP-31 Grenade Pistol", "GP-31 Ultimatum", "GR-8 Recoilless Rifle", "Greatcloak of Rebar Resolve", "GS-11 Democracy's Deputy", "GS-17 Frontier Marshall", "GS-66 Lawmaker", "Gunship", "Harbinger of True Equality", "Harvester", "Heavy Devastator", "Hellbomb", "Helldiver Voice 1", "Helldiver Voice 2", "Helldiver Voice 3", "Helldiver Voice 4", "Hive Guard", "Holder of the Yellow Line", "Hulk", "Hulk Firebomber", "Hunter", "I-09 Heatseeker", "I-102 Draconaught", "I-44 Salamander", "I-92 Fire Fighter", "ICBM", "Icons", "IE-12 Righteous", "IE-3 Martyr", "IE-57 Hell-Bent", "Illuminate Music", "Impaler", "Incendiary MG Devastator", "Incendiary Rocket Devastator", "Independence Bringer", "JAR-5 Dominator", "Judgment Day", "K-2 Throwing Knife", "LAS-16 Sickle", "LAS-17 Double-Edge Sickle", "LAS-5 Scythe", "LAS-58 Talon", "LAS-7 Dagger", "LAS-98 Laser Cannon", "LAS-99 Quasar Cannon", "Liberty's Herald", "LIFT-850 Jump Pack", "LIFT-860 Hover Pack", "Light of Eternal Liberty", "Loading Screen", "M-102 Fast Recon Vehicle", "M-105 Stalwart", "Mantle of True Citizenship", "Marauder", "Mark of the Crimson Fang", "Martyris Rex", "MD-17 Anti-Tank Mines", "MD-6 Anti-Personnel Minefield", "MD-8 Gas Mines", "MD-I4 Incendiary Mines", "MG Raider", "MG-206 Heavy Machine Gun", "MG-43 Machine Gun", "Mission Control", "MLS-4X Commando", "MP-98 Knight", "Nursing Spewer", "Orbital 120mm HE Barrage", "Orbital 380mm HE Barrage", "Orbital Airburst Strike", "Orbital EMS Strike", "Orbital Gas Strike", "Orbital Gatling Barrage", "Orbital Laser", "Orbital Napalm Barrage", "Orbital Precision Strike", "Orbital Railcannon Strike", "Orbital Smoke Strike", "Orbital Walking Barrage", "Order of the Venerated Ballot", "Other", "Overseer", "P-11 Stim Pistol", "P-113 Verdict", "P-19 Redeemer", "P-2 Peacemaker", "P-4 Senator", "P-72 Crisper", "Patient Zero's Remembrance", "Pelican-1", "Per Democrasum", "PH-202 Twigsnapper", "PH-56 Jaguar", "PH-9 Predator", "Pinions of Everlasting Glory", "PLAS-1 Scorcher", "PLAS-101 Purifier", "PLAS-15 Loyalist", "PLAS-39 Accelerator Rifle", "Pouncer", "Predator Hunter", "Predator Stalker", "Pride of the Whistleblower", "Proof of Faultless Virtue", "Purifying Eclipse", "Pyro Trooper", "R-2124 Constitution", "R-36 Eruptor", "R-6 Deadeye", "R-63 Diligence", "R-63CS Diligence Counter Sniper", "Reaper of Bounties", "Rebar Resolve", "Reinforced Scout Strider", "RL-77 Airburst Rocket Launcher", "Rocket Devastator", "Rocket Raider", "RS-422 Railgun", "SA-04 Combat Technician", "SA-12 Servo Assisted", "SA-25 Steel Trooper", "SA-32 Dynamo", "SC-15 Drone Master", "SC-30 Trailblazer Scout", "SC-34 Infiltrator", "SC-37 Legionnaire", "Scavenger", "Scout Strider", "SG-20 Halt", "SG-22 Bushwhacker", "SG-225 Breaker", "SG-225IE Breaker Incendiary", "SG-225SP Breaker Spray & Pray", "SG-451 Cookout", "SG-8 Punisher", "SG-88 Break-Action Shotgun", "SG-8P Punisher Plasma", "SG-8S Slugger", "SH-20 Ballistic Shield Backpack", "SH-32 Shield Generator Pack", "SH-51 Directional Shield", "Ship", "Ship Map Music", "Ship Music", "Ship PA System", "Ship TV", "Shredder Tank", "Shrieker", "SMG-32 Reprimand", "SMG-37 Defender", "SMG-72 Pummeler", "Solid Black", "Spore Burst Hunter", "Spore Burst Scavenger", "Spore Burst Warrior", "Spore Charger", "SR-18 Roadblock", "SR-24 Street Scout", "SR-64 Cinderblock", "StA-11 SMG", "StA-52 Assault Rifle", "StA-X3 W.A.S.P. Launcher", "Stalker", "Standard of Safe Distance", "Stars and Suffrage", "Stim", "Stone-Wrought Perseverance", "Stratagem Input", "Strength in Our Arms", "TED-63 Dynamite", "Terminal", "Terminid Music", "The Breach", "The Cape of Stars and Suffrage", "Tideturner", "Title", "TR-117 Alpha Commander", "TR-40 Gold Eagle", "TR-62 Knight", "TR-7 Ambassador of the Brand", "TR-9 Cavalier of Democracy", "Trooper", "TX-41 Sterilizer", "Tyrant Hunter", "UF-16 Inspector", "UF-50 Bloodhound", "UF-84 Doubt Killer", "Unblemished Allegiance", "Veil of the Valorous Vagabond", "Vision of Freedom", "Voteless", "Warp Ship", "Warrior", "Watcher", "Way of the Bandolier", "Will of the People"})
@@ -622,8 +622,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UsedMods_DataGridView_Category_Column
         ' 
-        DataGridViewCellStyle13.WrapMode = DataGridViewTriState.True
-        UsedMods_DataGridView_Category_Column.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle32.WrapMode = DataGridViewTriState.True
+        UsedMods_DataGridView_Category_Column.DefaultCellStyle = DataGridViewCellStyle32
         UsedMods_DataGridView_Category_Column.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox
         UsedMods_DataGridView_Category_Column.FlatStyle = FlatStyle.Flat
         UsedMods_DataGridView_Category_Column.HeaderText = "Category"
@@ -637,8 +637,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UsedMods_DataGridView_Description_Column
         ' 
-        DataGridViewCellStyle14.WrapMode = DataGridViewTriState.True
-        UsedMods_DataGridView_Description_Column.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle33.WrapMode = DataGridViewTriState.True
+        UsedMods_DataGridView_Description_Column.DefaultCellStyle = DataGridViewCellStyle33
         UsedMods_DataGridView_Description_Column.HeaderText = "Description"
         UsedMods_DataGridView_Description_Column.MinimumWidth = 50
         UsedMods_DataGridView_Description_Column.Name = "UsedMods_DataGridView_Description_Column"
@@ -655,8 +655,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UsedMods_DataGridView_DateAdded_Column
         ' 
-        DataGridViewCellStyle15.WrapMode = DataGridViewTriState.True
-        UsedMods_DataGridView_DateAdded_Column.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle34.WrapMode = DataGridViewTriState.True
+        UsedMods_DataGridView_DateAdded_Column.DefaultCellStyle = DataGridViewCellStyle34
         UsedMods_DataGridView_DateAdded_Column.HeaderText = "Date Added"
         UsedMods_DataGridView_DateAdded_Column.MinimumWidth = 40
         UsedMods_DataGridView_DateAdded_Column.Name = "UsedMods_DataGridView_DateAdded_Column"
@@ -665,8 +665,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UsedMods_DataGridView_ModVersion_Column
         ' 
-        DataGridViewCellStyle16.WrapMode = DataGridViewTriState.True
-        UsedMods_DataGridView_ModVersion_Column.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle35.WrapMode = DataGridViewTriState.True
+        UsedMods_DataGridView_ModVersion_Column.DefaultCellStyle = DataGridViewCellStyle35
         UsedMods_DataGridView_ModVersion_Column.HeaderText = "Version"
         UsedMods_DataGridView_ModVersion_Column.MinimumWidth = 40
         UsedMods_DataGridView_ModVersion_Column.Name = "UsedMods_DataGridView_ModVersion_Column"
@@ -674,8 +674,8 @@ Partial Class Form1_phd2mm
         ' 
         ' UsedMods_DataGridView_ModLink_Column
         ' 
-        DataGridViewCellStyle17.WrapMode = DataGridViewTriState.True
-        UsedMods_DataGridView_ModLink_Column.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle36.WrapMode = DataGridViewTriState.True
+        UsedMods_DataGridView_ModLink_Column.DefaultCellStyle = DataGridViewCellStyle36
         UsedMods_DataGridView_ModLink_Column.HeaderText = "Link"
         UsedMods_DataGridView_ModLink_Column.MinimumWidth = 50
         UsedMods_DataGridView_ModLink_Column.Name = "UsedMods_DataGridView_ModLink_Column"
@@ -1157,8 +1157,8 @@ Partial Class Form1_phd2mm
         ' Themes_ProfileSpecificThemes_DataGridView_Profile_Column
         ' 
         Themes_ProfileSpecificThemes_DataGridView_Profile_Column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle18.WrapMode = DataGridViewTriState.True
-        Themes_ProfileSpecificThemes_DataGridView_Profile_Column.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle37.WrapMode = DataGridViewTriState.True
+        Themes_ProfileSpecificThemes_DataGridView_Profile_Column.DefaultCellStyle = DataGridViewCellStyle37
         Themes_ProfileSpecificThemes_DataGridView_Profile_Column.HeaderText = "Profile"
         Themes_ProfileSpecificThemes_DataGridView_Profile_Column.MinimumWidth = 100
         Themes_ProfileSpecificThemes_DataGridView_Profile_Column.Name = "Themes_ProfileSpecificThemes_DataGridView_Profile_Column"
@@ -1167,8 +1167,8 @@ Partial Class Form1_phd2mm
         ' Themes_ProfileSpecificThemes_DataGridView_Theme_Column
         ' 
         Themes_ProfileSpecificThemes_DataGridView_Theme_Column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle19.WrapMode = DataGridViewTriState.True
-        Themes_ProfileSpecificThemes_DataGridView_Theme_Column.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle38.WrapMode = DataGridViewTriState.True
+        Themes_ProfileSpecificThemes_DataGridView_Theme_Column.DefaultCellStyle = DataGridViewCellStyle38
         Themes_ProfileSpecificThemes_DataGridView_Theme_Column.FlatStyle = FlatStyle.Flat
         Themes_ProfileSpecificThemes_DataGridView_Theme_Column.HeaderText = "Theme"
         Themes_ProfileSpecificThemes_DataGridView_Theme_Column.MinimumWidth = 100
