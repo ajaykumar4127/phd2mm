@@ -436,6 +436,7 @@ However, image display in the Image column is not implemented, so it's hidden by
 -Added tab pages to the mod. As a result, 2 windows have been relocated into tabs. </br>
 1. The "More Info" button has been removed, its contents are now found in the "More Info" tab. </br>
 2. The "Mod Randomization Option" button has been removed, its contents are now found in the "Settings" tab. </br>
+
 -Browsing your Helldivers 2 data folder path is now in the "Settings" tab. </br>
 -Changed settings.txt file with settings.json file. </br>
 WARNING: You will need to set your Helldivers 2 data folder path again. </br>
