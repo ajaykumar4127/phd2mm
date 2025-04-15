@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form4_MoreInfo
+Partial Class Form4_CreateOrDuplicateTheme
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,46 +22,90 @@ Partial Class Form4_MoreInfo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form4_MoreInfo))
-        TextBox1 = New TextBox()
-        CloseForm4Button = New Button()
+        Label2 = New Label()
+        NewThemeName_TextBox = New TextBox()
+        Form4_CreateNewTheme_Button = New Button()
+        Form4_Cancel_Button = New Button()
+        Label1 = New Label()
+        Label3 = New Label()
         SuspendLayout()
         ' 
-        ' TextBox1
+        ' Label2
         ' 
-        TextBox1.Font = New Font("Segoe UI", 10F)
-        TextBox1.Location = New Point(12, 12)
-        TextBox1.Multiline = True
-        TextBox1.Name = "TextBox1"
-        TextBox1.ReadOnly = True
-        TextBox1.ScrollBars = ScrollBars.Both
-        TextBox1.Size = New Size(749, 574)
-        TextBox1.TabIndex = 0
-        TextBox1.Text = resources.GetString("TextBox1.Text")
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI", 12F)
+        Label2.Location = New Point(114, 58)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(258, 21)
+        Label2.TabIndex = 1
+        Label2.Text = "Enter a name for your theme below:"
         ' 
-        ' CloseForm4Button
+        ' NewThemeName_TextBox
         ' 
-        CloseForm4Button.Font = New Font("Segoe UI", 12F)
-        CloseForm4Button.Location = New Point(680, 592)
-        CloseForm4Button.Name = "CloseForm4Button"
-        CloseForm4Button.Size = New Size(81, 34)
-        CloseForm4Button.TabIndex = 1
-        CloseForm4Button.Text = "Close"
-        CloseForm4Button.UseVisualStyleBackColor = True
+        NewThemeName_TextBox.Location = New Point(12, 102)
+        NewThemeName_TextBox.Name = "NewThemeName_TextBox"
+        NewThemeName_TextBox.Size = New Size(470, 23)
+        NewThemeName_TextBox.TabIndex = 2
         ' 
-        ' Form4_MoreInfo
+        ' Form4_CreateNewTheme_Button
+        ' 
+        Form4_CreateNewTheme_Button.Font = New Font("Segoe UI", 12F)
+        Form4_CreateNewTheme_Button.Location = New Point(114, 148)
+        Form4_CreateNewTheme_Button.Name = "Form4_CreateNewTheme_Button"
+        Form4_CreateNewTheme_Button.Size = New Size(151, 46)
+        Form4_CreateNewTheme_Button.TabIndex = 3
+        Form4_CreateNewTheme_Button.Text = "Create New Theme"
+        Form4_CreateNewTheme_Button.UseVisualStyleBackColor = True
+        ' 
+        ' Form4_Cancel_Button
+        ' 
+        Form4_Cancel_Button.Font = New Font("Segoe UI", 12F)
+        Form4_Cancel_Button.Location = New Point(310, 148)
+        Form4_Cancel_Button.Name = "Form4_Cancel_Button"
+        Form4_Cancel_Button.Size = New Size(82, 46)
+        Form4_Cancel_Button.TabIndex = 4
+        Form4_Cancel_Button.Text = "Cancel"
+        Form4_Cancel_Button.UseVisualStyleBackColor = True
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 12F)
+        Label1.Location = New Point(12, 9)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(140, 21)
+        Label1.TabIndex = 5
+        Label1.Text = "Duplicating theme:"
+        ' 
+        ' Label3
+        ' 
+        Label3.Font = New Font("Segoe UI", 12F)
+        Label3.Location = New Point(158, 9)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(324, 49)
+        Label3.TabIndex = 6
+        Label3.Text = "Theme to be duplicated"
+        ' 
+        ' Form4_CreateOrDuplicateTheme
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(773, 638)
-        Controls.Add(CloseForm4Button)
-        Controls.Add(TextBox1)
-        Name = "Form4_MoreInfo"
-        Text = "More info"
+        ClientSize = New Size(494, 206)
+        Controls.Add(Label3)
+        Controls.Add(Label1)
+        Controls.Add(Form4_Cancel_Button)
+        Controls.Add(Form4_CreateNewTheme_Button)
+        Controls.Add(NewThemeName_TextBox)
+        Controls.Add(Label2)
+        Name = "Form4_CreateOrDuplicateTheme"
+        Text = "Create Theme"
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents CloseForm4Button As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents NewThemeName_TextBox As TextBox
+    Friend WithEvents Form4_CreateNewTheme_Button As Button
+    Friend WithEvents Form4_Cancel_Button As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label3 As Label
 End Class

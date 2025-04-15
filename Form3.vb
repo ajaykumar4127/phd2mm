@@ -1,16 +1,19 @@
 ﻿Imports System.IO
 Imports phd2mm.Class1
+Imports phd2mm.Class3
 Imports phd2mm.Form1_phd2mm
 
 Public Class Form3_InstallMods
 
+    Public currentGlobalTheme As ThemeInfo
     Public hd2DirectoryPath As String
     Public modDirectoryPath As String
     Public profileName As String
     Public selectedModsList As List(Of String)
 
     Private Sub Form3_installMods_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Class1.ThemeManager.ApplyTheme(Me)
+        'Class1.ThemeManager.ApplyTheme(Me)
+        Class3.ThemeManager.ApplyThemeToForm(Me, currentGlobalTheme)
         CurrentlyInstalledProfileName_Label.Text = profileName
         Dim appendTextString As String
         appendTextString = "Deleting old mods in Helldivers 2 data folder..." & vbCrLf

@@ -2,9 +2,9 @@
 Imports phd2mm.Class1
 
 Public Class Class2
-    Public Class CategoryAndItemsManager
-        Public Shared categoriesAndItemsDictionary As New Dictionary(Of String, List(Of String)) From {
-    {"Armor_And_Helmet", New List(Of String) From {
+    Public Class CategoryAndItemsManager    ' Items are also included in UnusedMods_DataGridView and UsedMods_DataGridView via Designer view.
+        Public Shared categoriesAndItemsDictionary As New Dictionary(Of String, List(Of String)) From {     ' Check the Items collection of
+    {"Armor_And_Helmet", New List(Of String) From {                                                         ' their respective Item and Categ
         "SC-37 Legionnaire", "SC-34 Infiltrator", "SC-30 Trailblazer Scout",
         "CE-74 Breaker", "FS-38 Eradicator", "B-08 Light Gunner",
         "CM-21 Trench Paramedic", "CE-67 Titan", "EX-00 Prototype X",
@@ -197,10 +197,16 @@ Public Class Class2
                     Dim unusedModsInProfileDictionary As New Dictionary(Of String, Class1.ModInfo)()
                     For Each row As DataGridViewRow In UnusedMods_DataGridView.Rows
                         Dim tempModFolderPathName As String = row.Cells("UnusedMods_DataGridView_ModFolderPathName_Column").Value.ToString()
-                        Dim tempCategory As String = row.Cells("UnusedMods_DataGridView_Category_Column").Value.ToString()
+                        Dim tempModName As String = row.Cells("UnusedMods_DataGridView_ModName_Column").Value.ToString()
                         Dim tempItem As String = row.Cells("UnusedMods_DataGridView_Item_Column").Value.ToString()
+                        Dim tempCategory As String = row.Cells("UnusedMods_DataGridView_Category_Column").Value.ToString()
                         Dim tempDescription As String = row.Cells("UnusedMods_DataGridView_Description_Column").Value.ToString()
-                        Dim tempModInfo As New Class1.ModInfo(tempModFolderPathName, tempItem, tempCategory, tempDescription)
+                        Dim tempImagePath As String = row.Cells("UnusedMods_DataGridView_ImagePath_Column").Value.ToString()
+                        Dim tempDateAdded As String = row.Cells("UnusedMods_DataGridView_DateAdded_Column").Value.ToString()
+                        Dim tempModVersion As String = row.Cells("UnusedMods_DataGridView_ModVersion_Column").Value.ToString()
+                        Dim tempModLink As String = row.Cells("UnusedMods_DataGridView_ModLink_Column").Value.ToString()
+                        Dim tempModInfo As New Class1.ModInfo(tempModFolderPathName, tempModName, tempItem, tempCategory, tempDescription,
+                                                                tempImagePath, tempDateAdded, tempModVersion, tempModLink)
                         unusedModsInProfileDictionary.Add(tempModFolderPathName, tempModInfo)
                     Next
                     UnusedMods_DataGridView.Rows.Clear()
@@ -212,14 +218,12 @@ Public Class Class2
                     For i As Integer = 0 To usedModsCount - 1
                         Dim modFolderPathName As String = modKeys(i)
                         Dim tempModInfo As Class1.ModInfo = unusedModsInProfileDictionary(modFolderPathName)
-                        UsedMods_DataGridView.Rows.Add(UsedMods_DataGridView.RowCount, tempModInfo.Modfolderpathname,
-                                       tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
+                        Class1.Mods_DataGridView_Editor.AddModInfoToDataGridView(tempModInfo, UsedMods_DataGridView)
                     Next
                     For i As Integer = usedModsCount To totalUnusedModsCount - 1
                         Dim modFolderPathName As String = modKeys(i)
                         Dim tempModInfo As Class1.ModInfo = unusedModsInProfileDictionary(modFolderPathName)
-                        UnusedMods_DataGridView.Rows.Add(tempModInfo.Modfolderpathname,
-                                         tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
+                        Class1.Mods_DataGridView_Editor.AddModInfoToDataGridView(tempModInfo, UnusedMods_DataGridView)
                     Next
 
                 Case "OnlyAddGuaranteeOne"
@@ -227,20 +231,19 @@ Public Class Class2
                     Dim uniqueMods As List(Of Class1.ModInfo) = ModRandomizer.SelectUniqueMods(allModsOriginalDictionary)
                     Dim existingCombinations As New HashSet(Of String)()
                     For Each row As DataGridViewRow In UsedMods_DataGridView.Rows
-                        Dim category As String = row.Cells("UsedMods_DataGridView_Category_Column").Value.ToString()
                         Dim item As String = row.Cells("UsedMods_DataGridView_Item_Column").Value.ToString()
+                        Dim category As String = row.Cells("UsedMods_DataGridView_Category_Column").Value.ToString()
                         existingCombinations.Add($"{item}_{category}")
                     Next
                     For Each modInfo In uniqueMods
                         Dim combinationKey As String = $"{modInfo.Item}_{modInfo.Category}"
                         Dim isCombinationInUsed As Boolean = existingCombinations.Contains(combinationKey)
                         If Not isCombinationInUsed Then
-                            UsedMods_DataGridView.Rows.Add(UsedMods_DataGridView.RowCount, modInfo.Modfolderpathname,
-                                                           modInfo.Item, modInfo.Category, modInfo.Description)
+                            Class1.Mods_DataGridView_Editor.AddModInfoToDataGridView(modInfo, UsedMods_DataGridView)
                             existingCombinations.Add(combinationKey)
                             For Each unusedRow As DataGridViewRow In UnusedMods_DataGridView.Rows
-                                Dim unusedCategory As String = unusedRow.Cells("UnusedMods_DataGridView_Category_Column").Value.ToString()
                                 Dim unusedItem As String = unusedRow.Cells("UnusedMods_DataGridView_Item_Column").Value.ToString()
+                                Dim unusedCategory As String = unusedRow.Cells("UnusedMods_DataGridView_Category_Column").Value.ToString()
                                 If unusedItem = modInfo.Item AndAlso unusedCategory = modInfo.Category Then
                                     UnusedMods_DataGridView.Rows.Remove(unusedRow)
                                     Exit For
@@ -252,8 +255,7 @@ Public Class Class2
                         Dim tempModInfo As ModInfo = allModsOriginalDictionary(modFolderPathName)
                         Dim combinationKey As String = $"{tempModInfo.Item}_{tempModInfo.Category}"
                         If Not existingCombinations.Contains(combinationKey) Then
-                            UnusedMods_DataGridView.Rows.Add(tempModInfo.Modfolderpathname,
-                                                             tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
+                            Class1.Mods_DataGridView_Editor.AddModInfoToDataGridView(tempModInfo, UnusedMods_DataGridView)
                             existingCombinations.Add(combinationKey)
                         End If
                     Next
@@ -271,14 +273,12 @@ Public Class Class2
                     For i As Integer = 0 To usedModsCount - 1
                         Dim modFolderPathName As String = modKeys(i)
                         Dim tempModInfo As ModInfo = allModsOriginalDictionary(modFolderPathName)
-                        UsedMods_DataGridView.Rows.Add(UsedMods_DataGridView.RowCount, tempModInfo.Modfolderpathname,
-                                                       tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
+                        Class1.Mods_DataGridView_Editor.AddModInfoToDataGridView(tempModInfo, UsedMods_DataGridView)
                     Next
                     For i As Integer = usedModsCount To totalModsCount - 1
                         Dim modFolderPathName As String = modKeys(i)
                         Dim tempModInfo As ModInfo = allModsOriginalDictionary(modFolderPathName)
-                        UnusedMods_DataGridView.Rows.Add(tempModInfo.Modfolderpathname,
-                                                         tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
+                        Class1.Mods_DataGridView_Editor.AddModInfoToDataGridView(tempModInfo, UnusedMods_DataGridView)
                     Next
 
                 Case "AddRemoveGuaranteeOne"
@@ -288,15 +288,13 @@ Public Class Class2
                     Dim totalModsCount As Integer = allModsOriginalDictionary.Count
                     For i As Integer = 0 To uniqueMods.Count - 1
                         Dim tempModInfo As ModInfo = uniqueMods(i)
-                        UsedMods_DataGridView.Rows.Add(UsedMods_DataGridView.RowCount, tempModInfo.Modfolderpathname,
-                                       tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
+                        Class1.Mods_DataGridView_Editor.AddModInfoToDataGridView(tempModInfo, UsedMods_DataGridView)
                     Next
                     For i As Integer = 0 To totalModsCount - 1
                         Dim modFolderPathName As String = allModsOriginalDictionary.Keys(i)
                         Dim tempModInfo As ModInfo = allModsOriginalDictionary(modFolderPathName)
                         If Not uniqueMods.Any(Function(m) m.Modfolderpathname = tempModInfo.Modfolderpathname) Then
-                            UnusedMods_DataGridView.Rows.Add(tempModInfo.Modfolderpathname,
-                                         tempModInfo.Item, tempModInfo.Category, tempModInfo.Description)
+                            Class1.Mods_DataGridView_Editor.AddModInfoToDataGridView(tempModInfo, UnusedMods_DataGridView)
                         End If
                     Next
             End Select

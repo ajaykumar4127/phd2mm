@@ -5,163 +5,45 @@ Imports System.IO
 Imports System.Reflection.Emit
 Imports System.Text.Json
 Imports System.Text.Json.Nodes
+Imports phd2mm.Class3
 Public Class Class1
 
-    Public Class ThemeManager
-        Public Shared CurrentMode As String = "light"
-        Public Shared Sub ApplyTheme(form As Form)
-            If CurrentMode = "dark" Then
-                form.BackColor = Color.FromArgb(40, 40, 40) ' Dark gray background
-                form.ForeColor = Color.White
+    Public Class DirectoryInitializer
+        Public Shared Sub InitializeDirectory(directoryPath As String)
+            If Not Directory.Exists(directoryPath) Then
+                My.Computer.FileSystem.CreateDirectory(directoryPath)
+            End If
+        End Sub
 
-                For Each ctrl As Control In form.Controls
-                    If TypeOf ctrl Is Button Then
-                        ctrl.BackColor = Color.FromArgb(60, 60, 60)
-                        ctrl.ForeColor = Color.White
-                    ElseIf TypeOf ctrl Is System.Windows.Forms.Label Then
-                        ctrl.ForeColor = Color.White
-                        ctrl.BackColor = Color.FromArgb(50, 50, 50)
-                    ElseIf TypeOf ctrl Is TextBox Then
-                        ctrl.BackColor = Color.FromArgb(50, 50, 50)
-                        ctrl.ForeColor = Color.White
-                    ElseIf TypeOf ctrl Is ComboBox Then
-                        ctrl.BackColor = Color.FromArgb(50, 50, 50)
-                        ctrl.ForeColor = Color.White
-                    ElseIf TypeOf ctrl Is ListBox Then
-                        ctrl.BackColor = Color.FromArgb(50, 50, 50)
-                        ctrl.ForeColor = Color.White
-                    ElseIf TypeOf ctrl Is DataGridView Then
-                        Dim dgv As DataGridView = CType(ctrl, DataGridView)
-                        dgv.BackgroundColor = Color.FromArgb(40, 40, 40)
-                        dgv.ForeColor = Color.White
-                        dgv.GridColor = Color.FromArgb(60, 60, 60)
-                        dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(60, 60, 60)
-                        dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
-                        dgv.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(60, 60, 60)
-                        dgv.RowHeadersDefaultCellStyle.ForeColor = Color.White
-                        dgv.DefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50)
-                        dgv.DefaultCellStyle.ForeColor = Color.White
-                        dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(45, 45, 45)
-                    ElseIf TypeOf ctrl Is GroupBox Then
-                        ctrl.BackColor = Color.FromArgb(40, 40, 40)
-                        ctrl.ForeColor = Color.White
-                        CType(ctrl, GroupBox).FlatStyle = FlatStyle.Flat
-                    End If
-                Next
-            Else
-                form.BackColor = Color.FromArgb(240, 240, 240) ' Light gray background
-                form.ForeColor = Color.FromArgb(0, 0, 0) ' Black text color
-
-                For Each ctrl As Control In form.Controls
-                    If TypeOf ctrl Is Button Then
-                        ctrl.BackColor = Color.FromArgb(230, 230, 230)
-                        ctrl.ForeColor = Color.FromArgb(0, 0, 0)
-                    ElseIf TypeOf ctrl Is System.Windows.Forms.Label Then
-                        ctrl.ForeColor = Color.FromArgb(0, 0, 0)
-                        ctrl.BackColor = Color.FromArgb(240, 240, 240)
-                    ElseIf TypeOf ctrl Is TextBox Then
-                        ctrl.BackColor = Color.White
-                        ctrl.ForeColor = Color.FromArgb(0, 0, 0)
-                    ElseIf TypeOf ctrl Is ComboBox Then
-                        ctrl.BackColor = Color.White
-                        ctrl.ForeColor = Color.FromArgb(0, 0, 0)
-                    ElseIf TypeOf ctrl Is ListBox Then
-                        ctrl.BackColor = Color.White
-                        ctrl.ForeColor = Color.FromArgb(0, 0, 0)
-                    ElseIf TypeOf ctrl Is DataGridView Then
-                        Dim dgv As DataGridView = CType(ctrl, DataGridView)
-                        dgv.BackgroundColor = Color.White
-                        dgv.ForeColor = Color.Black
-                        dgv.GridColor = Color.FromArgb(200, 200, 200)
-                        dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230)
-                        dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black
-                        dgv.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230)
-                        dgv.RowHeadersDefaultCellStyle.ForeColor = Color.Black
-                        dgv.DefaultCellStyle.BackColor = Color.White
-                        dgv.DefaultCellStyle.ForeColor = Color.Black
-                        dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
-                    ElseIf TypeOf ctrl Is GroupBox Then
-                        ctrl.BackColor = Color.FromArgb(240, 240, 240)
-                        ctrl.ForeColor = Color.FromArgb(0, 0, 0)
-                        CType(ctrl, GroupBox).FlatStyle = FlatStyle.Flat
-                    End If
-                Next
+        Public Shared Sub InitializeFiles(filePath As String)
+            If Not File.Exists(filePath) Then
+                Using fs As FileStream = File.Create(filePath)
+                    ' Optionally write some initial content to the file
+                End Using
             End If
         End Sub
     End Class
-
-    Public Class FormResizer
-        Private ReadOnly form As Form
-        Private Const MinWidth As Integer = 1759
-        Private Const MinHeight As Integer = 928
-        Private originalSizes As Dictionary(Of Control, Size)
-        Private originalPositions As Dictionary(Of Control, Point)
-
-        ' Constructor to initialize the form to be resized
-        Public Sub New(form As Form)
-            Me.form = form
-            originalSizes = New Dictionary(Of Control, Size)
-            originalPositions = New Dictionary(Of Control, Point)
-            AddHandler form.Resize, AddressOf OnFormResize
-        End Sub
-
-        ' Resize event handler to scale the form and contents
-        Private Sub OnFormResize(sender As Object, e As EventArgs)
-            If form.Width > MinWidth AndAlso form.Height > MinHeight Then
-                ' When the form is larger than the minimum size, scale the contents
-                ScaleFormContents(True)
-            Else
-                ' If the form is smaller or equal to the minimum size, restore original size
-                ScaleFormContents(False)
-            End If
-        End Sub
-
-        ' Scales the form and its contents proportionally or restores original sizes
-        Private Sub ScaleFormContents(isGrowing As Boolean)
-            If isGrowing Then
-                ' Calculate scaling factors based on the form's current size
-                Dim scaleX As Double = form.Width / MinWidth
-                Dim scaleY As Double = form.Height / MinHeight
-
-                ' Scale the form controls proportionally
-                For Each ctrl As Control In form.Controls
-                    ' Save the original size and position the first time it's being scaled
-                    If Not originalSizes.ContainsKey(ctrl) Then
-                        originalSizes(ctrl) = ctrl.Size
-                        originalPositions(ctrl) = ctrl.Location
-                    End If
-
-                    ' Scale the width and height of the control
-                    ctrl.Width = CInt(originalSizes(ctrl).Width * scaleX)
-                    ctrl.Height = CInt(originalSizes(ctrl).Height * scaleY)
-
-                    ' Adjust the position based on the scale factors
-                    ctrl.Left = CInt(originalPositions(ctrl).X * scaleX)
-                    ctrl.Top = CInt(originalPositions(ctrl).Y * scaleY)
-                Next
-            Else
-                ' Restore the original size and position of the controls when the form shrinks
-                For Each ctrl As Control In form.Controls
-                    ' Only restore if the control size has been scaled before
-                    If originalSizes.ContainsKey(ctrl) Then
-                        ctrl.Size = originalSizes(ctrl)
-                        ctrl.Location = originalPositions(ctrl)
-                    End If
-                Next
-            End If
-        End Sub
-    End Class
-
 
     Public Class DirectoryValidator
         Public Shared Function ValidateDirectory(directoryPath As String) As Boolean
-            If Not Directory.Exists(directoryPath) OrElse String.IsNullOrEmpty(directoryPath) OrElse String.IsNullOrWhiteSpace(directoryPath) OrElse Not directoryPath.EndsWith("Helldivers 2\data") Then
+            If String.IsNullOrEmpty(directoryPath) OrElse String.IsNullOrWhiteSpace(directoryPath) Then
                 MessageBox.Show("Invalid directory! Please locate your Helldivers 2 data folder." & vbCrLf &
-                                 "If it's bought on Steam, the path is usually: " & vbCrLf &
-                                 "YourSteamPath\Steam\steamapps\common\Helldivers 2\data")
+                             "If it's bought on Steam, the path is usually: " & vbCrLf &
+                             "YourSteamPath\Steam\steamapps\common\Helldivers 2\data")
                 Return False
             Else
-                Return True
+                ' Normalize directory path to use consistent forward slashes
+                directoryPath = directoryPath.Replace("\", "/")
+
+                ' Check if the directory ends with either "Helldivers 2/data"
+                If directoryPath.EndsWith("Helldivers 2/data") Then
+                    Return True
+                Else
+                    MessageBox.Show("Invalid directory! Please locate your Helldivers 2 data folder." & vbCrLf &
+                                 "If it's bought on Steam, the path is usually: " & vbCrLf &
+                                 "YourSteamPath\Steam\steamapps\common\Helldivers 2/data")
+                    Return False
+                End If
             End If
         End Function
     End Class
@@ -179,35 +61,55 @@ Public Class Class1
 
     Public Class ModInfo
         Public Property Modfolderpathname As String
-        Public Property Category As String
+        Public Property ModName As String
         Public Property Item As String
+        Public Property Category As String
         Public Property Description As String
-        Public Sub New(col1 As String, col2 As String, col3 As String, col4 As String)
+        Public Property ImagePath As String
+        Public Property DateAdded As String
+        Public Property ModVersion As String
+        Public Property ModLink As String
+        Public Sub New(col1 As String, col2 As String, col3 As String, col4 As String,
+                       col5 As String, col6 As String, col7 As String, col8 As String,
+                       col9 As String)
             Modfolderpathname = col1
-            Item = col2
-            Category = col3
-            Description = col4
+            ModName = col2
+            Item = col3
+            Category = col4
+            Description = col5
+            ImagePath = col6
+            DateAdded = col7
+            ModVersion = col8
+            ModLink = col9
         End Sub
     End Class
 
     Public Class RegistryEditor
         Public Shared Sub ReadRegistry(modsRegistryDictionary As Dictionary(Of String, ModInfo), registryTextFilePath As String)
-            ' Read the entire JSON file content
             Dim jsonString As String = File.ReadAllText(registryTextFilePath)
-            ' Deserialize the JSON string into a List of JsonObject
-            Dim modList As List(Of JsonObject) = JsonSerializer.Deserialize(Of List(Of JsonObject))(jsonString)
-            ' Loop through each mod in the list
-            For Each modInfoJson As JsonObject In modList
-                ' Extract the values from the JSON object using GetProperty
-                Dim tempModFolderPathName As String = modInfoJson("Modfolderpathname").ToString()
-                Dim tempItem As String = modInfoJson("Item").ToString()
-                Dim tempCategory As String = modInfoJson("Category").ToString()
-                Dim tempDescription As String = modInfoJson("Description").ToString()
-                ' Create a new ModInfo object
-                Dim tempModInfo As New ModInfo(tempModFolderPathName, tempItem, tempCategory, tempDescription)
-                ' Add the ModInfo to the dictionary
-                modsRegistryDictionary.Add(tempModFolderPathName, tempModInfo)
-            Next
+
+            ' Parse JSON array using JsonDocument for safe property access
+            Using document As JsonDocument = JsonDocument.Parse(jsonString)
+                For Each element As JsonElement In document.RootElement.EnumerateArray()
+                    ' Required fields (old and new formats should have these)
+                    Dim tempModFolderPathName As String = element.GetProperty("Modfolderpathname").GetString()
+                    Dim tempItem As String = element.GetProperty("Item").GetString()
+                    Dim tempCategory As String = element.GetProperty("Category").GetString()
+                    Dim tempDescription As String = If(element.TryGetProperty("Description", Nothing), element.GetProperty("Description").GetString(), "")
+
+                    ' Optional fields with fallback values
+                    Dim tempModName As String = If(element.TryGetProperty("ModName", Nothing), element.GetProperty("ModName").GetString(), Path.GetFileName(tempModFolderPathName))
+                    Dim tempImagePath As String = If(element.TryGetProperty("ImagePath", Nothing), element.GetProperty("ImagePath").GetString(), "")
+                    Dim tempDateAdded As String = If(element.TryGetProperty("DateAdded", Nothing), element.GetProperty("DateAdded").GetString(), DateTime.Now.ToString("yyyy-MM-dd"))
+                    Dim tempModVersion As String = If(element.TryGetProperty("ModVersion", Nothing), element.GetProperty("ModVersion").GetString(), "")
+                    Dim tempModLink As String = If(element.TryGetProperty("ModLink", Nothing), element.GetProperty("ModLink").GetString(), "")
+
+                    Dim tempModInfo As New ModInfo(tempModFolderPathName, tempModName, tempItem, tempCategory, tempDescription,
+                                           tempImagePath, tempDateAdded, tempModVersion, tempModLink)
+
+                    modsRegistryDictionary(tempModFolderPathName) = tempModInfo
+                Next
+            End Using
         End Sub
 
         Public Shared Sub UpdateRegistry(allModsOriginalDictionary As Dictionary(Of String, Class1.ModInfo), modsRegistryDictionary As Dictionary(Of String, ModInfo))
@@ -215,9 +117,14 @@ Public Class Class1
                 If modsRegistryDictionary.ContainsKey(newModInfo.Modfolderpathname) Then
                     Dim oldModInfo As ModInfo = modsRegistryDictionary(newModInfo.Modfolderpathname)
                     If Not oldModInfo.Equals(newModInfo) Then
-                        oldModInfo.Category = newModInfo.Category
+                        oldModInfo.ModName = newModInfo.ModName
                         oldModInfo.Item = newModInfo.Item
+                        oldModInfo.Category = newModInfo.Category
                         oldModInfo.Description = newModInfo.Description
+                        oldModInfo.ImagePath = newModInfo.ImagePath
+                        oldModInfo.DateAdded = newModInfo.DateAdded
+                        oldModInfo.ModVersion = newModInfo.ModVersion
+                        oldModInfo.ModLink = newModInfo.ModLink
                     End If
                 End If
             Next
@@ -239,9 +146,14 @@ Public Class Class1
                         ' Create a new anonymous object representing the mod info
                         Dim modInfoJson = New With {
                         Key .Modfolderpathname = modInfo.Modfolderpathname,
+                        Key .ModName = modInfo.ModName,
                         Key .Item = modInfo.Item,
                         Key .Category = modInfo.Category,
-                        Key .Description = modInfo.Description
+                        Key .Description = modInfo.Description,
+                        Key .ImagePath = modInfo.ImagePath,
+                        Key .DateAdded = modInfo.DateAdded,
+                        Key .ModVersion = modInfo.ModVersion,
+                        Key .ModLink = modInfo.ModLink
                         }
                         ' Serialize the mod info to JSON format (compact, one line)
                         Dim json As String = JsonSerializer.Serialize(modInfoJson, options)
@@ -275,7 +187,8 @@ Public Class Class1
                         Dim tempModInfo As Class1.ModInfo = modsRegistryDictionary(relativeModFolderPath)
                         allModsOriginalDictionary(relativeModFolderPath) = tempModInfo
                     Else
-                        Dim tempModInfo As New Class1.ModInfo(relativeModFolderPath, "Other", "Other", "none")
+                        Dim tempModInfo As New Class1.ModInfo(relativeModFolderPath, Path.GetFileName(relativeModFolderPath), "Other", "Other", "",
+                                                                "", DateTime.Now.ToString("yyyy-MM-dd"), "", "")
                         modsRegistryDictionary.Add(relativeModFolderPath, tempModInfo)
                         allModsOriginalDictionary(relativeModFolderPath) = tempModInfo
                     End If
@@ -290,4 +203,148 @@ Public Class Class1
         End Sub
     End Class
 
+    Public Class Mods_DataGridView_Editor
+        Public Shared Sub AddModInfoToDataGridView(tempModInfo As ModInfo, Mods_DataGridView As DataGridView)
+            If Mods_DataGridView.Name = "UnusedMods_DataGridView" Then
+                Mods_DataGridView.Rows.Add(tempModInfo.Modfolderpathname, tempModInfo.ModName,
+                                           tempModInfo.Item, tempModInfo.Category, tempModInfo.Description,
+                                            tempModInfo.ImagePath, tempModInfo.DateAdded, tempModInfo.ModVersion, tempModInfo.ModLink)
+            ElseIf Mods_DataGridView.Name = "UsedMods_DataGridView" Then
+                Mods_DataGridView.Rows.Add(Mods_DataGridView.RowCount, tempModInfo.Modfolderpathname, tempModInfo.ModName,
+                               tempModInfo.Item, tempModInfo.Category, tempModInfo.Description,
+                                tempModInfo.ImagePath, tempModInfo.DateAdded, tempModInfo.ModVersion, tempModInfo.ModLink)
+            End If
+        End Sub
+    End Class
+
+    Public Class SettingsEditor
+
+        Public Shared Sub CreateSettings(settingsTextFilePath As String)
+
+        End Sub
+
+        Public Shared Sub ReadSettings(settingsTextFilePath As String, UsedMods_DataGridView As DataGridView, UnusedMods_DataGridView As DataGridView,
+                                              Themes_ProfileSpecificThemes_DataGridView As DataGridView, Themes_GlobalTheme_ComboBox As ComboBox,
+                                              Hd2DataPathPreview_TextBox As TextBox,
+                                              LastInstalledProfile_Label As System.Windows.Forms.Label,
+                                              themesDictionary As Dictionary(Of String, Class3.ThemeInfo),
+                                              currentGlobalTheme As ThemeInfo,
+                                              profileSpecificThemesDictionary As Dictionary(Of String, Class3.ProfileSpecificTheme))
+            ' Read the JSON file content into a string
+            Dim jsonString As String = File.ReadAllText(settingsTextFilePath)
+
+            ' Deserialize the JSON string into a JsonNode object
+            Dim settings As JsonNode = JsonNode.Parse(jsonString)
+
+            ' Set Hd2DataPathPreview_TextBox and LastInstalledProfile_Label text from JSON settings
+            If settings("Hd2DataPath") IsNot Nothing Then
+                Hd2DataPathPreview_TextBox.Text = settings("Hd2DataPath").ToString()
+            End If
+
+            If settings("LastInstalledProfile") IsNot Nothing Then
+                LastInstalledProfile_Label.Text = settings("LastInstalledProfile").ToString()
+            End If
+
+            ' Deserialize profileSpecificThemes into the dictionary
+            Dim profileSpecificThemes As JsonArray = CType(settings("profileSpecificThemes"), JsonArray)
+            For Each profileTheme As JsonNode In profileSpecificThemes
+                Dim profileName As String = profileTheme("ProfileName").ToString()
+                Dim themeName As String = profileTheme("ThemeName").ToString()
+                If Not themesDictionary.ContainsKey(themeName) Then
+                    themeName = "" ' Set to empty string if the theme does not exist
+                End If
+                profileSpecificThemesDictionary(profileName) = New Class3.ProfileSpecificTheme(profileName, themeName)
+                For Each row As DataGridViewRow In Themes_ProfileSpecificThemes_DataGridView.Rows
+                    If row.Cells(0).Value IsNot Nothing AndAlso row.Cells(0).Value.ToString() = profileName Then
+                        ' Update the existing row (set the themeName in the second column)
+                        row.Cells(1).Value = themeName
+                        Exit For
+                    End If
+                Next
+            Next
+
+            ' Deserialize columnsVisibleOrHidden dictionary and apply to DataGridViews
+            Dim columnsVisibleOrHiddenJson As JsonObject = CType(settings("columnsVisibleOrHidden"), JsonObject)
+            For Each kvp As KeyValuePair(Of String, JsonNode) In columnsVisibleOrHiddenJson
+                Dim columnName As String = kvp.Key
+                Dim isVisible As Boolean = Boolean.Parse(kvp.Value.ToString())
+
+                ' Apply visibility to both DataGrids (assuming columns exist)
+                SetColumnVisibility(UsedMods_DataGridView, columnName, isVisible)
+                SetColumnVisibility(UnusedMods_DataGridView, columnName, isVisible)
+            Next
+
+            If settings("currentGlobalTheme") IsNot Nothing Then
+                Dim themeName As String = settings("currentGlobalTheme").ToString()
+                If Themes_GlobalTheme_ComboBox.Items.Contains(themeName) Then
+                    currentGlobalTheme = themesDictionary(themeName)
+                    Themes_GlobalTheme_ComboBox.SelectedItem = themeName
+                End If
+            End If
+        End Sub
+
+
+        ' Helper method to set column visibility
+        Private Shared Sub SetColumnVisibility(dataGridView As DataGridView, columnName As String, isVisible As Boolean)
+            For Each column As DataGridViewColumn In dataGridView.Columns
+                If column.Name = columnName Then
+                    column.Visible = isVisible
+                    Exit Sub
+                End If
+            Next
+        End Sub
+
+        Public Shared Sub OverwriteSettings(Hd2DataPathPreview As String, LastInstalledProfile As String,
+                                    columnsVisibleOrHiddenDictionary As Dictionary(Of String, Boolean),
+                                    currentGlobalTheme As String, profileSpecificThemesDictionary As Dictionary(Of String, Class3.ProfileSpecificTheme),
+                                    settingsTextFilePath As String)
+            Using writer As New StreamWriter(settingsTextFilePath)
+                ' Start the JSON object
+                writer.WriteLine("{")
+                ' Serialize Hd2DataPathPreview and LastInstalledProfile
+                writer.WriteLine($"  ""Hd2DataPath"": ""{Hd2DataPathPreview.Replace("\", "/")}"",")
+                writer.WriteLine($"  ""LastInstalledProfile"": ""{LastInstalledProfile}"",")
+
+                ' Serialize columnsVisibleOrHidden dictionary without trailing commas
+                writer.WriteLine("  ""columnsVisibleOrHidden"": {")
+                Dim lastColumn As String = columnsVisibleOrHiddenDictionary.Keys.Last()
+                For Each kvp As KeyValuePair(Of String, Boolean) In columnsVisibleOrHiddenDictionary
+
+                    If kvp.Key IsNot lastColumn Then
+                        writer.WriteLine($"    ""{kvp.Key}"": {kvp.Value.ToString().ToLower()},")
+                    Else
+                        writer.WriteLine($"    ""{kvp.Key}"": {kvp.Value.ToString().ToLower()}")
+                    End If
+                Next
+                writer.WriteLine("  },")
+
+                ' Serialize currentGlobalTheme
+                writer.WriteLine($"  ""currentGlobalTheme"": ""{currentGlobalTheme}"",")
+
+                ' Serialize profileSpecificThemes without trailing commas
+                writer.WriteLine("  ""profileSpecificThemes"": [")
+                Dim lastTheme As String = profileSpecificThemesDictionary.Keys.Last()
+                For Each profileThemeEntry As KeyValuePair(Of String, Class3.ProfileSpecificTheme) In profileSpecificThemesDictionary
+                    Dim profileTheme As Class3.ProfileSpecificTheme = profileThemeEntry.Value
+
+                    ' Write the theme data
+                    writer.WriteLine("    {")
+                    writer.WriteLine($"      ""ProfileName"": ""{profileTheme.ProfileName}"",")
+                    writer.WriteLine($"      ""ThemeName"": ""{profileTheme.ThemeName}""")
+                    writer.Write("    }")
+
+                    ' Check if it's the last item and if so, don't write a comma
+                    If profileThemeEntry.Key IsNot lastTheme Then
+                        writer.WriteLine(",")  ' Add comma if not the last theme
+                    Else
+                        writer.WriteLine()   ' If it's the last theme, don't add a comma
+                    End If
+                Next
+                writer.WriteLine("  ]")
+
+                ' End the JSON object
+                writer.WriteLine("}")
+            End Using
+        End Sub
+    End Class
 End Class

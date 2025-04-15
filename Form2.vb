@@ -1,14 +1,16 @@
 ﻿Imports System.Text.RegularExpressions
+Imports phd2mm.Class3
 Imports phd2mm.Form1_phd2mm
 Public Class Form2_CreateNewProfile
 
+    Public currentGlobalTheme As ThemeInfo
     Public lightDarkMode As String
     Public newProfileName As String
     Public invalidCharsPattern As String = "[\\/:*?""<>|]"
     Public reservedNames As String() = {"CON", "PRN", "AUX", "NUL", "COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9", "LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9"}
 
     Private Sub Form2_CreateNewProfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Class1.ThemeManager.ApplyTheme(Me)
+        Class3.ThemeManager.ApplyThemeToForm(Me, currentGlobalTheme)
     End Sub
 
     Private Sub CancelCreateProfile_button_Click(sender As Object, e As EventArgs) Handles CancelCreateProfile_button.Click

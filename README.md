@@ -213,47 +213,44 @@ Mod Randomization Options (doesn't take mod conflict into account)
 5. Mod and Profile Management
 6. Mod Installation
 7. Other Features
-8. Credits
-9. Changelogs
+Changelogs
+Credits
 
 
 ============================================================================
 ### 1. Introduction
 
-Thank you for downloading Personal Helldivers 2 Mod Manager (phd2mm)! Please be aware
-that this is simple, buggy, experimental mod manager. You may also have to debug or fix
-problems yourself because I only did little testing on this program.
-This program will always do a fresh reinstall of mods, meaning your old mods in the
-Helldivers 2 data folder will be deleted and only then will new mods be added to it.
+Thank you for downloading Personal Helldivers 2 Mod Manager (phd2mm)! </br>
+Please be aware that this is a simple, experimental mod manager. </br>
+You may also have to debug or fix problems yourself because I only did little testing on this program. </br>
+Depending on the problem, you may have to edit phd2mm_registry.json, phd2mm_settings.json, or any of the theme.json files. </br>
+Worst case scenario, you may have to delete 1 or more of these files to allow fresh files to be created. Always make sure to back up your files before attempting any fixes. </br>
+This program will always do a fresh reinstall of mods, meaning your old mods in the Helldivers 2 data folder will be deleted and only then will new mods be added to it. </br>
 
 
 ============================================================================
 ### 2. Adding your Mods to the Mod Manager
 
-First, run then exit program. When you run the program, the following folders and
-files will be created: </br>
+First, run then exit program. When you run the program, the following folders and files will be created: </br>
 phd2mm_mods folder </br>
 phd2mm_profiles folder (has default.txt inside upon fresh download and start) </br>
-phd2mm_settings folder (has phd2mm_registry.json and phd2mm_settings.txt inside
-upon fresh download and start) </br>
+phd2mm_themes folder </br>
+phd2mm_settings folder (has phd2mm_registry.json and phd2mm_settings.json inside upon fresh download and start) </br>
 Once you run and exit the program, put your mods in the phd2mm_mods folder. </br>
 The format should be: </br>
-Does not work with mods that are inside compressed files such as zip files, please uncompress/extract them first </br>
-Each mod should have its own folder. </br>
-No duplicate names and patches in the same folder, for example, if a mod folder has
-9ba626afa44a3aa3.patch_0 and 9ba626afa44a3aa3.patch_1, then it will not be correctly installed.
-If it has 9ba626afa44a3aa3.patch_0 and 9ba626afa44a3aa3.patch_0.gpu_resources, then
-it will be correctly installed. If you have duplicate files in the same folder,
-just make another folder and put the duplicate files there. </br>
-Different names will work, assuming it is a valid mod file, for example,
-22749a294788af66.patch_0 and e72d3e9b05c3db0b.patch_0 in the same folder will be installed.
+ -Each mod should have its own folder. </br>
+ -No duplicate names and patches, for example, if a mod folder has 9ba626afa44a3aa3.patch_0 and 9ba626afa44a3aa3.patch_1, then it will not be correctly installed. </br>
+  If it has 9ba626afa44a3aa3.patch_0 and 9ba626afa44a3aa3.patch_0.gpu_resources, then it will be correctly installed. </br>
+ -Different names will work, assuming it is a valid mod file, for example, 22749a294788af66.patch_0 and e72d3e9b05c3db0b.patch_0 in the same folder will be correctly installed. </br>
+
 
 
 ============================================================================
 ### 3. Browsing your Helldivers 2 Data Directory
 
-Find and select your Helldivers 2 data directory by clicking the "Browse" button.
-It will check if the path to said directory has "Helldivers 2\data" in it.
+Find and select your Helldivers 2 data folder by clicking the "Settings" tab near the top of the screen. </br>
+Then either click the "Browse" button and go to your Helldivers 2 data folder or manually enter the Helldivers 2 data folder path path in the text box next to the "Browse" button. </br>
+The app will check if the path to said directory has "Helldivers 2\data" in it. </br>
 
 
 ============================================================================
@@ -327,41 +324,74 @@ reinstall of mods to make it easier to install mods.
 ============================================================================
 ### 7. Other Features
 -Search Mod: You can search for mods by typing in the search bar. It will filter the mods in both sides. </br>
--Delete All Installed Mods: You can delete all installed mods in the Helldivers 2 data folder by clicking
+
+-Delete All Installed Mods: You can delete all installed mods in the Helldivers 2 data folder by clicking </br>
 the "Delete All Installed Mods" button. </br>
--Toggle Light and Dark Mode: You can toggle between light and dark mode by clicking the
-"Toggle Light/Dark Mode" button. The app will remember your choice by saving it in
-phd2mm_settings\phd2mm_settings.txt. If not, try exiting the app first. </br>
+
 -Resize Columns: You can resize the columns by dragging the column headers. </br>
--Rearrange Columns: You can rearrange the columns by dragging the column headers except for the
+
+-Rearrange Columns: You can rearrange the columns by dragging the column headers except for the </br>
 leftmost column header. </br>
--Edit Category, Item, and Description: You can edit the Category, Item, and Description columns by
-double-clicking the cell you want to edit, choosing from a list of options or typing in the new text,
-then pressing Enter. The changes will be saved in phd2mm_settings\phd2mm_registry.json file. If not, try exiting
-the app first. </br>
--Show or Hide Category, Item, and Description: You can right-click any of the column headers except
-for the leftmost column header to show or hide the Category, Item, and Description columns. </br>
--Mod Randomization: You can enable mod randomization by clicking "Enable Mod Randomization Option".
+
+-Edit Values of Certain Columns: You can edit the Item, Category, Description, Version, and Link columns by double-clicking the cell you want to edit, </br>
+choosing from a list of options or typing in the new text, then pressing Enter. The changes will be saved in phd2mm_settings\phd2mm_registry.json file. </br>
+If not, try exiting the app first to see if the changes are saved in the phd2mm_registry.json. </br>
+
+-Show or Hide Certain Columns: You can right-click any of the column headers (except for the leftmost column header, Mod Folder Path + Name column, </br>
+and the # or Mod Order Number column) to show or hide the columns. </br>
+
+-Mod Randomization: Located in the "Settings" tab. You can enable mod randomization by clicking "Enable Mod Randomization Option". </br>
 This will allow you to click the "Randomly Add and Remove Mods" and "Mod Randomization Options" buttons. </br>
-WARNING: This simple mod randomization does not take mod conflicts into account.
+WARNING: This simple mod randomization does not take mod conflicts into account. </br>
+
+-Themes or Theme Manager: Located in the "Themes" tab. </br>
+You can create, duplicate, edit, and delete custom themes. To change color, ycan set color either by clicking the colored boxes to use the color picker </br>
+or enter a hex code in the text box. </br>
+NOTE: Due to WinForms limitations, some borders cannot be colored. </br>
+You can also set an image to be displayed in the top right of the "Mod Manager" tab. </br>
+To add an image, click the "Browse" button to find the image file, or manually enter the image path in the text box. </br>
+NOTE: Only image files in the following formats are accepted: *.png, *.jpg, *.jpeg, *.bmp, *.gif. </br>
+Don't forget to click the "Save Changes" button to save your changes. </br>
+You cannot edit and delete the default themes "phd2mm_light" and "phd2mm_dark". </br>
+You can set global theme and profile-specific themes. Profile-specific themes are prioritized over global themes. </br>
+To assign a theme to a profile, use the table on the right. </br>
+The left column lists profile names. </br>
+The right column lets you select a theme for each profile from a dropdown menu. </br>
+To remove a profile-specific theme, select the empty option in the dropdown. This will make the profile use the global theme instead. </br>
+The custom themes are saved in phd2mm_themes folder, each as a separate <custom_theme_name>.json file. </br>
+If they are not there or the changes are not saved, then try exiting the app first. </br>
 
 
 ============================================================================
-### 8. Credits:
-teutinsa, their team, and their project HD2ModManager for the inspiration to create this app. </br>
-https://www.nexusmods.com/helldivers2/mods/109 </br>
-Helldivers Wiki Team and their contributors for easy lookup of all things in the game
-to easily allow me to create categories and items for this app. </br>
-https://helldivers.wiki.gg/ </br>
-ModOrganizerTeam, their contributors, and their project Mod Organizer 2
-for the UI inspiration related to the mod window, categories, and styling. </br>
-https://www.nexusmods.com/skyrimspecialedition/mods/6194 </br>
-Microsoft for Visual Studio 2022 and .NET 9, allowing me to create phd2mm in the first place. </br>
-https://visualstudio.microsoft.com/vs/ Has Visual Studio License Agreement. </br>
-https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview Has MIT License.
+### Changelogs
+v1.4 </br>
+-Redesigned UI. </br>
+-Added columns: Name, Version, Image, Date Added, and Link. </br>
+Previously, it was just Mod Folder Path + Name, Item, Category, and Description columns. </br>
+Now, the columns in order, are Mod Folder Path + Name, Name, Item, Category, Version, Image, Date Added and Link. </br>
+However, image display in the Image column is not implemented, so it's hidden by default. </br>
+-Clarified mod randomization options. </br>
+-Added tab pages to the mod. As a result, 2 windows have been relocated into tabs. </br>
+1. The "More Info" button has been removed, its contents are now found in the "More Info" tab. </br>
+2. The "Mod Randomization Option" button has been removed, its contents are now found in the "Settings" tab. </br>
+-Browsing your Helldivers 2 data folder path is now in the "Settings" tab. </br>
+-Changed settings.txt file with settings.json file. </br>
+WARNING: You will need to set your Helldivers 2 data folder path again. </br>
+-Column visibility is now saved between sessions. </br>
+For example, if you hide the Image column and close the app, it will remain hidden next time you open it. </br>
+Previously, hidden columns would reset and become visible again. </br>
+-App will now also create phd2mm_themes folder. </br>
+-Replaced "Toggle Light/Dark Mode" with a theme manager, found in the "Themes" tab. </br>
+You can now create, duplicate, edit, and delete custom themes. You cannot edit and delete default themes, "phd2mm_light" and "phd2mm_dark". </br>
+NOTE: Due to WinForms limitations, some borders cannot be colored. </br>
+You can now set a global theme or assign profile-specific themes. Profile-specific theme will be prioritized over global theme. </br>
+You can also set an image to be displayed in the top right of the "Mod Manager" tab. </br>
+NOTE: Only image files in the following formats are accepted: *.png, *.jpg, *.jpeg, *.bmp, *.gif. </br>
+Don't forget to click the "Save Changes" button to save your changes. </br>
+Custom themes are saved in the phd2mm_themes folder. If they are not there or changes aren't saved, try exiting the app first. </br>
+-Added GNU General Public License (GPL) version 3 license. </br>
 
-============================================================================
-### 9. Changelogs
+
 v1.3.1 </br>
 -Fixed UnusedMods_DataGridView not sorting by name by default even when adding new mods
 when it should have. </br>
@@ -440,3 +470,24 @@ allowing users to an easier way to rearrange their mod list order.
 
 v1.0 </br>
 -First release.
+
+
+============================================================================
+### Credits:
+1. teutinsa, their team, and their project HD2ModManager for the inspiration to create this app. </br>
+https://www.nexusmods.com/helldivers2/mods/109 </br>
+
+2. Helldivers Wiki Team and their contributors for easy lookup of all things in the game
+to easily allow me to create categories and items for this app. </br>
+https://helldivers.wiki.gg/ </br>
+
+3. ModOrganizerTeam, their contributors, and their project Mod Organizer 2
+for the UI inspiration related to the mod window, categories, and styling. </br>
+https://www.nexusmods.com/skyrimspecialedition/mods/6194 </br>
+
+4. Microsoft for Visual Studio 2022 and .NET 9, allowing me to create phd2mm in the first place. </br>
+https://visualstudio.microsoft.com/vs/ Has Visual Studio License Agreement. </br>
+https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview Has MIT License. </br>
+
+5. This app is licensed under the GNU General Public License (GPL) version 3. </br>
+   For more information, visit the GNU GPL License Page at https://www.gnu.org/licenses/gpl-3.0.en.html. </br>

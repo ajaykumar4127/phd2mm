@@ -32,11 +32,11 @@ Partial Class Form2_CreateNewProfile
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 12F)
-        Label1.Location = New Point(114, 18)
+        Label1.Location = New Point(102, 18)
         Label1.Name = "Label1"
-        Label1.Size = New Size(280, 21)
+        Label1.Size = New Size(292, 21)
         Label1.TabIndex = 0
-        Label1.Text = "Enter name for your new profile below:"
+        Label1.Text = "Enter a name for your new profile below:"
         ' 
         ' ProfileName_TextBox
         ' 
