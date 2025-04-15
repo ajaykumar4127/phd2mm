@@ -20,7 +20,7 @@ Anyway, I hope you enjoy using this app!
 
 To download the app, click the Releases which should be on the right. </br>
 Or you can just click this link https://github.com/ajaykumar4127/phd2mm/releases and download either the latest version of the app, version 1.4, if you want more features
-or version 1.3.1 if you just want something simple.
+or version 1.3.1 if you just want something simple and more reliable.
 
 ### Screenshots of phd2mm App
 <details>
