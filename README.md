@@ -49,12 +49,14 @@ or version 1.3.1 if you just want something simple.
   </br> 
   Searching for mod with either name, category, item, or description with "las" </br>
   ![image](https://github.com/user-attachments/assets/d919b2fc-4fb0-4625-8d3f-45f3774669c3)
-  Settings and Mod Randomization Options (Full Helldivers 2 data folder path is censored here, but is actually shown in the app) </br>
+  Settings and Mod Randomization Options </br>
+  (Mod Randomization Options doesn't take mod conflict into account) </br>
+  (Full Helldivers 2 data folder path is censored here, but is actually shown in the app) </br>
   ![image](https://github.com/user-attachments/assets/b47610ad-af07-4145-a7c7-72f05ec42485) </br>
   
   Themes Tab (NOTE: Due to WinForms limitations, some parts like borders and tabs cannot be colored) </br>
   ![image](https://github.com/user-attachments/assets/220dee9b-b852-4aa2-9096-e5b3ee5cf231) </br>
-  Testing Profile-Specific Theme  (Full image path is censored here, but is actually shown in the app) </br>
+  Testing Profile-Specific Theme (Full image path is censored here, but is actually shown in the app) </br>
   ![image](https://github.com/user-attachments/assets/ced64943-1d1d-4b9d-9671-69334b1ccf16) </br>
   ![image](https://github.com/user-attachments/assets/bb15e951-3316-4f7e-a7b4-a0a43a3fb3cb) </br>
   ![image](https://github.com/user-attachments/assets/40576966-9647-40f0-84c9-6d54e986261d) </br>
@@ -67,9 +69,11 @@ or version 1.3.1 if you just want something simple.
   ![image](https://github.com/user-attachments/assets/c6fa5d15-1e98-481d-b5e1-5ec8450038d7) </br>
   ![image](https://github.com/user-attachments/assets/ca1271fa-37ae-4a57-b934-8445dad2e34b) </br>
   Trepang2 Test Theme (trepang2, custom theme) </br>
+  (Full image path is censored here, but is actually shown in the app) </br>
   ![image](https://github.com/user-attachments/assets/ecd54cc8-f811-4796-93d2-250000106934) </br>
   ![image](https://github.com/user-attachments/assets/a0377aa0-a84b-4d8f-ae1f-0ae87f83534d) </br>
   Helldiver Test Theme (helldiver_test, custom theme) </br>
+  (Full image path is censored here, but is actually shown in the app) </br>
   ![image](https://github.com/user-attachments/assets/2a9d6211-e97e-4252-9957-cf89afcb05b1) </br>
   ![image](https://github.com/user-attachments/assets/7ab7f58a-e60c-4c80-88c8-c207e21cd5ad) </br>
   Test Theme (test1, custom theme) </br>
