@@ -8,11 +8,12 @@ As the name says, I mainly made this mod manager for myself.
 Any updates to this program, if there will be any at all, will be infrequent. </br>
 I forgot to mention that if your mods are in compressed files such as zip and rar, it won't work with this app,
 please uncompress/extract them first so that this app can detect and install mods properly. </br>
+Currently no integration with manifest.json files. </br>
 Mainly created and tested in Visual Studio 2022,
 Winforms Visual Basic (VB), .NET 9 Framework, Windows 10 64-bit / x64. </br>
+This application is licensed under the GNU General Public License v3. </br>
 Feel free to copy, edit, and make your own version of this app! </br>
-However, I do not allow selling this app or any of its parts.
-If you must share this app, please share it for free. </br>
+While commercial use is permitted under GPLv3 license, I kindly ask that you share this app freely if you redistribute it. </br>
 There are some screenshots below on how the app looks like. </br>
 The information below starting from Table of Contents are also included in "More Info" inside the phd2mm app. </br>
 Anyway, I hope you enjoy using this app!
@@ -26,19 +27,42 @@ or version 1.3.1 if you just want something simple.
 <summary> Click this text to show or hide some screenshots of phd2mm app!</summary>
   <details>
    <summary> phd2mm v1.4 </summary>
+    
+    Main Page of phd2mm
+    ![image](https://github.com/user-attachments/assets/417c753d-1b15-422a-9fac-cdaa4a95af5a)
+    Creating Profile
+    ![image](https://github.com/user-attachments/assets/db7e7a6a-df5b-4dda-9eed-872d162c1a18)
+    All the Columns
+    ![image](https://github.com/user-attachments/assets/b36b06c1-80fc-4cfa-9fa3-623d0dc59954)
+    ![image](https://github.com/user-attachments/assets/83e68bae-7d73-46ac-9b30-062a95e098bd)
+    Hiding the Columns
+    ![image](https://github.com/user-attachments/assets/5dd20f46-c4b1-4cbd-bc34-0e0b311eada7)
+    ![image](https://github.com/user-attachments/assets/478fa8cc-2c7d-409c-8844-098ef15e80d9)
+    Selecting Item
+    ![image](https://github.com/user-attachments/assets/c51ad1f6-0719-4194-8bb3-b42466c1b229)
+    Selecting Category
+    ![image](https://github.com/user-attachments/assets/9cdeb868-d45e-45e8-b7e6-60903f5a0938)
+    Installing Mods
+    ![image](https://github.com/user-attachments/assets/abba2ad9-8e37-4cc3-8121-cef8ef6fc8ad)
+    ![image](https://github.com/user-attachments/assets/be4f5129-62f5-440f-9041-2d18a7a94f66)
+    ![image](https://github.com/user-attachments/assets/118927d5-9d21-404f-ac7d-cad24afe9d9b)
+    Searching for mod with either name, category, item, or description with "las"
+    ![image](https://github.com/user-attachments/assets/d919b2fc-4fb0-4625-8d3f-45f3774669c3)
+    Settings and Mod Randomization Options
+    ![image](https://github.com/user-attachments/assets/981e96eb-e4b4-42f3-b8cb-3c980da90cb6)
   </details>
  
  <details>
-  <summary> phd2mm v1.3.1 (Images show v1.3, but it's similar to v1.3.1. Only big difference is Category column options is now limited to the Item column value.) </summary>
+  <summary> phd2mm v1.3.1 (Some images show v1.3, but it's similar to v1.3.1. Only big difference is Category column options is now limited to the Item column value.) </summary>
+   
    Main Page of phd2mm
-  
    ![image](https://github.com/user-attachments/assets/159ce652-61d0-4f7e-9828-8e7b3d544909)
    Creating Profile
    ![image](https://github.com/user-attachments/assets/25df7729-2436-46e6-8023-084ea23a25dd)
-   Selecting Category
-   ![image](https://github.com/user-attachments/assets/df4a4238-06b8-4137-8cb4-c51c9fa9f849)
    Selecting Item
-   ![image](https://github.com/user-attachments/assets/1cd5b226-50bf-4150-9a58-d267dd110a98)
+   ![image](https://github.com/user-attachments/assets/b2e51ceb-859e-44c9-a225-46c1893fd09a)
+   Selecting Category
+   ![image](https://github.com/user-attachments/assets/a7689a06-3ba2-4378-ac8c-307481e68764)
    Installing Mods
    ![image](https://github.com/user-attachments/assets/0f4e23bd-ccc4-44ad-a3a3-1397b6ecdb80)
    Toggling Dark Mode
