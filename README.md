@@ -429,7 +429,7 @@ v1.4 </br>
 -Redesigned UI. </br>
 -Added columns: Name, Version, Image, Date Added, and Link. </br>
 Previously, it was just Mod Folder Path + Name, Item, Category, and Description columns. </br>
-Now, the columns in order, are Mod Folder Path + Name, Name, Item, Category, Version, Image, Date Added and Link. </br>
+Now, the columns in order, are Mod Folder Path + Name, Name, Item, Category, Description, Image, Date Added, Version, and Link. </br>
 However, image display in the Image column is not implemented, so it's hidden by default. </br>
 -Clarified mod randomization options. </br>
 -Added tab pages to the mod. As a result, 2 windows have been relocated into tabs. </br>
