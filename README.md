@@ -16,6 +16,10 @@ update: v1.5 added to repo, transferred/remade app from winforms to wpf. <br>
   you can hover over the image to see a popup containing 512x512 resolution image <br>
   or close to it. <br>
   visual category is replaced with skin category for consistency, and added a few items. <br>
+  
+  also, phd2mm app has gnu gpl v3 license, but the PixiEditor ColorPicker is mit license, <br>
+  which is why there are 2 licenses. mit license is strictly for the PixiEditor ColorPicker only. <br>
+  
   unfortunately, still not compatible with manifest.json because i still don't <br>
   understand how it works, how to read the file and use the information. <br>
   because of this, i do not have plans to integrate manifest.json in the near future. <br>
