@@ -1,0 +1,651 @@
+﻿<Application x:Class="phd2mm_wpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:phd2mm_wpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Note: For some reason, putting StackPanel here also changes the background color of the Combobox's drop down list. -->
+        <!-- Which is why StackPanel I gave it a key, so it won't affect any other control that isn't StackPanel. -->
+        <!-- Those that don't have x:Key are applied globally. -->
+        
+        <!-- Color Keys -->
+        <SolidColorBrush x:Key="GGC_Grid_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="GGC_TabControl_BackgroundColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="GGC_TabControl_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_TabItem_BackgroundColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="GGC_TabItem_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_TabItem_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_ComboBox_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="GGC_ComboBox_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_ComboBox_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_ListBox_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="GGC_ListBox_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_ListBox_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_GroupBox_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="GGC_GroupBox_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_StackPanel_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="GGC_RadioButton_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="GGC_RadioButton_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_Button_BackgroundColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="GGC_Button_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_Button_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_TextBox_BackgroundColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="GGC_TextBox_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_TextBox_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_Label_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="GGC_Label_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="GTC_DG_DataGrid_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="GTC_DG_DataGrid_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="GTC_DG_DataGrid_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="GTC_DG_Row_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="GTC_DG_Row_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="GTC_DG_AlternateRow_BackgroundColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="GTC_DG_SelectedRow_BackgroundColor" Color="Blue"/>
+        <SolidColorBrush x:Key="GTC_DG_SelectedRow_TextColor" Color="White"/>
+        <SolidColorBrush x:Key="GTC_DG_ColumnHeader_BackgroundColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="GTC_DG_ColumnHeader_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="GTC_DG_SortArrow_TextColor" Color="Black"/>
+        
+        <!-- None for images, just set them directly for now -->
+
+        <SolidColorBrush x:Key="MMGC_ComboBox_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="MMGC_ComboBox_TextColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="MMGC_ComboBox_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMGC_Button_BackgroundColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="MMGC_Button_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMGC_Button_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMGC_TextBox_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="MMGC_TextBox_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMGC_TextBox_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMGC_Label_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="MMGC_Label_TextColor" Color="Black"/>
+
+        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_DataGrid_BackgroundColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_DataGrid_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_DataGrid_BorderColor" Color="White"/>
+        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_Row_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_Row_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_AlternateRow_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_SelectedRow_BackgroundColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_SelectedRow_TextColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_ColumnHeader_BackgroundColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_ColumnHeader_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_SortArrow_TextColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_DataGrid_BackgroundColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_DataGrid_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_DataGrid_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_Row_BackgroundColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_Row_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_AlternateRow_BackgroundColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_SelectedRow_BackgroundColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_SelectedRow_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_ColumnHeader_BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_ColumnHeader_BorderColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_SortArrow_TextColor" Color="Blue"/>
+        <!-- Grid -->
+        <ScrollBarVisibility x:Key="MMTC_VerticalScrollBarVisibility">Auto</ScrollBarVisibility>
+        
+        
+        <!-- Grid -->
+        <Style x:Key="GGC_Grid_Style" TargetType="Grid">
+            <Setter Property="Background" Value="{DynamicResource GGC_Grid_BackgroundColor}"/>
+        </Style>
+
+        <!-- TabControl -->
+        <Style TargetType="TabControl">
+            <Setter Property="Background" Value="{DynamicResource GGC_TabControl_BackgroundColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GGC_TabControl_BorderColor}"/>
+        </Style>
+
+        <!-- TabPage (TabItem) -->
+        <Style  TargetType="TabItem">
+            <Setter Property="Background" Value="{DynamicResource GGC_TabItem_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource GGC_TabItem_TextColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GGC_TabItem_BorderColor}"/>
+            <Style.Triggers>
+                <!-- Trigger for the currently selected TabItem -->
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource GGC_TabItem_BackgroundColor}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource GGC_TabItem_TextColor}"/>
+                </Trigger>
+                <!-- Trigger for mouse hover -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource GGC_TabItem_BackgroundColor}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource GGC_TabItem_TextColor}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- ComboBox -->
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="{DynamicResource GGC_ComboBox_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource GGC_ComboBox_TextColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GGC_ComboBox_BorderColor}"/>
+            <!-- Set HorizontalContentAlignment to Left -->
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <!-- ToggleButton for the ComboBox -->
+                            <ToggleButton Name="ToggleButton"
+                  Background="{TemplateBinding Background}"
+                  Foreground="{TemplateBinding Foreground}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="1"
+                  IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                  ClickMode="Press"
+                  HorizontalContentAlignment="Left">
+                                <!-- Ensure alignment here -->
+                                <ContentPresenter Content="{TemplateBinding SelectionBoxItem}"
+                          ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                          ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                          Margin="3"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Stretch"/>
+                                <!-- Make sure to use Stretch for the full width -->
+                            </ToggleButton>
+                            <!-- Popup for the dropdown list -->
+                            <Popup Name="Popup"
+                               Placement="Bottom"
+                               IsOpen="{TemplateBinding IsDropDownOpen}"
+                               AllowsTransparency="True"
+                               Focusable="False"
+                               PopupAnimation="Slide">
+                                <Grid Name="DropDown"
+                                  SnapsToDevicePixels="True"
+                                  MinWidth="{TemplateBinding ActualWidth}"
+                                  MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border Name="DropDownBorder"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="1">
+                                        <ScrollViewer SnapsToDevicePixels="True">
+                                            <ItemsPresenter/>
+                                        </ScrollViewer>
+                                    </Border>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MMGC_ComboBox" TargetType="ComboBox">
+            <Setter Property="Background" Value="{DynamicResource MMGC_ComboBox_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource MMGC_ComboBox_TextColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource MMGC_ComboBox_BorderColor}"/>
+            <!-- Set HorizontalContentAlignment to Left -->
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <!-- ToggleButton for the ComboBox -->
+                            <ToggleButton Name="ToggleButton"
+          Background="{TemplateBinding Background}"
+          Foreground="{TemplateBinding Foreground}"
+          BorderBrush="{TemplateBinding BorderBrush}"
+          BorderThickness="1"
+          IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+          ClickMode="Press"
+          HorizontalContentAlignment="Left">
+                                <!-- Ensure alignment here -->
+                                <ContentPresenter Content="{TemplateBinding SelectionBoxItem}"
+                  ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                  ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                  Margin="3"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Stretch"/>
+                                <!-- Make sure to use Stretch for the full width -->
+                            </ToggleButton>
+                            <!-- Popup for the dropdown list -->
+                            <Popup Name="Popup"
+                       Placement="Bottom"
+                       IsOpen="{TemplateBinding IsDropDownOpen}"
+                       AllowsTransparency="True"
+                       Focusable="False"
+                       PopupAnimation="Slide">
+                                <Grid Name="DropDown"
+                          SnapsToDevicePixels="True"
+                          MinWidth="{TemplateBinding ActualWidth}"
+                          MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border Name="DropDownBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1">
+                                        <ScrollViewer SnapsToDevicePixels="True">
+                                            <ItemsPresenter/>
+                                        </ScrollViewer>
+                                    </Border>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ListBox -->
+        <Style TargetType="ListBox">
+            <Setter Property="Background" Value="{DynamicResource GGC_ListBox_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource GGC_ListBox_TextColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GGC_ListBox_BorderColor}"/>
+        </Style>
+
+        <!-- GroupBox -->
+        <Style TargetType="GroupBox">
+            <Setter Property="Background" Value="{DynamicResource GGC_GroupBox_BackgroundColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GGC_GroupBox_BorderColor}"/>
+        </Style>
+        
+        <!-- StackPanel -->
+        <!-- Note: For some reason, putting StackPanel here also changes the background color of the Combobox's drop down list. -->
+        <!-- Which is why StackPanel I gave it a key, so it won't affect any other control that isn't StackPanel. -->
+        <Style x:Key="GGC_StackPanel" TargetType="StackPanel">
+            <Setter Property="Background" Value="{DynamicResource GGC_StackPanel_BackgroundColor}"/>
+        </Style>
+
+        <!-- RadioButton -->
+        <Style TargetType="RadioButton">
+            <Setter Property="Background" Value="{DynamicResource GGC_RadioButton_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource GGC_RadioButton_TextColor}"/>
+        </Style>
+
+        <!-- Button -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{DynamicResource GGC_Button_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource GGC_Button_TextColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GGC_Button_BorderColor}"/>
+            <!-- Trigger for mouse hover -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="MMGC_Button" TargetType="Button">
+            <Setter Property="Background" Value="{DynamicResource MMGC_Button_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource MMGC_Button_TextColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource MMGC_Button_BorderColor}"/>
+            <!-- Trigger for mouse hover -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- TextBox -->
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="{DynamicResource GGC_TextBox_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource GGC_TextBox_TextColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GGC_TextBox_BorderColor}"/>
+        </Style>
+
+        <Style x:Key="MMGC_TextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="{DynamicResource MMGC_TextBox_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource MMGC_TextBox_TextColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource MMGC_TextBox_BorderColor}"/>
+        </Style>
+
+        <!-- Label -->
+        <Style TargetType="Label">
+            <Setter Property="Background" Value="{DynamicResource GGC_Label_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource GGC_Label_TextColor}"/>
+        </Style>
+
+        <Style x:Key="MMGC_Label" TargetType="Label">
+            <Setter Property="Background" Value="{DynamicResource MMGC_Label_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource MMGC_Label_TextColor}"/>
+        </Style>
+
+
+        <!-- Style for the ComboBoxItems in the dropdown. also affects datagrid combobox columns. -->
+        <Style x:Key="GTC_DG_ComboBoxItem" TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="{DynamicResource GGC_ComboBox_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource GGC_ComboBox_TextColor}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          Margin="2,0,0,0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Trigger for mouse hover -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource GTC_DG_SelectedRow_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GTC_DG_SelectedRow_TextColor}"/>
+                            </Trigger>
+                            <!-- Trigger for selected item -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource GTC_DG_SelectedRow_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GTC_DG_SelectedRow_TextColor}"/>
+                            </Trigger>
+                            <!-- Trigger for disabled state -->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
+                                <Setter Property="Foreground" Value="DarkGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MMTC_UnusedModsTable_ComboBoxItem" TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="{DynamicResource MMGC_ComboBox_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource MMGC_ComboBox_TextColor}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border x:Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      Margin="2,0,0,0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Trigger for mouse hover -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow_TextColor}"/>
+                            </Trigger>
+                            <!-- Trigger for selected item -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow_TextColor}"/>
+                            </Trigger>
+                            <!-- Trigger for disabled state -->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
+                                <Setter Property="Foreground" Value="DarkGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="MMTC_UsedModsTable_ComboBoxItem" TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="{DynamicResource MMGC_ComboBox_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource MMGC_ComboBox_TextColor}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          Margin="2,0,0,0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Trigger for mouse hover -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow_TextColor}"/>
+                            </Trigger>
+                            <!-- Trigger for selected item -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow_TextColor}"/>
+                            </Trigger>
+                            <!-- Trigger for disabled state -->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
+                                <Setter Property="Foreground" Value="DarkGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- DataGrid -->
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="{DynamicResource GTC_DG_DataGrid_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource GTC_DG_DataGrid_TextColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GTC_DG_DataGrid_BorderColor}"/>
+            <Setter Property="RowBackground" Value="{DynamicResource GTC_DG_Row_BackgroundColor}"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource GTC_DG_Row_BorderColor}"/>
+            <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource GTC_DG_Row_BorderColor}"/>
+            <Setter Property="AlternatingRowBackground" Value="{DynamicResource GTC_DG_AlternateRow_BackgroundColor}"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="{DynamicResource MMTC_VerticalScrollBarVisibility}"/>
+        </Style>
+
+        <Style x:Key="MMTC_UnusedModsTable" TargetType="DataGrid">
+            <Setter Property="Background" Value="{DynamicResource MMTC_UnusedModsTable_DG_DataGrid_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource MMTC_UnusedModsTable_DG_DataGrid_TextColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource MMTC_UnusedModsTable_DG_DataGrid_BorderColor}"/>
+            <Setter Property="RowBackground" Value="{DynamicResource MMTC_UnusedModsTable_DG_Row_BackgroundColor}"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource MMTC_UnusedModsTable_DG_Row_BorderColor}"/>
+            <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource MMTC_UnusedModsTable_DG_Row_BorderColor}"/>
+            <Setter Property="AlternatingRowBackground" Value="{DynamicResource MMTC_UnusedModsTable_DG_AlternateRow_BackgroundColor}"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="{DynamicResource MMTC_VerticalScrollBarVisibility}"/>
+        </Style>
+
+        <Style x:Key="MMTC_UsedModsTable" TargetType="DataGrid">
+            <Setter Property="Background" Value="{DynamicResource MMTC_UsedModsTable_DG_DataGrid_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource MMTC_UsedModsTable_DG_DataGrid_TextColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource MMTC_UsedModsTable_DG_DataGrid_BorderColor}"/>
+            <Setter Property="RowBackground" Value="{DynamicResource MMTC_UsedModsTable_DG_Row_BackgroundColor}"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource MMTC_UsedModsTable_DG_Row_BorderColor}"/>
+            <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource MMTC_UsedModsTable_DG_Row_BorderColor}"/>
+            <Setter Property="AlternatingRowBackground" Value="{DynamicResource MMTC_UsedModsTable_DG_AlternateRow_BackgroundColor}"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="{DynamicResource MMTC_VerticalScrollBarVisibility}"/>
+        </Style>
+
+        <!-- DataGridCell, specifically when a cell in DataGrid is selected -->
+        <Style TargetType="DataGridCell">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsSelected}" Value="True">
+                    <!-- Color of the selected cell -->
+                    <Setter Property="Background" Value="{DynamicResource GTC_DG_SelectedRow_BackgroundColor}"/>
+                    <!-- Text color of selected cell -->
+                    <Setter Property="Foreground" Value="{DynamicResource GTC_DG_SelectedRow_TextColor}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="MMTC_UnusedModsTable_DG_SelectedRow" TargetType="DataGridCell">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsSelected}" Value="True">
+                    <!-- Color of the selected cell -->
+                    <Setter Property="Background" Value="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow_BackgroundColor}"/>
+                    <!-- Text color of selected cell -->
+                    <Setter Property="Foreground" Value="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow_TextColor}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="MMTC_UsedModsTable_DG_SelectedRow" TargetType="DataGridCell">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsSelected}" Value="True">
+                    <!-- Color of the selected cell -->
+                    <Setter Property="Background" Value="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow_BackgroundColor}"/>
+                    <!-- Text color of selected cell -->
+                    <Setter Property="Foreground" Value="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow_TextColor}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- DataGridColumnHeader -->
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                        <Grid Name="HeaderGrid" Background="{DynamicResource GTC_DG_ColumnHeader_BackgroundColor}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="BackgroundBorder" BorderThickness="0,0,1,1"  BorderBrush="{DynamicResource GTC_DG_ColumnHeader_BorderColor}" Grid.ColumnSpan="2" />
+                            <ContentPresenter  Margin="6,3,6,3" VerticalAlignment="Center" Grid.Column="0" />
+                            <Path x:Name="SortArrow" Visibility="Collapsed" Data="M0,0 L1,0 0.5,1 z" Stretch="Fill" 
+                            Grid.Column="1" Width="8" Height="6" Fill="{DynamicResource GTC_DG_SortArrow_TextColor}" Margin="0,0,8,0" 
+                            VerticalAlignment="Center" RenderTransformOrigin="0.5,0.4" />
+                            <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Cursor="SizeWE" 
+                                   Grid.Column="1" >
+                                <Thumb.Style>
+                                    <Style TargetType="{x:Type Thumb}">
+                                        <Setter Property="Width" Value="2" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Thumb}">
+                                                    <Border Background="Transparent"/>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Thumb.Style>
+                            </Thumb>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="HeaderGrid"  Value="{DynamicResource GTC_DG_ColumnHeader_BackgroundColor}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="HeaderGrid"   Value="{DynamicResource GTC_DG_ColumnHeader_BackgroundColor}" />
+                            </Trigger>
+                            <Trigger Property="SortDirection" Value="Ascending">
+                                <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                                <Setter TargetName="SortArrow" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="180" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="SortDirection" Value="Descending">
+                                <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MMTC_UnusedModsTable_DG_ColumnHeader" TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                        <Grid Name="HeaderGrid" Background="{DynamicResource MMTC_UnusedModsTable_DG_ColumnHeader_BackgroundColor}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="BackgroundBorder" BorderThickness="0,0,1,1"  BorderBrush="{DynamicResource MMTC_UnusedModsTable_DG_ColumnHeader_BorderColor}" Grid.ColumnSpan="2" />
+                            <ContentPresenter  Margin="6,3,6,3" VerticalAlignment="Center" Grid.Column="0" />
+                            <Path x:Name="SortArrow" Visibility="Collapsed" Data="M0,0 L1,0 0.5,1 z" Stretch="Fill" 
+                    Grid.Column="1" Width="8" Height="6" Fill="{DynamicResource MMTC_UnusedModsTable_DG_SortArrow_TextColor}" Margin="0,0,8,0" 
+                    VerticalAlignment="Center" RenderTransformOrigin="0.5,0.4" />
+                            <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Cursor="SizeWE" 
+                           Grid.Column="1" >
+                                <Thumb.Style>
+                                    <Style TargetType="{x:Type Thumb}">
+                                        <Setter Property="Width" Value="2" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Thumb}">
+                                                    <Border Background="Transparent"/>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Thumb.Style>
+                            </Thumb>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="HeaderGrid"  Value="{DynamicResource MMTC_UnusedModsTable_DG_ColumnHeader_BackgroundColor}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="HeaderGrid"   Value="{DynamicResource MMTC_UnusedModsTable_DG_ColumnHeader_BackgroundColor}" />
+                            </Trigger>
+                            <Trigger Property="SortDirection" Value="Ascending">
+                                <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                                <Setter TargetName="SortArrow" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="180" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="SortDirection" Value="Descending">
+                                <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MMTC_UsedModsTable_DG_ColumnHeader" TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                        <Grid Name="HeaderGrid" Background="{DynamicResource MMTC_UsedModsTable_DG_ColumnHeader_BackgroundColor}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="BackgroundBorder" BorderThickness="0,0,1,1"  BorderBrush="{DynamicResource MMTC_UsedModsTable_DG_ColumnHeader_BorderColor}" Grid.ColumnSpan="2" />
+                            <ContentPresenter  Margin="6,3,6,3" VerticalAlignment="Center" Grid.Column="0" />
+                            <Path x:Name="SortArrow" Visibility="Collapsed" Data="M0,0 L1,0 0.5,1 z" Stretch="Fill" 
+            Grid.Column="1" Width="8" Height="6" Fill="{DynamicResource MMTC_UsedModsTable_DG_SortArrow_TextColor}" Margin="0,0,8,0" 
+            VerticalAlignment="Center" RenderTransformOrigin="0.5,0.4" />
+                            <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Cursor="SizeWE" 
+                   Grid.Column="1" >
+                                <Thumb.Style>
+                                    <Style TargetType="{x:Type Thumb}">
+                                        <Setter Property="Width" Value="2" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Thumb}">
+                                                    <Border Background="Transparent"/>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Thumb.Style>
+                            </Thumb>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="HeaderGrid"  Value="{DynamicResource MMTC_UsedModsTable_DG_ColumnHeader_BackgroundColor}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="HeaderGrid"   Value="{DynamicResource MMTC_UsedModsTable_DG_ColumnHeader_BackgroundColor}" />
+                            </Trigger>
+                            <Trigger Property="SortDirection" Value="Ascending">
+                                <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                                <Setter TargetName="SortArrow" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="180" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="SortDirection" Value="Descending">
+                                <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>

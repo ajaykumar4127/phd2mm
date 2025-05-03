@@ -1,0 +1,526 @@
+﻿<Window x:Name="MainWindow_phd2mm" x:Class="phd2mm_wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:phd2mm_wpf"
+        xmlns:colorpicker="clr-namespace:ColorPicker;assembly=ColorPicker"
+        mc:Ignorable="d"
+        Title="Personal Helldivers 2 Mod Manager (phd2mm) v1.4.1"
+        Height="928" Width="1759"
+        SizeToContent="WidthAndHeight"
+        Closing="Window_Closing">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="ComboBoxItems" MethodName="GetCategoriesAndItemsUniqueAndSortedItems" ObjectType="{x:Type local:Class2}" />
+        <Style x:Key="TextWrappingStyle" TargetType="TextBlock">
+            <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+        </Style>
+        <local:ImagePathToFullPathConverter x:Key="ImagePathToFullPathConverter" />
+    </Window.Resources>
+    <Grid Style="{DynamicResource GGC_Grid_Style}">
+        <TabControl Width="1759" Height="912.04">
+            <TabItem Header="Mod Manager">
+                <Grid Style="{DynamicResource GGC_Grid_Style}">
+                    <Image x:Name="ProfileImage_Background_Image" Stretch="Fill"/>
+                    <Image x:Name="ProfileImage_UnusedMods_DataGrid_Image" HorizontalAlignment="Left"  Width="861" Height="754.42" Margin="10,117,882,10" VerticalAlignment="Top" Stretch="Fill"/>
+                    <DataGrid x:Name="UnusedMods_DataGrid" Style="{DynamicResource MMTC_UnusedModsTable}" CellStyle="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow}" 
+                              ColumnHeaderStyle="{DynamicResource MMTC_UnusedModsTable_DG_ColumnHeader}" Margin="10,117,882,10" CanUserDeleteRows="False" Width="861" Height="754.42"
+                              HorizontalAlignment="Left" VerticalAlignment="Top" AutoGenerateColumns="False" RowHeaderWidth="0"
+                              ItemsSource="{Binding UnusedMods_DataGrid_ObservableCollection}" SelectionMode="Single" CanUserResizeRows="False"
+                              PreviewMouseDoubleClick="UnusedMods_DataGrid_PreviewMouseDoubleClick"
+                              MouseRightButtonDown="DataGrid_MouseRightButtonDown" CellEditEnding="UnusedMods_DataGrid_CellEditEnding" VerticalScrollBarVisibility="Auto" LostFocus="UnusedMods_DataGrid_LostFocus">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Mod Folder Path + Name" Binding="{Binding ModFolderPathName}" MinWidth="50" Width="350"
+                                                SortMemberPath="ModFolderPathName" IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Name" Binding="{Binding ModName}" MinWidth="50" Width="200">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridComboBoxColumn Header="Item" MinWidth="50" Width="160" SelectedItemBinding="{Binding Item}">
+                                <!-- Style for displaying the value when the cell is not in edit mode -->
+                                <DataGridComboBoxColumn.ElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=CategoriesAndItemsSorted}"/>
+                                    </Style>
+                                </DataGridComboBoxColumn.ElementStyle>
+                                <DataGridComboBoxColumn.EditingElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=CategoriesAndItemsSorted}"/>
+                                        <Setter Property="ItemContainerStyle" Value="{DynamicResource MMTC_UnusedModsTable_ComboBoxItem}" />
+                                        <EventSetter Event="SelectionChanged" Handler="ItemComboBox_SelectionChanged"/>
+                                    </Style>
+                                </DataGridComboBoxColumn.EditingElementStyle>
+                            </DataGridComboBoxColumn>
+                            <DataGridComboBoxColumn Header="Category" MinWidth="50" Width="130" SelectedItemBinding="{Binding Category}">
+                                <DataGridComboBoxColumn.ElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding ValidCategories}"/>
+                                    </Style>
+                                </DataGridComboBoxColumn.ElementStyle>
+                                <DataGridComboBoxColumn.EditingElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding ValidCategories}"/>
+                                        <Setter Property="ItemContainerStyle" Value="{DynamicResource MMTC_UnusedModsTable_ComboBoxItem}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.EditingElementStyle>
+                            </DataGridComboBoxColumn>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" MinWidth="50" Width="150">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Header="Image" MinWidth="48" Width="48" IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding ImagePath, Converter={StaticResource ImagePathToFullPathConverter}}" Width="48" Height="48"
+                                               ToolTipService.InitialShowDelay="0">
+                                            <!-- ToolTip that shows when the user hovers over the image -->
+                                            <Image.ToolTip>
+                                                <ToolTip Placement="Mouse" HorizontalOffset="10" VerticalOffset="10" >
+                                                    <Image Source="{Binding ImagePath, Converter={StaticResource ImagePathToFullPathConverter}}"
+                                                           MaxHeight="512" MaxWidth="512" Stretch="Uniform"/>
+                                                </ToolTip>
+                                            </Image.ToolTip>
+                                        </Image>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Date Added" Binding="{Binding DateAdded}" MinWidth="40" Width="SizeToHeader"
+                                                 IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Version" Binding="{Binding ModVersion}" MinWidth="40" Width="SizeToHeader">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Link" Binding="{Binding ModLink}" MinWidth="50" Width="100">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Image x:Name="ProfileImage_UsedMods_DataGrid_Image" HorizontalAlignment="Left"  Width="861" Height="754.42" Margin="882,117,10,10" VerticalAlignment="Top" Stretch="Fill"/>
+                    <DataGrid x:Name="UsedMods_DataGrid" Style="{DynamicResource MMTC_UsedModsTable}" CellStyle="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow}" 
+                              ColumnHeaderStyle="{DynamicResource MMTC_UsedModsTable_DG_ColumnHeader}" Margin="882,117,10,10" CanUserDeleteRows="False" Width="861" Height="754.42"
+                              HorizontalAlignment="Left" VerticalAlignment="Top" AutoGenerateColumns="False" RowHeaderWidth="0"
+                              ItemsSource="{Binding UsedMods_DataGrid_ObservableCollection}" SelectionMode="Single" CanUserResizeRows="False"
+                              Sorting="UsedMods_DataGrid_Sorting"
+                              PreviewMouseDoubleClick="UsedMods_DataGrid_PreviewMouseDoubleClick"
+                              AllowDrop="True"
+                              PreviewMouseLeftButtonDown="UsedMods_DataGrid_PreviewMouseLeftButtonDown"
+                              Drop="UsedMods_DataGrid_Drop" 
+                              DragOver="UsedMods_DataGrid_DragOver"
+                              CellEditEnding="UsedMods_DataGrid_CellEditEnding" PreviewTextInput="UsedMods_DataGrid_PreviewTextInput"
+                              PreviewMouseRightButtonDown="DataGrid_PreviewMouseRightButtonDown" MouseRightButtonDown="DataGrid_MouseRightButtonDown" VerticalScrollBarVisibility="Auto" LostFocus="UsedMods_DataGrid_LostFocus">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Order" Binding="{Binding ModOrderNumber}" MinWidth="35" Width="45" CanUserSort="False">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Mod Folder Path + Name" Binding="{Binding ModFolderPathName}" MinWidth="50" Width="350" IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Name" Binding="{Binding ModName}" MinWidth="50" Width="200">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridComboBoxColumn Header="Item" MinWidth="50" Width="160" SelectedItemBinding="{Binding Item}">
+                                <!-- Style for displaying the value when the cell is not in edit mode -->
+                                <DataGridComboBoxColumn.ElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=CategoriesAndItemsSorted}"/>
+                                    </Style>
+                                </DataGridComboBoxColumn.ElementStyle>
+                                <!-- Style for the ComboBox when the cell is in edit mode -->
+                                <DataGridComboBoxColumn.EditingElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=CategoriesAndItemsSorted}"/>
+                                        <Setter Property="ItemContainerStyle" Value="{DynamicResource MMTC_UsedModsTable_ComboBoxItem}" />
+                                        <EventSetter Event="SelectionChanged" Handler="ItemComboBox_SelectionChanged"/>
+                                    </Style>
+                                </DataGridComboBoxColumn.EditingElementStyle>
+                            </DataGridComboBoxColumn>
+                            <DataGridComboBoxColumn Header="Category" MinWidth="50" Width="130" SelectedItemBinding="{Binding Category}">
+                                <DataGridComboBoxColumn.ElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding ValidCategories}"/>
+                                    </Style>
+                                </DataGridComboBoxColumn.ElementStyle>
+                                <DataGridComboBoxColumn.EditingElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding ValidCategories}"/>
+                                        <Setter Property="ItemContainerStyle" Value="{DynamicResource MMTC_UsedModsTable_ComboBoxItem}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.EditingElementStyle>
+                            </DataGridComboBoxColumn>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" MinWidth="50" Width="150">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Header="Image" MinWidth="48" Width="48" IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding ImagePath, Converter={StaticResource ImagePathToFullPathConverter}}" Width="48" Height="48"
+                                               ToolTipService.InitialShowDelay="0">
+                                            <!-- ToolTip that shows when the user hovers over the image -->
+                                            <Image.ToolTip>
+                                                <ToolTip Placement="Mouse" HorizontalOffset="10" VerticalOffset="10" >
+                                                    <Image Source="{Binding ImagePath, Converter={StaticResource ImagePathToFullPathConverter}}"
+                                                           MaxHeight="512" MaxWidth="512" Stretch="Uniform"/>
+                                                </ToolTip>
+                                            </Image.ToolTip>
+                                        </Image>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Date Added" Binding="{Binding DateAdded}" MinWidth="40" Width="SizeToHeader"
+                                                 IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Version" Binding="{Binding ModVersion}" MinWidth="40" Width="SizeToHeader">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Link" Binding="{Binding ModLink}" MinWidth="50" Width="100">
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="Please select a profile:" Style="{DynamicResource MMGC_Label}" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <ComboBox x:Name="ProfilesList_ComboBox" Style="{DynamicResource MMGC_ComboBox}" HorizontalAlignment="Left" Margin="180,6,0,0" VerticalAlignment="Top" Width="455"
+                              ItemsSource="{Binding ProfilesList_ProfileNames}" SelectionChanged="ProfilesList_ComboBox_SelectionChanged" VerticalContentAlignment="Center"/>
+                    <Label Content="Search mod:" Style="{DynamicResource MMGC_Label}" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <TextBox x:Name="SearchMod_TextBox" Style="{DynamicResource MMGC_TextBox}" HorizontalAlignment="Left" Margin="112,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="523" Height="23" VerticalContentAlignment="Center" TextChanged="SearchMod_TextBox_TextChanged"/>
+                    <Label Content="Mods not used in this profile:" Style="{DynamicResource MMGC_Label}" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Button x:Name="AddSelectedMod_Button" Content="Add Selected Mod" Style="{DynamicResource MMGC_Button}" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="114" Height="23" Click="AddSelectedMod_Button_Click"/>
+                    <Button x:Name="RemoveSelectedMod_Button" Content="Remove Selected Mod" Style="{DynamicResource MMGC_Button}" HorizontalAlignment="Left" Margin="882,89,0,0" VerticalAlignment="Top" Height="23" Width="135" Click="RemoveSelectedMod_Button_Click"/>
+                    <Label Content="Mods used in this profile:" Style="{DynamicResource MMGC_Label}" HorizontalAlignment="Left" Margin="882,58,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Button x:Name="MoveModUp_Button" Style="{DynamicResource MMGC_Button}" Margin="1075,68,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="44" Click="MoveModUp_Button_Click">
+                        <Button.Content>
+                            <TextBlock Text="Move Up Selected Mod" TextWrapping="Wrap" TextAlignment="Center" 
+                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="MoveModDown_Button" Style="{DynamicResource MMGC_Button}" Margin="1176,68,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Height="44" Click="MoveModDown_Button_Click">
+                        <Button.Content>
+                            <TextBlock Text="Move Down Selected Mod" TextWrapping="Wrap" TextAlignment="Center" 
+                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="DeleteAllInstalledMods_Button" Style="{DynamicResource MMGC_Button}" Margin="1428,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="102" Height="44" Click="DeleteAllInstalledMods_Button_Click">
+                        <Button.Content>
+                            <TextBlock Text="Delete All Installed Mods" TextWrapping="Wrap" TextAlignment="Center" 
+                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="InstallMods_Button" Style="{DynamicResource MMGC_Button}" Margin="1428,52,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="102" Height="60" Click="InstallMods_Button_Click">
+                        <Button.Content>
+                            <TextBlock Text="Install All Mods from Current Profile" TextWrapping="Wrap" TextAlignment="Center" 
+                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="RandomizeMods_Button" Style="{DynamicResource MMGC_Button}" Margin="1301,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="102" Height="44" Click="RandomizeMods_Button_Click">
+                        <Button.Content>
+                            <TextBlock Text="Randomize Mods" TextWrapping="Wrap" TextAlignment="Center" 
+                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Button.Content>
+                    </Button>
+                    <Image x:Name="ProfileImage_Icon_Image" HorizontalAlignment="Left" Height="109" Margin="1541,3,0,0" VerticalAlignment="Top" Width="201"/>
+                    <Button x:Name="CreateProfile_Button" Content="Create Profile" Style="{DynamicResource MMGC_Button}" HorizontalAlignment="Left" Margin="640,6,0,0" VerticalAlignment="Top" Width="86" Height="23" Click="CreateProfile_Button_Click"/>
+                    <Button x:Name="SaveProfile_Button" Content="Save Profile" Style="{DynamicResource MMGC_Button}" HorizontalAlignment="Left" Margin="640,35,0,0" VerticalAlignment="Top" Width="86" Height="23" Click="SaveProfile_Button_Click"/>
+                    <Button x:Name="DeleteProfile_Button" Content="Delete Profile" Style="{DynamicResource MMGC_Button}" HorizontalAlignment="Left" Margin="731,6,0,0" VerticalAlignment="Top" Width="91" Height="23" Click="DeleteProfile_Button_Click"/>
+                    <Button x:Name="DuplicateProfile_Button" Content="Duplicate Profile" Style="{DynamicResource MMGC_Button}" HorizontalAlignment="Left" Margin="731,35,0,0" VerticalAlignment="Top" Height="23" Width="91" Click="DuplicateProfile_Button_Click"/>
+                    <Label Content="Last Installed Profile:" Style="{DynamicResource MMGC_Label}" HorizontalAlignment="Left" Margin="822,0,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label x:Name="LastInstalledProfile_Label" Style="{DynamicResource MMGC_Label}" HorizontalAlignment="Left" Margin="981,0,0,0" VerticalAlignment="Top" FontSize="16"
+                           Width="284" Height="53" HorizontalContentAlignment="Stretch">
+                        <Label.Content>
+                            <TextBlock Text="NA" TextWrapping="Wrap" />
+                        </Label.Content>
+                    </Label>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Themes">
+                <Grid Style="{DynamicResource GGC_Grid_Style}">
+                    <Label Content="Themes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+                    <Button x:Name="Themes_CreateTheme_Button" Content="Create" HorizontalAlignment="Left" Margin="12,46,0,0" VerticalAlignment="Top" Height="35" Width="70" FontSize="16" Click="Themes_CreateTheme_Button_Click"/>
+                    <Button x:Name="Themes_DuplicateTheme_Button" Content="Duplicate" HorizontalAlignment="Left" Margin="98,46,0,0" VerticalAlignment="Top" Height="35" Width="90" FontSize="16" Click="Themes_DuplicateTheme_Button_Click"/>
+                    <Button x:Name="Themes_DeleteTheme_Button" Content="Delete" HorizontalAlignment="Left" Margin="203,46,0,0" VerticalAlignment="Top" Height="35" FontSize="16" Width="70" Click="Themes_DeleteTheme_Button_Click"/>
+                    <ListBox x:Name="Themes_ThemeNames_ListBox" HorizontalAlignment="Left" Height="788" Margin="10,86,0,0" VerticalAlignment="Top" Width="300" FontSize="16"
+                             ItemsSource="{Binding Themes_ThemeNames_NoEmptyString_ObservableCollection}" SelectionChanged="Themes_ThemeNames_ListBox_SelectionChanged"/>
+                    <Label Content="Current Theme:" HorizontalAlignment="Left" Margin="329,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label x:Name="Themes_CurrentThemeName_Label" HorizontalAlignment="Left" Margin="453,10,0,0" VerticalAlignment="Top" FontSize="16">
+                        <TextBlock Text="ThemeName" />
+                    </Label>
+                    <Label Content="Currently Applied Theme:" HorizontalAlignment="Left" Margin="1143,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label x:Name="Themes_CurrentAppliedThemeName_Label" HorizontalAlignment="Left" Margin="1337,10,0,0" VerticalAlignment="Top" FontSize="16">
+                        <TextBlock Text="AppliedThemeName" />
+                    </Label>
+                    <Label Content="Global Theme:" HorizontalAlignment="Left" Margin="1143,64,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label Content="Profile-specific Themes:" HorizontalAlignment="Left" Margin="1143,112,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <ComboBox x:Name="Themes_GlobalTheme_ComboBox" HorizontalAlignment="Left" Margin="1259,64,0,0" VerticalAlignment="Top" Width="484" FontSize="16"
+                              ItemsSource="{Binding Themes_ThemeNames_NoEmptyString_ObservableCollection}" SelectionChanged="Themes_GlobalTheme_ComboBox_SelectionChanged"/>
+                    <DataGrid x:Name="Themes_ProfileSpecificThemes_DataGrid" HorizontalAlignment="Left" Height="726" Margin="1143,148,0,0" VerticalAlignment="Top" Width="600"
+                              FontSize="16" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"
+                              RowHeaderWidth="0" SelectionMode="Single"
+                              ItemsSource="{Binding Themes_ProfileSpecificThemes_DataGrid_ObservableCollection}" CellEditEnding="Themes_ProfileSpecificThemes_DataGrid_CellEditEnding">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="Themes_ProfileSpecificThemes_DataGrid_Profile_Column" Header="Profile"
+                                                MinWidth="50" Width="*"
+                                                Binding="{Binding ProfileName}" IsReadOnly="True" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <StaticResource ResourceKey="TextWrappingStyle"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridComboBoxColumn x:Name="Themes_ProfileSpecificThemes_DataGridView_Theme_Column" Header="Theme"
+                                                    MinWidth="50" Width="*"
+                                                    SelectedItemBinding="{Binding ThemeName}">
+                                <DataGridComboBoxColumn.ElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding DataContext.Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    </Style>
+                                </DataGridComboBoxColumn.ElementStyle>
+                                <DataGridComboBoxColumn.EditingElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding DataContext.Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                        <Setter Property="ItemContainerStyle" Value="{DynamicResource GTC_DG_ComboBoxItem}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.EditingElementStyle>
+                            </DataGridComboBoxColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TabControl x:Name="Themes_ControlsCustomization_TabControl" HorizontalAlignment="Left" Height="828" Margin="324,46,0,0" VerticalAlignment="Top" Width="804" FontSize="16">
+                        <TabItem Header="Global General Controls">
+                            <Grid Style="{DynamicResource GGC_Grid_Style}">
+                                <Button x:Name="Themes_GGC_SaveThemeSettings_Button" Content="Save Theme Settings" HorizontalAlignment="Left" Margin="594,725,0,0" VerticalAlignment="Top" Height="60" Width="194" FontSize="16" Click="Themes_SaveThemeSettings_Button_Click"/>
+                                <Label Content="Control Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Background Color" HorizontalAlignment="Left" Margin="236,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Text Color" HorizontalAlignment="Left" Margin="400,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.149,0.558"/>
+                                <Label Content="Border Color" HorizontalAlignment="Left" Margin="502,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Grid" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_Grid_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,46,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="TabControl" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_TabControl_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,82,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_TabControl_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,82,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="TabItem" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_TabItem_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,118,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_TabItem_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,118,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_TabItem_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,118,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="ComboBox" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_ComboBox_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,154,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_ComboBox_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,154,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_ComboBox_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,154,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="ListBox" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_ListBox_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,190,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_ListBox_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,190,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_ListBox_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,190,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="GroupBox" HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_GroupBox_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,226,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_GroupBox_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,226,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="StackPanel" HorizontalAlignment="Left" Margin="10,262,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_StackPanel_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,262,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="RadioButton" HorizontalAlignment="Left" Margin="10,298,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_RadioButton_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,298,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_RadioButton_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,298,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="Button" HorizontalAlignment="Left" Margin="10,334,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_Button_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,334,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_Button_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,334,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_Button_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,334,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="TextBox" HorizontalAlignment="Left" Margin="10,370,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_TextBox_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,370,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_TextBox_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,370,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_TextBox_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,370,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="Label" HorizontalAlignment="Left" Margin="10,406,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_Label_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,406,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_Label_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,406,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Global Table Controls">
+                            <Grid Style="{DynamicResource GGC_Grid_Style}">
+                                <Button x:Name="Themes_GTC_SaveThemeSettings_Button" Content="Save Theme Settings" HorizontalAlignment="Left" Margin="594,725,0,0" VerticalAlignment="Top" Height="60" Width="194" FontSize="16" Click="Themes_SaveThemeSettings_Button_Click"/>
+                                <Label Content="Border Color" HorizontalAlignment="Left" Margin="502,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Text Color" HorizontalAlignment="Left" Margin="400,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Background Color" HorizontalAlignment="Left" Margin="236,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Control Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="DataGrid (DG)" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GTC_DG_DataGrid_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,45,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GTC_DG_DataGrid_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,45,0,0" VerticalAlignment="Top" Height="32" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GTC_DG_DataGrid_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,46,0,0" VerticalAlignment="Top" Height="30" Width="90"/>
+                                <Label Content="DG Row" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GTC_DG_Row_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,82,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GTC_DG_Row_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,82,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Alternate Row" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GTC_DG_AlternateRow_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,118,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Selected Row" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GTC_DG_SelectedRow_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,154,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GTC_DG_SelectedRow_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,154,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Column Header" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GTC_DG_ColumnHeader_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,190,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GTC_DG_ColumnHeader_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,190,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Sort Arrow" HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GTC_DG_SortArrow_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,226,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Mod Manager General Controls">
+                            <Grid Style="{DynamicResource GGC_Grid_Style}">
+                                <Button x:Name="Themes_MMGC_SaveThemeSettings_Button" Content="Save Theme Settings" HorizontalAlignment="Left" Margin="594,725,0,0" VerticalAlignment="Top" Height="60" Width="194" FontSize="16" Click="Themes_SaveThemeSettings_Button_Click"/>
+                                <Button x:Name="Themes_MMGC_CopyGGCThemeSettings_Button" Content="Copy Global General Controls Customization" HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top" Height="31" Width="337" Click="Themes_MMGC_CopyGGCThemeSettings_Button_Click"/>
+                                <Label Content="Mod Manager Background Image:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Mod Manager Icon Image:" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Unused Mods Table Background Image:" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Used Mods Table Background Image:" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top"/>
+                                <Button x:Name="Themes_MMGC_ModManagerBackgroundImage_Button" Content="Browse" HorizontalAlignment="Left" Height="31" Margin="305,10,0,0" VerticalAlignment="Top" Width="84" Click="Themes_MMGC_ModManagerBackgroundImage_Button_Click"/>
+                                <TextBox x:Name="Themes_MMGC_ModManagerBackgroundImage_TextBox" HorizontalAlignment="Left" Height="31" Margin="399,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="389" VerticalContentAlignment="Center"/>
+                                <Button x:Name="Themes_MMGC_ModManagerIconImage_Button" Content="Browse" HorizontalAlignment="Left" Height="31" Margin="305,46,0,0" VerticalAlignment="Top" Width="84" Click="Themes_MMGC_ModManagerIconImage_Button_Click"/>
+                                <TextBox x:Name="Themes_MMGC_ModManagerIconImage_TextBox" HorizontalAlignment="Left" Height="31" Margin="399,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="389" VerticalContentAlignment="Center"/>
+                                <Button x:Name="Themes_MMGC_UnusedModsTableBackgroundImage_Button" Content="Browse" HorizontalAlignment="Left" Height="31" Margin="305,82,0,0" VerticalAlignment="Top" Width="84" Click="Themes_MMGC_UnusedModsTableBackgroundImage_Button_Click"/>
+                                <TextBox x:Name="Themes_MMGC_UnusedModsTableBackgroundImage_TextBox" HorizontalAlignment="Left" Height="31" Margin="399,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="389" VerticalContentAlignment="Center"/>
+                                <Button x:Name="Themes_MMGC_UsedModsTableBackgroundImage_Button" Content="Browse" HorizontalAlignment="Left" Height="31" Margin="305,118,0,0" VerticalAlignment="Top" Width="84" Click="Themes_MMGC_UsedModsTableBackgroundImage_Button_Click"/>
+                                <TextBox x:Name="Themes_MMGC_UsedModsTableBackgroundImage_TextBox" HorizontalAlignment="Left" Height="31" Margin="399,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="389" VerticalContentAlignment="Center"/>
+                                <Label Content="Control Name" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Background Color" HorizontalAlignment="Left" Margin="236,234,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Text Color" HorizontalAlignment="Left" Margin="399,234,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Border Color" HorizontalAlignment="Left" Margin="502,234,0,0" VerticalAlignment="Top"/>
+                                <Label Content="ComboBox" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMGC_ComboBox_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,270,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMGC_ComboBox_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,270,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMGC_ComboBox_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,270,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="Button" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMGC_Button_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,306,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMGC_Button_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,306,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMGC_Button_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,306,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="TextBox" HorizontalAlignment="Left" Margin="10,342,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMGC_TextBox_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,342,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMGC_TextBox_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,342,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMGC_TextBox_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,342,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="Label" HorizontalAlignment="Left" Margin="10,378,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMGC_Label_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,378,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMGC_Label_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,378,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Mod Manager Table Controls">
+                            <Grid Style="{DynamicResource GGC_Grid_Style}">
+                                <Button x:Name="Themes_MMTC_SaveThemeSettings_Button" Content="Save Theme Settings" HorizontalAlignment="Left" Margin="594,725,0,0" VerticalAlignment="Top" Height="60" Width="194" FontSize="16" Click="Themes_SaveThemeSettings_Button_Click"/>
+                                <Button x:Name="Themes_MMTC_UnusedModsTable_CopyUsedModsTableThemeSettings_Button" Content="Copy Used Mods Table" HorizontalAlignment="Left" Margin="10,307,0,0" VerticalAlignment="Top" Height="31" Width="194" Click="Themes_MMTC_UnusedModsTable_CopyUsedModsTableThemeSettings_Button_Click"/>
+                                <Button x:Name="Themes_MMTC_UnusedModsTable_CopyGTCThemeSettings_Button" Content="Copy Global Table Controls" HorizontalAlignment="Left" Margin="233,307,0,0" VerticalAlignment="Top" Height="31" Width="212" Click="Themes_MMTC_UnusedModsTable_CopyGTCThemeSettings_Button_Click"/>
+                                <Button x:Name="Themes_MMTC_UnusedModsTable_CopyUnusedModsTableThemeSettings_Button" Content="Copy Unused Mods Table" HorizontalAlignment="Left" Margin="10,616,0,0" VerticalAlignment="Top" Height="31" Width="194" Click="Themes_MMTC_UnusedModsTable_CopyUnusedModsTableThemeSettings_Button_Click"/>
+                                <Button x:Name="Themes_MMTC_UsedModsTable_CopyGTCThemeSettings_Button" Content="Copy Global Table Controls" HorizontalAlignment="Left" Margin="233,616,0,0" VerticalAlignment="Top" Height="31" Width="212" Click="Themes_MMTC_UsedModsTable_CopyGTCThemeSettings_Button_Click"/>
+                                <Label Content="Border Color" HorizontalAlignment="Left" Margin="502,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Text Color" HorizontalAlignment="Left" Margin="400,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Background Color" HorizontalAlignment="Left" Margin="236,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Control Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Unused Mods Table" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <Label Content="DataGrid (DG)" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UnusedModsTable_DG_DataGrid_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,82,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UnusedModsTable_DG_DataGrid_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,82,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UnusedModsTable_DG_DataGrid_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,82,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Row" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UnusedModsTable_DG_Row_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,118,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UnusedModsTable_DG_Row_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,118,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Alternate Row" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UnusedModsTable_DG_AlternateRow_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,154,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Selected Row" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UnusedModsTable_DG_SelectedRow_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,190,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UnusedModsTable_DG_SelectedRow_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,190,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Column Header" HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UnusedModsTable_DG_ColumnHeader_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,226,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UnusedModsTable_DG_ColumnHeader_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,226,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Sort Arrow" HorizontalAlignment="Left" Margin="10,262,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UnusedModsTable_DG_SortArrow_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,262,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="Used Mods Table" HorizontalAlignment="Left" Margin="10,354,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <Label Content="DataGrid (DG)" HorizontalAlignment="Left" Margin="10,390,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UsedModsTable_DG_DataGrid_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,390,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UsedModsTable_DG_DataGrid_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,390,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UsedModsTable_DG_DataGrid_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,390,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Row" HorizontalAlignment="Left" Margin="10,426,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UsedModsTable_DG_Row_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,426,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UsedModsTable_DG_Row_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,426,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Alternate Row" HorizontalAlignment="Left" Margin="10,462,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UsedModsTable_DG_AlternateRow_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,462,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Selected Row" HorizontalAlignment="Left" Margin="10,498,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UsedModsTable_DG_SelectedRow_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,498,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UsedModsTable_DG_SelectedRow_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,498,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Column Header" HorizontalAlignment="Left" Margin="10,534,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UsedModsTable_DG_ColumnHeader_BackgroundColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="283,534,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UsedModsTable_DG_ColumnHeader_BorderColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="507,534,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="DG Sort Arrow" HorizontalAlignment="Left" Margin="10,570,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_MMTC_UsedModsTable_DG_SortArrow_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,570,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
+                                <Label Content="Show Vertical ScrollBar:" HorizontalAlignment="Left" Margin="10,670,0,0" VerticalAlignment="Top"/>
+                                <GroupBox HorizontalAlignment="Left" Height="55" Margin="10,706,0,0" VerticalAlignment="Top" Width="190">
+                                    <StackPanel Style="{DynamicResource GGC_StackPanel}" Margin="0,6,0,0">
+                                        <RadioButton x:Name="Themes_MMTC_VerticalScrollBarVisibility_Auto_RadioButton" Content="Auto" VerticalContentAlignment="Center" IsChecked="True"/>
+                                        <RadioButton x:Name="Themes_MMTC_VerticalScrollBarVisibility_Hidden_RadioButton" Content="Hidden" VerticalContentAlignment="Center"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Settings">
+                <Grid Style="{DynamicResource GGC_Grid_Style}">
+                    <Label Content="Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+                    <Label Content="Please select your Helldivers 2 data directory:" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Button x:Name="BrowseHd2DataPath_Button" Content="Browse" HorizontalAlignment="Left" Margin="343,46,0,0" VerticalAlignment="Top" Height="31" Width="67" Click="BrowseHd2DataPath_Button_Click" FontSize="16"/>
+                    <TextBox x:Name="Hd2DataPathPreview_TextBox" HorizontalAlignment="Left" Margin="415,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="787" Height="31" FontSize="16" VerticalContentAlignment="Center"/>
+                    <Label Content="Mod Randomization Options" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+                    <Label Content="Choose your mod randomization options here:" HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <GroupBox x:Name="ModRandomizationModes_GroupBox" HorizontalAlignment="Left" Height="163" Margin="10,185,0,0"
+                              VerticalAlignment="Top" Width="647" FontSize="16" Padding="0,5,0,0">
+                        <StackPanel Style="{DynamicResource GGC_StackPanel}">
+                            <RadioButton x:Name="ModRandomizationOAHG_RadioButton" Margin="5" VerticalContentAlignment="Center" 
+                                Content="Only add mods, has guarantee of filling only 1 mod per category and item." Checked="RadioButton_Checked" IsChecked="True"/>
+                            <RadioButton x:Name="ModRandomizationOANG_RadioButton" Margin="5" VerticalContentAlignment="Center" 
+                                Content="Only add mods, no guarantee of filling at least 1 mod per category and item." Checked="RadioButton_Checked"/>
+                            <RadioButton x:Name="ModRandomizationARHG_RadioButton" Margin="5" VerticalContentAlignment="Center" 
+                                Content="Add and remove mods, has guarantee of filling only 1 mod per category and item." Checked="RadioButton_Checked"/>
+                            <RadioButton x:Name="ModRandomizationARNG_RadioButton" Margin="5" VerticalContentAlignment="Center" 
+                                Content="Add and remove mods, no guarantee of filling at least 1 mod per category and item." Checked="RadioButton_Checked"/>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="More Info">
+                <Grid Style="{DynamicResource GGC_Grid_Style}">
+                    <TabControl TabStripPlacement="Left">
+                        <TabItem Header="App Info">
+                            <Grid Style="{DynamicResource GGC_Grid_Style}">
+                                <TextBox HorizontalAlignment="Left" Height="96" Margin="262,101,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="199" IsReadOnly="True"/>
+                                <colorpicker:PortableColorPicker x:Name="yahoocolorpicker" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" Width="40" Height="40"/>
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Changelogs">
+                            <Grid Style="{DynamicResource GGC_Grid_Style}"/>
+                        </TabItem>
+                        <TabItem Header="Credits">
+                            <Grid Style="{DynamicResource GGC_Grid_Style}"/>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
