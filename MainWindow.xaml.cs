@@ -380,6 +380,8 @@ namespace phd2mm_wpf
                 {
                     // Perform the mod uninstallation
                     Class1.FilesDeleter.DeleteModsInThisDirectory(hd2DirectoryPath);
+                    hd2DirectoryPath = hd2DirectoryPath.Replace("\\", "/");
+                    Hd2DataPathPreview_TextBox.Text = hd2DirectoryPath;
                     MessageBox.Show("Deleted all currently installed mods.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
