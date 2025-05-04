@@ -20,7 +20,6 @@ namespace phd2mm_wpf
     /// </summary>
     public partial class Window3_CreateOrDuplicateTheme : Window
     {
-        //public Class3.ThemeInfo currentGlobalTheme;
         public string createOrDuplicateOption;
         public string themeToDuplicate;
         public string newThemeName;
@@ -32,6 +31,7 @@ namespace phd2mm_wpf
             "COM6", "COM7", "COM8", "COM9", "LPT1", "LPT2", "LPT3", "LPT4",
             "LPT5", "LPT6", "LPT7", "LPT8", "LPT9"
         };
+
         public Window3_CreateOrDuplicateTheme()
         {
             InitializeComponent();

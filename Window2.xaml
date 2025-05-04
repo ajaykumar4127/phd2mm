@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:phd2mm_wpf"
         mc:Ignorable="d"
-        Title="Installing Helldivers 2 Mods" Height="576" Width="906"
+        Title="Installing Helldivers 2 Mods" Width="906" Height="576"
         SizeToContent="WidthAndHeight"
         Loaded="Window2_InstallMods_Loaded">
     <Grid Style="{DynamicResource GGC_Grid_Style}">
-        <TextBox x:Name="InstallationStatus_TextBox" HorizontalAlignment="Center" Height="373" Margin="0,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="886" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"/>
-        <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Center" Height="28" Margin="0,86,0,0" VerticalAlignment="Top" Width="886"/>
-        <Button x:Name="Finish_Button" Content="Finish" HorizontalAlignment="Left" Height="40" Margin="814,510,0,0" VerticalAlignment="Top" Width="82" Click="Finish_Button_Click" FontSize="16"/>
-        <Label Content="Installing Helldivers 2 Mods from profile:" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label x:Name="CurrentlyInstalledProfileName_Label" Content="profile" HorizontalAlignment="Left" Margin="311,18,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Installed Mods:" HorizontalAlignment="Left" Margin="612,50,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label x:Name="AmountOfModsFinishedIntalling_Label" Content="1000" HorizontalAlignment="Left" Margin="745,50,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="InstallationStatus_TextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,132,0,0" Width="886" Height="373" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap"/>
+        <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,86,0,0" Width="886" Height="28"/>
+        <Button x:Name="Finish_Button" Content="Finish" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="814,510,0,0" Width="82" Height="40" FontSize="16" Click="Finish_Button_Click"/>
+        <Label Content="Installing Helldivers 2 Mods from profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,18,0,0" FontSize="16"/>
+        <Label x:Name="CurrentlyInstalledProfileName_Label" Content="profile" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="311,18,0,0" FontSize="16"/>
+        <Label Content="Installed Mods:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="612,50,0,0" FontSize="16"/>
+        <Label x:Name="AmountOfModsFinishedIntalling_Label" Content="1000" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="745,50,0,0" FontSize="16"/>
         <Label Content="/" HorizontalAlignment="Left" Margin="805,50,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label x:Name="TotalAmountOfModsToBeInstalled_Label" Content="2000" HorizontalAlignment="Left" Margin="833,50,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="TotalAmountOfModsToBeInstalled_Label" Content="2000" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="833,50,0,0" FontSize="16"/>
     </Grid>
 </Window>

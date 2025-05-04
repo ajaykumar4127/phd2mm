@@ -21,7 +21,6 @@ namespace phd2mm_wpf
     /// </summary>
     public partial class Window1_CreateOrDuplicateProfile : Window
     {
-        //public ThemeInfo currentGlobalTheme;
         public string createOrDuplicateOption;
         public string profileToDuplicate;
         public string newProfileName;
@@ -95,5 +94,6 @@ namespace phd2mm_wpf
                 Close(); // Close the window
             }
         }
+
     }
 }

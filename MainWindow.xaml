@@ -258,7 +258,7 @@
                     </Label>
                 </Grid>
             </TabItem>
-            <TabItem Header="Themes">
+            <TabItem Header="Theme Manager">
                 <Grid Style="{DynamicResource GGC_Grid_Style}">
                     <Label Content="Themes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
                     <Button x:Name="Themes_CreateTheme_Button" Content="Create" HorizontalAlignment="Left" Margin="12,46,0,0" VerticalAlignment="Top" Height="35" Width="70" FontSize="16" Click="Themes_CreateTheme_Button_Click"/>

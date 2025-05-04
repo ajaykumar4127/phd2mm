@@ -33,8 +33,6 @@ namespace phd2mm_wpf
 
         private void Window2_InstallMods_Loaded(object sender, RoutedEventArgs e)
         {
-            // Apply theme to the window
-            //Class3.ThemeManager.ApplyThemeToForm(this, currentGlobalTheme);
             // Set the profile name label text
             CurrentlyInstalledProfileName_Label.Content = profileName;
             // Initialize text to be appended
