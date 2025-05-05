@@ -28,7 +28,7 @@ update: v1.5 added to repo, transferred/remade app from winforms to wpf. <br>
 
 
   # Personal Helldivers 2 Mod Manager (phd2mm)
-Hello! Welcome to Personal_HD2ModManager v1.4!
+Hello! Welcome to Personal_HD2ModManager v1.5!
 This is NOT the famous teutinsa's HD2ModManager, which is in the link below: </br>
 https://www.nexusmods.com/helldivers2/mods/109
 </br>
@@ -39,12 +39,13 @@ I forgot to mention that if your mods are in compressed files such as zip and ra
 please uncompress/extract them first so that this app can detect and install mods properly. </br>
 Currently no integration with manifest.json files. </br>
 Mainly created and tested in Visual Studio 2022,
-Winforms Visual Basic (VB), .NET 9 Framework, Windows 10 64-bit / x64. </br>
+WPF C# (Formerly in Winforms Visual Basic (VB)), .NET 9 Framework, Windows 10 64-bit / x64. </br>
 This application is licensed under the GNU General Public License v3. </br>
 Feel free to copy, edit, and make your own version of this app! </br>
+However, please do not submit changes or edits to this original repository. Instead, fork it and modify your own copy.
 There are some screenshots below on how the app looks like. </br>
-The information below starting from Table of Contents are also included in "More Info" inside the phd2mm app. </br>
-Anyway, I hope you enjoy using this app!
+The information below starting from Table of Contents are also included in "More Info" inside the phd2mm app and README_phd2mmAppInfo.md in this repo. </br>
+Anyway, I hope you enjoy using this app! </br>
 
 To download the app, click the Releases which should be on the right. </br>
 Or you can just click this link https://github.com/ajaykumar4127/phd2mm/releases and download either the latest version of the app v1.4 for more features
