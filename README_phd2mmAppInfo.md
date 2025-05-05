@@ -34,18 +34,18 @@ then it will not be correctly installed. If it has 9ba626afa44a3aa3.patch_0 and 
 will be correctly installed. <br>
 <br>
 3. Browsing your Helldivers 2 Data Directory <br>
-Find and select your Helldivers 2 data folder by clicking the \"Settings\" tab near the top of the screen. <br>
-Then either click the \"Browse\" button and go to your Helldivers 2 data folder or manually enter the Helldivers 2 data folder path
-in the text box next to the \"Browse\" button. <br>
-The app will check if the path to said directory has \"Helldivers 2\\data\" in it. <br>
-If Helldivers 2 was bought from Steam, then the path should be: \"YourSteamPath\\Steam\\steamapps\\common\\Helldivers 2\\data\" <br>
+Find and select your Helldivers 2 data folder by clicking the Settings tab near the top of the screen. <br>
+Then either click the Browse button and go to your Helldivers 2 data folder or manually enter the Helldivers 2 data folder path
+in the text box next to the Browse button. <br>
+The app will check if the path to said directory has Helldivers 2\\data in it. <br>
+If Helldivers 2 was bought from Steam, then the path should be: YourSteamPath\\Steam\\steamapps\\common\\Helldivers 2\\data <br>
 <br>
 4. Profile Management <br>
 Each profile contains mods that are used together. It is similar to a mod list. <br>
-If you do not have any profile, a profile named \"default\" will automatically be created for you. " +
-Otherwise, create or choose a profile by clicking the \"Create Profile\" button. <br>
-The profile data will be saved in phd2mm_profiles\\ <your_profile_name_here>.txt. This text file contains the mod list saved in the profile. <br>
-However, you cannot create a profile with the following characters: \\/:*?\"<>| <br>
+If you do not have any profile, a profile named default will automatically be created for you. 
+Otherwise, create or choose a profile by clicking the Create Profile button. <br>
+The profile data will be saved in phd2mm_profiles\<your_profile_name_here>.txt. This text file contains the mod list saved in the profile. <br>
+However, you cannot create a profile with the following characters: \/:*?<>| <br>
 That is because when creating a profile, it also creates the file name the same as the profile name. In Windows at least,
 these characters cannot be used as file names. <br>
 You also cannot create a profile that are named the following: <br>
@@ -55,38 +55,38 @@ The important thing is its not just CON or the like as your profile name. <br>
 <br>
 5. Mod and Profile Management <br>
 You can now add any mod to the profile by: <br>
-1. Selecting any row or mod in the \"Mods not used in the profile\" then clicking the \"Add Selected Mod\" button or; <br>
+1. Selecting any row or mod in the Mods not used in the profile then clicking the Add Selected Mod button or; <br>
 2. Simply double left mouse button click the Mod Folder Path + Name of a mod. <br>
-Doing either of these options will transfer the mod from the left table to the right table, the \"Mods used in the profile\",
+Doing either of these options will transfer the mod from the left table to the right table, the Mods used in the profile,
 meaning the mod is now currently in use. <br>
 To remove a mod from the profile: <br>
-1. Selecting any row or mod in the \"Mods used in the profile\" then clicking the \"Remove Selected Mod\" button or; <br>
+1. Selecting any row or mod in the Mods used in the profile then clicking the Remove Selected Mod button or; <br>
 2. Simply double left mouse button click the Mod Folder Path + Name of a mod. <br>
-Doing either of these options will transfer the mod from the right table to the left table, the \"Mods not used in the profile\",
+Doing either of these options will transfer the mod from the right table to the left table, the Mods not used in the profile,
 meaning the mod is no longer in use. <br>
-You can rearrange the mod list order under \"Mods used in this profile\" by: <br>
-1. Selecting a mod in the right side then click the \"Move Up Selected Mod\" or \"Move Down Selected Mod\" buttons; <br>
+You can rearrange the mod list order under Mods used in this profile by: <br>
+1. Selecting a mod in the right side then click the Move Up Selected Mod or Move Down Selected Mod buttons; <br>
 2. By dragging the leftmost box of a mod in the right side then drop them wherever in the mod list, or; <br>
-3. By editing the \"#\" or Mod Order Number column. <br>
+3. By editing the # or Mod Order Number column. <br>
 No matter the selection or sort, the mod list will be rearranged accordingly. Meaning it will always be sorted from top to bottom. <br>
 <br>
-Remember to save your profile by clicking the \"Save Profile\" button or else the mod list will not be saved. <br>
-You can duplicate your currently selected profile by clicking the \"Duplicate Profile\" button. <br>
-You can also delete your currently selected profile by clicking \"Delete Profile\" button. <br>
+Remember to save your profile by clicking the Save Profile button or else the mod list will not be saved. <br>
+You can duplicate your currently selected profile by clicking the Duplicate Profile button. <br>
+You can also delete your currently selected profile by clicking Delete Profile button. <br>
 However, you cannot delete a profile if there's only 1 profile left. <br>
 <br>
 6. Mod Installation <br>
-When you're done with choosing your mods and saving the profile, click the \"Install All Mods from Current Profile\" button. <br>
+When you're done with choosing your mods and saving the profile, click the Install All Mods from Current Profile button. <br>
 If you changed the contents and order of the mod list but you did not save it, it is possible to install the modified-yet-unsaved mod list anyway.
 However, it is recommended to save the profile first before installing. <br>
 WARNING: This will delete all the mods you have installed in the Helldivers 2 data folder. <br>
 After that, it will put the mods there. Basically, this button will always do a clean reinstall of mods to make it easier to install mods. <br>
-To be extra sure, you can also click the \"Delete All Installed Mods\" button to uninstall all old mods before installing the new mods. <br>
+To be extra sure, you can also click the Delete All Installed Mods button to uninstall all old mods before installing the new mods. <br>
 <br>
 7. Other Features <br>
 7.1. Search Mod: You can search for mods by typing in the search bar. It will filter the mods in both sides. <br>
 7.2. Delete All Installed Mods: You can delete all installed mods in the Helldivers 2 data folder by clicking
-the \"Delete All Installed Mods\" button. <br>
+the Delete All Installed Mods button. <br>
 7.3. Resize Columns: You can resize the columns by dragging the column headers. <br>
 7.4. Rearrange Columns: You can rearrange the columns by dragging the column headers. <br>
 7.5. Edit Values of Certain Columns: You can edit the Item, Category, Description, Version, and Link columns by double-clicking the cell you want to edit,
@@ -96,14 +96,14 @@ If not, try exiting the app first to see if the changes are saved in the phd2mm_
 7.6. Show or Hide Certain Columns: You can right-click any of the column headers (except for the Mod Folder Path + Name column
 and the Order / Mod Order Number column) to show or hide the columns. <br>
 7.7. Image Hover: You can hover over an image in the Image column to see a larger preview (around 512x512 resolution) of the mod. <br>
-7.8. Open Mod Folder: Right-click any mod to open a menu then click the \"Open Mod Folder\" option. This will open the folder
+7.8. Open Mod Folder: Right-click any mod to open a menu then click the Open Mod Folder option. This will open the folder
 of the selected mod. <br>
-7.9. Open Mod Link in your Default Browser: Right-click any mod to open a menu then click the \"Open Mod Link in your Default Browser\" option.
+7.9. Open Mod Link in your Default Browser: Right-click any mod to open a menu then click the Open Mod Link in your Default Browser option.
 This will open the selected mod's link in your default browser. <br>
-7.10. Mod Randomization: The mod randomization options are located in the \"Settings\" tab. You can activate this feature by clicking the
-\"Randomize Mods\" button. <br>
+7.10. Mod Randomization: The mod randomization options are located in the Settings tab. You can activate this feature by clicking the
+Randomize Mods button. <br>
 WARNING: This simple mod randomization does not take mod conflicts into account. <br>
-7.11. Theme Manager: Located in the \"Theme Manager\" tab. To know more, please visit the \"Themes Info\" tab."
+7.11. Theme Manager: Located in the Theme Manager tab. To know more, please visit the Themes Info tab."
 
 
 
@@ -115,7 +115,7 @@ Table of Contents  <br>
 3. Theme Editing  <br>
 4. Images  <br>
 5. Controls  <br>
-
+<br>
 1. Theme Management  <br>
 You can create, duplicate, edit, or delete custom themes.  <br>
 You cannot edit or delete default themes, "phd2mm_light" and "phd2mm_dark".  <br>
