@@ -34,6 +34,12 @@
         <SolidColorBrush x:Key="GGC_TextBox_BorderColor" Color="Black"/>
         <SolidColorBrush x:Key="GGC_Label_BackgroundColor" Color="White"/>
         <SolidColorBrush x:Key="GGC_Label_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_Hover_BackgroundColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="GGC_Hover_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_Hover_BorderColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_Selected_BackgroundColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="GGC_Selected_TextColor" Color="Black"/>
+        <SolidColorBrush x:Key="GGC_Selected_BorderColor" Color="Black"/>
         <SolidColorBrush x:Key="GTC_DG_DataGrid_BackgroundColor" Color="White"/>
         <SolidColorBrush x:Key="GTC_DG_DataGrid_TextColor" Color="Black"/>
         <SolidColorBrush x:Key="GTC_DG_DataGrid_BorderColor" Color="Black"/>
@@ -82,10 +88,8 @@
         <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_ColumnHeader_BackgroundColor" Color="White"/>
         <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_ColumnHeader_BorderColor" Color="LightGray"/>
         <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_SortArrow_TextColor" Color="Blue"/>
-        <!-- Grid -->
         <ScrollBarVisibility x:Key="MMTC_VerticalScrollBarVisibility">Auto</ScrollBarVisibility>
-        
-        
+
         <!-- Grid -->
         <Style x:Key="GGC_Grid_Style" TargetType="Grid">
             <Setter Property="Background" Value="{DynamicResource GGC_Grid_BackgroundColor}"/>
@@ -103,18 +107,198 @@
             <Setter Property="Foreground" Value="{DynamicResource GGC_TabItem_TextColor}"/>
             <Setter Property="BorderBrush" Value="{DynamicResource GGC_TabItem_BorderColor}"/>
             <Style.Triggers>
-                <!-- Trigger for the currently selected TabItem -->
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="{DynamicResource GGC_TabItem_BackgroundColor}"/>
-                    <Setter Property="Foreground" Value="{DynamicResource GGC_TabItem_TextColor}"/>
-                </Trigger>
                 <!-- Trigger for mouse hover -->
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{DynamicResource GGC_TabItem_BackgroundColor}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource GGC_Hover_TextColor}"/>
+                </Trigger>
+                <!-- Trigger for the currently selected TabItem -->
+                <Trigger Property="IsSelected" Value="True">
                     <Setter Property="Foreground" Value="{DynamicResource GGC_TabItem_TextColor}"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <!--
+        <LinearGradientBrush x:Key="TabItem.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#ECF4FC" Offset="0.0"/>
+            <GradientStop Color="#DCECFC" Offset="1.0"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="TabItem.MouseOver.Border" Color="{DynamicResource GGC_TabItem_BackgroundColor}"/>
+        <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF"/> 
+        <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#ACACAC"/> -->
+        
+        <SolidColorBrush x:Key="TabItem.Disabled.Background" Color="#F0F0F0"/>
+        <SolidColorBrush x:Key="TabItem.Disabled.Border" Color="#D9D9D9"/>
+        <ControlTemplate x:Key="GGC_TabItem_Template" TargetType="{x:Type TabItem}">
+            <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+                <Border x:Name="mainBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Margin="0">
+                    <Border x:Name="innerBorder" Background="{DynamicResource GGC_TabItem_BackgroundColor}" BorderBrush="{DynamicResource GGC_TabItem_BorderColor}" BorderThickness="1,1,1,0" Margin="-1" Opacity="0"/>
+                </Border>
+                <ContentPresenter x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Mode=Self}}" Value="true"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Background" TargetName="mainBorder" Value="{DynamicResource GGC_Hover_BackgroundColor}"/>
+                    <Setter Property="BorderBrush" TargetName="mainBorder" Value="{DynamicResource GGC_Hover_BorderColor}"/>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Mode=Self}}" Value="true"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Background" TargetName="mainBorder" Value="{DynamicResource GGC_Hover_BackgroundColor}"/>
+                    <Setter Property="BorderBrush" TargetName="mainBorder" Value="{DynamicResource GGC_Hover_BorderColor}"/>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Mode=Self}}" Value="true"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Background" TargetName="mainBorder" Value="{DynamicResource GGC_Hover_BackgroundColor}"/>
+                    <Setter Property="BorderBrush" TargetName="mainBorder" Value="{DynamicResource GGC_Hover_BorderColor}"/>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Mode=Self}}" Value="true"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Background" TargetName="mainBorder" Value="{DynamicResource GGC_Hover_BackgroundColor}"/>
+                    <Setter Property="BorderBrush" TargetName="mainBorder" Value="{DynamicResource GGC_Hover_BorderColor}"/>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Mode=Self}}" Value="false"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                    <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Mode=Self}}" Value="false"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                    <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Mode=Self}}" Value="false"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                    <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Mode=Self}}" Value="false"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                    <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Mode=Self}}" Value="false"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Mode=Self}}" Value="true"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Panel.ZIndex" Value="1"/>
+                    <Setter Property="Margin" Value="-2,-2,0,-2"/>
+                    <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Mode=Self}}" Value="false"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Mode=Self}}" Value="true"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Panel.ZIndex" Value="1"/>
+                    <Setter Property="Margin" Value="-2,0,-2,-2"/>
+                    <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Mode=Self}}" Value="false"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Mode=Self}}" Value="true"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Panel.ZIndex" Value="1"/>
+                    <Setter Property="Margin" Value="0,-2,-2,-2"/>
+                    <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Mode=Self}}" Value="false"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Mode=Self}}" Value="true"/>
+                        <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Panel.ZIndex" Value="1"/>
+                    <Setter Property="Margin" Value="-2,-2,-2,0"/>
+                    <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                    <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                    <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                </MultiDataTrigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
 
         <!-- ComboBox -->
         <Style TargetType="ComboBox">
@@ -171,7 +355,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
+        
         <Style x:Key="MMGC_ComboBox" TargetType="ComboBox">
             <Setter Property="Background" Value="{DynamicResource MMGC_ComboBox_BackgroundColor}"/>
             <Setter Property="Foreground" Value="{DynamicResource MMGC_ComboBox_TextColor}"/>
@@ -234,6 +418,39 @@
             <Setter Property="BorderBrush" Value="{DynamicResource GGC_ListBox_BorderColor}"/>
         </Style>
 
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border 
+                    Name="Bd"
+                    Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Padding="{TemplateBinding Padding}">
+                            <ContentPresenter 
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- MouseOver -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{DynamicResource GGC_Hover_BackgroundColor}"/>
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource GGC_Hover_BorderColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Hover_TextColor}"/>
+                            </Trigger>
+                            <!-- Selected -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{DynamicResource GGC_Selected_BackgroundColor}"/>
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource GGC_Selected_BorderColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Selected_TextColor}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <!-- GroupBox -->
         <Style TargetType="GroupBox">
             <Setter Property="Background" Value="{DynamicResource GGC_GroupBox_BackgroundColor}"/>
@@ -258,24 +475,88 @@
             <Setter Property="Background" Value="{DynamicResource GGC_Button_BackgroundColor}"/>
             <Setter Property="Foreground" Value="{DynamicResource GGC_Button_TextColor}"/>
             <Setter Property="BorderBrush" Value="{DynamicResource GGC_Button_BorderColor}"/>
-            <!-- Trigger for mouse hover -->
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="Black"/>
-                </Trigger>
-            </Style.Triggers>
+            <Setter Property="BorderThickness" Value="1"/>
+            <!-- Define the ControlTemplate for the Button -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Border" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center" 
+                                      Content="{TemplateBinding Content}" 
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                        </Border>
+                        <!-- Define Triggers for the Button states -->
+                        <ControlTemplate.Triggers>
+                            <!-- Mouse Over Trigger -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource GGC_Hover_BackgroundColor}"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource GGC_Hover_BorderColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Hover_TextColor}"/>
+                            </Trigger>
+                            <!-- Pressed (Mouse Down) Trigger -->
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource GGC_Selected_BackgroundColor}"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource GGC_Selected_BorderColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Selected_TextColor}"/>
+                            </Trigger>
+                            <!-- Disabled State Trigger -->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#F0F0F0"/>
+                                <Setter Property="Foreground" Value="#D9D9D9"/>
+                                <Setter Property="BorderBrush" Value="#D9D9D9"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style x:Key="MMGC_Button" TargetType="Button">
             <Setter Property="Background" Value="{DynamicResource MMGC_Button_BackgroundColor}"/>
             <Setter Property="Foreground" Value="{DynamicResource MMGC_Button_TextColor}"/>
             <Setter Property="BorderBrush" Value="{DynamicResource MMGC_Button_BorderColor}"/>
-            <!-- Trigger for mouse hover -->
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="Black"/>
-                </Trigger>
-            </Style.Triggers>
+            <Setter Property="BorderThickness" Value="1"/>
+            <!-- Define the ControlTemplate for the Button -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Border" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                          VerticalAlignment="Center" 
+                          Content="{TemplateBinding Content}" 
+                          ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                        </Border>
+                        <!-- Define Triggers for the Button states -->
+                        <ControlTemplate.Triggers>
+                            <!-- Mouse Over Trigger -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource GGC_Hover_BackgroundColor}"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource GGC_Hover_BorderColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Hover_TextColor}"/>
+                            </Trigger>
+                            <!-- Pressed (Mouse Down) Trigger -->
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource GGC_Selected_BackgroundColor}"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource GGC_Selected_BorderColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Selected_TextColor}"/>
+                            </Trigger>
+                            <!-- Disabled State Trigger -->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#F0F0F0"/>
+                                <Setter Property="Foreground" Value="#D9D9D9"/>
+                                <Setter Property="BorderBrush" Value="#D9D9D9"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <!-- TextBox -->
@@ -302,9 +583,8 @@
             <Setter Property="Foreground" Value="{DynamicResource MMGC_Label_TextColor}"/>
         </Style>
 
-
         <!-- Style for the ComboBoxItems in the dropdown. also affects datagrid combobox columns. -->
-        <Style x:Key="GTC_DG_ComboBoxItem" TargetType="ComboBoxItem">
+        <Style x:Key="GTC_ComboBoxItem" TargetType="ComboBoxItem">
             <Setter Property="Background" Value="{DynamicResource GGC_ComboBox_BackgroundColor}"/>
             <Setter Property="Foreground" Value="{DynamicResource GGC_ComboBox_TextColor}"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -312,22 +592,62 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBoxItem">
                         <Border x:Name="Border"
-                                Background="{TemplateBinding Background}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
                             <ContentPresenter HorizontalAlignment="Left"
-                          VerticalAlignment="Center"
-                          Margin="2,0,0,0"/>
+                      VerticalAlignment="Center"
+                      Margin="2,0,0,0"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <!-- Trigger for mouse hover -->
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource GTC_DG_SelectedRow_BackgroundColor}"/>
-                                <Setter Property="Foreground" Value="{DynamicResource GTC_DG_SelectedRow_TextColor}"/>
+                                <Setter Property="Background" Value="{DynamicResource GGC_Hover_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Hover_TextColor}"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource GGC_Hover_BorderColor}"/>
                             </Trigger>
                             <!-- Trigger for selected item -->
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource GTC_DG_SelectedRow_BackgroundColor}"/>
-                                <Setter Property="Foreground" Value="{DynamicResource GTC_DG_SelectedRow_TextColor}"/>
+                                <Setter Property="Background" Value="{DynamicResource GGC_Selected_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Selected_TextColor}"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource GGC_Selected_BorderColor}"/>
+                            </Trigger>
+                            <!-- Trigger for disabled state -->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
+                                <Setter Property="Foreground" Value="DarkGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MMGC_ComboBoxItem" TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="{DynamicResource MMGC_ComboBox_BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource MMGC_ComboBox_TextColor}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border x:Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="2,0,0,0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Trigger for mouse hover -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource GGC_Hover_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Hover_TextColor}"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource GGC_Hover_BorderColor}"/>
+                            </Trigger>
+                            <!-- Trigger for selected item -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource GGC_Selected_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Selected_TextColor}"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource GGC_Selected_BorderColor}"/>
                             </Trigger>
                             <!-- Trigger for disabled state -->
                             <Trigger Property="IsEnabled" Value="False">
@@ -357,13 +677,15 @@
                         <ControlTemplate.Triggers>
                             <!-- Trigger for mouse hover -->
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow_BackgroundColor}"/>
-                                <Setter Property="Foreground" Value="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow_TextColor}"/>
+                                <Setter Property="Background" Value="{DynamicResource GGC_Hover_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Hover_TextColor}"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource GGC_Hover_BorderColor}"/>
                             </Trigger>
                             <!-- Trigger for selected item -->
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow_BackgroundColor}"/>
-                                <Setter Property="Foreground" Value="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow_TextColor}"/>
+                                <Setter Property="Background" Value="{DynamicResource GGC_Selected_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Selected_TextColor}"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource GGC_Selected_BorderColor}"/>
                             </Trigger>
                             <!-- Trigger for disabled state -->
                             <Trigger Property="IsEnabled" Value="False">
@@ -375,7 +697,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
 
         <Style x:Key="MMTC_UsedModsTable_ComboBoxItem" TargetType="ComboBoxItem">
             <Setter Property="Background" Value="{DynamicResource MMGC_ComboBox_BackgroundColor}"/>
@@ -394,13 +715,15 @@
                         <ControlTemplate.Triggers>
                             <!-- Trigger for mouse hover -->
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow_BackgroundColor}"/>
-                                <Setter Property="Foreground" Value="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow_TextColor}"/>
+                                <Setter Property="Background" Value="{DynamicResource GGC_Hover_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Hover_TextColor}"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource GGC_Hover_BorderColor}"/>
                             </Trigger>
                             <!-- Trigger for selected item -->
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow_BackgroundColor}"/>
-                                <Setter Property="Foreground" Value="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow_TextColor}"/>
+                                <Setter Property="Background" Value="{DynamicResource GGC_Selected_BackgroundColor}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource GGC_Selected_TextColor}"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource GGC_Selected_BorderColor}"/>
                             </Trigger>
                             <!-- Trigger for disabled state -->
                             <Trigger Property="IsEnabled" Value="False">
