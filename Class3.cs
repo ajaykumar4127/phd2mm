@@ -320,6 +320,7 @@ namespace phd2mm_wpf
                     WriteThemeToFile(entry, filePath);
                 }
             }
+
             public static void WriteThemeToFile(KeyValuePair<string, ThemeInfo> entry, string filePath)
             {
                 // Step 3: Serialize the ThemeInfo object and write to file

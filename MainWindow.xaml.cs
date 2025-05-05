@@ -126,6 +126,7 @@ namespace phd2mm_wpf
                 Themes_ProfileSpecificThemes_DataGrid_ObservableCollection);
             Class1.ModFinder.ScanModFoldersForPatchFiles(allModsOriginalDictionary, modsRegistryDictionary);
             ProfilesList_ComboBox.SelectedIndex = 0;
+            Class2.MoreInfoTexts.SetMoreInfoTexts(MoreInfo_Changelogs_TextBox, MoreInfo_Credits_TextBox);
             // Keep the commented code below that delays selecting the first item in the ProfilesList_ComboBox in case it is needed in the future.
             // Because before, I had to use this workaround so that app won't crash when setting the SelectedIndex of ProfilesList_ComboBox.
             // Something about selecting the first item in the ProfilesList_ComboBox before it is fully loaded crashes the app, despite it being near

@@ -608,19 +608,36 @@
                     </GroupBox>
                 </Grid>
             </TabItem>
-            <TabItem Header="More Info" Template="{DynamicResource GGC_TabItem_Template}">
+            <TabItem Header="More Info" Template="{DynamicResource GGC_TabItem_Template}" >
                 <Grid Style="{DynamicResource GGC_Grid_Style}">
-                    <TabControl TabStripPlacement="Left">
+                    <TabControl TabStripPlacement="Left" FontSize="16">
                         <TabItem Header="App Info" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}">
-                                <TextBox Text="TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="262,101,0,0" Width="199" Height="96" TextWrapping="Wrap" IsReadOnly="True"/>
+                                <Label Content="App Info" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
+                                <TextBox Text="TextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Width="1630" Height="822"
+                                         VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" IsReadOnly="True"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Themes Info" Template="{DynamicResource GGC_TabItem_Template}">
+                            <Grid Style="{DynamicResource GGC_Grid_Style}">
+                                <Label Content="Theme Manager Info" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
+                                <TextBox Text="TextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Width="1630" Height="822"
+                                         VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" IsReadOnly="True"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Changelogs" Template="{DynamicResource GGC_TabItem_Template}">
-                            <Grid Style="{DynamicResource GGC_Grid_Style}"/>
+                            <Grid Style="{DynamicResource GGC_Grid_Style}">
+                                <Label Content="Changelogs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="MoreInfo_Changelogs_TextBox" Text="TextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Width="1630" Height="822"
+                                         VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" IsReadOnly="True"/>
+                            </Grid>
                         </TabItem>
                         <TabItem Header="Credits" Template="{DynamicResource GGC_TabItem_Template}">
-                            <Grid Style="{DynamicResource GGC_Grid_Style}"/>
+                            <Grid Style="{DynamicResource GGC_Grid_Style}">
+                                <Label Content="Credits" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="MoreInfo_Credits_TextBox" Text="Credits" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Width="1630" Height="822"
+                                         VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" IsReadOnly="True"/>
+                            </Grid>
                         </TabItem>
                     </TabControl>
                 </Grid>
