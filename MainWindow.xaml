@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:phd2mm_wpf"
         xmlns:colorpicker="clr-namespace:ColorPicker;assembly=ColorPicker"
         mc:Ignorable="d"
-        Title="Personal Helldivers 2 Mod Manager (phd2mm) v1.4.1"
+        Title="Personal Helldivers 2 Mod Manager (phd2mm) v1.5"
         Width="1759" Height="928"
         SizeToContent="WidthAndHeight"
         Closing="Window_Closing">
@@ -621,7 +621,7 @@
                     <TabControl TabStripPlacement="Left" FontSize="16">
                         <TabItem Header="App Info" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}">
-                                <Label Content="App Info" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
+                                <Label Content="phd2mm v1.5 App Info" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
                                 <TextBox x:Name="MoreInfo_AppInfo_TextBox" Text="TextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Width="1630" Height="822"
                                          VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" IsReadOnly="True"/>
                             </Grid>

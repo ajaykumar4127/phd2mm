@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using static System.Net.Mime.MediaTypeNames;
+using System.Windows.Documents;
 
 namespace phd2mm_wpf
 {
@@ -381,11 +385,123 @@ namespace phd2mm_wpf
             }
 
             public static string MoreInfo_AppInfo =
-                "placeholder"
+                "Table of Contents\n" +
+                "1. Introduction\n" +
+                "2. Adding your Mods to the Mod Manager\n" +
+                "3. Browsing your Helldivers 2 Data Directory\n" +
+                "4. Profile Management\n" +
+                "5. Mod and Profile Management\n" +
+                "6. Mod Installation\n" +
+                "7. Other Features\n" +
+                "\n" +
+                "1. Introduction\n" +
+                "Thank you for downloading Personal Helldivers 2 Mod Manager (phd2mm)!\n" +
+                "Please be aware that this is a simple, experimental mod manager.\n"+
+                "You may also have to debug or fix problems yourself because I only did little testing on this program.\n" +
+                "Depending on the problem, you may have to edit phd2mm_registry.json, phd2mm_settings.json, or any of the theme.json files.\n" +
+                "Worst case scenario, you may have to delete 1 or more of these files to allow fresh files to be created.\n" +
+                "Always make sure to back up your files before attempting any fixes.\n" +
+                "This program will always do a fresh reinstall of mods, meaning your old mods in the Helldivers 2 data folder will be deleted " +
+                "and only then will new mods be added to it.\n" +
+                "This is to ensure that the mods are installed correctly and to avoid any conflicts with old mods.\n" +
+                "\n" +
+                "2. Adding your Mods to the Mod Manager\n" +
+                "First, run then exit program. When you run the program, the following folders and files will be created:\n" +
+                "1. phd2mm_mods folder (empty upon fresh download and start)\n" +
+                "2. phd2mm_mods_profiles folder (has default.txt inside upon fresh download and start)\n" +
+                "3. phd2mm_themes.json (empty upon fresh download and start)\n" +
+                "4. phd2mm_settings folder (has phd2mm_registry.json and phd2mm_settings.json inside upon fresh download and start)\n" +
+                "Once you run and exit the program, put your mods in the phd2mm_mods folder.\n" +
+                "The format of the mods should be:\n" +
+                "1. Each mod should have its own folder.\n" +
+                "2. No duplicate names and patches, for example, if a mod folder has 9ba626afa44a3aa3.patch_0 and 9ba626afa44a3aa3.patch_1, " +
+                "then it will not be correctly installed. If it has 9ba626afa44a3aa3.patch_0 and 9ba626afa44a3aa3.patch_0.gpu_resources, then it will be correctly installed.\n" +
+                "3. Different names will work, assuming it is a valid mod file, for example, 22749a294788af66.patch_0 and e72d3e9b05c3db0b.patch_0 in the same folder " +
+                "will be correctly installed.\n" +
+                "\n" +
+                "3. Browsing your Helldivers 2 Data Directory\n" +
+                "Find and select your Helldivers 2 data folder by clicking the \"Settings\" tab near the top of the screen.\n" +
+                "Then either click the \"Browse\" button and go to your Helldivers 2 data folder or manually enter the Helldivers 2 data folder path " +
+                "in the text box next to the \"Browse\" button.\n" +
+                "The app will check if the path to said directory has \"Helldivers 2\\data\" in it.\n" +
+                "If Helldivers 2 was bought from Steam, then the path should be: \"YourSteamPath\\Steam\\steamapps\\common\\Helldivers 2\\data\"\n" +
+                "\n" +
+                "4. Profile Management\n" +
+                "Each profile contains mods that are used together. It is similar to a mod list.\n" +
+                "If you do not have any profile, a profile named \"default\" will automatically be created for you. " +
+                "Otherwise, create or choose a profile by clicking the \"Create Profile\" button.\n" +
+                "The profile data will be saved in phd2mm_profiles\\ <your_profile_name_here>.txt. This text file contains the mod list saved in the profile.\n" +
+                "However, you cannot create a profile with the following characters: \\/:*?\"<>|\n" +
+                "That is because when creating a profile, it also creates the file name the same as the profile name. In Windows at least, " +
+                "these characters cannot be used as file names.\n" +
+                "You also cannot create a profile that are named the following:\n" +
+                "CON, PRN, AUX, NUL, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9\n" +
+                "That is because these are reserved names for Windows files. However, you can still use, for example, CON1 or afdsPRNadsf. " +
+                "The important thing is its not just CON or the like as your profile name.\n" +
+                "\n" +
+                "5. Mod and Profile Management\n" +
+                "You can now add any mod to the profile by:\n" +
+                "1. Selecting any row or mod in the \"Mods not used in the profile\" then clicking the \"Add Selected Mod\" button or;\n" +
+                "2. Simply double left mouse button click the Mod Folder Path + Name of a mod.\n" +
+                "Doing either of these options will transfer the mod from the left table to the right table, the \"Mods used in the profile\", " +
+                "meaning the mod is now currently in use.\n" +
+                "To remove a mod from the profile:\n" +
+                "1. Selecting any row or mod in the \"Mods used in the profile\" then clicking the \"Remove Selected Mod\" button or;\n" +
+                "2. Simply double left mouse button click the Mod Folder Path + Name of a mod.\n" +
+                "Doing either of these options will transfer the mod from the right table to the left table, the \"Mods not used in the profile\", " +
+                "meaning the mod is no longer in use.\n" +
+
+                "You can rearrange the mod list order under \"Mods used in this profile\" by:\n" +
+                "1. Selecting a mod in the right side then click the \"Move Up Selected Mod\" or \"Move Down Selected Mod\" buttons;\n" +
+                "2. By dragging the leftmost box of a mod in the right side then drop them wherever in the mod list, or;\n" +
+                "3. By editing the \"#\" or Mod Order Number column.\n" +
+                "No matter the selection or sort, the mod list will be rearranged accordingly. Meaning it will always be sorted from top to bottom.\n" +
+                "\n" +
+                "Remember to save your profile by clicking the \"Save Profile\" button or else the mod list will not be saved.\n" +
+                "You can duplicate your currently selected profile by clicking the \"Duplicate Profile\" button.\n" +
+                "You can also delete your currently selected profile by clicking \"Delete Profile\" button.\n" +
+                "However, you cannot delete a profile if there's only 1 profile left.\n" +
+                "\n" +
+                "6. Mod Installation\n" +
+                "When you're done with choosing your mods and saving the profile, click the \"Install All Mods from Current Profile\" button.\n" +
+                "If you changed the contents and order of the mod list but you did not save it, it is possible to install the modified-yet-unsaved mod list anyway. " +
+                "However, it is recommended to save the profile first before installing.\n" +
+                "WARNING: This will delete all the mods you have installed in the Helldivers 2 data folder.\n" +
+                "After that, it will put the mods there. Basically, this button will always do a clean reinstall of mods to make it easier to install mods.\n" +
+                "To be extra sure, you can also click the \"Delete All Installed Mods\" button to uninstall all old mods before installing the new mods.\n" +
+                "\n" +
+                "7. Other Features\n" +
+                "7.1. Search Mod: You can search for mods by typing in the search bar. It will filter the mods in both sides.\n" +
+                "7.2. Delete All Installed Mods: You can delete all installed mods in the Helldivers 2 data folder by clicking " +
+                "the \"Delete All Installed Mods\" button.\n" +
+                "7.3. Resize Columns: You can resize the columns by dragging the column headers.\n" +
+                "7.4. Rearrange Columns: You can rearrange the columns by dragging the column headers.\n" +
+                "7.5. Edit Values of Certain Columns: You can edit the Item, Category, Description, Version, and Link columns by double-clicking the cell you want to edit, " +
+                "choosing from a list of options or typing in the new text, then pressing Enter.\n" +
+                "The changes will be saved in phd2mm_settings\\phd2mm_registry.json file.\n" +
+                "If not, try exiting the app first to see if the changes are saved in the phd2mm_registry.json.\n" +
+                "7.6. Show or Hide Certain Columns: You can right-click any of the column headers (except for the Mod Folder Path + Name column " +
+                "and the Order / Mod Order Number column) to show or hide the columns.\n" +
+                "7.7. Image Hover: You can hover over an image in the Image column to see a larger preview (around 512x512 resolution) of the mod.\n" +
+                "7.8. Open Mod Folder: Right-click any mod to open a menu then click the \"Open Mod Folder\" option. This will open the folder " +
+                "of the selected mod.\n" +
+                "7.9. Open Mod Link in your Default Browser: Right-click any mod to open a menu then click the \"Open Mod Link in your Default Browser\" option. " +
+                "This will open the selected mod's link in your default browser.\n" +
+                "7.10. Mod Randomization: The mod randomization options are located in the \"Settings\" tab. You can activate this feature by clicking the " +
+                "\"Randomize Mods\" button.\n" +
+                "WARNING: This simple mod randomization does not take mod conflicts into account.\n" +
+                "7.11. Theme Manager: Located in the \"Theme Manager\" tab. To know more, please visit the \"Themes Info\" tab."
                 ;
 
             public static string MoreInfo_ThemeManagerInfo =
-                "Theme Management\n" +
+                "Table of Contents\n" +
+                "1. Theme Management\n" +
+                "2. Profile Specific Themes\n" +
+                "3. Theme Editing\n" +
+                "4. Images\n" +
+                "5. Controls\n" +
+                "\n" +
+                "1. Theme Management\n" +
                 "You can create, duplicate, edit, or delete custom themes.\n" +
                 "You cannot edit or delete default themes, \"phd2mm_light\" and \"phd2mm_dark\".\n" +
                 "If you created a new theme rather than duplicate, then the newly created theme will be based upon the \"phd2mm_light\" theme.\n" +
@@ -393,20 +509,20 @@ namespace phd2mm_wpf
                 "by setting a Profile-Specific Theme in the table to the right.\n" +
                 "You can see the currently applied theme on the top right, above the Global Theme dropdown.\n" +
                 "\n" +
-                "Profile Specific Themes\n" +
+                "2. Profile Specific Themes\n" +
                 "The Profile-Specific Theme table contains of 2 columns: Profile and Theme.\n" +
                 "The Profile column contains the profile names and the Theme column contains the theme names.\n" +
                 "To set a Profile-Specific Theme, simply select a theme from the dropdown next to a profile name.\n" +
                 "The Profile-Specific Theme will override the Global Theme.\n" +
                 "To remove the Profile-Specific Theme, simply select the blank option in the dropdown.\n" +
                 "\n" +
-                "Theme Editing\n" +
+                "3. Theme Editing\n" +
                 "To edit a theme, select the theme you want to edit on the left side of the screen.\n" +
                 "There are up to 3 colors you can set for each control: Background Color, Text Color, and Border Color.\n" +
                 "To set their color, simply click on the color box and a color picker will pop up. You can then set the color through the color picker.\n" +
                 "Note: Only the RGBA hex code value (#RRGGBBAA) is saved and used by the app. The color picker is just a tool to help you select a valid hex color.\n" +
                 "\n" +
-                "Images\n" +
+                "4. Images\n" +
                 "You can set images in the Mod Manager Tab by going to the Mod Manager General Controls Tab.\n" +
                 "The images must be in the phd2mm_themes folder before you can set them, as the app only accepts images from that folder.\n" +
                 "There are 4 images you can set: Mod Manager Background Image, Mod Manager Icon Image, Unused Mods Table Background Image, and Used Mods Table Background Image.\n" +
@@ -432,33 +548,33 @@ namespace phd2mm_wpf
                 "Go to the Mod Manager Table Controls and click the \"Copy Global Table Controls\" button for both Unused Mods Table and Used Mods Table.\n" +
                 "Doing these will copy the colors from the Global General Controls and Global Table Controls to the Mod Manager General Controls and Mod Manager Table Controls.\n" +
                 "\n" +
-                "Controls\n" +
+                "5. Controls\n" +
                 "There are many controls whose colors can be customized. Below is a list of these controls and their descriptions.\n" +
-                "1. Grid: The main area behind everything on the page.\n" +
-                "2. TabControl: The box containing all the tabs and their contents.\n" +
-                "3. TabItem: The clickable tabs at the top of the tab area.\nExamples: Mod Manager, Theme Manager, Settings, More Info tabs.\n" +
-                "4. ComboBox: A box that opens a dropdown list when clicked.\nExamples: Switching Profiles and Global Themes.\n" +
-                "5. ListBox: A box showing a list of items that you can select.\nExample: In the Theme Manager tab, the theme list in the left side showing all the themes.\n" +
-                "6. GroupBox: A box containing the StackPanel and RadioButtons.\nExample: In the Settings tab, you can see the box with outline under Mod Randomization Options " +
+                "5.1. Grid: The main area behind everything on the page.\n" +
+                "5.2. TabControl: The box containing all the tabs and their contents.\n" +
+                "5.3. TabItem: The clickable tabs at the top of the tab area.\nExamples: Mod Manager, Theme Manager, Settings, More Info tabs.\n" +
+                "5.4. ComboBox: A box that opens a dropdown list when clicked.\nExamples: Switching Profiles and Global Themes.\n" +
+                "5.5. ListBox: A box showing a list of items that you can select.\nExample: In the Theme Manager tab, the theme list in the left side showing all the themes.\n" +
+                "5.6. GroupBox: A box containing the StackPanel and RadioButtons.\nExample: In the Settings tab, you can see the box with outline under Mod Randomization Options " +
                 "containing the radiobuttons/mod randomization options. The box with the outline is part of GroupBox.\n" +
-                "7. StackPanel: The box usually inside the GroupBox containing the RadioButtons.\n" +
-                "8. RadioButton: The text with a round button in the left side, where you can only select one option at a time.\n Example: the 4 choices " +
+                "5.7. StackPanel: The box usually inside the GroupBox containing the RadioButtons.\n" +
+                "5.8. RadioButton: The text with a round button in the left side, where you can only select one option at a time.\n Example: the 4 choices " +
                 "in the Mod Randomization Options that have circles in the left side of the text.\n" +
-                "9. Button: The clickable button that does something when you click it.\nExamples: Create Profile, Add Selected Mod, Install All Mods from Current Profile, " +
+                "5.9. Button: The clickable button that does something when you click it.\nExamples: Create Profile, Add Selected Mod, Install All Mods from Current Profile, " +
                 "Browse, and Save Theme Settings.\n" +
-                "10. TextBox: The box where you can enter or view text. Usually, the text inside a box. \n Examples: Search mod text box and Theme Manager Info text box.\n" +
-                "11. Label: The standalone text, usually not inside a box.\nExamples: \"Please select a profile:\", \"Search mod:\", \"Last Installed Profile\", and " +
+                "5.10. TextBox: The box where you can enter or view text. Usually, the text inside a box. \n Examples: Search mod text box and Theme Manager Info text box.\n" +
+                "5.11. Label: The standalone text, usually not inside a box.\nExamples: \"Please select a profile:\", \"Search mod:\", \"Last Installed Profile\", and " +
                 "the boldened text \"Theme Manager Info\".\n" +
-                "12. Hover: The color that changes when you hover over your mouse cursor to anything. Currently, it only applies to a few controls: " +
+                "5.12. Hover: The color that changes when you hover over your mouse cursor to anything. Currently, it only applies to a few controls: " +
                 "TabItems, ComboBox, List, and Buttons.\n" +
-                "13. Selected: The color that changes when you select anything. Currently, it only applies to a few controls: " +
+                "5.13. Selected: The color that changes when you select anything. Currently, it only applies to a few controls: " +
                 "TabItems, ComboBox, List, and Buttons.\n" +
-                "14. DataGrid (DG): The table that shows the mods and their information.\n" +
-                "15. DG Row: A row in the table that shows the mod information. Editing this will change the color of the even-numbered rows.\n" +
-                "16. DG Alternate Row: Same as DG Row, but editing this will change the color of the odd-numbered rows.\n" +
-                "17. DG Selected Row: The highlighted row when selected in the table. Similar to Selected, but for rows in the table.\n" +
-                "18. DG Column Header: The header of the column in the table. Contains texts like Mod Folder Path + Name, Category, and Date Added.\n" +
-                "19. DG Sort Arrow: The arrow that shows the sorting direction of the column. Usually appears when you sort a column alphabetically by ascending or descending order.\n"
+                "5.14. DataGrid (DG): The table that shows the mods and their information.\n" +
+                "5.15. DG Row: A row in the table that shows the mod information. Editing this will change the color of the even-numbered rows.\n" +
+                "5.16. DG Alternate Row: Same as DG Row, but editing this will change the color of the odd-numbered rows.\n" +
+                "5.17. DG Selected Row: The highlighted row when selected in the table. Similar to Selected, but for rows in the table.\n" +
+                "5.18. DG Column Header: The header of the column in the table. Contains texts like Mod Folder Path + Name, Category, and Date Added.\n" +
+                "5.19. DG Sort Arrow: The arrow that shows the sorting direction of the column. Usually appears when you sort a column alphabetically by ascending or descending order.\n"
                 ;
 
             public static string MoreInfo_Changelogs_v1_5 =
@@ -481,8 +597,7 @@ namespace phd2mm_wpf
                 "Added feature: Right-click on a mod to open its folder or visit its link using your default browser.\n" +
                 "Removed feature: \"Enable Mod Randomization button\". Now, you simply click the \"Randomly Add and Remove Mods\" button to randomize your mods. " +
                 "A warning message will pop up to confirm if you want to randomize your mods or not.\n" +
-                "-Drag and drop feature now selects the entire row upon dragging and dropping the mod in Used Tables. However, it has some bugs. " +
-                "Please check \"Known Bugs\" section for more details.\n" +
+                "-Drag and drop feature now selects the entire row upon dragging and dropping the mod in Used Tables.\n" +
                 "-Added more customization options for Themes, including more images, alpha/transparency options, and color picker feature. " +
                 "Please see Themes Info tab for more details.\n" +
                 "-Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.\n" +
