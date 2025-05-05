@@ -1774,6 +1774,15 @@ namespace phd2mm_wpf
             }
         }
 
+        private void UnusedMods_DataGrid_LostFocus(object sender, RoutedEventArgs e)
+        {
+            UnusedMods_DataGrid.SelectedItem = null;
+        }
+
+        private void UsedMods_DataGrid_LostFocus(object sender, RoutedEventArgs e)
+        {
+            UsedMods_DataGrid.SelectedItem = null;
+        }
 
         
     }
