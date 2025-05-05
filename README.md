@@ -24,3 +24,4 @@ update: v1.5 added to repo, transferred/remade app from winforms to wpf. <br>
   understand how it works, how to read the file and use the information. <br>
   because of this, i do not have plans to integrate manifest.json in the near future. <br>
   
+  read more in README_phd2mmAppInfo.md <br>

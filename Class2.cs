@@ -371,13 +371,95 @@ namespace phd2mm_wpf
 
         public static class MoreInfoTexts
         {
-            public static void SetMoreInfoTexts(TextBox MoreInfo_Changelogs_TextBox, TextBox MoreInfo_Credits_TextBox)
+            public static void SetMoreInfoTexts(TextBox MoreInfo_AppInfo_TextBox, TextBox MoreInfo_ThemeManagerInfo_TextBox,
+                TextBox MoreInfo_Changelogs_TextBox, TextBox MoreInfo_Credits_TextBox)
             {
+                MoreInfo_AppInfo_TextBox.Text = MoreInfo_AppInfo;
+                MoreInfo_ThemeManagerInfo_TextBox.Text = MoreInfo_ThemeManagerInfo;
                 MoreInfo_Changelogs_TextBox.Text = MoreInfo_Changelogs_AllVersions;
                 MoreInfo_Credits_TextBox.Text = MoreInfo_Credits;
             }
 
+            public static string MoreInfo_AppInfo =
+                "placeholder"
+                ;
 
+            public static string MoreInfo_ThemeManagerInfo =
+                "Theme Management\n" +
+                "You can create, duplicate, edit, or delete custom themes.\n" +
+                "You cannot edit or delete default themes, \"phd2mm_light\" and \"phd2mm_dark\".\n" +
+                "If you created a new theme rather than duplicate, then the newly created theme will be based upon the \"phd2mm_light\" theme.\n" +
+                "By default, the app starts with the \"phd2mm_light\" theme. You can change this by changing the Global Theme dropdown on the top right or " +
+                "by setting a Profile-Specific Theme in the table to the right.\n" +
+                "You can see the currently applied theme on the top right, above the Global Theme dropdown.\n" +
+                "\n" +
+                "Profile Specific Themes\n" +
+                "The Profile-Specific Theme table contains of 2 columns: Profile and Theme.\n" +
+                "The Profile column contains the profile names and the Theme column contains the theme names.\n" +
+                "To set a Profile-Specific Theme, simply select a theme from the dropdown next to a profile name.\n" +
+                "The Profile-Specific Theme will override the Global Theme.\n" +
+                "To remove the Profile-Specific Theme, simply select the blank option in the dropdown.\n" +
+                "\n" +
+                "Theme Editing\n" +
+                "To edit a theme, select the theme you want to edit on the left side of the screen.\n" +
+                "There are up to 3 colors you can set for each control: Background Color, Text Color, and Border Color.\n" +
+                "To set their color, simply click on the color box and a color picker will pop up. You can then set the color through the color picker.\n" +
+                "Note: Only the RGBA hex code value (#RRGGBBAA) is saved and used by the app. The color picker is just a tool to help you select a valid hex color.\n" +
+                "\n" +
+                "Images\n" +
+                "You can set images in the Mod Manager Tab by going to the Mod Manager General Controls Tab.\n" +
+                "The images must be in the phd2mm_themes folder before you can set them, as the app only accepts images from that folder.\n" +
+                "There are 4 images you can set: Mod Manager Background Image, Mod Manager Icon Image, Unused Mods Table Background Image, and Used Mods Table Background Image.\n" +
+                "Mod Manager Background Image is shown behind the entire Mod Manager Tab. " +
+                "The default resolution is 201x109.\n" +
+                "Mod Manager Icon Image is shown in the top right of the Mod Manager Tab. " +
+                "The default resolution is 1753x884.08.\n" +
+                "Unused Mods Table Background Image is shown behind the Unused Mods Table. " +
+                "The default resolution is 861x754.42.\n" +
+                "Used Mods Table Background Image is shown behind the Used Mods Table. " +
+                "The default resolution is 861x754.42.\n" +
+                "All the images are stretched to fill the available space based on the specified default resolution, which may cause distortion if " +
+                "the uploaded image does not match the the specified default resolution.\n" +
+                "The supported image file types are: *.jpg, *.jpeg, *.png, *.bmp, and *.gif.\n" +
+                "To remove the images, you can click the \"Clear\" button or just remove the text in the textbox to the right side of the \"Clear\" button.\n" +
+                "\n" +
+                "There are 4 tabs: Global General Controls, Global Table Controls, Mod Manager General Controls, Mod Manager Table Controls\n" +
+                "Global General Controls and Global Table Controls are the 2 main tabs. If you want to have a separate color scheme for just the " +
+                "Mod Manager Tab, then you can edit the Mod Manager General Controls and Mod Manager Table Controls Tab.\n" +
+                "However, if you don't want to edit them separately, just set the colors in Global General Controls and Global Table Controls and then " +
+                "do the following:\n" + 
+                "Go to the Mod Manager General Controls and click the \"Copy Global General Controls Customization\" button.\n" +
+                "Go to the Mod Manager Table Controls and click the \"Copy Global Table Controls\" button for both Unused Mods Table and Used Mods Table.\n" +
+                "Doing these will copy the colors from the Global General Controls and Global Table Controls to the Mod Manager General Controls and Mod Manager Table Controls.\n" +
+                "\n" +
+                "Controls\n" +
+                "There are many controls whose colors can be customized. Below is a list of these controls and their descriptions.\n" +
+                "Grid: The main area behind everything on the page.\n" +
+                "TabControl: The box containing all the tabs and their contents.\n" +
+                "TabItem: The clickable tabs at the top of the tab area.\nExamples: Mod Manager, Theme Manager, Settings, More Info tabs.\n" +
+                "ComboBox: A box that opens a dropdown list when clicked.\nExamples: Switching Profiles and Global Themes.\n" +
+                "ListBox: A box showing a list of items that you can select.\nExample: In the Theme Manager tab, the theme list in the left side showing all the themes.\n" +
+                "GroupBox: A box containing the StackPanel and RadioButtons.\nExample: In the Settings tab, you can see the box with outline under Mod Randomization Options " +
+                "containing the radiobuttons/mod randomization options. The box with the outline is part of GroupBox.\n" +
+                "StackPanel: The box usually inside the GroupBox containing the RadioButtons.\n" +
+                "RadioButton: The text with a round button in the left side, where you can only select one option at a time.\nExample: the 4 choices " +
+                "in the Mod Randomization Options that have circles in the left side of the text.\n" +
+                "Button: The clickable button that does something when you click it.\nExamples: Create Profile, Add Selected Mod, Install All Mods from Current Profile, " +
+                "Browse, and Save Theme Settings.\n" +
+                "TextBox: The box where you can enter or view text. Usually, the text inside a box. \nExamples: Search mod text box and Theme Manager Info text box.\n" +
+                "Label: The standalone text, usually not inside a box.\nExamples: \"Please select a profile:\", \"Search mod:\", \"Last Installed Profile\", and " +
+                "the boldened text \"Theme Manager Info\".\n" +
+                "Hover: The color that changes when you hover over your mouse cursor to anything. Currently, it only applies to a few controls: " +
+                "TabItems, ComboBox, List, and Buttons.\n" +
+                "Selected: The color that changes when you select anything. Currently, it only applies to a few controls: " +
+                "TabItems, ComboBox, List, and Buttons.\n" +
+                "DataGrid (DG): The table that shows the mods and their information.\n" +
+                "DG Row: A row in the table that shows the mod information. Editing this will change the color of the even-numbered rows.\n" +
+                "DG Alternate Row: Same as DG Row, but editing this will change the color of the odd-numbered rows.\n" +
+                "DG Selected Row: The highlighted row when selected in the table. Similar to Selected, but for rows in the table.\n" +
+                "DG Column Header: The header of the column in the table. Contains texts like Mod Folder Path + Name, Category, and Date Added.\n" +
+                "DG Sort Arrow: The arrow that shows the sorting direction of the column. Usually appears when you sort a column alphabetically by ascending or descending order.\n"
+                ;
 
             public static string MoreInfo_Changelogs_v1_5 =
                 "v1.5\n" +
@@ -405,25 +487,6 @@ namespace phd2mm_wpf
                 "Please see Themes Info tab for more details.\n" +
                 "-Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.\n" +
                 "-Added MIT License for PixiEditor ColorPicker.\n"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 ;
 
             public static string MoreInfo_Changelogs_v1_4 =

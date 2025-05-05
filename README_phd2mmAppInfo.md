@@ -1,15 +1,97 @@
 # Personal Helldivers 2 Mod Manager (phd2mm)
 
+
+
+
+
+============================================================================
+### Theme Manager Info
+Theme Management
+You can create, duplicate, edit, or delete custom themes.<br>
+You cannot edit or delete default themes, "phd2mm_light" and "phd2mm_dark".<br>
+If you created a new theme rather than duplicate, then the newly created theme will be based upon the "phd2mm_light" theme.<br>
+By default, the app starts with the "phd2mm_light" theme. You can change this by changing the Global Theme dropdown on the top right or 
+by setting a Profile-Specific Theme in the table to the right.<br>
+You can see the currently applied theme on the top right, above the Global Theme dropdown.<br>
+<br>
+Profile Specific Themes<br>
+The Profile-Specific Theme table contains of 2 columns: Profile and Theme.<br>
+The Profile column contains the profile names and the Theme column contains the theme names.<br>
+To set a Profile-Specific Theme, simply select a theme from the dropdown next to a profile name.<br>
+The Profile-Specific Theme will override the Global Theme.<br>
+To remove the Profile-Specific Theme, simply select the blank option in the dropdown.<br>
+<br>
+Theme Editing<br>
+To edit a theme, select the theme you want to edit on the left side of the screen.<br>
+There are up to 3 colors you can set for each control: Background Color, Text Color, and Border Color.<br>
+To set their color, simply click on the color box and a color picker will pop up. You can then set the color through the color picker.<br>
+Note: Only the RGBA hex code value (#RRGGBBAA) is saved and used by the app. The color picker is just a tool to help you select a valid hex color.<br>
+<br>
+Images<br>
+You can set images in the Mod Manager Tab by going to the Mod Manager General Controls Tab.<br>
+The images must be in the phd2mm_themes folder before you can set them, as the app only accepts images from that folder.<br>
+There are 4 images you can set: Mod Manager Background Image, Mod Manager Icon Image, Unused Mods Table Background Image, and Used Mods Table Background Image.<br>
+Mod Manager Background Image is shown behind the entire Mod Manager Tab. 
+The default resolution is 201x109.<br>
+Mod Manager Icon Image is shown in the top right of the Mod Manager Tab. 
+The default resolution is 1753x884.08.<br>
+Unused Mods Table Background Image is shown behind the Unused Mods Table. 
+The default resolution is 861x754.42.<br>
+Used Mods Table Background Image is shown behind the Used Mods Table. 
+The default resolution is 861x754.42.<br>
+All the images are stretched to fill the available space based on the specified default resolution, which may cause distortion if 
+the uploaded image does not match the the specified default resolution.<br>
+The supported image file types are: *.jpg, *.jpeg, *.png, *.bmp, and *.gif.<br>
+To remove the images, you can click the "Clear" button or just remove the text in the textbox to the right side of the "Clear" button.<br>
+<br>
+There are 4 tabs: Global General Controls, Global Table Controls, Mod Manager General Controls, Mod Manager Table Controls<br>
+Global General Controls and Global Table Controls are the 2 main tabs. If you want to have a separate color scheme for just the 
+Mod Manager Tab, then you can edit the Mod Manager General Controls and Mod Manager Table Controls Tab.<br>
+However, if you don't want to edit them separately, just set the colors in Global General Controls and Global Table Controls and then 
+do the following:<br> 
+Go to the Mod Manager General Controls and click the "Copy Global General Controls Customization" button.<br>
+Go to the Mod Manager Table Controls and click the "Copy Global Table Controls" button for both Unused Mods Table and Used Mods Table.<br>
+Doing these will copy the colors from the Global General Controls and Global Table Controls to the Mod Manager General Controls and Mod Manager Table Controls.<br>
+<br>
+Controls<br>
+There are many controls whose colors can be customized. Below is a list of these controls and their descriptions.<br>
+Grid: The main area behind everything on the page.<br>
+TabControl: The box containing all the tabs and their contents.<br>
+TabItem: The clickable tabs at the top of the tab area.\nExamples: Mod Manager, Theme Manager, Settings, More Info tabs.<br>
+ComboBox: A box that opens a dropdown list when clicked.\nExamples: Switching Profiles and Global Themes.<br>
+ListBox: A box showing a list of items that you can select.\nExample: In the Theme Manager tab, the theme list in the left side showing all the themes.<br>
+GroupBox: A box containing the StackPanel and RadioButtons.\nExample: In the Settings tab, you can see the box with outline under Mod Randomization Options
+containing the radiobuttons/mod randomization options. The box with the outline is part of GroupBox.<br>
+"StackPanel: The box usually inside the GroupBox containing the RadioButtons.<br>
+"RadioButton: The text with a round button in the left side, where you can only select one option at a time.\nExample: the 4 choices "
+"in the Mod Randomization Options that have circles in the left side of the text.<br>
+Button: The clickable button that does something when you click it.\nExamples: Create Profile, Add Selected Mod, Install All Mods from Current Profile,
+Browse, and Save Theme Settings.<br>
+TextBox: The box where you can enter or view text. Usually, the text inside a box. \nExamples: Search mod text box and Theme Manager Info text box.<br>
+Label: The standalone text, usually not inside a box.\nExamples: "Please select a profile:", "Search mod:", "Last Installed Profile", and
+the boldened text "Theme Manager Info".<br>
+Hover: The color that changes when you hover over your mouse cursor to anything. Currently, it only applies to a few controls:
+TabItems, ComboBox, List, and Buttons.<br>
+Selected: The color that changes when you select anything. Currently, it only applies to a few controls:
+TabItems, ComboBox, List, and Buttons.<br>
+DataGrid (DG): The table that shows the mods and their information.<br>
+DG Row: A row in the table that shows the mod information. Editing this will change the color of the even-numbered rows.<br>
+DG Alternate Row: Same as DG Row, but editing this will change the color of the odd-numbered rows.<br>
+DG Selected Row: The highlighted row when selected in the table. Similar to Selected, but for rows in the table.<br>
+DG Column Header: The header of the column in the table. Contains texts like Mod Folder Path + Name, Category, and Date Added.<br>
+DG Sort Arrow: The arrow that shows the sorting direction of the column. Usually appears when you sort a column alphabetically by ascending or descending order.<br>
+
+
 ============================================================================
 ### Changelogs
 v1.5 <br>
 -Migrated app framework from WinForms to WPF. <br>
--Removed \"Ship TV\" Item from Category \"Audio\". <br>
--Added \"Ship\", \"Music Pack\" and \"Democracy Space Station\" Items in Category \"Audio\". <br>
--Added \"Ship Interior\" and \"Democracy Space Station\" Item in Category \"Visual\". <br>
--Replaced \"Visual\" Category with \"Skin\" Category for consistency. <br>
-WARNING: app may not work properly if your phd2mm_registry.json contains \"Visual\" Category, <br>
-please replace them with \"Skin\" first before launching the app. <br>
+-Removed "Ship TV" Item from Category "Audio". <br>
+-Added "Ship", "Music Pack" and "Democracy Space Station" Items in Category "Audio". <br>
+-Added "Ship Interior" and "Democracy Space Station" Item in Category "Visual". <br>
+-Replaced "Visual" Category with "Skin" Category for consistency. <br>
+WARNING: app may not work properly if your phd2mm_registry.json contains "Visual" Category, <br>
+please replace them with "Skin" first before launching the app. <br>
 -Removed row header (the leftmost cell in the row, which is just a square without text) from both DataGrids/Tables. <br>
 You can now just double-click the cell that belongs to the Mod Folder Path + Name column to add or remove mods. <br>
 To rearrange mod load order in Used Mods Table using drag and drop, you can just drag and drop the cell that belongs to <br>
@@ -17,12 +99,12 @@ the Mod Folder Path + Name column. <br>
 Added feature: Image column now works. Assuming the mod image path is valid and the image file type is supported, <br>
 the image column will show a small image preview (48x48 size resolution) of the mod. <br>
 You can also hover your mouse cursor over the image to see a larger preview of the image (512x512 size resolution or close to it). <br>
-To see which image file types are supported, please see the \"Themes Info\" tab for more details. <br>
+To see which image file types are supported, please see the "Themes Info" tab for more details. <br>
 Added feature: Right-click on a mod to open its folder or visit its link using your default browser. <br>
-Removed feature: \"Enable Mod Randomization button\". Now, you simply click the \"Randomly Add and Remove Mods\" button to randomize your mods. <br>
+Removed feature: "Enable Mod Randomization button". Now, you simply click the "Randomly Add and Remove Mods" button to randomize your mods. <br>
 A warning message will pop up to confirm if you want to randomize your mods or not. <br>
 -Drag and drop feature now selects the entire row upon dragging and dropping the mod in Used Tables. However, it has some bugs. <br>
-Please check \"Known Bugs\" section for more details. <br>
+Please check "Known Bugs" section for more details. <br>
 -Added more customization options for Themes, including more images, alpha/transparency options, and color picker feature. <br>
 Please see Themes Info tab for more details. <br>
 -Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits. <br>

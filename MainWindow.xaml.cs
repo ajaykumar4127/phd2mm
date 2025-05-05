@@ -126,7 +126,7 @@ namespace phd2mm_wpf
                 Themes_ProfileSpecificThemes_DataGrid_ObservableCollection);
             Class1.ModFinder.ScanModFoldersForPatchFiles(allModsOriginalDictionary, modsRegistryDictionary);
             ProfilesList_ComboBox.SelectedIndex = 0;
-            Class2.MoreInfoTexts.SetMoreInfoTexts(MoreInfo_Changelogs_TextBox, MoreInfo_Credits_TextBox);
+            Class2.MoreInfoTexts.SetMoreInfoTexts(MoreInfo_AppInfo_TextBox, MoreInfo_ThemeManagerInfo_TextBox, MoreInfo_Changelogs_TextBox, MoreInfo_Credits_TextBox);
             // Keep the commented code below that delays selecting the first item in the ProfilesList_ComboBox in case it is needed in the future.
             // Because before, I had to use this workaround so that app won't crash when setting the SelectedIndex of ProfilesList_ComboBox.
             // Something about selecting the first item in the ProfilesList_ComboBox before it is fully loaded crashes the app, despite it being near
@@ -1467,6 +1467,11 @@ namespace phd2mm_wpf
             }
         }
 
+        private void Themes_MMGC_ModManagerBackgroundImage_Clear_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Themes_MMGC_ModManagerBackgroundImage_TextBox.Text = "";
+        }
+
         private void Themes_MMGC_ModManagerIconImage_Button_Click(object sender, RoutedEventArgs e)
         {
             // Open a file dialog to select an image
@@ -1500,6 +1505,11 @@ namespace phd2mm_wpf
                     // Invalid image type, this has already been handled in ValidateImageType method
                 }
             }
+        }
+
+        private void Themes_MMGC_ModManagerIconImage_Clear_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Themes_MMGC_ModManagerIconImage_TextBox.Text = "";
         }
 
         private void Themes_MMGC_UnusedModsTableBackgroundImage_Button_Click(object sender, RoutedEventArgs e)
@@ -1537,6 +1547,11 @@ namespace phd2mm_wpf
             }
         }
 
+        private void Themes_MMGC_UnusedModsTableBackgroundImage_Clear_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Themes_MMGC_UnusedModsTableBackgroundImage_TextBox.Text = "";
+        }
+
         private void Themes_MMGC_UsedModsTableBackgroundImage_Button_Click(object sender, RoutedEventArgs e)
         {
             // Open a file dialog to select an image
@@ -1570,6 +1585,11 @@ namespace phd2mm_wpf
                     // Invalid image type, this has already been handled in ValidateImageType method
                 }
             }
+        }
+
+        private void Themes_MMGC_UsedModsTableBackgroundImage_Clear_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Themes_MMGC_UsedModsTableBackgroundImage_TextBox.Text = "";
         }
 
         void CopyColorSetting(string sourceControl, string targetControl, string controlName, string property)
@@ -1689,7 +1709,5 @@ namespace phd2mm_wpf
             }
         }
 
-
-        
     }
 }
