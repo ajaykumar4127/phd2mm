@@ -91,12 +91,12 @@ TabItems, ComboBox, List, and Buttons. <br>
 ### Changelogs
 v1.5 <br>
 -Migrated app framework from WinForms to WPF. <br>
--Removed "Ship TV" Item from Category "Audio". <br>
--Added "Ship", "Music Pack" and "Democracy Space Station" Items in Category "Audio". <br>
--Added "Ship Interior" and "Democracy Space Station" Item in Category "Visual". <br>
 -Replaced "Visual" Category with "Skin" Category for consistency. <br>
 WARNING: app may not work properly if your phd2mm_registry.json contains "Visual" Category, <br>
 please replace them with "Skin" first before launching the app. <br>
+-Removed "Ship TV" Item from Category "Audio". <br>
+-Added "Ship", "Music Pack" and "Democracy Space Station" Items in Category "Audio". <br>
+-Added "Ship Interior" and "Democracy Space Station" Item in Category "Skin". <br>
 -Removed row header (the leftmost cell in the row, which is just a square without text) from both DataGrids/Tables. <br>
 You can now just double-click the cell that belongs to the Mod Folder Path + Name column to add or remove mods. <br>
 To rearrange mod load order in Used Mods Table using drag and drop, you can just drag and drop the cell that belongs to <br>

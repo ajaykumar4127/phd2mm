@@ -464,12 +464,12 @@ namespace phd2mm_wpf
             public static string MoreInfo_Changelogs_v1_5 =
                 "v1.5\n" +
                 "-Migrated app framework from WinForms to WPF.\n" +
-                "-Removed \"Ship TV\" Item from Category \"Audio\".\n" +
-                "-Added \"Ship\", \"Music Pack\" and \"Democracy Space Station\" Items in Category \"Audio\".\n" +
-                "-Added \"Ship Interior\" and \"Democracy Space Station\" Item in Category \"Visual\".\n" +
                 "-Replaced \"Visual\" Category with \"Skin\" Category for consistency.\n" +
                 "WARNING: app may not work properly if your phd2mm_registry.json contains \"Visual\" Category, " +
                 "please replace them with \"Skin\" first before launching the app.\n" +
+                "-Removed \"Ship TV\" Item from Category \"Audio\".\n" +
+                "-Added \"Ship\", \"Music Pack\" and \"Democracy Space Station\" Items in Category \"Audio\".\n" +
+                "-Added \"Ship Interior\" and \"Democracy Space Station\" Item in Category \"Visual\".\n" +
                 "-Removed row header (the leftmost cell in the row, which is just a square without text) from both DataGrids/Tables.\n" +
                 "You can now just double-click the cell that belongs to the Mod Folder Path + Name column to add or remove mods. " +
                 "To rearrange mod load order in Used Mods Table using drag and drop, you can just drag and drop the cell that belongs to " +
