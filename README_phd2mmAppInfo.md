@@ -2,31 +2,31 @@
 
 ============================================================================
 ### Changelogs
-"v1.5\n" +
-                "-Migrated app framework from WinForms to WPF.\n" +
-                "-Removed \"Ship TV\" Item from Category \"Audio\".\n" +
-                "-Added \"Ship\", \"Music Pack\" and \"Democracy Space Station\" Items in Category \"Audio\".\n" +
-                "-Added \"Ship Interior\" and \"Democracy Space Station\" Item in Category \"Visual\".\n" +
-                "-Replaced \"Visual\" Category with \"Skin\" Category for consistency.\n" +
-                "WARNING: app may not work properly if your phd2mm_registry.json contains \"Visual\" Category, " +
-                "please replace them with \"Skin\" first before launching the app.\n" +
-                "-Removed row header (the leftmost cell in the row, which is just a square without text) from both DataGrids/Tables.\n" +
-                "You can now just double-click the cell that belongs to the Mod Folder Path + Name column to add or remove mods. " +
-                "To rearrange mod load order in Used Mods Table using drag and drop, you can just drag and drop the cell that belongs to " +
-                "the Mod Folder Path + Name column.\n" +
-                "Added feature: Image column now works. Assuming the mod image path is valid and the image file type is supported, " +
-                "the image column will show a small image preview (48x48 size resolution) of the mod. " +
-                "You can also hover your mouse cursor over the image to see a larger preview of the image (512x512 size resolution or close to it). " +
-                "To see which image file types are supported, please see the \"Themes Info\" tab for more details.\n" +
-                "Added feature: Right-click on a mod to open its folder or visit its link using your default browser.\n" +
-                "Removed feature: \"Enable Mod Randomization button\". Now, you simply click the \"Randomly Add and Remove Mods\" button to randomize your mods. " +
-                "A warning message will pop up to confirm if you want to randomize your mods or not.\n" +
-                "-Drag and drop feature now selects the entire row upon dragging and dropping the mod in Used Tables. However, it has some bugs. " +
-                "Please check \"Known Bugs\" section for more details.\n" +
-                "-Added more customization options for Themes, including more images, alpha/transparency options, and color picker feature. " +
-                "Please see Themes Info tab for more details.\n" +
-                "-Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.\n" +
-                "-Added MIT License for PixiEditor ColorPicker.\n"
+v1.5 <br>
+-Migrated app framework from WinForms to WPF. <br>
+-Removed \"Ship TV\" Item from Category \"Audio\". <br>
+-Added \"Ship\", \"Music Pack\" and \"Democracy Space Station\" Items in Category \"Audio\". <br>
+-Added \"Ship Interior\" and \"Democracy Space Station\" Item in Category \"Visual\". <br>
+-Replaced \"Visual\" Category with \"Skin\" Category for consistency. <br>
+WARNING: app may not work properly if your phd2mm_registry.json contains \"Visual\" Category, <br>
+please replace them with \"Skin\" first before launching the app. <br>
+-Removed row header (the leftmost cell in the row, which is just a square without text) from both DataGrids/Tables. <br>
+You can now just double-click the cell that belongs to the Mod Folder Path + Name column to add or remove mods. <br>
+To rearrange mod load order in Used Mods Table using drag and drop, you can just drag and drop the cell that belongs to <br>
+the Mod Folder Path + Name column. <br>
+Added feature: Image column now works. Assuming the mod image path is valid and the image file type is supported, <br>
+the image column will show a small image preview (48x48 size resolution) of the mod. <br>
+You can also hover your mouse cursor over the image to see a larger preview of the image (512x512 size resolution or close to it). <br>
+To see which image file types are supported, please see the \"Themes Info\" tab for more details. <br>
+Added feature: Right-click on a mod to open its folder or visit its link using your default browser. <br>
+Removed feature: \"Enable Mod Randomization button\". Now, you simply click the \"Randomly Add and Remove Mods\" button to randomize your mods. <br>
+A warning message will pop up to confirm if you want to randomize your mods or not. <br>
+-Drag and drop feature now selects the entire row upon dragging and dropping the mod in Used Tables. However, it has some bugs. <br>
+Please check \"Known Bugs\" section for more details. <br>
+-Added more customization options for Themes, including more images, alpha/transparency options, and color picker feature. <br>
+Please see Themes Info tab for more details. <br>
+-Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits. <br>
+-Added MIT License for PixiEditor ColorPicker. <br>
 
 v1.4 <br>
 -Redesigned UI. <br>
