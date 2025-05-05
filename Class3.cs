@@ -48,6 +48,12 @@ namespace phd2mm_wpf
             public string GGC_TextBox_BorderColor { get; set; }
             public string GGC_Label_BackgroundColor { get; set; }
             public string GGC_Label_TextColor { get; set; }
+            public string GGC_Hover_BackgroundColor { get; set; }
+            public string GGC_Hover_TextColor { get; set; }
+            public string GGC_Hover_BorderColor { get; set; }
+            public string GGC_Selected_BackgroundColor { get; set; }
+            public string GGC_Selected_TextColor { get; set; }
+            public string GGC_Selected_BorderColor { get; set; }
             public string GTC_DG_DataGrid_BackgroundColor { get; set; }
             public string GTC_DG_DataGrid_TextColor { get; set; }
             public string GTC_DG_DataGrid_BorderColor { get; set; }
@@ -110,7 +116,9 @@ namespace phd2mm_wpf
                 string ggcRadioButtonBackgroundColor, string ggcRadioButtonTextColor, string ggcButtonBackgroundColor,
                 string ggcButtonTextColor, string ggcButtonBorderColor, string ggcTextBoxBackgroundColor,
                 string ggcTextBoxTextColor, string ggcTextBoxBorderColor, string ggcLabelBackgroundColor,
-                string ggcLabelTextColor, string gtcDGDataGridBackgroundColor, string gtcDGDataGridTextColor, string gtcDGDataGridBorderColor,
+                string ggcLabelTextColor, string ggcHoverBackgroundColor, string ggcHoverTextColor, string ggcHoverBorderColor,
+                string ggcSelectedBackgroundColor, string ggcSelectedTextColor, string ggcSelectedBorderColor,
+                string gtcDGDataGridBackgroundColor, string gtcDGDataGridTextColor, string gtcDGDataGridBorderColor,
                 string gtcDGRowBackgroundColor, string gtcDGRowBorderColor, string gtcDGAlternateRowBackgroundColor, string gtcDGSelectedRowBackgroundColor,
                 string gtcDGSelectedRowTextColor, string gtcDGColumnHeaderBackgroundColor, string gtcDGColumnHeaderBorderColor,
                 string gtcDGSortArrowTextColor, string mmgcModManagerBackgroundImage, string mmgcModManagerIconImage,
@@ -155,6 +163,12 @@ namespace phd2mm_wpf
                 GGC_TextBox_BorderColor = ggcTextBoxBorderColor;
                 GGC_Label_BackgroundColor = ggcLabelBackgroundColor;
                 GGC_Label_TextColor = ggcLabelTextColor;
+                GGC_Hover_BackgroundColor = ggcHoverBackgroundColor;
+                GGC_Hover_TextColor = ggcHoverTextColor;
+                GGC_Hover_BorderColor = ggcHoverBorderColor;
+                GGC_Selected_BackgroundColor = ggcSelectedBackgroundColor;
+                GGC_Selected_TextColor = ggcSelectedTextColor;
+                GGC_Selected_BorderColor = ggcSelectedBorderColor;
                 GTC_DG_DataGrid_BackgroundColor = gtcDGDataGridBackgroundColor;
                 GTC_DG_DataGrid_TextColor = gtcDGDataGridTextColor;
                 GTC_DG_DataGrid_BorderColor = gtcDGDataGridBorderColor;
@@ -327,7 +341,7 @@ namespace phd2mm_wpf
                     "#FFFFFFFF", // GGC_TabItem_BackgroundColor
                     "#000000FF", // GGC_TabItem_TextColor
                     "#000000FF", // GGC_TabItem_BorderColor
-                    "#F0F0F0FF", // GGC_ComboBox_BackgroundColor
+                    "#FFFFFFFF", // GGC_ComboBox_BackgroundColor
                     "#000000FF", // GGC_ComboBox_TextColor
                     "#000000FF", // GGC_ComboBox_BorderColor
                     "#F0F0F0FF", // GGC_ListBox_BackgroundColor
@@ -346,6 +360,12 @@ namespace phd2mm_wpf
                     "#000000FF", // GGC_TextBox_BorderColor
                     "#FFFFFFFF", // GGC_Label_BackgroundColor
                     "#000000FF", // GGC_Label_TextColor
+                    "#BEE6FDFF", // GGC_Hover_BackgroundColor
+                    "#000000FF", // GGC_Hover_TextColor
+                    "#3C7FB1FF", // GGC_Hover_BorderColor
+                    "#FFFFFFFF", // GGC_Selected_BackgroundColor
+                    "#000000FF", // GGC_Selected_TextColor
+                    "#ACACACFF", // GGC_Selected_BorderColor
                     "#F0F0F0FF", // GTC_DG_DataGrid_BackgroundColor
                     "#000000FF", // GTC_DG_DataGrid_TextColor
                     "#000000FF", // GTC_DG_DataGrid_BorderColor
@@ -361,7 +381,7 @@ namespace phd2mm_wpf
                     "",          // MMGC_ModManagerIconImage
                     "",          // MMGC_UnusedModsTableBackgroundImage
                     "",          // MMGC_UsedModsTableBackgroundImage
-                    "#F0F0F0FF", // MMGC_ComboBox_BackgroundColor
+                    "#FFFFFFFF", // MMGC_ComboBox_BackgroundColor
                     "#000000FF", // MMGC_ComboBox_TextColor
                     "#000000FF", // MMGC_ComboBox_BorderColor
                     "#F0F0F0FF", // MMGC_Button_BackgroundColor
@@ -426,6 +446,12 @@ namespace phd2mm_wpf
                     "#FFFFFFFF", // GGC_TextBox_BorderColor
                     "#333333FF", // GGC_Label_BackgroundColor
                     "#FFFFFFFF", // GGC_Label_TextColor
+                    "#BEE6FDFF", // GGC_Hover_BackgroundColor
+                    "#000000FF", // GGC_Hover_TextColor
+                    "#3C7FB1FF", // GGC_Hover_BorderColor
+                    "#FFFFFFFF", // GGC_Selected_BackgroundColor
+                    "#000000FF", // GGC_Selected_TextColor
+                    "#ACACACFF", // GGC_Selected_BorderColor
                     "#2A2A2AFF", // GTC_DG_DataGrid_BackgroundColor
                     "#FFFFFFFF", // GTC_DG_DataGrid_TextColor
                     "#FFFFFFFF", // GTC_DG_DataGrid_BorderColor
@@ -590,7 +616,7 @@ namespace phd2mm_wpf
                                             Color color = Color.FromArgb(a, r, g, b);
                                             Application.Current.Resources[propertyName] = new SolidColorBrush(color);
                                         }
-                                        else
+                                        else if (propertyValue.StartsWith("#") && propertyValue.Length == 7)
                                         {
                                             // If it's not RGBA, try the regular color format (#RRGGBB)
                                             var color = (Color)ColorConverter.ConvertFromString(propertyValue);
@@ -690,24 +716,6 @@ namespace phd2mm_wpf
                 return hex.All(c => "0123456789ABCDEFabcdef".Contains(c));
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }
