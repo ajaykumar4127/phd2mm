@@ -53,7 +53,6 @@
         <SolidColorBrush x:Key="GTC_DG_SortArrow_TextColor" Color="Black"/>
         
         <!-- None for images, just set them directly for now -->
-
         <SolidColorBrush x:Key="MMGC_ComboBox_BackgroundColor" Color="White"/>
         <SolidColorBrush x:Key="MMGC_ComboBox_TextColor" Color="LightGray"/>
         <SolidColorBrush x:Key="MMGC_ComboBox_BorderColor" Color="Black"/>

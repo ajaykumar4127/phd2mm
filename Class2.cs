@@ -254,7 +254,6 @@ namespace phd2mm_wpf
                             unusedModsInProfileDictionary.Add(modInfo.ModFolderPathName, modInfo);
                         }
                         UnusedMods_DataGrid_ObservableCollection.Clear();
-                        //var random = new Random();
                         var totalUnusedModsCount = unusedModsInProfileDictionary.Count;
                         var usedModsCount = random.Next(0, totalUnusedModsCount + 1);
                         var modKeys = unusedModsInProfileDictionary.Keys.ToList();
@@ -308,15 +307,12 @@ namespace phd2mm_wpf
                         break;
 
                     case "AddRemoveNoGuarantee":
-                        //var random2 = new Random();
                         UnusedMods_DataGrid_ObservableCollection.Clear();
                         UsedMods_DataGrid_ObservableCollection.Clear();
                         var totalModsCount = allModsOriginalDictionary.Count;
                         var usedModsCount2 = random.Next(0, totalModsCount + 1);
-                        //var usedModsCount2 = random2.Next(0, totalModsCount + 1);
                         var unusedModsCount = totalModsCount - usedModsCount2;
                         var modKeysAll = allModsOriginalDictionary.Keys.ToList();
-                        //modKeysAll = modKeysAll.OrderBy(x => random2.Next()).ToList();
                         modKeysAll = modKeysAll.OrderBy(x => random.Next()).ToList();
                         for (int i = 0; i < usedModsCount2; i++)
                         {

@@ -358,13 +358,13 @@ namespace phd2mm_wpf
                     "#FFFFFFFF", // GGC_TextBox_BackgroundColor
                     "#000000FF", // GGC_TextBox_TextColor
                     "#000000FF", // GGC_TextBox_BorderColor
-                    "#FFFFFFFF", // GGC_Label_BackgroundColor
+                    "#F0F0F0FF", // GGC_Label_BackgroundColor
                     "#000000FF", // GGC_Label_TextColor
                     "#BEE6FDFF", // GGC_Hover_BackgroundColor
                     "#000000FF", // GGC_Hover_TextColor
                     "#3C7FB1FF", // GGC_Hover_BorderColor
-                    "#FFFFFFFF", // GGC_Selected_BackgroundColor
-                    "#000000FF", // GGC_Selected_TextColor
+                    "#0078D7FF", // GGC_Selected_BackgroundColor
+                    "#FFFFFFFF", // GGC_Selected_TextColor
                     "#ACACACFF", // GGC_Selected_BorderColor
                     "#F0F0F0FF", // GTC_DG_DataGrid_BackgroundColor
                     "#000000FF", // GTC_DG_DataGrid_TextColor
@@ -372,8 +372,8 @@ namespace phd2mm_wpf
                     "#FFFFFFFF", // GTC_DG_Row_BackgroundColor
                     "#000000FF", // GTC_DG_Row_BorderColor
                     "#E6E6E6FF", // GTC_DG_AlternateRow_BackgroundColor
-                    "#F0F0F0FF", // GTC_DG_SelectedRow_BackgroundColor
-                    "#000000FF", // GTC_DG_SelectedRow_TextColor
+                    "#0078D7FF", // GTC_DG_SelectedRow_BackgroundColor
+                    "#FFFFFFFF", // GTC_DG_SelectedRow_TextColor
                     "#FFFFFFFF", // GTC_DG_ColumnHeader_BackgroundColor
                     "#000000FF", // GTC_DG_ColumnHeader_BorderColor
                     "#000000FF", // GTC_DG_SortArrow_TextColor
@@ -390,7 +390,7 @@ namespace phd2mm_wpf
                     "#FFFFFFFF", // MMGC_TextBox_BackgroundColor
                     "#000000FF", // MMGC_TextBox_TextColor
                     "#000000FF", // MMGC_TextBox_BorderColor
-                    "#FFFFFFFF", // MMGC_Label_BackgroundColor
+                    "#F0F0F0FF", // MMGC_Label_BackgroundColor
                     "#000000FF", // MMGC_Label_TextColor
                     "#F0F0F0FF", // MMTC_UnusedModsTable_DG_DataGrid_BackgroundColor
                     "#000000FF", // MMTC_UnusedModsTable_DG_DataGrid_TextColor
@@ -398,8 +398,8 @@ namespace phd2mm_wpf
                     "#FFFFFFFF", // MMTC_UnusedModsTable_DG_Row_BackgroundColor
                     "#000000FF", // MMTC_UnusedModsTable_DG_Row_BorderColor
                     "#E6E6E6FF", // MMTC_UnusedModsTable_DG_AlternateRow_BackgroundColor
-                    "#F0F0F0FF", // MMTC_UnusedModsTable_DG_SelectedRow_BackgroundColor
-                    "#000000FF", // MMTC_UnusedModsTable_DG_SelectedRow_TextColor
+                    "#0078D7FF", // MMTC_UnusedModsTable_DG_SelectedRow_BackgroundColor
+                    "#FFFFFFFF", // MMTC_UnusedModsTable_DG_SelectedRow_TextColor
                     "#FFFFFFFF", // MMTC_UnusedModsTable_DG_ColumnHeader_BackgroundColor
                     "#000000FF", // MMTC_UnusedModsTable_DG_ColumnHeader_BorderColor
                     "#000000FF", // MMTC_UnusedModsTable_DG_SortArrow_TextColor
@@ -409,8 +409,8 @@ namespace phd2mm_wpf
                     "#FFFFFFFF", // MMTC_UsedModsTable_DG_Row_BackgroundColor
                     "#000000FF", // MMTC_UsedModsTable_DG_Row_BorderColor
                     "#E6E6E6FF", // MMTC_UsedModsTable_DG_AlternateRow_BackgroundColor
-                    "#F0F0F0FF", // MMTC_UsedModsTable_DG_SelectedRow_BackgroundColor
-                    "#000000FF", // MMTC_UsedModsTable_DG_SelectedRow_TextColor
+                    "#0078D7FF", // MMTC_UsedModsTable_DG_SelectedRow_BackgroundColor
+                    "#FFFFFFFF", // MMTC_UsedModsTable_DG_SelectedRow_TextColor
                     "#FFFFFFFF", // MMTC_UsedModsTable_DG_ColumnHeader_BackgroundColor
                     "#000000FF", // MMTC_UsedModsTable_DG_ColumnHeader_BorderColor
                     "#000000FF", // MMTC_UsedModsTable_DG_SortArrow_TextColor
@@ -444,13 +444,13 @@ namespace phd2mm_wpf
                     "#2A2A2AFF", // GGC_TextBox_BackgroundColor
                     "#FFFFFFFF", // GGC_TextBox_TextColor
                     "#FFFFFFFF", // GGC_TextBox_BorderColor
-                    "#333333FF", // GGC_Label_BackgroundColor
+                    "#2A2A2AFF", // GGC_Label_BackgroundColor
                     "#FFFFFFFF", // GGC_Label_TextColor
                     "#BEE6FDFF", // GGC_Hover_BackgroundColor
                     "#000000FF", // GGC_Hover_TextColor
                     "#3C7FB1FF", // GGC_Hover_BorderColor
-                    "#FFFFFFFF", // GGC_Selected_BackgroundColor
-                    "#000000FF", // GGC_Selected_TextColor
+                    "#0078D7FF", // GGC_Selected_BackgroundColor
+                    "#FFFFFFFF", // GGC_Selected_TextColor
                     "#ACACACFF", // GGC_Selected_BorderColor
                     "#2A2A2AFF", // GTC_DG_DataGrid_BackgroundColor
                     "#FFFFFFFF", // GTC_DG_DataGrid_TextColor
@@ -458,7 +458,7 @@ namespace phd2mm_wpf
                     "#2A2A2AFF", // GTC_DG_Row_BackgroundColor
                     "#FFFFFFFF", // GTC_DG_Row_BorderColor
                     "#3C3C3CFF", // GTC_DG_AlternateRow_BackgroundColor
-                    "#3C3C3CFF", // GTC_DG_SelectedRow_BackgroundColor
+                    "#0078D7FF", // GTC_DG_SelectedRow_BackgroundColor
                     "#FFFFFFFF", // GTC_DG_SelectedRow_TextColor
                     "#333333FF", // GTC_DG_ColumnHeader_BackgroundColor
                     "#FFFFFFFF", // GTC_DG_ColumnHeader_BorderColor
@@ -476,7 +476,7 @@ namespace phd2mm_wpf
                     "#2A2A2AFF", // MMGC_TextBox_BackgroundColor
                     "#FFFFFFFF", // MMGC_TextBox_TextColor
                     "#FFFFFFFF", // MMGC_TextBox_BorderColor
-                    "#333333FF", // MMGC_Label_BackgroundColor
+                    "#2A2A2AFF", // MMGC_Label_BackgroundColor
                     "#FFFFFFFF", // MMGC_Label_TextColor
                     "#2A2A2AFF", // MMTC_UnusedModsTable_DG_DataGrid_BackgroundColor
                     "#FFFFFFFF", // MMTC_UnusedModsTable_DG_DataGrid_TextColor
@@ -484,7 +484,7 @@ namespace phd2mm_wpf
                     "#2A2A2AFF", // MMTC_UnusedModsTable_DG_Row_BackgroundColor
                     "#FFFFFFFF", // MMTC_UnusedModsTable_DG_Row_BorderColor
                     "#3C3C3CFF", // MMTC_UnusedModsTable_DG_AlternateRow_BackgroundColor
-                    "#3C3C3CFF", // MMTC_UnusedModsTable_DG_SelectedRow_BackgroundColor
+                    "#0078D7FF", // MMTC_UnusedModsTable_DG_SelectedRow_BackgroundColor
                     "#FFFFFFFF", // MMTC_UnusedModsTable_DG_SelectedRow_TextColor
                     "#333333FF", // MMTC_UnusedModsTable_DG_ColumnHeader_BackgroundColor
                     "#FFFFFFFF", // MMTC_UnusedModsTable_DG_ColumnHeader_BorderColor
@@ -495,7 +495,7 @@ namespace phd2mm_wpf
                     "#2A2A2AFF", // MMTC_UsedModsTable_DG_Row_BackgroundColor
                     "#FFFFFFFF", // MMTC_UsedModsTable_DG_Row_BorderColor
                     "#3C3C3CFF", // MMTC_UsedModsTable_DG_AlternateRow_BackgroundColor
-                    "#3C3C3CFF", // MMTC_UsedModsTable_DG_SelectedRow_BackgroundColor
+                    "#0078D7FF", // MMTC_UsedModsTable_DG_SelectedRow_BackgroundColor
                     "#FFFFFFFF", // MMTC_UsedModsTable_DG_SelectedRow_TextColor
                     "#333333FF", // MMTC_UsedModsTable_DG_ColumnHeader_BackgroundColor
                     "#FFFFFFFF", // MMTC_UsedModsTable_DG_ColumnHeader_BorderColor
@@ -503,7 +503,6 @@ namespace phd2mm_wpf
                     "Auto" // MMTC_VerticalScrollBarVisibility
                 ));
             }
-
 
             public static void InitializeAllThemes(Dictionary<string, Class3.ThemeInfo> themesDictionary,
                 Dictionary<string, Class3.ProfileSpecificThemeInfo> profileSpecificThemesDictionary,
@@ -519,20 +518,16 @@ namespace phd2mm_wpf
                 // Empty string in this case means don't use any profile-specific theme for a profile.
                 // Themes_ThemeNames_NoEmptyString_ObservableCollection is for the associated ListBox and ComboBox, it doesn't have empty string that user can select.
                 var sortedThemeNames = themesDictionary.Keys.OrderBy(themeName => themeName).ToList();
-                //sortedThemeNames.Insert(0, ""); // Add empty string at top
                 Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection.Add("");
                 foreach (var theme in sortedThemeNames)
                 {
-                    //MessageBox.Show(theme);
                     Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection.Add(theme);
-                    //MessageBox.Show(Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection);
                     Themes_ThemeNames_NoEmptyString_ObservableCollection.Add(theme);
                 }
                 // Create entries for each profile
                 foreach (var profileName in ProfilesList_ProfileNames)
                 {
                     var profileSpecificThemeInfo = new Class3.ProfileSpecificThemeInfo(profileName, "");
-                    //MessageBox.Show(profileSpecificThemeInfo.ProfileName);
                     profileSpecificThemesDictionary[profileName] = profileSpecificThemeInfo;
                 }
                 // Populate DataGrid source
@@ -565,7 +560,6 @@ namespace phd2mm_wpf
                         // Get the property name and value
                         string propertyName = property.Name;
                         var propertyValue = property.GetValue(selectedTheme)?.ToString();
-                        //MessageBox.Show(propertyName + " " + propertyValue);
                         // Handle ScrollBarVisibility separately for the exception
                         if (propertyName == "MMTC_VerticalScrollBarVisibility")
                         {
@@ -574,7 +568,6 @@ namespace phd2mm_wpf
                         if (propertyName == "MMGC_ModManagerBackgroundImage" || propertyName == "MMGC_ModManagerIconImage" ||
                             propertyName == "MMGC_UnusedModsTableBackgroundImage" || propertyName == "MMGC_UsedModsTableBackgroundImage")
                         {
-                            // MessageBox.Show(propertyName + " " + propertyValue);
                             // Handle image paths
                             string themesDirectoryPath = Class1.GetThemesDirectoryPath();
                             string fullPath = Path.Combine(Class1.GetThemesDirectoryPath(), propertyValue);

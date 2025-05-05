@@ -108,22 +108,16 @@ namespace phd2mm_wpf
             var uniqueSortedItems = Class2.CategoryAndItemsManager.GetCategoriesAndItemsUniqueAndSortedItems();
             // Bind the ComboBox directly
             CategoriesAndItemsSorted = new ObservableCollection<string>(uniqueSortedItems);
-            //MessageBox.Show("CategoriesAndItemsSorted: " + string.Join(", ", CategoriesAndItemsSorted));
-            //MessageBox.Show(CategoriesAndItemsSorted.Count.ToString());
-            //string itemAtIndex = CategoriesAndItemsSorted[0]; // Get the first item
-            //MessageBox.Show(itemAtIndex); // Display the item in a message box
             // Create the directories if they do not exist
             Class1.DirectoryAndFileInitializer.InitializeDirectoriesAndFiles();
             Class1.DirectoryAndFileInitializer.InitializeProfilesList_ComboBox(ProfilesList_ProfileNames);
             Class3.ThemesManager.InitializeDefaultThemes(themesDictionary);
             Class3.ThemesFilesEditor.ReadThemes(themesDictionary, Class1.GetThemesDirectoryPath());
-            //Class3.ThemesManager.InitializeThemesInThemes_ThemeNames_ListBox(themesDictionary, Themes_ThemeNames_ListBox, Themes_GlobalTheme_ComboBox);
             Class3.ThemesManager.InitializeAllThemes(themesDictionary, profileSpecificThemesDictionary, ProfilesList_ProfileNames,
                 Themes_ProfileSpecificThemes_DataGrid_ObservableCollection,
                 Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection, Themes_ThemeNames_NoEmptyString_ObservableCollection);
             Themes_ThemeNames_ListBox.SelectedIndex = 0;
             Themes_GlobalTheme_ComboBox.SelectedItem = "phd2mm_light";
-            //Class3.ThemesManager.InitializeThemesInThemes_ProfileSpecificThemes_DataGrid(themesDictionary, Themes_ProfileSpecificThemes_DataGrid);
             Class1.RegistryEditor.ReadRegistry(modsRegistryDictionary);
             Class1.SettingsEditor.ReadSettings(Hd2DataPathPreview_TextBox, LastInstalledProfile_Label,
                 UnusedMods_DataGrid, UsedMods_DataGrid,
@@ -132,6 +126,15 @@ namespace phd2mm_wpf
                 Themes_ProfileSpecificThemes_DataGrid_ObservableCollection);
             Class1.ModFinder.ScanModFoldersForPatchFiles(allModsOriginalDictionary, modsRegistryDictionary);
             ProfilesList_ComboBox.SelectedIndex = 0;
+            // Keep the commented code below that delays selecting the first item in the ProfilesList_ComboBox in case it is needed in the future.
+            // Because before, I had to use this workaround so that app won't crash when setting the SelectedIndex of ProfilesList_ComboBox.
+            // Something about selecting the first item in the ProfilesList_ComboBox before it is fully loaded crashes the app, despite it being near
+            // the end of this constructor. Also something about race conditions and timing issues where it is possible that
+            // setting the SelectedIndex of ProfilesList_ComboBox here may come first before UI is fully loaded, crashing the app.
+            // The Dispatcher.BeginInvoke is used to queue the code inside it, and combined with DispatcherPriority.Background, which I think delays
+            // the execution of the code inside it until the UI is fully loaded and other more important tasks are done.
+            // This way, we make sure that ProfilesList_ComboBox is fully loaded before setting its index, preventing the app to crash.
+            // 
             //ProfilesList_ComboBox.SelectedIndex = 0;
             //Dispatcher.BeginInvoke(new Action(() =>
             //{
@@ -296,11 +299,6 @@ namespace phd2mm_wpf
                 // Create the profile text file
                 string newProfilePath = System.IO.Path.Combine(profileDirectoryPath, window1.newProfileName + ".txt");
                 Class1.DirectoryAndFileInitializer.InitializeFiles(newProfilePath);
-                // Add the profile to the DataGridView (or DataGrid in WPF)
-                //Themes_ProfileSpecificThemes_DataGridView.Items.Add(new { Name = window1.newProfileName, Theme = "" });
-                // Create a new ProfileSpecificTheme object and add it to the dictionary
-                //var tempProfileTheme = new Class3.ProfileSpecificTheme(window1.newProfileName, "");
-                //profileSpecificThemesDictionary.Add(window1.newProfileName, tempProfileTheme);
             }
         }
 
@@ -324,11 +322,6 @@ namespace phd2mm_wpf
                 string oldProfilePath = System.IO.Path.Combine(profileDirectoryPath, window1.profileToDuplicate + ".txt");
                 string newProfilePath = System.IO.Path.Combine(profileDirectoryPath, window1.newProfileName + ".txt");
                 File.Copy(oldProfilePath, newProfilePath, overwrite: true);
-                // Add the profile to the DataGridView (or DataGrid in WPF)
-                //Themes_ProfileSpecificThemes_DataGridView.Items.Add(new { Name = window1.newProfileName, Theme = "" });
-                // Create a new ProfileSpecificTheme object and add it to the dictionary
-                //var tempProfileTheme = new Class3.ProfileSpecificTheme(window1.newProfileName, "");
-                //profileSpecificThemesDictionary.Add(window1.newProfileName, tempProfileTheme);
             }
         }
 
@@ -418,9 +411,6 @@ namespace phd2mm_wpf
                     Class1.LastInstalledProfile_LabelEditor.SetLastInstalledProfile(LastInstalledProfile_Label, ProfilesList_ComboBox.SelectedItem.ToString());
                     hd2DirectoryPath = hd2DirectoryPath.Replace("\\", "/");
                     Hd2DataPathPreview_TextBox.Text = hd2DirectoryPath;
-                    //string tempString2 = $"current_hd2_data_directory: {Hd2DataPathPreview_TextBox.Text}\n" +
-                    //                     $"last_installed_profile: {ProfilesList_ComboBox.SelectedItem}";
-                    //File.WriteAllText(Class1.GetSettingsTextFilePath(), tempString2);
                     window2.ShowDialog();
                 }
             }
@@ -762,19 +752,6 @@ namespace phd2mm_wpf
                             // Display a message or revert the value if invalid
                             MessageBox.Show("Invalid order number. It must be between 0 and " + (UsedMods_DataGrid.Items.Count - 1),
                                  "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            //if (orderNumber < 0)
-                            //{
-                            // Set the order number to 0 if it's negative
-                            //modInfo.ModOrderNumber = 0;
-                            //}
-                            //else if (orderNumber >= UsedMods_DataGrid.Items.Count)
-                            //{
-                            // Set the order number to the last index if it's out of range
-                            //modInfo.ModOrderNumber = UsedMods_DataGrid.Items.Count - 1;
-                            //}
-                            int tempInt = modInfo.ModOrderNumber;
-                            modInfo.ModOrderNumber = -2;
-                            modInfo.ModOrderNumber = tempInt;
                         }
                         Class1.Mods_DataGrid_Editor.UpdateModOrderNumberColumn(UsedMods_DataGrid_ObservableCollection);
                         // Use Dispatcher to delay the selection logic until the DataGrid updates its state
@@ -782,7 +759,6 @@ namespace phd2mm_wpf
                         {
                             // Select the moved row
                             UsedMods_DataGrid.SelectedItem = modInfo;
-
                             // Focus the ModOrderNumber cell
                             var cellInfo = new DataGridCellInfo(modInfo, e.Column);
                             UsedMods_DataGrid.CurrentCell = cellInfo;
@@ -887,20 +863,16 @@ namespace phd2mm_wpf
             if (cell != null)
             {
                 dataGrid.SelectedItem = cell.DataContext; // Select the item in the DataGrid
-
                 // Create the context menu dynamically
                 ContextMenu contextMenu = new ContextMenu();
-
                 // Add the "Show Mod Folder" menu item
                 MenuItem showFolderItem = new MenuItem { Header = "Open Mod Folder" };
                 showFolderItem.Click += ShowFolderMenuItem_Click;
                 contextMenu.Items.Add(showFolderItem);
-
                 // Add the "Open this link" menu item
                 MenuItem openLinkItem = new MenuItem { Header = "Open Mod Link in your Default Browser" };
                 openLinkItem.Click += OpenLinkMenuItem_Click;
                 contextMenu.Items.Add(openLinkItem);
-
                 // Get the row and mod info from the clicked cell's data context
                 var row = ItemsControl.ContainerFromElement(dataGrid, hit) as DataGridRow;
                 if (row != null)
@@ -1055,7 +1027,6 @@ namespace phd2mm_wpf
                 string themeDirectoryPath = Class1.GetThemesDirectoryPath();
                 // Create the theme text file
                 string newThemePath = System.IO.Path.Combine(themeDirectoryPath, window3.newThemeName + ".json");
-                //Class3.ThemesManager.CreateNewTheme(themesDictionary, window3.newThemeName);
                 // Assuming the new theme name is added to the dictionary, and you want to save it:
                 // Write the theme to the file, and read it.
                 var baseTheme = themesDictionary["phd2mm_light"];
@@ -1067,10 +1038,6 @@ namespace phd2mm_wpf
                     newThemePath
                 );
                 Class3.ThemesFilesEditor.ReadThemesFile(themesDictionary, newThemePath);
-                //Themes_ThemeNames_ListBox.Items.Add(window3.newThemeName);
-                //Themes_GlobalTheme_ComboBox.Items.Add(window3.newThemeName);
-                //Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection.Add(window3.newThemeName);
-                //Themes_ThemeNames_NoEmptyString_ObservableCollection.Add(window3.newThemeName);
                 Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection.Add(window3.newThemeName);
                 Themes_ThemeNames_NoEmptyString_ObservableCollection.Add(window3.newThemeName);
                 // Sort both ObservableCollections
@@ -1106,18 +1073,11 @@ namespace phd2mm_wpf
                     newThemePath
                 );
                 Class3.ThemesFilesEditor.ReadThemesFile(themesDictionary, newThemePath);
-                //Themes_ThemeNames_ListBox.Items.Add(window3.newThemeName);
-                //Themes_GlobalTheme_ComboBox.Items.Add(window3.newThemeName);
                 Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection.Add(window3.newThemeName);
                 Themes_ThemeNames_NoEmptyString_ObservableCollection.Add(window3.newThemeName);
                 // Sort both ObservableCollections
                 SortThemeOptionsObservableCollection(Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection);
                 SortThemeOptionsObservableCollection(Themes_ThemeNames_NoEmptyString_ObservableCollection);
-                // Add the profile to the DataGridView (or DataGrid in WPF)
-                //Themes_ProfileSpecificThemes_DataGridView.Items.Add(new { Name = window1.newProfileName, Theme = "" });
-                // Create a new ProfileSpecificTheme object and add it to the dictionary
-                //var tempProfileTheme = new Class3.ProfileSpecificTheme(window1.newProfileName, "");
-                //profileSpecificThemesDictionary.Add(window1.newProfileName, tempProfileTheme);
             }
         }
 
@@ -1140,11 +1100,8 @@ namespace phd2mm_wpf
                     MessageBoxResult confirmDeleteCurrentTheme = MessageBox.Show(tempString1, "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                     if (confirmDeleteCurrentTheme == MessageBoxResult.Yes)
                     {
-                        //Themes_ThemeNames_ListBox.Items.Remove(themeToDelete);
                         Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection.Remove(themeToDelete);
                         Themes_ThemeNames_NoEmptyString_ObservableCollection.Remove(themeToDelete);
-                        //Themes_ThemeNames_ListBox.SelectedIndex = 0;
-                        //Themes_GlobalTheme_ComboBox.Items.Remove(themeToDelete);
                         // Check if the selected item is null or invalid, then reset the index
                         // Update profileSpecificThemesDictionary to change themeName to empty string
                         foreach (var entry in profileSpecificThemesDictionary.Values)
@@ -1185,7 +1142,6 @@ namespace phd2mm_wpf
         {
             // Get the selected theme name from the ListBox
             string selectedThemeName = (string)Themes_ThemeNames_ListBox.SelectedItem;
-            //Themes_CurrentThemeName_Label.Content = selectedThemeName;
             TextBlock textBlock = Themes_CurrentThemeName_Label.Content as TextBlock;
             if (textBlock != null)
             {
@@ -1211,6 +1167,22 @@ namespace phd2mm_wpf
             }
         }
 
+        public System.Windows.Media.Color ConvertRgbaToArgb(string rgba)
+        {
+            if (rgba.StartsWith("#") && rgba.Length == 9) // Valid RGBA format
+            {
+                // Extract the components
+                byte r = Convert.ToByte(rgba.Substring(1, 2), 16);
+                byte g = Convert.ToByte(rgba.Substring(3, 2), 16);
+                byte b = Convert.ToByte(rgba.Substring(5, 2), 16);
+                byte a = Convert.ToByte(rgba.Substring(7, 2), 16);
+
+                // Swap the letters to convert to ARGB format
+                return System.Windows.Media.Color.FromArgb(a, r, g, b); // ARGB format
+            }
+            throw new ArgumentException("Invalid RGBA color string");
+        }
+
         private void GetThemeInfoFromThemesDictionary_UpdateTextBoxes(Class3.ThemeInfo theme)
         {
             // Get the TabControl that contains the controls (TextBoxes, ColorPickers, etc.)
@@ -1228,20 +1200,17 @@ namespace phd2mm_wpf
                         Themes_MMTC_VerticalScrollBarVisibility_Auto_RadioButton.IsChecked = true;
                     else if (propertyValue == "Hidden")
                         Themes_MMTC_VerticalScrollBarVisibility_Hidden_RadioButton.IsChecked = true;
-
                     continue; // Skip the rest of the logic for this property
                 }
                 // Handle color picker properties (using ColorPickers instead of TextBoxes)
                 string colorPickerName = "Themes_" + propertyName + "_ColorPickerButton";
                 PortableColorPicker correspondingColorPicker = tabControl.FindName(colorPickerName) as PortableColorPicker;
-
                 if (correspondingColorPicker != null && propertyValue != null)
                 {
                     try
                     {
                         // Convert the color value (hex string in RGBA format) to System.Windows.Media.Color
                         System.Windows.Media.Color wpfColor = ConvertRgbaToArgb(propertyValue);
-
                         // Set the color of the color picker (for manual color setting)
                         correspondingColorPicker.SelectedColor = wpfColor;
                     }
@@ -1315,7 +1284,6 @@ namespace phd2mm_wpf
                         {
                             // Get the selected color value (in ARGB format)
                             string colorValue = colorPicker.SelectedColor.ToString(); // e.g., #AARRGGBB
-
                             // If needed, convert ARGB to RGBA format
                             if (colorValue.Length == 9 && colorValue.StartsWith("#"))
                             {
@@ -1324,10 +1292,8 @@ namespace phd2mm_wpf
                                 string red = colorValue.Substring(3, 2);
                                 string green = colorValue.Substring(5, 2);
                                 string blue = colorValue.Substring(7, 2);
-
                                 // Create RGBA format
                                 colorValue = "#" + red + green + blue + alpha; // Swap red and alpha
-
                                 // Optionally, validate the color if needed
                                 if (!Class3.ThemesValidator.TryValidateAndNormalizeHex(ref colorValue))
                                 {
@@ -1386,9 +1352,7 @@ namespace phd2mm_wpf
                 if (e.EditingElement is ComboBox comboBox && comboBox.SelectedItem != null)
                 {
                     string selectedProfileName = ProfilesList_ComboBox.SelectedItem.ToString();
-                    //MessageBox.Show("HERE1: " + selectedProfileName);
                     CheckThemeBeforeApplyingTheme(selectedProfileName);
-                    //MessageBox.Show("yo: " + profileSpecificThemesDictionary[selectedProfileName].ThemeName);
                 }
 
                 // Reattach the event handler
@@ -1406,8 +1370,6 @@ namespace phd2mm_wpf
                 // If the profile-specific theme name is not empty, use it
                 if (string.IsNullOrEmpty(themeToApply) == false)
                 {
-                    //MessageBox.Show("profilespecifc: " + themeToApply);
-                    //Themes_CurrentAppliedThemeName_Label.Content = themeToApply;
                     TextBlock textBlock = Themes_CurrentAppliedThemeName_Label.Content as TextBlock;
                     textBlock.Text = themeToApply;
                     // Apply the theme (whether profile-specific)
@@ -1439,9 +1401,6 @@ namespace phd2mm_wpf
                     if (Themes_GlobalTheme_ComboBox.SelectedItem != null)
                     {
                         string currentlySelectedGlobalTheme = Themes_GlobalTheme_ComboBox.SelectedItem.ToString();
-                        //MessageBox.Show("global: " + currentlySelectedGlobalTheme);
-                        //Themes_CurrentAppliedThemeName_Label.Content = "phd2mm_dark";
-                        //MessageBox.Show("global2: " + Themes_CurrentAppliedThemeName_Label.Content);
                         TextBlock textBlock = Themes_CurrentAppliedThemeName_Label.Content as TextBlock;
                         textBlock.Text = currentlySelectedGlobalTheme;
                         Class3.ThemesManager.ApplyThemesToControls(
@@ -1488,13 +1447,6 @@ namespace phd2mm_wpf
                 if (Class3.ThemesValidator.ValidateImageType(selectedFilePath))
                 {
                     // Image is valid, you can proceed with whatever action you need (e.g., assigning the image path)
-                    //MessageBox.Show($"Selected image: {selectedFilePath}");
-                    // Example: Update the relevant property or control with the image path
-                    //string fileName = Class3.ThemesValidator.CopyImageToLocalFolder(selectedFilePath, Class1.GetThemesDirectoryPath());
-                    //if (fileName != "")
-                    //{
-                    //    Themes_MMGC_ModManagerBackgroundImage_TextBox.Text = fileName;
-                    //}
                     selectedFilePath = selectedFilePath.Replace('\\', '/');
                     if (selectedFilePath.Contains("phd2mm_themes"))
                     {
@@ -1530,13 +1482,6 @@ namespace phd2mm_wpf
                 if (Class3.ThemesValidator.ValidateImageType(selectedFilePath))
                 {
                     // Image is valid, you can proceed with whatever action you need (e.g., assigning the image path)
-                    //MessageBox.Show($"Selected image: {selectedFilePath}");
-                    // Example: Update the relevant property or control with the image path
-                    //string fileName = Class3.ThemesValidator.CopyImageToLocalFolder(selectedFilePath, Class1.GetThemesDirectoryPath());
-                    //if (fileName != null)
-                    //{
-                    //    Themes_MMGC_ModManagerIconImage_TextBox.Text = fileName;
-                    //}
                     selectedFilePath = selectedFilePath.Replace('\\', '/');
                     if (selectedFilePath.Contains("phd2mm_themes"))
                     {
@@ -1572,13 +1517,6 @@ namespace phd2mm_wpf
                 if (Class3.ThemesValidator.ValidateImageType(selectedFilePath))
                 {
                     // Image is valid, you can proceed with whatever action you need (e.g., assigning the image path)
-                    //MessageBox.Show($"Selected image: {selectedFilePath}");
-                    // Example: Update the relevant property or control with the image path
-                    //string fileName = Class3.ThemesValidator.CopyImageToLocalFolder(selectedFilePath, Class1.GetThemesDirectoryPath());
-                    //if (fileName != null)
-                    //{
-                    //    Themes_MMGC_UnusedModsTableBackgroundImage_TextBox.Text = fileName;
-                    //}
                     selectedFilePath = selectedFilePath.Replace('\\', '/');
                     if (selectedFilePath.Contains("phd2mm_themes"))
                     {
@@ -1614,13 +1552,6 @@ namespace phd2mm_wpf
                 if (Class3.ThemesValidator.ValidateImageType(selectedFilePath))
                 {
                     // Image is valid, you can proceed with whatever action you need (e.g., assigning the image path)
-                    //MessageBox.Show($"Selected image: {selectedFilePath}");
-                    // Example: Update the relevant property or control with the image path
-                    //string fileName = Class3.ThemesValidator.CopyImageToLocalFolder(selectedFilePath, Class1.GetThemesDirectoryPath());
-                    //if (fileName != null)
-                    //{
-                    //    Themes_MMGC_UsedModsTableBackgroundImage_TextBox.Text = fileName;
-                    //}
                     selectedFilePath = selectedFilePath.Replace('\\', '/');
                     if (selectedFilePath.Contains("phd2mm_themes"))
                     {
@@ -1637,6 +1568,23 @@ namespace phd2mm_wpf
                 {
                     // Invalid image type, this has already been handled in ValidateImageType method
                 }
+            }
+        }
+
+        void CopyColorSetting(string sourceControl, string targetControl, string controlName, string property)
+        {
+            // Construct the names of the color picker controls
+            string sourceColorPickerName = $"Themes_{sourceControl}_{controlName}_{property}_ColorPickerButton";
+            string targetColorPickerName = $"Themes_{targetControl}_{controlName}_{property}_ColorPickerButton";
+
+            // Find the ColorPicker controls
+            var sourceColorPicker = FindName(sourceColorPickerName) as PortableColorPicker;
+            var targetColorPicker = FindName(targetColorPickerName) as PortableColorPicker;
+
+            // If both are ColorPickers, copy the selected color
+            if (sourceColorPicker != null && targetColorPicker != null)
+            {
+                targetColorPicker.SelectedColor = sourceColorPicker.SelectedColor;
             }
         }
 
@@ -1658,40 +1606,6 @@ namespace phd2mm_wpf
                 CopyColorSetting("GGC", "MMGC", "Label", "BackgroundColor");
                 CopyColorSetting("GGC", "MMGC", "Label", "TextColor");
             }
-        }
-
-        void CopyColorSetting(string sourceControl, string targetControl, string controlName, string property)
-        {
-            // Construct the names of the color picker controls
-            string sourceColorPickerName = $"Themes_{sourceControl}_{controlName}_{property}_ColorPickerButton";
-            string targetColorPickerName = $"Themes_{targetControl}_{controlName}_{property}_ColorPickerButton";
-
-            // Find the ColorPicker controls
-            var sourceColorPicker = FindName(sourceColorPickerName) as PortableColorPicker;
-            var targetColorPicker = FindName(targetColorPickerName) as PortableColorPicker;
-
-            // If both are ColorPickers, copy the selected color
-            if (sourceColorPicker != null && targetColorPicker != null)
-            {
-                targetColorPicker.SelectedColor = sourceColorPicker.SelectedColor;
-            }
-        }
-
-
-        public System.Windows.Media.Color ConvertRgbaToArgb(string rgba)
-        {
-            if (rgba.StartsWith("#") && rgba.Length == 9) // Valid RGBA format
-            {
-                // Extract the components
-                byte r = Convert.ToByte(rgba.Substring(1, 2), 16);
-                byte g = Convert.ToByte(rgba.Substring(3, 2), 16);
-                byte b = Convert.ToByte(rgba.Substring(5, 2), 16);
-                byte a = Convert.ToByte(rgba.Substring(7, 2), 16);
-
-                // Swap the letters to convert to ARGB format
-                return System.Windows.Media.Color.FromArgb(a, r, g, b); // ARGB format
-            }
-            throw new ArgumentException("Invalid RGBA color string");
         }
 
         private void Themes_MMTC_UnusedModsTable_CopyUsedModsTableThemeSettings_Button_Click(object sender, RoutedEventArgs e)

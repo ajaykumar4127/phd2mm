@@ -56,7 +56,6 @@ namespace phd2mm_wpf
                 Class1.DirectoryAndFileInitializer.InitializeDirectory(modDirectoryPath);
                 Class1.DirectoryAndFileInitializer.InitializeDirectory(themesDirectoryPath);
                 Class1.DirectoryAndFileInitializer.InitializeDirectory(settingsDirectoryPath);
-
                 Class1.DirectoryAndFileInitializer.InitializeFiles(registryTextFilePath);
                 Class1.DirectoryAndFileInitializer.InitializeFiles(settingsTextFilePath);
                 Class1.DirectoryAndFileInitializer.InitializeDefaultProfile(profileDirectoryPath);
@@ -355,7 +354,6 @@ namespace phd2mm_wpf
             public void UpdateCategories()
             {
                 var validCategories = Class2.CategoryAndItemsManager.GetCategoryForItem(Item);
-                //MessageBox.Show($"Fetched categories for {Item}: {string.Join(", ", validCategories)}");
                 ValidCategories = new ObservableCollection<string>(validCategories);
                 // This is important: update the Category only if it's invalid
                 if (!ValidCategories.Contains(Category) && ValidCategories.Any())
@@ -603,7 +601,6 @@ namespace phd2mm_wpf
             {
                 // Read JSON content from the file
                 string jsonString = File.ReadAllText(registryTextFilePath);
-
                 // Parse the JSON array using JsonDocument for safe property access
                 using (JsonDocument document = JsonDocument.Parse(jsonString))
                 {
@@ -614,18 +611,15 @@ namespace phd2mm_wpf
                         string tempItem = element.GetProperty("Item").GetString();
                         string tempCategory = element.GetProperty("Category").GetString();
                         string tempDescription = element.TryGetProperty("Description", out JsonElement descriptionElement) ? descriptionElement.GetString() : "";
-
                         // Optional fields with fallback values
                         string tempModName = element.TryGetProperty("ModName", out JsonElement modNameElement) ? modNameElement.GetString() : Path.GetFileName(tempModFolderPathName);
                         string tempImagePath = element.TryGetProperty("ImagePath", out JsonElement imagePathElement) ? imagePathElement.GetString() : "";
                         string tempDateAdded = element.TryGetProperty("DateAdded", out JsonElement dateAddedElement) ? dateAddedElement.GetString() : DateTime.Now.ToString("yyyy-MM-dd");
                         string tempModVersion = element.TryGetProperty("ModVersion", out JsonElement modVersionElement) ? modVersionElement.GetString() : "";
                         string tempModLink = element.TryGetProperty("ModLink", out JsonElement modLinkElement) ? modLinkElement.GetString() : "";
-
                         // Create ModInfo object with parsed data
                         ModInfo tempModInfo = new ModInfo(tempModFolderPathName, tempModName, tempItem, tempCategory, tempDescription,
                             tempImagePath, tempDateAdded, tempModVersion, tempModLink, -1);
-
                         // Add or update the dictionary with the ModInfo object
                         modsRegistryDictionary[tempModFolderPathName] = tempModInfo;
                     }
@@ -640,7 +634,6 @@ namespace phd2mm_wpf
                     {
                         // Start the JSON array
                         writer.WriteLine("[");
-
                         // JsonSerializerOptions to prevent escape sequences like \u0027
                         var options = new JsonSerializerOptions
                         {
@@ -792,10 +785,7 @@ namespace phd2mm_wpf
                             // Get the corresponding ModInfo object from the allModsOriginalDictionary
                             Class1.ModInfo tempModInfo = allModsOriginalDictionary[modFolderPathName];
                             // Add the ModInfo to the UnusedMods_DataGrid_ObservableCollection
-                            //UnusedMods_DataGrid_ObservableCollection.Add(tempModInfo);
                             Class1.Mods_DataGrid_Editor.AddModInfoToUnusedModsDataGrid(tempModInfo, UnusedMods_DataGrid_ObservableCollection);
-                            // You can also use a separate method to add it directly to the DataGrid if needed
-                            // Class1.Mods_DataGridView_Editor.AddModInfoToDataGridView(tempModInfo, UnusedMods_DataGridView);
                         }
                     }
                 }
@@ -836,7 +826,6 @@ namespace phd2mm_wpf
                     // If you are tracking ModOrderNumber as a property, set it here
                     modInfo.ModOrderNumber = i; // Or update another way depending on your data model
                 }
-                //CollectionViewSource.GetDefaultView(UsedMods_DataGrid_ObservableCollection).Refresh();
             }
 
             public static void SortUnusedModsDataGridBy_ModFolderPathNameAlphabetically(ObservableCollection<Class1.ModInfo> UnusedMods_DataGrid_ObservableCollection)
@@ -853,8 +842,6 @@ namespace phd2mm_wpf
                 }
             }
         }
-
-
 
     }
 }
