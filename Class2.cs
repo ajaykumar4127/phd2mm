@@ -418,6 +418,13 @@ namespace phd2mm_wpf
                 "then it will not be correctly installed. If it has 9ba626afa44a3aa3.patch_0 and 9ba626afa44a3aa3.patch_0.gpu_resources, then it will be correctly installed.\n" +
                 "3. Different names will work, assuming it is a valid mod file, for example, 22749a294788af66.patch_0 and e72d3e9b05c3db0b.patch_0 in the same folder " +
                 "will be correctly installed.\n" +
+                "The app will then find the folders that contain .patch_ files. Any images included in those folders will be displayed in the app.\n" +
+                "However, the app will only get the first valid image in alphabetical order.\n" +
+                "The supported image file types are: *.jpg, *.jpeg, *.png, *.bmp, and *.gif.\n" +
+                "The app will prioritize data from phd2mm_mods\\phd2mm_registry.json file, so that means for example, if you added an image after " +
+                "the app already added the mod folder to the phd2mm_registry.json file, then the app won't detect the newly added image.\n" +
+                "Either manually add the image path to the phd2mm_registry.json file, delete the entire entry for that mod in the phd2mm_registry.json file, " +
+                "or delete the entire phd2mm_registry.json file. Backup your phd2mm_registry.json file before attempting any fixes.\n" +
                 "\n" +
                 "3. Browsing your Helldivers 2 Data Directory\n" +
                 "Find and select your Helldivers 2 data folder by clicking the \"Settings\" tab near the top of the screen.\n" +
@@ -590,10 +597,12 @@ namespace phd2mm_wpf
                 "You can now just double-click the cell that belongs to the Mod Folder Path + Name column to add or remove mods. " +
                 "To rearrange mod load order in Used Mods Table using drag and drop, you can just drag and drop the cell that belongs to " +
                 "the Mod Folder Path + Name column.\n" +
-                "Added feature: Image column now works. Assuming the mod image path is valid and the image file type is supported, " +
+                "Added feature: Image column now works. \n" +
+                "The app will now get the first valid image found in alphabetical order from a mod's folder.\n" +
+                "Assuming the mod image path is valid and the image file type is supported, " +
                 "the image column will show a small image preview (48x48 size resolution) of the mod. " +
                 "You can also hover your mouse cursor over the image to see a larger preview of the image (512x512 size resolution or close to it). " +
-                "To see which image file types are supported, please see the \"Themes Info\" tab for more details.\n" +
+                "The supported image file types are: *.jpg, *.jpeg, *.png, *.bmp, and *.gif.\n" +
                 "Added feature: Right-click on a mod to open its folder or visit its link using your default browser.\n" +
                 "Removed feature: \"Enable Mod Randomization button\". Now, you simply click the \"Randomly Add and Remove Mods\" button to randomize your mods. " +
                 "A warning message will pop up to confirm if you want to randomize your mods or not.\n" +
