@@ -35,7 +35,7 @@
     </Window.Resources>
     <Grid Style="{DynamicResource GGC_Grid_Style}">
         <TabControl Width="1759" Height="912.04">
-            <TabItem Header="Mod Manager">
+            <TabItem Header="Mod Manager" Template="{DynamicResource GGC_TabItem_Template}">
                 <Grid Style="{DynamicResource GGC_Grid_Style}">
                     <Image x:Name="ProfileImage_Background_Image" Stretch="Fill"/>
                     <Image x:Name="ProfileImage_UnusedMods_DataGrid_Image" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,117,882,10" Width="861" Height="754.42" Stretch="Fill"/>
@@ -45,7 +45,7 @@
                               Style="{DynamicResource MMTC_UnusedModsTable}" CellStyle="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow}"
                               ColumnHeaderStyle="{DynamicResource MMTC_UnusedModsTable_DG_ColumnHeader}"
                               ItemsSource="{Binding UnusedMods_DataGrid_ObservableCollection}"
-                              CellEditEnding="UnusedMods_DataGrid_CellEditEnding" LostFocus="UnusedMods_DataGrid_LostFocus"
+                              CellEditEnding="UnusedMods_DataGrid_CellEditEnding"
                               MouseRightButtonDown="DataGrid_MouseRightButtonDown" PreviewMouseDoubleClick="UnusedMods_DataGrid_PreviewMouseDoubleClick">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Mod Folder Path + Name" Width="350" MinWidth="50"
@@ -134,7 +134,6 @@
                               CellEditEnding="UsedMods_DataGrid_CellEditEnding"
                               PreviewMouseDoubleClick="UsedMods_DataGrid_PreviewMouseDoubleClick" PreviewMouseLeftButtonDown="UsedMods_DataGrid_PreviewMouseLeftButtonDown"
                               DragOver="UsedMods_DataGrid_DragOver" Drop="UsedMods_DataGrid_Drop"
-                              LostFocus="UsedMods_DataGrid_LostFocus"
                               MouseRightButtonDown="DataGrid_MouseRightButtonDown" PreviewMouseRightButtonDown="DataGrid_PreviewMouseRightButtonDown"
                               PreviewTextInput="UsedMods_DataGrid_PreviewTextInput"
                               Sorting="UsedMods_DataGrid_Sorting">
@@ -221,12 +220,13 @@
                     </DataGrid>
                     <Label Content="Please select a profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
                     <ComboBox x:Name="ProfilesList_ComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,6,0,0" Width="455" VerticalContentAlignment="Center"
-                              Style="{DynamicResource MMGC_ComboBox}" ItemsSource="{Binding ProfilesList_ProfileNames}" SelectionChanged="ProfilesList_ComboBox_SelectionChanged"/>
+                              Style="{DynamicResource MMGC_ComboBox}" ItemContainerStyle="{DynamicResource MMGC_ComboBoxItem}"
+                              ItemsSource="{Binding ProfilesList_ProfileNames}" SelectionChanged="ProfilesList_ComboBox_SelectionChanged"/>
                     <Label Content="Search mod:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,31,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
                     <TextBox x:Name="SearchMod_TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="112,35,0,0" Width="523" Height="23" VerticalContentAlignment="Center"
                              TextWrapping="Wrap" Style="{DynamicResource MMGC_TextBox}" TextChanged="SearchMod_TextBox_TextChanged"/>
                     <Label Content="Mods not used in this profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,58,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
-                    <Button x:Name="AddSelectedMod_Button" Content="Add Selected Mod" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,89,0,0" Width="114" Height="23"
+                    <Button Template="{DynamicResource ButtonTemplate1}" x:Name="AddSelectedMod_Button" Content="Add Selected Mod" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,89,0,0" Width="114" Height="23"
                             Style="{DynamicResource MMGC_Button}" Click="AddSelectedMod_Button_Click"/>
                     <Button x:Name="RemoveSelectedMod_Button" Content="Remove Selected Mod" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="882,89,0,0" Width="135" Height="23"
                             Style="{DynamicResource MMGC_Button}" Click="RemoveSelectedMod_Button_Click"/>
@@ -279,7 +279,7 @@
                     </Label>
                 </Grid>
             </TabItem>
-            <TabItem Header="Theme Manager">
+            <TabItem Header="Theme Manager" Template="{DynamicResource GGC_TabItem_Template}">
                 <Grid Style="{DynamicResource GGC_Grid_Style}">
                     <Label Content="Themes" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="16" FontWeight="Bold"/>
                     <Button x:Name="Themes_CreateTheme_Button" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,46,0,0" Width="70" Height="35"
@@ -301,6 +301,7 @@
                     <Label Content="Global Theme:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1143,64,0,0" FontSize="16"/>
                     <Label Content="Profile-specific Themes:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1143,112,0,0" FontSize="16"/>
                     <ComboBox x:Name="Themes_GlobalTheme_ComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1259,64,0,0" Width="484" FontSize="16"
+                               ItemContainerStyle="{DynamicResource GTC_ComboBoxItem}"
                               ItemsSource="{Binding Themes_ThemeNames_NoEmptyString_ObservableCollection}" SelectionChanged="Themes_GlobalTheme_ComboBox_SelectionChanged"/>
                     <DataGrid x:Name="Themes_ProfileSpecificThemes_DataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1143,148,0,0" Width="600" Height="726"
                               FontSize="16" RowHeaderWidth="0" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" SelectionMode="Single"
@@ -320,14 +321,14 @@
                                 <DataGridComboBoxColumn.EditingElementStyle>
                                     <Style TargetType="ComboBox">
                                         <Setter Property="ItemsSource" Value="{Binding DataContext.Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection, RelativeSource={RelativeSource AncestorType=Window}}"/>
-                                        <Setter Property="ItemContainerStyle" Value="{DynamicResource GTC_DG_ComboBoxItem}"/>
+                                        <Setter Property="ItemContainerStyle" Value="{DynamicResource GTC_ComboBoxItem}"/>
                                     </Style>
                                 </DataGridComboBoxColumn.EditingElementStyle>
                             </DataGridComboBoxColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                     <TabControl x:Name="Themes_ControlsCustomization_TabControl" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="324,46,0,0" Width="804" Height="828" FontSize="16">
-                        <TabItem Header="Global General Controls">
+                        <TabItem Header="Global General Controls" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}">
                                 <Button x:Name="Themes_GGC_SaveThemeSettings_Button" Content="Save Theme Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="594,725,0,0"
                                         Width="194" Height="60" FontSize="16" Click="Themes_SaveThemeSettings_Button_Click"/>
@@ -396,9 +397,23 @@
                                                                  Width="90" Height="31" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}"/>
                                 <colorpicker:PortableColorPicker x:Name="Themes_GGC_Label_TextColor_ColorPickerButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="395,406,0,0"
                                                                  Width="90" Height="31" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}"/>
+                                <Label Content="Hover" HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_Hover_BackgroundColor_ColorPickerButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,442,0,0"
+                                                                 Width="90" Height="31" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_Hover_TextColor_ColorPickerButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="395,442,0,0"
+                                                                 Width="90" Height="31" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_Hover_BorderColor_ColorPickerButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="507,442,0,0"
+                                                                 Width="90" Height="31" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}"/>
+                                <Label Content="Selected" HorizontalAlignment="Left" Margin="10,478,0,0" VerticalAlignment="Top"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_Selected_BackgroundColor_ColorPickerButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,478,0,0"
+                                                                 Width="90" Height="31" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_Selected_TextColor_ColorPickerButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="395,478,0,0"
+                                                                 Width="90" Height="31" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}"/>
+                                <colorpicker:PortableColorPicker x:Name="Themes_GGC_Selected_BorderColor_ColorPickerButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="507,478,0,0"
+                                                                 Width="90" Height="31" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}"/>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Global Table Controls">
+                        <TabItem Header="Global Table Controls" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}">
                                 <Button x:Name="Themes_GTC_SaveThemeSettings_Button" Content="Save Theme Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="594,725,0,0"
                                         Height="60" Width="194" FontSize="16" Click="Themes_SaveThemeSettings_Button_Click"/>
@@ -436,7 +451,7 @@
                                                                  Width="90" Height="31" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}"/>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Mod Manager General Controls">
+                        <TabItem Header="Mod Manager General Controls" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}">
                                 <Button x:Name="Themes_MMGC_SaveThemeSettings_Button" Content="Save Theme Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="594,725,0,0"
                                         Width="194" Height="60" FontSize="16" Click="Themes_SaveThemeSettings_Button_Click"/>
@@ -483,7 +498,7 @@
                                 <colorpicker:PortableColorPicker x:Name="Themes_MMGC_Label_TextColor_ColorPickerButton" ColorState="{Binding ElementName=main, Path=ColorState, Mode=TwoWay}" HorizontalAlignment="Left" Margin="395,378,0,0" VerticalAlignment="Top" Height="31" Width="90"/>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Mod Manager Table Controls">
+                        <TabItem Header="Mod Manager Table Controls" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}">
                                 <Button x:Name="Themes_MMTC_SaveThemeSettings_Button" Content="Save Theme Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="594,725,0,0"
                                          Width="194" Height="60" FontSize="16" Click="Themes_SaveThemeSettings_Button_Click"/>
@@ -569,7 +584,7 @@
                     </TabControl>
                 </Grid>
             </TabItem>
-            <TabItem Header="Settings">
+            <TabItem Header="Settings" Template="{DynamicResource GGC_TabItem_Template}">
                 <Grid Style="{DynamicResource GGC_Grid_Style}">
                     <Label Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"  FontSize="16" FontWeight="Bold"/>
                     <Label Content="Please select your Helldivers 2 data directory:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,46,0,0" FontSize="16"/>
@@ -593,18 +608,18 @@
                     </GroupBox>
                 </Grid>
             </TabItem>
-            <TabItem Header="More Info">
+            <TabItem Header="More Info" Template="{DynamicResource GGC_TabItem_Template}">
                 <Grid Style="{DynamicResource GGC_Grid_Style}">
                     <TabControl TabStripPlacement="Left">
-                        <TabItem Header="App Info">
+                        <TabItem Header="App Info" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}">
                                 <TextBox Text="TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="262,101,0,0" Width="199" Height="96" TextWrapping="Wrap" IsReadOnly="True"/>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Changelogs">
+                        <TabItem Header="Changelogs" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}"/>
                         </TabItem>
-                        <TabItem Header="Credits">
+                        <TabItem Header="Credits" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}"/>
                         </TabItem>
                     </TabControl>
