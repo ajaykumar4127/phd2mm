@@ -41,6 +41,17 @@ or v1.3.1 if you prefer something simpler and more reliable.
   ![phd2mm2_mainpage](https://github.com/user-attachments/assets/16d3c547-bc52-4b04-875e-f0d86767bd9a) </br>
   Creating Profile </br>
   ![phd2mm3_creatingprofile](https://github.com/user-attachments/assets/9b2cf5a3-bd2b-47a1-9272-6760d6469eec) </br>
+  Saving Profile </br>
+  ![phd2mm8_savingprofile (1)](https://github.com/user-attachments/assets/b0ff7f32-f6ac-4de5-99c5-da51158023d4) </br>
+  ![phd2mm8_savingprofile (2)](https://github.com/user-attachments/assets/4c6249fd-cab6-4176-bc84-035db0a115ed) </br>
+  ![phd2mm8_savingprofile (3)](https://github.com/user-attachments/assets/6830547a-779b-4b90-b0ff-d859f0e7280b) </br>
+  Duplicating Profile </br>
+  ![phd2mm9_duplicatingprofile (1)](https://github.com/user-attachments/assets/24174f61-cbbe-47c8-8825-76d6ab847f59) </br>
+  ![phd2mm9_duplicatingprofile (2)](https://github.com/user-attachments/assets/39838ac7-aaa7-41d0-8b54-194d65161054) </br>
+  ![phd2mm9_duplicatingprofile (3)](https://github.com/user-attachments/assets/70a4007f-20df-4a9c-9ae9-cf413496c030) </br>
+  Deleting Profile </br>
+  ![phd2mm10_deletingprofile (1)](https://github.com/user-attachments/assets/9ad9dbfc-3b97-4448-b08d-f4799595134b) </br>
+  ![phd2mm10_deletingprofile (2)](https://github.com/user-attachments/assets/79bb531c-40e5-46b7-907e-29cc8ef1b037) </br>
   All the Columns </br>
   ![phd2mm4_allthecolumns (1)](https://github.com/user-attachments/assets/3b3d6308-b286-4d57-bf45-e8cd8e6c2e9c) </br>
   ![phd2mm4_allthecolumns (2)](https://github.com/user-attachments/assets/0a3faa5d-ed68-4f35-bb23-7796d06bd43e) </br>
@@ -51,44 +62,7 @@ or v1.3.1 if you prefer something simpler and more reliable.
   ![phd2mm6_selectingitem](https://github.com/user-attachments/assets/bde509f7-436d-4bfd-8650-ef286eb4ece9) </br>
   Selecting Category </br>
   ![phd2mm7_selectingcategory](https://github.com/user-attachments/assets/479ba7be-e1e4-4388-b2bf-a1f932b9559d) </br>
-  Installing Mods </br>
-  ![image](https://github.com/user-attachments/assets/abba2ad9-8e37-4cc3-8121-cef8ef6fc8ad) </br>
-  ![image](https://github.com/user-attachments/assets/be4f5129-62f5-440f-9041-2d18a7a94f66) </br>
-  ![image](https://github.com/user-attachments/assets/118927d5-9d21-404f-ac7d-cad24afe9d9b) </br>
-  </br> 
-  Searching for mod with either name, category, item, or description with "las" </br>
-  ![image](https://github.com/user-attachments/assets/d919b2fc-4fb0-4625-8d3f-45f3774669c3)
-  Settings and Mod Randomization Options </br>
-  (Mod Randomization Options doesn't take mod conflict into account) </br>
-  (Full Helldivers 2 data folder path is censored here, but is actually shown in the app) </br>
-  ![image](https://github.com/user-attachments/assets/b47610ad-af07-4145-a7c7-72f05ec42485) </br>
   
-  Themes Tab (NOTE: Due to WinForms limitations, some parts like borders and tabs cannot be colored) </br>
-  ![image](https://github.com/user-attachments/assets/220dee9b-b852-4aa2-9096-e5b3ee5cf231) </br>
-  Testing Profile-Specific Theme (Full image path is censored here, but is actually shown in the app) </br>
-  ![image](https://github.com/user-attachments/assets/ced64943-1d1d-4b9d-9671-69334b1ccf16) </br>
-  ![image](https://github.com/user-attachments/assets/bb15e951-3316-4f7e-a7b4-a0a43a3fb3cb) </br>
-  ![image](https://github.com/user-attachments/assets/40576966-9647-40f0-84c9-6d54e986261d) </br>
-  ![image](https://github.com/user-attachments/assets/e5985c5d-7164-4874-802e-850a99f3224e) </br>
-  Testing Different Themes </br>
-  Light Theme (phd2mm_light, can't be edited or deleted because it's 1 of 2 default themes) </br>
-  ![image](https://github.com/user-attachments/assets/7dfacd7e-cc0c-4b49-9a0e-be7d2616599f) </br>
-  ![image](https://github.com/user-attachments/assets/25793831-748b-4a34-9356-a19b969f6bf8) </br>
-  Dark Theme (phd2mm_dark, can't be edited or deleted because it's 1 of 2 default themes) </br>
-  ![image](https://github.com/user-attachments/assets/c6fa5d15-1e98-481d-b5e1-5ec8450038d7) </br>
-  ![image](https://github.com/user-attachments/assets/ca1271fa-37ae-4a57-b934-8445dad2e34b) </br>
-  Trepang2 Test Theme (trepang2, custom theme) </br>
-  (Full image path is censored here, but is actually shown in the app) </br>
-  ![image](https://github.com/user-attachments/assets/ecd54cc8-f811-4796-93d2-250000106934) </br>
-  ![image](https://github.com/user-attachments/assets/a0377aa0-a84b-4d8f-ae1f-0ae87f83534d) </br>
-  Helldiver Test Theme (helldiver_test, custom theme) </br>
-  (Full image path is censored here, but is actually shown in the app) </br>
-  ![image](https://github.com/user-attachments/assets/2a9d6211-e97e-4252-9957-cf89afcb05b1) </br>
-  ![image](https://github.com/user-attachments/assets/7ab7f58a-e60c-4c80-88c8-c207e21cd5ad) </br>
-  Test Theme (test1, custom theme) </br>
-  WARNING: May damage your eyes, this theme is meant for testing more colors. </br>
-  ![image](https://github.com/user-attachments/assets/6bac671a-723c-4cef-a72b-c129de60ffa6) </br>
-  ![image](https://github.com/user-attachments/assets/dcdad62b-0828-4de4-a552-fe6154f39f19) </br>
   </details>
  
  <details>
