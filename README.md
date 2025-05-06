@@ -65,13 +65,14 @@ or v1.3.1 if you prefer something simpler and more reliable.
   ![phd2mm7_selectingcategory](https://github.com/user-attachments/assets/479ba7be-e1e4-4388-b2bf-a1f932b9559d) </br>
   Theme Manager Tab </br>
   ![phd2mm11_thememanager](https://github.com/user-attachments/assets/807294fe-0fa1-43c0-b16d-c60265e211c5) </br>
+  Main Page - Default Light Mode Theme (phd2mm_light) </br>
+  ![phd2mm14_themelight1](https://github.com/user-attachments/assets/9b149aae-77c0-4945-a517-1402592e935a) </br>
+  Main Page - Default Dark Mode Theme (phd2mm_dark) </br>
+  ![phd2mm14_theme1light](https://github.com/user-attachments/assets/ab55c79f-8b33-4299-af92-6c2d551fcc9c) </br>
   Settings Tab
   ![phd2mm12_settings](https://github.com/user-attachments/assets/8c366a8d-4b0c-457d-8254-e9f33b905bad) </br>
   More Info Tab
   ![phd2mm13_moreinfo](https://github.com/user-attachments/assets/69884499-5551-4d75-810f-bb73e656c2e1) </br>
-
-
-
   
   </details>
  
