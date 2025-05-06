@@ -478,26 +478,49 @@ namespace phd2mm_wpf
                 "To be extra sure, you can also click the \"Delete All Installed Mods\" button to uninstall all old mods before installing the new mods.\n" +
                 "\n" +
                 "7. Other Features\n" +
-                "7.1. Search Mod: You can search for mods by typing in the search bar. It will filter the mods in both sides.\n" +
-                "7.2. Delete All Installed Mods: You can delete all installed mods in the Helldivers 2 data folder by clicking " +
+                "7.1 Columns: There are 10 columns in total. These are:\n" +
+                "7.1.1. Order: The mod order number of the mod. This is the order in which the mod will be installed.\n" +
+                "Can be edited inside the app.\n" +
+                "7.1.2. Mod Folder Path + Name: This is the path to the mod folder and the name of the mod.\n" +
+                "Cannot be edited inside the app, but you can change it by editing the phd2mm_registry.txt file.\n" +
+                "7.1.3. Name: The name of the mod. \n" +
+                "Placeholder, can be edited.\n" +
+                "7.1.4. Item: The in-game item that the mod replaces.\n" +
+                "Can be edited.\n" +
+                "7.1.5. Category: The category of the in-game item.\n" +
+                "Can be edited.\n" +
+                "7.1.6. Description: The description of the mod.\n" +
+                "Placeholder, can be edited.\n" +
+                "7.1.7. Image: The image of the mod. The displayed image is located inside the Mod Folder Path + Name folder. " +
+                "The app will automatically use the first valid image file in alphabetical order from that folder. " +
+                "The supported image file types are: *.jpg, *.jpeg, *.png, *.bmp, and *.gif.\n" +
+                "Cannot be edited.\n" +
+                "7.1.8 Date Added: The date the mod was added to the mod manager.\n" +
+                "Cannot be edited.\n" +
+                "7.1.9. Version: The version of the mod.\n" +
+                "Placeholder, can be edited.\n" +
+                "7.1.10. Link: The link to the mod's website page.\n" +
+                "Placeholder, can be edited.\n" +
+                "7.2. Search Mod: You can search for mods by typing in the search bar. It will filter the mods in both sides.\n" +
+                "7.3. Delete All Installed Mods: You can delete all installed mods in the Helldivers 2 data folder by clicking " +
                 "the \"Delete All Installed Mods\" button.\n" +
-                "7.3. Resize Columns: You can resize the columns by dragging the column headers.\n" +
-                "7.4. Rearrange Columns: You can rearrange the columns by dragging the column headers.\n" +
-                "7.5. Edit Values of Certain Columns: You can edit the Item, Category, Description, Version, and Link columns by double-clicking the cell you want to edit, " +
+                "7.4. Resize Columns: You can resize the columns by dragging the column headers.\n" +
+                "7.5. Rearrange Columns: You can rearrange the columns by dragging the column headers.\n" +
+                "7.6. Edit Values of Certain Columns: You can edit the Item, Category, Description, Version, and Link columns by double-clicking the cell you want to edit, " +
                 "choosing from a list of options or typing in the new text, then pressing Enter.\n" +
                 "The changes will be saved in phd2mm_settings\\phd2mm_registry.json file.\n" +
                 "If not, try exiting the app first to see if the changes are saved in the phd2mm_registry.json.\n" +
-                "7.6. Show or Hide Certain Columns: You can right-click any of the column headers (except for the Mod Folder Path + Name column " +
+                "7.7. Show or Hide Certain Columns: You can right-click any of the column headers (except for the Mod Folder Path + Name column " +
                 "and the Order / Mod Order Number column) to show or hide the columns.\n" +
-                "7.7. Image Hover: You can hover over an image in the Image column to see a larger preview (around 512x512 resolution) of the mod.\n" +
-                "7.8. Open Mod Folder: Right-click any mod to open a menu then click the \"Open Mod Folder\" option. This will open the folder " +
+                "7.8. Image Hover: You can hover over an image in the Image column to see a larger preview (around 512x512 resolution) of the mod.\n" +
+                "7.9. Open Mod Folder: Right-click any mod to open a menu then click the \"Open Mod Folder\" option. This will open the folder " +
                 "of the selected mod.\n" +
-                "7.9. Open Mod Link in your Default Browser: Right-click any mod to open a menu then click the \"Open Mod Link in your Default Browser\" option. " +
+                "7.10. Open Mod Link in your Default Browser: Right-click any mod to open a menu then click the \"Open Mod Link in your Default Browser\" option. " +
                 "This will open the selected mod's link in your default browser.\n" +
-                "7.10. Mod Randomization: The mod randomization options are located in the \"Settings\" tab. You can activate this feature by clicking the " +
+                "7.11. Mod Randomization: The mod randomization options are located in the \"Settings\" tab. You can activate this feature by clicking the " +
                 "\"Randomize Mods\" button.\n" +
                 "WARNING: This simple mod randomization does not take mod conflicts into account.\n" +
-                "7.11. Theme Manager: Located in the \"Theme Manager\" tab. To know more, please visit the \"Themes Info\" tab."
+                "7.12. Theme Manager: Located in the \"Theme Manager\" tab. To know more, please visit the \"Themes Info\" tab."
                 ;
 
             public static string MoreInfo_ThemeManagerInfo =
