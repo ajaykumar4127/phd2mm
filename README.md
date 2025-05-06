@@ -34,21 +34,23 @@ or v1.3.1 if you prefer something simpler and more reliable.
 <summary> Click this text to show or hide some screenshots of phd2mm app!</summary>
   <details>
    <summary> phd2mm v1.4 </summary>
-      
+
+  phd2mm Loading Splash Screen </br>
+  ![phd2mm1_loadingsplashscreen](https://github.com/user-attachments/assets/3eb2be27-8584-4bd3-abe7-3787f102994b) </br>
   Main Page of phd2mm </br>
-  ![image](https://github.com/user-attachments/assets/417c753d-1b15-422a-9fac-cdaa4a95af5a) </br>
+  ![phd2mm2_mainpage](https://github.com/user-attachments/assets/16d3c547-bc52-4b04-875e-f0d86767bd9a) </br>
   Creating Profile </br>
-  ![image](https://github.com/user-attachments/assets/eeba8e3a-0369-48b7-b9f4-12dad9ddf4ca) </br>
+  ![phd2mm3_creatingprofile](https://github.com/user-attachments/assets/9b2cf5a3-bd2b-47a1-9272-6760d6469eec) </br>
   All the Columns </br>
-  ![image](https://github.com/user-attachments/assets/b36b06c1-80fc-4cfa-9fa3-623d0dc59954) </br>
-  ![image](https://github.com/user-attachments/assets/83e68bae-7d73-46ac-9b30-062a95e098bd) </br>
+  ![phd2mm4_allthecolumns (1)](https://github.com/user-attachments/assets/3b3d6308-b286-4d57-bf45-e8cd8e6c2e9c) </br>
+  ![phd2mm4_allthecolumns (2)](https://github.com/user-attachments/assets/0a3faa5d-ed68-4f35-bb23-7796d06bd43e) </br>
   Hiding the Columns </br>
-  ![image](https://github.com/user-attachments/assets/5dd20f46-c4b1-4cbd-bc34-0e0b311eada7) </br>
-  ![image](https://github.com/user-attachments/assets/478fa8cc-2c7d-409c-8844-098ef15e80d9) </br>
+  ![phd2mm5_hidingthecolumns (1)](https://github.com/user-attachments/assets/083e3182-4a7a-45f9-b0e2-eeecf42ea9a1) </br>
+  ![phd2mm5_hidingthecolumns (2)](https://github.com/user-attachments/assets/91830d1f-626d-4dbf-bac6-347228519db8) </br>
   Selecting Item </br>
-  ![image](https://github.com/user-attachments/assets/c51ad1f6-0719-4194-8bb3-b42466c1b229) </br>
+  ![phd2mm6_selectingitem](https://github.com/user-attachments/assets/bde509f7-436d-4bfd-8650-ef286eb4ece9) </br>
   Selecting Category </br>
-  ![image](https://github.com/user-attachments/assets/9cdeb868-d45e-45e8-b7e6-60903f5a0938) </br>
+  ![phd2mm7_selectingcategory](https://github.com/user-attachments/assets/479ba7be-e1e4-4388-b2bf-a1f932b9559d) </br>
   Installing Mods </br>
   ![image](https://github.com/user-attachments/assets/abba2ad9-8e37-4cc3-8121-cef8ef6fc8ad) </br>
   ![image](https://github.com/user-attachments/assets/be4f5129-62f5-440f-9041-2d18a7a94f66) </br>
