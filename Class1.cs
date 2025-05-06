@@ -714,6 +714,13 @@ namespace phd2mm_wpf
                                 // If there are valid image files, get the first one (alphabetically)
                                 firstImageFile = imageFiles.First();
                                 firstImageFile = System.IO.Path.Combine(relativeModFolderPath, firstImageFile);
+                                // Find the index of "phd2mm_mods" and remove everything before it, including the folder itself.
+                                int phd2mmModsIndex = firstImageFile.IndexOf("phd2mm_mods", StringComparison.OrdinalIgnoreCase);
+                                if (phd2mmModsIndex >= 0)
+                                {
+                                    // Remove everything up to and including "phd2mm_mods"
+                                    firstImageFile = firstImageFile.Substring(phd2mmModsIndex + "phd2mm_mods".Length + 1);
+                                }
                                 firstImageFile = firstImageFile.Replace("\\", "/");
                             }
 
