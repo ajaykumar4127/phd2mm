@@ -426,7 +426,7 @@ namespace phd2mm_wpf
                 // Step 2: Check if the content is empty or just whitespace
                 if (string.IsNullOrWhiteSpace(jsonContent))
                 {
-                    MessageBox.Show("The settings file is empty or invalid.");
+                    //MessageBox.Show("The settings file is empty or invalid.");
                     return; // Skip parsing if the content is invalid or empty
                 }
                 JsonObject settings = JsonNode.Parse(jsonContent).AsObject();

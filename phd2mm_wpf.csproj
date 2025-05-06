@@ -7,9 +7,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-
+	
   <ItemGroup>
     <PackageReference Include="PixiEditor.ColorPicker" Version="3.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SplashScreen Include="phd2mm splashscreen.png" />
   </ItemGroup>
 
 </Project>
