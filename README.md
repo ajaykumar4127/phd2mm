@@ -13,6 +13,7 @@ As the name says, I mainly made this mod manager for myself.
 Any updates to this program, if there will be any at all, will be infrequent. </br>
 I forgot to mention that if your mods are in compressed files such as zip and rar, it won't work with this app,
 please uncompress/extract them first so that this app can detect and install mods properly. </br>
+Also, if you want to use your pre-phd2mm v1.5 registry file on phd2mm v1.5+, make sure you replace all instances of Item "Visual" with Item "Skin" and all "Modfolderpathname" with "ModFolderPathName". </br>
 Currently no integration with manifest.json files. </br>
 Mainly created and tested in Visual Studio 2022,
 WPF C# (Formerly in Winforms Visual Basic (VB)), .NET 9 Framework, Windows 10 64-bit / x64. </br>
