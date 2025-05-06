@@ -1,6 +1,6 @@
 # Personal Helldivers 2 Mod Manager (phd2mm)
 
-upload screenshots of v1.5 later. should be mostly similar to v1.4 though. you can see readme of v1.4 in the phd2mm v1.4 winforms folder.
+phd2mm v1.5 released. uploading screenshots of v1.5 later. should be mostly similar to v1.4 though. you can see readme of v1.4 in the phd2mm v1.4 winforms folder.
 
 
   # Personal Helldivers 2 Mod Manager (phd2mm)
@@ -34,7 +34,7 @@ or v1.3.1 if you prefer something simpler and more reliable.
 <details>
 <summary> Click this text to show or hide some screenshots of phd2mm app!</summary>
   <details>
-   <summary> phd2mm v1.4 </summary>
+   <summary> phd2mm v1.5 </summary>
 
   phd2mm Loading Splash Screen </br>
   ![phd2mm1_loadingsplashscreen](https://github.com/user-attachments/assets/3eb2be27-8584-4bd3-abe7-3787f102994b) </br>
