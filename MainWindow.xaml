@@ -261,7 +261,7 @@
                             <TextBlock Text="Randomize Mods" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
                         </Button.Content>
                     </Button>
-                    <Image x:Name="ProfileImage_Icon_Image" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1541,3,0,0" Width="201" Height="109" Stretch="Fill"/>
+                    <Image x:Name="ProfileImage_Icon_Image" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1541,3,0,0" Width="201" Height="109" Stretch="Uniform"/>
                     <Button x:Name="CreateProfile_Button" Content="Create Profile"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="640,6,0,0"  Width="86" Height="23"
                             Style="{DynamicResource MMGC_Button}" Click="CreateProfile_Button_Click"/>
                     <Button x:Name="SaveProfile_Button" Content="Save Profile"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="640,35,0,0" Width="86" Height="23"
