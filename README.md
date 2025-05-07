@@ -1,8 +1,3 @@
-# Personal Helldivers 2 Mod Manager (phd2mm)
-
-phd2mm v1.5 released. uploading screenshots of v1.5 later. should be mostly similar to v1.4 though. you can see readme of v1.4 in the phd2mm v1.4 winforms folder.
-
-
   # Personal Helldivers 2 Mod Manager (phd2mm)
 Hello! Welcome to Personal_HD2ModManager v1.5!
 This is NOT the famous teutinsa's HD2ModManager, which is in the link below: <br>
@@ -68,12 +63,20 @@ or v1.3.1 if you prefer something simpler and more reliable.
   ![phd2mm11_thememanager (2)](https://github.com/user-attachments/assets/9f945228-45e3-44b6-bcde-f717f78a6cc7) <br>
   ![phd2mm11_thememanager (3)](https://github.com/user-attachments/assets/ce0459d6-8fe5-49b7-aef1-3afe948bebbf) <br>
   ![phd2mm11_thememanager (4)](https://github.com/user-attachments/assets/ba58a994-459e-4a95-9983-3d0f564073b7) <br>
-
-
-  Main Page - Default Light Mode Theme (phd2mm_light) <br>
+  Mod Manager Tab Page - Default Light Mode Theme (phd2mm_light) <br>
   ![phd2mm14_themelight1](https://github.com/user-attachments/assets/9b149aae-77c0-4945-a517-1402592e935a) <br>
-  Main Page - Default Dark Mode Theme (phd2mm_dark) <br>
+  Mod Manager Tab Page - Default Dark Mode Theme (phd2mm_dark) <br>
   ![phd2mm14_theme1light](https://github.com/user-attachments/assets/ab55c79f-8b33-4299-af92-6c2d551fcc9c) <br>
+  Mod Manager Tab Page - Trepang2 Theme (trepang2) <br>
+  ![phd2mm14_themetrepang2 (1)](https://github.com/user-attachments/assets/d080bcea-edb8-4a5a-9af9-5bc4942d0045) <br>
+  Theme Manager Tab Page - Trepang2 Theme (trepang2) <br>
+  ![phd2mm14_themetrepang2 (2)](https://github.com/user-attachments/assets/898686ec-5204-49d3-9d74-3e256c48375b) <br>
+  Mod Manager Tab Page - Trepang2 Theme (otxo_test) <br>
+  ![phd2mm14_themeotxo (1)](https://github.com/user-attachments/assets/e81cc55a-6495-4e3c-aebe-49ba0115621e)
+  Theme Manager Tab Page - Trepang2 Theme (otxo_test) <br>
+  ![phd2mm14_themeotxo (2)](https://github.com/user-attachments/assets/284c7b7f-4838-4a6e-bc54-31f7507916e3)
+
+
   Settings Tab
   ![phd2mm12_settings](https://github.com/user-attachments/assets/8c366a8d-4b0c-457d-8254-e9f33b905bad) <br>
   More Info Tab
