@@ -280,4 +280,5 @@ app would lock and prevent certain actions until it returns to a valid number, w
 In UsedMods_DataGrid / Used Mods Table, theres a bug when you click any cell that isnt row header or a cell belonging to Mod Folder Path + Name column,
 then you immediately drag a row, both the previously non-row header and non-modfolderpathname cell and the entire dragged row will be selected. logic is still ok. <br>
 -Deleting theme while its still in use may not immediately change the Currently Applied Theme. Using any other theme either through Global Theme or Profile-Specific Theme should work. <br>
--Profile Image Icon may align at the top/left/top left rather at the center.
+-Profile Image Icon may align at the top/left/top left rather at the center. <br>
+-Increasing the size of the app doesn't actually also increase the size of everything inside the app such as texts and buttons, it just has empty space. <br>
