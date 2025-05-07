@@ -1,6 +1,7 @@
 # Personal Helldivers 2 Mod Manager (phd2mm)
 
 phd2mm v1.5 released. uploading screenshots of v1.5 later. should be mostly similar to v1.4 though. you can see readme of v1.4 in the phd2mm v1.4 winforms folder.
+trying to fix mod manager images...
 
 
   # Personal Helldivers 2 Mod Manager (phd2mm)
@@ -65,6 +66,11 @@ or v1.3.1 if you prefer something simpler and more reliable.
   ![phd2mm7_selectingcategory](https://github.com/user-attachments/assets/479ba7be-e1e4-4388-b2bf-a1f932b9559d) </br>
   Theme Manager Tab </br>
   ![phd2mm11_thememanager](https://github.com/user-attachments/assets/807294fe-0fa1-43c0-b16d-c60265e211c5) </br>
+  ![phd2mm11_thememanager (2)](https://github.com/user-attachments/assets/9f945228-45e3-44b6-bcde-f717f78a6cc7) </br>
+  ![phd2mm11_thememanager (3)](https://github.com/user-attachments/assets/ce0459d6-8fe5-49b7-aef1-3afe948bebbf) </br>
+  ![phd2mm11_thememanager (4)](https://github.com/user-attachments/assets/ba58a994-459e-4a95-9983-3d0f564073b7) </br>
+
+
   Main Page - Default Light Mode Theme (phd2mm_light) </br>
   ![phd2mm14_themelight1](https://github.com/user-attachments/assets/9b149aae-77c0-4945-a517-1402592e935a) </br>
   Main Page - Default Dark Mode Theme (phd2mm_dark) </br>
