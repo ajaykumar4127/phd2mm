@@ -1257,7 +1257,6 @@ namespace phd2mm_wpf
                 foreach (var property in selectedTheme.GetType().GetProperties())
                 {
                     string propertyName = property.Name;
-                    MessageBox.Show("propname: " + propertyName);
                     if (propertyName == "MMTC_VerticalScrollBarVisibility")
                     {
                         if (Themes_MMTC_VerticalScrollBarVisibility_Auto_RadioButton.IsChecked == true)
@@ -1275,7 +1274,6 @@ namespace phd2mm_wpf
                             string value = textBox.Text.Trim();
                             value = value.Replace('\\', '/'); // Normalize path
                             property.SetValue(selectedTheme, value);
-                            MessageBox.Show("val: " + value);
                         }
                     }
                     else
