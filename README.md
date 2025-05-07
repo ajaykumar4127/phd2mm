@@ -1,7 +1,6 @@
 # Personal Helldivers 2 Mod Manager (phd2mm)
 
 phd2mm v1.5 released. uploading screenshots of v1.5 later. should be mostly similar to v1.4 though. you can see readme of v1.4 in the phd2mm v1.4 winforms folder.
-trying to fix mod manager images...
 
 
   # Personal Helldivers 2 Mod Manager (phd2mm)
