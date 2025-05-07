@@ -1248,15 +1248,16 @@ namespace phd2mm_wpf
                 // Define image-related textbox names to skip strict hex validation
                 var imageTextBoxNames = new HashSet<string>
                 {
-                    "Themes_MMGC_ModManagerBackgroundImage_TextBox",
-                    "Themes_MMGC_ModManagerIconImage_TextBox",
-                    "Themes_MMGC_UnusedModsTableBackgroundImage_TextBox",
-                    "Themes_MMGC_UsedModsTableBackgroundImage_TextBox"
+                    "MMGC_ModManagerBackgroundImage",
+                    "MMGC_ModManagerIconImage",
+                    "MMGC_UnusedModsTableBackgroundImage",
+                    "MMGC_UsedModsTableBackgroundImage"
                 };
 
                 foreach (var property in selectedTheme.GetType().GetProperties())
                 {
                     string propertyName = property.Name;
+                    MessageBox.Show("propname: " + propertyName);
                     if (propertyName == "MMTC_VerticalScrollBarVisibility")
                     {
                         if (Themes_MMTC_VerticalScrollBarVisibility_Auto_RadioButton.IsChecked == true)
@@ -1274,6 +1275,7 @@ namespace phd2mm_wpf
                             string value = textBox.Text.Trim();
                             value = value.Replace('\\', '/'); // Normalize path
                             property.SetValue(selectedTheme, value);
+                            MessageBox.Show("val: " + value);
                         }
                     }
                     else
