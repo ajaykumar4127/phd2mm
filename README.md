@@ -276,7 +276,7 @@ NOTE: I will only prioritize issues related to core logic / functionality of the
 -When changing mod order number, if using a large amount of number like 99999 or more, it does not revert to its original mod order number. <br>
 app would lock and prevent certain actions until it returns to a valid number, which is from 0 to the (amount of used mods - 1). <br>
 -Clicking any cell then immediately dragging selects both the old cell and the entire row of the dragged row. it should only be the dragged row that is selected. <br>
--Holding control or ctrl button then start dragging row crashes the app. for now, i disabled control/ctrl button when and during drag. <br>
+-Holding control or ctrl button then start dragging row crashes the app. for now, control/ctrl button when and during drag is disabled. <br>
 In UsedMods_DataGrid / Used Mods Table, theres a bug when you click any cell that isnt row header or a cell belonging to Mod Folder Path + Name column,
 then you immediately drag a row, both the previously non-row header and non-modfolderpathname cell and the entire dragged row will be selected. logic is still ok. <br>
 -Deleting theme while its still in use may not immediately change the Currently Applied Theme. Using any other theme either through Global Theme or Profile-Specific Theme should work. <br>
