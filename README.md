@@ -272,7 +272,6 @@ or v1.3.1 if you prefer something simpler and more reliable.
 
   ### Known Issues
 
-NOTE: I will only prioritize issues related to core logic / functionality of the app. any visual bugs may be ignored or not prioritized. <br>
 -Changing profile specific theme only applies when focus loss/edit end. <br>
 -Search bar may be laggy compared to old versions. <br>
 -When changing mod order number, it selects the row below it after changing position. <br>
