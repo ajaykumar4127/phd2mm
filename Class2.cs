@@ -46,6 +46,7 @@ namespace phd2mm_wpf
                 "CM-17 Butcher", "FS-55 Devastator", "CW-36 Winter Warrior", "CW-22 Kodiak",
                 "CE-64 Grenadier", "CE-101 Guerilla Gorilla", "PH-202 Twigsnapper",
                 "I-44 Salamander", "AF-52 Lockdown", "SR-64 Cinderblock", "SR-18 Roadblock",
+                "RE-1861 Parade Commander", "RE-2310 Honorary Guard", "RE-824 Bearer of the Standard",
                 "Other"
             }},
             {"Audio", new List<string> {
@@ -82,7 +83,9 @@ namespace phd2mm_wpf
                 "Holder of the Yellow Line", "Strength in Our Arms", "Defender of Our Dream",
                 "Vision of Freedom", "Fre Liberam", "Per Democrasum", "Eye of Freedom",
                 "Emblem of Freedom", "Veil of the Valorous Vagabond", "Reaper of Bounties",
-                "Way of the Bandolier", "Other"
+                "Way of the Bandolier", "Humble Regalia", "Federation's Embrace",
+                "Seal of the General Consensus",
+                "Other"
             }},
             {"Illuminate_Skin_And_Audio", new List<string> {
                 "Voteless", "Watcher", "Overseer", "Elevated Overseer", "Harvester",
@@ -105,6 +108,7 @@ namespace phd2mm_wpf
                 "Holder of the Yellow Line", "Strength in Our Arms", "Defender of Our Dream",
                 "Vision of Freedom", "Fre Liberam", "Per Democrasum",
                 "Veil of the Valorous Vagabond", "Reaper of Bounties", "Way of the Bandolier",
+                "Humble Regalia", "Federation's Embrace", "Seal of the General Consensus",
                 "Other"
             }},
             {"Stratagem_Skin_And_Audio", new List<string> {
@@ -126,6 +130,7 @@ namespace phd2mm_wpf
                 "E/GL-21 Grenadier Battlement", "EAT-17 Expendable Anti-Tank", "FAF-14 Spear", "FLAM-40 Flamethrower",
                 "GR-8 Recoilless Rifle", "M-105 Stalwart", "MG-206 Heavy Machine Gun", "MG-43 Machine Gun",
                 "MLS-4X Commando", "RL-77 Airburst Rocket Launcher", "RS-422 Railgun", "StA-X3 W.A.S.P. Launcher",
+                "CQC-1 One True Flag",
                 "Other"
             }},
             {"Terminid_Skin_And_Audio", new List<string> {
@@ -154,7 +159,8 @@ namespace phd2mm_wpf
                 "PLAS-15 Loyalist", "LAS-58 Talon", "G-6 Frag", "G-12 High Explosive", "G-10 Incendiary",
                 "G-16 Impact", "G-13 Incendiary Impact", "G-23 Stun", "G-4 Gas", "G-50 Seeker", "G-3 Smoke",
                 "G-123 Thermite", "K-2 Throwing Knife", "Entrenchment Tool", "SG-88 Break-Action Shotgun",
-                "TED-63 Dynamite", "Other"
+                "TED-63 Dynamite", "R-2 Amendment", "CQC-2 Sabre", "G-142 Pyrotech",
+                "Other"
             }}
             };
 
