@@ -640,7 +640,8 @@ namespace phd2mm_wpf
                 "-Added more customization options for Themes, including more images, alpha/transparency options, and color picker feature. " +
                 "Please see Themes Info tab for more details.\n" +
                 "-Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.\n" +
-                "-Added MIT License for PixiEditor ColorPicker.\n"
+                "-Added MIT License for PixiEditor ColorPicker.\n" +
+                "-Added Items from Warbond \"Masters of Ceremony\".\n"
                 ;
 
             public static string MoreInfo_Changelogs_v1_4 =

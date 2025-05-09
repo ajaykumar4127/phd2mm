@@ -256,6 +256,7 @@ A warning message will pop up to confirm if you want to randomize your mods or n
 Please see Themes Info tab for more details.  <br>
 -Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.  <br>
 -Added MIT License for PixiEditor ColorPicker.  <br>
+-Added Items from Warbond "Masters of Ceremony". <br>
 
 v1.4  <br>
 -Redesigned UI.  <br>
