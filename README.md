@@ -1,5 +1,6 @@
   # Personal Helldivers 2 Mod Manager (phd2mm)
-Hello! Welcome to Personal_HD2ModManager v1.5!
+NOTE: currently delaying v1.5 release to add new Items to the Item column from the upcoming Helldivers 2 updates within this month.
+Hello! Welcome to Personal_HD2ModManager v1.5! <br>
 This is NOT the famous teutinsa's HD2ModManager, which is in the link below: <br>
 https://www.nexusmods.com/helldivers2/mods/109
 <br>
