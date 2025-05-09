@@ -564,8 +564,9 @@ namespace phd2mm_wpf
                 "The default resolution is 861x754.42.\n" +
                 "4. Used Mods Table Background Image is shown behind the Used Mods Table. " +
                 "The default resolution is 861x754.42.\n" +
-                "All the images are stretched to fill the available space based on the specified default resolution, which may cause distortion if " +
+                "All the images except Icon Image are stretched to fill the available space based on the specified default resolution, which may cause image distortion if " +
                 "the uploaded image does not match the the specified default resolution.\n" +
+                "Icon Image is stretched to Uniform, meaning it will still fill available space and won't cause distortion, but may leave empty space.\n" +
                 "The supported image file types are: *.jpg, *.jpeg, *.png, *.bmp, and *.gif.\n" +
                 "To remove the images, you can click the \"Clear\" button or just remove the text in the textbox to the right side of the \"Clear\" button.\n" +
                 "\n" +

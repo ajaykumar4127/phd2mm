@@ -38,7 +38,9 @@
             <TabItem Header="Mod Manager" Template="{DynamicResource GGC_TabItem_Template}">
                 <Grid Style="{DynamicResource GGC_Grid_Style}">
                     <Image x:Name="ProfileImage_Background_Image" Stretch="Fill"/>
-                    <Image x:Name="ProfileImage_UnusedMods_DataGrid_Image" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,117,882,10" Width="861" Height="754.42" Stretch="Fill"/>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,117,882,10" Width="861" Height="754.42" Style="{StaticResource Transparent_Grid}">
+                        <Image x:Name="ProfileImage_UnusedMods_DataGrid_Image" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"/>
+                    </Grid>
                     <DataGrid x:Name="UnusedMods_DataGrid"
                               HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,117,882,10" Width="861" Height="754.42" VerticalScrollBarVisibility="Auto"
                               RowHeaderWidth="0" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single"
@@ -117,14 +119,16 @@
                                     <StaticResource ResourceKey="TextWrappingStyle"/>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="Link" Binding="{Binding ModLink}" Width="100" MinWidth="50">
+                            <DataGridTextColumn Header="Link" Width="100" MinWidth="50" Binding="{Binding ModLink}">
                                 <DataGridTextColumn.ElementStyle>
                                     <StaticResource ResourceKey="TextWrappingStyle"/>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Image x:Name="ProfileImage_UsedMods_DataGrid_Image" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="882,117,10,10" Width="861" Height="754.42" Stretch="Fill"/>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="882,117,10,10" Width="861" Height="754.42" Style="{StaticResource Transparent_Grid}">
+                        <Image x:Name="ProfileImage_UsedMods_DataGrid_Image" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"/>
+                    </Grid>
                     <DataGrid x:Name="UsedMods_DataGrid"
                               HorizontalAlignment="Left" VerticalAlignment="Top" Margin="882,117,10,10" CanUserDeleteRows="False" Width="861" Height="754.42" VerticalScrollBarVisibility="Auto"
                               RowHeaderWidth="0" AllowDrop="True" AutoGenerateColumns="False" CanUserResizeRows="False" SelectionMode="Single"
@@ -261,7 +265,9 @@
                             <TextBlock Text="Randomize Mods" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
                         </Button.Content>
                     </Button>
-                    <Image x:Name="ProfileImage_Icon_Image" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1541,3,0,0" Width="201" Height="109" Stretch="Uniform"/>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1541,3,0,0" Width="201" Height="109" Style="{StaticResource Transparent_Grid}">
+                        <Image x:Name="ProfileImage_Icon_Image" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"/>
+                    </Grid>
                     <Button x:Name="CreateProfile_Button" Content="Create Profile"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="640,6,0,0"  Width="86" Height="23"
                             Style="{DynamicResource MMGC_Button}" Click="CreateProfile_Button_Click"/>
                     <Button x:Name="SaveProfile_Button" Content="Save Profile"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="640,35,0,0" Width="86" Height="23"

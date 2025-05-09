@@ -798,8 +798,20 @@ namespace phd2mm_wpf
         // user to show or hide columns except for the row header, Order/ModOrderNumber, and ModFolderPathName/Mod Folder Path + Name columns.
         private void UsedMods_DataGrid_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            // Allow only numeric input
-            e.Handled = !IsTextNumeric(e.Text);
+            var dataGrid = sender as DataGrid;
+            DataGridColumn column = null;
+            // Get the current cell and check if it's not null
+            var currentCell = dataGrid.CurrentCell;
+            if (currentCell != null)
+            {
+                column = currentCell.Column;
+            }
+            // Check if the current column is the "Order" column
+            if (column != null && column.Header.ToString() == "Order")
+            {
+                // Allow only numeric input for the "Order" column
+                e.Handled = !IsTextNumeric(e.Text);
+            }
         }
 
         // Helper method to check if the input is numeric
