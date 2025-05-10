@@ -123,8 +123,6 @@ namespace phd2mm_wpf
                 {
                     // Normalize directory path to use consistent forward slashes
                     directoryPath = directoryPath.Replace("\\", "/");
-
-                    // Check if the directory ends with "Helldivers 2/data"
                     if (directoryPath.EndsWith("Helldivers 2/data"))
                     {
                         return true;
@@ -421,16 +419,16 @@ namespace phd2mm_wpf
                 ObservableCollection<Class3.ProfileSpecificThemeInfo> Themes_ProfileSpecificThemes_DataGrid_ObservableCollection
                 )
             {
-                // Step 1: Read the JSON content from the file
+                // Read the JSON content from the file
                 string jsonContent = File.ReadAllText(Class1.GetSettingsTextFilePath());
-                // Step 2: Check if the content is empty or just whitespace
+                // Check if the content is empty or just whitespace
                 if (string.IsNullOrWhiteSpace(jsonContent))
                 {
                     //MessageBox.Show("The settings file is empty or invalid.");
                     return; // Skip parsing if the content is invalid or empty
                 }
                 JsonObject settings = JsonNode.Parse(jsonContent).AsObject();
-                // Step 3: Access and apply settings dynamically
+                // Access and apply settings dynamically
                 // Set Hd2DataPathPreview TextBox from JSON settings
                 // Having the question mark (?) prevents NullReferenceException
                 // Having 2 question marks (??) prevents NullReferenceException and sets the value to "" if null
@@ -451,9 +449,7 @@ namespace phd2mm_wpf
                 if (settings["ColumnsVisibleOrHidden"] != null)
                 {
                     JsonObject columnsVisibleOrHiddenJson = settings["ColumnsVisibleOrHidden"].AsObject();
-                    // Apply column visibility to the UnusedMods_DataGrid
                     Class1.SettingsEditor.SetColumnVisibility(UnusedMods_DataGrid, columnsVisibleOrHiddenJson, "UnusedMods_DataGrid");
-                    // Apply column visibility to the UsedMods_DataGrid
                     Class1.SettingsEditor.SetColumnVisibility(UsedMods_DataGrid, columnsVisibleOrHiddenJson, "UsedMods_DataGrid");
                 }
                 if (settings["GlobalTheme"] != null)
@@ -462,7 +458,6 @@ namespace phd2mm_wpf
                     // Check if the global theme exists in the ObservableCollection
                     if (Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection.Contains(globalTheme))
                     {
-                        // If the global theme exists, do something similar to what you do with LastInstalledProfile
                         Themes_GlobalTheme_ComboBox.SelectedItem = globalTheme;
                     }
                     else
@@ -487,13 +482,9 @@ namespace phd2mm_wpf
                             // Check if the theme exists in Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection
                             if (Themes_ProfileSpecificThemes_DataGrid_ThemeNames_ObservableCollection.Contains(themeName))
                             {
-                                // If both the profile and theme exist, add or update the dictionary
-                                //profileSpecificThemesDictionary[profileName] = new Class3.ProfileSpecificThemeInfo(profileName, themeName);
-
                                 // Find the item in the collection (e.g., "Profile1")
                                 var themeInfoToUpdate = Themes_ProfileSpecificThemes_DataGrid_ObservableCollection
                                     .FirstOrDefault(theme => theme.ProfileName == profileName);
-
                                 if (themeInfoToUpdate != null)
                                 {
                                     // Modify the properties
@@ -840,7 +831,6 @@ namespace phd2mm_wpf
                 var sortedMods = UnusedMods_DataGrid_ObservableCollection
                 .OrderBy(mod => mod.ModFolderPathName)
                 .ToList();
-
                 // Clear the original collection and add the sorted items back
                 UnusedMods_DataGrid_ObservableCollection.Clear();
                 foreach (var mod in sortedMods)

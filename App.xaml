@@ -4,10 +4,7 @@
              xmlns:local="clr-namespace:phd2mm_wpf"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!-- Note: For some reason, putting StackPanel here also changes the background color of the Combobox's drop down list. -->
-        <!-- Which is why StackPanel I gave it a key, so it won't affect any other control that isn't StackPanel. -->
         <!-- Those that don't have x:Key are applied globally. -->
-        
         <!-- Color Keys -->
         <SolidColorBrush x:Key="GGC_Grid_BackgroundColor" Color="White"/>
         <SolidColorBrush x:Key="GGC_TabControl_BackgroundColor" Color="LightGray"/>
@@ -120,15 +117,6 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
-        <!--
-        <LinearGradientBrush x:Key="TabItem.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="#ECF4FC" Offset="0.0"/>
-            <GradientStop Color="#DCECFC" Offset="1.0"/>
-        </LinearGradientBrush>
-        <SolidColorBrush x:Key="TabItem.MouseOver.Border" Color="{DynamicResource GGC_TabItem_BackgroundColor}"/>
-        <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF"/> 
-        <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#ACACAC"/> -->
         
         <SolidColorBrush x:Key="TabItem.Disabled.Background" Color="#F0F0F0"/>
         <SolidColorBrush x:Key="TabItem.Disabled.Border" Color="#D9D9D9"/>
