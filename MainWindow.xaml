@@ -19,6 +19,7 @@
         <!--
         Currently, the standardized XAML code formatting goes like this in order:
         x:Name, Content
+        Grid.Row, Grid.Column, Grid.RowSpan, Grid.ColumnSpan
         HorizontalAlignment, VerticalAlignment, Margin, Padding
         Width, Height, MinWidth, MinHeight, MaxWidth, MaxHeight
         HorizontalContentAlignment, VerticalContentAlignment
@@ -140,7 +141,7 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
-                    <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,10,5"  Style="{StaticResource Transparent_Grid}">
+                    <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,10,5" Style="{StaticResource Transparent_Grid}">
                         <Image x:Name="ProfileImage_UsedMods_DataGrid_Image" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"/>
                         <DataGrid x:Name="UsedMods_DataGrid"
                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" CanUserDeleteRows="False" Width="Auto" Height="Auto" VerticalScrollBarVisibility="Auto"
@@ -244,7 +245,7 @@
                             <!-- Aligns with UsedMods_DataGrid -->
                         </Grid.ColumnDefinitions>
                         <!-- Left Side of Top Grid -->
-                        <Grid Grid.Column="0">
+                        <Grid Grid.Column="0" Style="{StaticResource Transparent_Grid}">
                             <Label Content="Please select a profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
                             <ComboBox x:Name="ProfilesList_ComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,6,0,0" Width="455" VerticalContentAlignment="Center"
                                     Style="{DynamicResource MMGC_ComboBox}" ItemContainerStyle="{DynamicResource MMGC_ComboBoxItem}"
@@ -265,7 +266,7 @@
                                     Style="{DynamicResource MMGC_Button}" Click="DuplicateProfile_Button_Click"/>
                         </Grid>
                         <!-- Rioht Side of Top Grid -->
-                        <Grid Grid.Column="1">
+                        <Grid Grid.Column="1" Style="{StaticResource Transparent_Grid}">
                             <Label Content="Last Installed Profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
                             <Label x:Name="LastInstalledProfile_Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="154,0,0,0" Width="229" Height="53" HorizontalContentAlignment="Stretch"
                                    FontSize="16" Style="{DynamicResource MMGC_Label}">
