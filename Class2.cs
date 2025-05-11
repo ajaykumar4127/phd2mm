@@ -641,7 +641,8 @@ namespace phd2mm_wpf
                 "Please see Themes Info tab for more details.\n" +
                 "-Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.\n" +
                 "-Added MIT License for PixiEditor ColorPicker.\n" +
-                "-Added Items from Warbond \"Masters of Ceremony\".\n"
+                "-Added Items from Warbond \"Masters of Ceremony\".\n" +
+                "Mod Manager and More Info tabs now resize depending on the window size. Note: may not properly work on resolutions below 1770x950.\n"
                 ;
 
             public static string MoreInfo_Changelogs_v1_4 =

@@ -7,9 +7,9 @@
         xmlns:colorpicker="clr-namespace:ColorPicker;assembly=ColorPicker"
         mc:Ignorable="d"
         Title="Personal Helldivers 2 Mod Manager (phd2mm) v1.5"
-        Width="1759" Height="928"
-        SizeToContent="WidthAndHeight"
+        Width="1770" Height="950"
         Closing="Window_Closing">
+    <!-- Originally Width and Height 1759x928 but changed because runtime resolution was not the same as designer resolution-->
     <Window.Resources>
         <ObjectDataProvider x:Key="ComboBoxItems" MethodName="GetCategoriesAndItemsUniqueAndSortedItems" ObjectType="{x:Type local:Class2}"/>
         <Style x:Key="TextWrappingStyle" TargetType="TextBlock">
@@ -34,255 +34,283 @@
         -->
     </Window.Resources>
     <Grid Style="{DynamicResource GGC_Grid_Style}">
-        <TabControl Width="1759" Height="912.04">
+        <!-- <TabControl Width="1759" Height="912.04"> -->
+        <TabControl>
             <TabItem Header="Mod Manager" Template="{DynamicResource GGC_TabItem_Template}">
                 <Grid Style="{DynamicResource GGC_Grid_Style}">
-                    <Image x:Name="ProfileImage_Background_Image" Stretch="Fill"/>
-                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,117,882,10" Width="861" Height="754.42" Style="{StaticResource Transparent_Grid}">
+                    <!-- Define the layout for the Mod Manager tab -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <!-- Top grid for controls -->
+                        <RowDefinition Height="*"/>
+                        <!-- Bottom grid for DataGrids -->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <!-- Left grid for UnusedMods_DataGrid -->
+                        <ColumnDefinition Width="*"/>
+                        <!-- Right grid for UsedMods_DataGrid -->
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.RowSpan="2" Grid.ColumnSpan="2" x:Name="ProfileImage_Background_Image" Stretch="Fill"/>
+                    <Grid Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,10,5" Style="{StaticResource Transparent_Grid}">
                         <Image x:Name="ProfileImage_UnusedMods_DataGrid_Image" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"/>
+                        <DataGrid x:Name="UnusedMods_DataGrid"
+                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Width="Auto" Height="Auto" VerticalScrollBarVisibility="Auto"
+                                  RowHeaderWidth="0" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single"
+                                  Style="{DynamicResource MMTC_UnusedModsTable}" CellStyle="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow}"
+                                  ColumnHeaderStyle="{DynamicResource MMTC_UnusedModsTable_DG_ColumnHeader}"
+                                  ItemsSource="{Binding UnusedMods_DataGrid_ObservableCollection}"
+                                  CellEditEnding="UnusedMods_DataGrid_CellEditEnding"
+                                  MouseRightButtonDown="DataGrid_MouseRightButtonDown" PreviewMouseDoubleClick="UnusedMods_DataGrid_PreviewMouseDoubleClick">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Mod Folder Path + Name" Width="350" MinWidth="50"
+                                                    IsReadOnly="True" SortMemberPath="ModFolderPathName"
+                                                    Binding="{Binding ModFolderPathName}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="Name" Width="200" MinWidth="50" Binding="{Binding ModName}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridComboBoxColumn Header="Item" Width="160" MinWidth="50" SelectedItemBinding="{Binding Item}">
+                                    <!-- Style for displaying the value when the cell is not in edit mode -->
+                                    <DataGridComboBoxColumn.ElementStyle>
+                                        <Style TargetType="ComboBox">
+                                            <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=CategoriesAndItemsSorted}"/>
+                                        </Style>
+                                    </DataGridComboBoxColumn.ElementStyle>
+                                    <DataGridComboBoxColumn.EditingElementStyle>
+                                        <Style TargetType="ComboBox">
+                                            <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=CategoriesAndItemsSorted}"/>
+                                            <Setter Property="ItemContainerStyle" Value="{DynamicResource MMTC_UnusedModsTable_ComboBoxItem}"/>
+                                            <EventSetter Event="SelectionChanged" Handler="ItemComboBox_SelectionChanged"/>
+                                        </Style>
+                                    </DataGridComboBoxColumn.EditingElementStyle>
+                                </DataGridComboBoxColumn>
+                                <DataGridComboBoxColumn Header="Category" Width="130" MinWidth="50" SelectedItemBinding="{Binding Category}">
+                                    <DataGridComboBoxColumn.ElementStyle>
+                                        <Style TargetType="ComboBox">
+                                            <Setter Property="ItemsSource" Value="{Binding ValidCategories}"/>
+                                        </Style>
+                                    </DataGridComboBoxColumn.ElementStyle>
+                                    <DataGridComboBoxColumn.EditingElementStyle>
+                                        <Style TargetType="ComboBox">
+                                            <Setter Property="ItemsSource" Value="{Binding ValidCategories}"/>
+                                            <Setter Property="ItemContainerStyle" Value="{DynamicResource MMTC_UnusedModsTable_ComboBoxItem}"/>
+                                        </Style>
+                                    </DataGridComboBoxColumn.EditingElementStyle>
+                                </DataGridComboBoxColumn>
+                                <DataGridTextColumn Header="Description" Width="150" MinWidth="50" Binding="{Binding Description}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Image" Width="48" MinWidth="48" IsReadOnly="True">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Width="48" Height="48" ToolTipService.InitialShowDelay="0" Source="{Binding ImagePath, Converter={StaticResource ImagePathToFullPathConverter}}">
+                                                <!-- ToolTip that shows when the user hovers over the image -->
+                                                <Image.ToolTip>
+                                                    <ToolTip Placement="Mouse" HorizontalOffset="10" VerticalOffset="10">
+                                                        <Image MaxWidth="512" MaxHeight="512" Stretch="Uniform" Source="{Binding ImagePath, Converter={StaticResource ImagePathToFullPathConverter}}"/>
+                                                    </ToolTip>
+                                                </Image.ToolTip>
+                                            </Image>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Date Added" Width="SizeToHeader" MinWidth="40" IsReadOnly="True" Binding="{Binding DateAdded}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="Version" Width="SizeToHeader" MinWidth="40" Binding="{Binding ModVersion}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="Link" Width="100" MinWidth="50" Binding="{Binding ModLink}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </Grid>
-                    <DataGrid x:Name="UnusedMods_DataGrid"
-                              HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,117,882,10" Width="861" Height="754.42" VerticalScrollBarVisibility="Auto"
-                              RowHeaderWidth="0" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserResizeRows="False" SelectionMode="Single"
-                              Style="{DynamicResource MMTC_UnusedModsTable}" CellStyle="{DynamicResource MMTC_UnusedModsTable_DG_SelectedRow}"
-                              ColumnHeaderStyle="{DynamicResource MMTC_UnusedModsTable_DG_ColumnHeader}"
-                              ItemsSource="{Binding UnusedMods_DataGrid_ObservableCollection}"
-                              CellEditEnding="UnusedMods_DataGrid_CellEditEnding"
-                              MouseRightButtonDown="DataGrid_MouseRightButtonDown" PreviewMouseDoubleClick="UnusedMods_DataGrid_PreviewMouseDoubleClick">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Mod Folder Path + Name" Width="350" MinWidth="50"
-                                                IsReadOnly="True" SortMemberPath="ModFolderPathName"
-                                                Binding="{Binding ModFolderPathName}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Name" Width="200" MinWidth="50" Binding="{Binding ModName}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridComboBoxColumn Header="Item" Width="160" MinWidth="50" SelectedItemBinding="{Binding Item}">
-                                <!-- Style for displaying the value when the cell is not in edit mode -->
-                                <DataGridComboBoxColumn.ElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=CategoriesAndItemsSorted}"/>
-                                    </Style>
-                                </DataGridComboBoxColumn.ElementStyle>
-                                <DataGridComboBoxColumn.EditingElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=CategoriesAndItemsSorted}"/>
-                                        <Setter Property="ItemContainerStyle" Value="{DynamicResource MMTC_UnusedModsTable_ComboBoxItem}"/>
-                                        <EventSetter Event="SelectionChanged" Handler="ItemComboBox_SelectionChanged"/>
-                                    </Style>
-                                </DataGridComboBoxColumn.EditingElementStyle>
-                            </DataGridComboBoxColumn>
-                            <DataGridComboBoxColumn Header="Category" Width="130" MinWidth="50" SelectedItemBinding="{Binding Category}">
-                                <DataGridComboBoxColumn.ElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding ValidCategories}"/>
-                                    </Style>
-                                </DataGridComboBoxColumn.ElementStyle>
-                                <DataGridComboBoxColumn.EditingElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding ValidCategories}"/>
-                                        <Setter Property="ItemContainerStyle" Value="{DynamicResource MMTC_UnusedModsTable_ComboBoxItem}"/>
-                                    </Style>
-                                </DataGridComboBoxColumn.EditingElementStyle>
-                            </DataGridComboBoxColumn>
-                            <DataGridTextColumn Header="Description" Width="150" MinWidth="50" Binding="{Binding Description}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTemplateColumn Header="Image" Width="48" MinWidth="48" IsReadOnly="True">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Image Width="48" Height="48" ToolTipService.InitialShowDelay="0" Source="{Binding ImagePath, Converter={StaticResource ImagePathToFullPathConverter}}">
-                                            <!-- ToolTip that shows when the user hovers over the image -->
-                                            <Image.ToolTip>
-                                                <ToolTip Placement="Mouse" HorizontalOffset="10" VerticalOffset="10">
-                                                    <Image MaxWidth="512" MaxHeight="512" Stretch="Uniform" Source="{Binding ImagePath, Converter={StaticResource ImagePathToFullPathConverter}}"/>
-                                                </ToolTip>
-                                            </Image.ToolTip>
-                                        </Image>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="Date Added" Width="SizeToHeader" MinWidth="40" IsReadOnly="True" Binding="{Binding DateAdded}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Version" Width="SizeToHeader" MinWidth="40" Binding="{Binding ModVersion}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Link" Width="100" MinWidth="50" Binding="{Binding ModLink}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="882,117,10,10" Width="861" Height="754.42" Style="{StaticResource Transparent_Grid}">
+                    <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,10,5"  Style="{StaticResource Transparent_Grid}">
                         <Image x:Name="ProfileImage_UsedMods_DataGrid_Image" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"/>
+                        <DataGrid x:Name="UsedMods_DataGrid"
+                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" CanUserDeleteRows="False" Width="Auto" Height="Auto" VerticalScrollBarVisibility="Auto"
+                                  RowHeaderWidth="0" AllowDrop="True" AutoGenerateColumns="False" CanUserResizeRows="False" SelectionMode="Single"
+                                  Style="{DynamicResource MMTC_UsedModsTable}" CellStyle="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow}"
+                                  ColumnHeaderStyle="{DynamicResource MMTC_UsedModsTable_DG_ColumnHeader}"
+                                  ItemsSource="{Binding UsedMods_DataGrid_ObservableCollection}"
+                                  CellEditEnding="UsedMods_DataGrid_CellEditEnding"
+                                  PreviewMouseDoubleClick="UsedMods_DataGrid_PreviewMouseDoubleClick" PreviewMouseLeftButtonDown="UsedMods_DataGrid_PreviewMouseLeftButtonDown"
+                                  DragOver="UsedMods_DataGrid_DragOver" Drop="UsedMods_DataGrid_Drop"
+                                  MouseRightButtonDown="DataGrid_MouseRightButtonDown" PreviewMouseRightButtonDown="DataGrid_PreviewMouseRightButtonDown"
+                                  PreviewTextInput="UsedMods_DataGrid_PreviewTextInput"
+                                  Sorting="UsedMods_DataGrid_Sorting">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Order" Width="45" MinWidth="35" CanUserSort="False" Binding="{Binding ModOrderNumber}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="Mod Folder Path + Name" Width="350" MinWidth="50" IsReadOnly="True" Binding="{Binding ModFolderPathName}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="Name" Width="200" MinWidth="50" Binding="{Binding ModName}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridComboBoxColumn Header="Item" Width="160" MinWidth="50" SelectedItemBinding="{Binding Item}">
+                                    <!-- Style for displaying the value when the cell is not in edit mode -->
+                                    <DataGridComboBoxColumn.ElementStyle>
+                                        <Style TargetType="ComboBox">
+                                            <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=CategoriesAndItemsSorted}"/>
+                                        </Style>
+                                    </DataGridComboBoxColumn.ElementStyle>
+                                    <!-- Style for the ComboBox when the cell is in edit mode -->
+                                    <DataGridComboBoxColumn.EditingElementStyle>
+                                        <Style TargetType="ComboBox">
+                                            <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=CategoriesAndItemsSorted}"/>
+                                            <Setter Property="ItemContainerStyle" Value="{DynamicResource MMTC_UsedModsTable_ComboBoxItem}" />
+                                            <EventSetter Event="SelectionChanged" Handler="ItemComboBox_SelectionChanged"/>
+                                        </Style>
+                                    </DataGridComboBoxColumn.EditingElementStyle>
+                                </DataGridComboBoxColumn>
+                                <DataGridComboBoxColumn Header="Category" Width="130" MinWidth="50" SelectedItemBinding="{Binding Category}">
+                                    <DataGridComboBoxColumn.ElementStyle>
+                                        <Style TargetType="ComboBox">
+                                            <Setter Property="ItemsSource" Value="{Binding ValidCategories}"/>
+                                        </Style>
+                                    </DataGridComboBoxColumn.ElementStyle>
+                                    <DataGridComboBoxColumn.EditingElementStyle>
+                                        <Style TargetType="ComboBox">
+                                            <Setter Property="ItemsSource" Value="{Binding ValidCategories}"/>
+                                            <Setter Property="ItemContainerStyle" Value="{DynamicResource MMTC_UsedModsTable_ComboBoxItem}" />
+                                        </Style>
+                                    </DataGridComboBoxColumn.EditingElementStyle>
+                                </DataGridComboBoxColumn>
+                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="150" MinWidth="50">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Image" Width="48" MinWidth="48" IsReadOnly="True">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Width="48" Height="48" ToolTipService.InitialShowDelay="0" Source="{Binding ImagePath, Converter={StaticResource ImagePathToFullPathConverter}}">
+                                                <!-- ToolTip that shows when the user hovers over the image -->
+                                                <Image.ToolTip>
+                                                    <ToolTip Placement="Mouse" HorizontalOffset="10" VerticalOffset="10">
+                                                        <Image MaxHeight="512" MaxWidth="512" Stretch="Uniform" Source="{Binding ImagePath, Converter={StaticResource ImagePathToFullPathConverter}}"/>
+                                                    </ToolTip>
+                                                </Image.ToolTip>
+                                            </Image>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Date Added" Width="SizeToHeader" MinWidth="40" IsReadOnly="True" Binding="{Binding DateAdded}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="Version" Width="SizeToHeader" MinWidth="40" Binding="{Binding ModVersion}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="Link" Width="100" MinWidth="50" Binding="{Binding ModLink}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <StaticResource ResourceKey="TextWrappingStyle"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </Grid>
-                    <DataGrid x:Name="UsedMods_DataGrid"
-                              HorizontalAlignment="Left" VerticalAlignment="Top" Margin="882,117,10,10" CanUserDeleteRows="False" Width="861" Height="754.42" VerticalScrollBarVisibility="Auto"
-                              RowHeaderWidth="0" AllowDrop="True" AutoGenerateColumns="False" CanUserResizeRows="False" SelectionMode="Single"
-                              Style="{DynamicResource MMTC_UsedModsTable}" CellStyle="{DynamicResource MMTC_UsedModsTable_DG_SelectedRow}"
-                              ColumnHeaderStyle="{DynamicResource MMTC_UsedModsTable_DG_ColumnHeader}"
-                              ItemsSource="{Binding UsedMods_DataGrid_ObservableCollection}"
-                              CellEditEnding="UsedMods_DataGrid_CellEditEnding"
-                              PreviewMouseDoubleClick="UsedMods_DataGrid_PreviewMouseDoubleClick" PreviewMouseLeftButtonDown="UsedMods_DataGrid_PreviewMouseLeftButtonDown"
-                              DragOver="UsedMods_DataGrid_DragOver" Drop="UsedMods_DataGrid_Drop"
-                              MouseRightButtonDown="DataGrid_MouseRightButtonDown" PreviewMouseRightButtonDown="DataGrid_PreviewMouseRightButtonDown"
-                              PreviewTextInput="UsedMods_DataGrid_PreviewTextInput"
-                              Sorting="UsedMods_DataGrid_Sorting">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Order" Width="45" MinWidth="35" CanUserSort="False" Binding="{Binding ModOrderNumber}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Mod Folder Path + Name" Width="350" MinWidth="50" IsReadOnly="True" Binding="{Binding ModFolderPathName}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Name" Width="200" MinWidth="50" Binding="{Binding ModName}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridComboBoxColumn Header="Item" Width="160" MinWidth="50" SelectedItemBinding="{Binding Item}">
-                                <!-- Style for displaying the value when the cell is not in edit mode -->
-                                <DataGridComboBoxColumn.ElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=CategoriesAndItemsSorted}"/>
-                                    </Style>
-                                </DataGridComboBoxColumn.ElementStyle>
-                                <!-- Style for the ComboBox when the cell is in edit mode -->
-                                <DataGridComboBoxColumn.EditingElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=CategoriesAndItemsSorted}"/>
-                                        <Setter Property="ItemContainerStyle" Value="{DynamicResource MMTC_UsedModsTable_ComboBoxItem}" />
-                                        <EventSetter Event="SelectionChanged" Handler="ItemComboBox_SelectionChanged"/>
-                                    </Style>
-                                </DataGridComboBoxColumn.EditingElementStyle>
-                            </DataGridComboBoxColumn>
-                            <DataGridComboBoxColumn Header="Category" Width="130" MinWidth="50" SelectedItemBinding="{Binding Category}">
-                                <DataGridComboBoxColumn.ElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding ValidCategories}"/>
-                                    </Style>
-                                </DataGridComboBoxColumn.ElementStyle>
-                                <DataGridComboBoxColumn.EditingElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding ValidCategories}"/>
-                                        <Setter Property="ItemContainerStyle" Value="{DynamicResource MMTC_UsedModsTable_ComboBoxItem}" />
-                                    </Style>
-                                </DataGridComboBoxColumn.EditingElementStyle>
-                            </DataGridComboBoxColumn>
-                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="150" MinWidth="50">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTemplateColumn Header="Image" Width="48" MinWidth="48" IsReadOnly="True">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Image Width="48" Height="48" ToolTipService.InitialShowDelay="0" Source="{Binding ImagePath, Converter={StaticResource ImagePathToFullPathConverter}}">
-                                            <!-- ToolTip that shows when the user hovers over the image -->
-                                            <Image.ToolTip>
-                                                <ToolTip Placement="Mouse" HorizontalOffset="10" VerticalOffset="10">
-                                                    <Image MaxHeight="512" MaxWidth="512" Stretch="Uniform" Source="{Binding ImagePath, Converter={StaticResource ImagePathToFullPathConverter}}"/>
-                                                </ToolTip>
-                                            </Image.ToolTip>
-                                        </Image>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="Date Added" Width="SizeToHeader" MinWidth="40" IsReadOnly="True" Binding="{Binding DateAdded}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Version" Width="SizeToHeader" MinWidth="40" Binding="{Binding ModVersion}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Link" Width="100" MinWidth="50" Binding="{Binding ModLink}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <StaticResource ResourceKey="TextWrappingStyle"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Label Content="Please select a profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
-                    <ComboBox x:Name="ProfilesList_ComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,6,0,0" Width="455" VerticalContentAlignment="Center"
-                              Style="{DynamicResource MMGC_ComboBox}" ItemContainerStyle="{DynamicResource MMGC_ComboBoxItem}"
-                              ItemsSource="{Binding ProfilesList_ProfileNames}" SelectionChanged="ProfilesList_ComboBox_SelectionChanged"/>
-                    <Label Content="Search mod:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,31,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
-                    <TextBox x:Name="SearchMod_TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="112,35,0,0" Width="523" Height="23" VerticalContentAlignment="Center"
-                             TextWrapping="Wrap" Style="{DynamicResource MMGC_TextBox}" TextChanged="SearchMod_TextBox_TextChanged"/>
-                    <Label Content="Mods not used in this profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,58,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
-                    <Button x:Name="AddSelectedMod_Button" Content="Add Selected Mod" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,89,0,0" Width="114" Height="23"
-                            Style="{DynamicResource MMGC_Button}" Click="AddSelectedMod_Button_Click"/>
-                    <Button x:Name="RemoveSelectedMod_Button" Content="Remove Selected Mod" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="882,89,0,0" Width="135" Height="23"
-                            Style="{DynamicResource MMGC_Button}" Click="RemoveSelectedMod_Button_Click"/>
-                    <Label Content="Mods used in this profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="882,58,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
-                    <Button x:Name="MoveModUp_Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1075,68,0,0" Width="90" Height="44"
-                            Style="{DynamicResource MMGC_Button}" Click="MoveModUp_Button_Click">
-                        <Button.Content>
-                            <TextBlock Text="Move Up Selected Mod" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
-                        </Button.Content>
-                    </Button>
-                    <Button x:Name="MoveModDown_Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1176,68,0,0" Width="89" Height="44"
-                            Style="{DynamicResource MMGC_Button}" Click="MoveModDown_Button_Click">
-                        <Button.Content>
-                            <TextBlock Text="Move Down Selected Mod" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
-                        </Button.Content>
-                    </Button>
-                    <Button x:Name="DeleteAllInstalledMods_Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1428,3,0,0" Width="102" Height="44"
-                            Style="{DynamicResource MMGC_Button}" Click="DeleteAllInstalledMods_Button_Click">
-                        <Button.Content>
-                            <TextBlock Text="Delete All Installed Mods" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
-                        </Button.Content>
-                    </Button>
-                    <Button x:Name="InstallMods_Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1428,52,0,0" Width="102" Height="60"
-                            Style="{DynamicResource MMGC_Button}" Click="InstallMods_Button_Click">
-                        <Button.Content>
-                            <TextBlock Text="Install All Mods from Current Profile" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
-                        </Button.Content>
-                    </Button>
-                    <Button x:Name="RandomizeMods_Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1301,3,0,0" Width="102" Height="44"
-                            Style="{DynamicResource MMGC_Button}" Click="RandomizeMods_Button_Click">
-                        <Button.Content>
-                            <TextBlock Text="Randomize Mods" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
-                        </Button.Content>
-                    </Button>
-                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1541,3,0,0" Width="201" Height="109" Style="{StaticResource Transparent_Grid}">
-                        <Image x:Name="ProfileImage_Icon_Image" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"/>
+                    <Grid Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Transparent_Grid}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <!-- Aligns with UnusedMods_DataGrid -->
+                            <ColumnDefinition Width="*"/>
+                            <!-- Aligns with UsedMods_DataGrid -->
+                        </Grid.ColumnDefinitions>
+                        <!-- Left Side of Top Grid -->
+                        <Grid Grid.Column="0">
+                            <Label Content="Please select a profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
+                            <ComboBox x:Name="ProfilesList_ComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,6,0,0" Width="455" VerticalContentAlignment="Center"
+                                    Style="{DynamicResource MMGC_ComboBox}" ItemContainerStyle="{DynamicResource MMGC_ComboBoxItem}"
+                                    ItemsSource="{Binding ProfilesList_ProfileNames}" SelectionChanged="ProfilesList_ComboBox_SelectionChanged"/>
+                            <Label Content="Search mod:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,31,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
+                            <TextBox x:Name="SearchMod_TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="112,35,0,0" Width="523" Height="23" VerticalContentAlignment="Center"
+                                    TextWrapping="Wrap" Style="{DynamicResource MMGC_TextBox}" TextChanged="SearchMod_TextBox_TextChanged"/>
+                            <Label Content="Mods not used in this profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,58,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
+                            <Button x:Name="AddSelectedMod_Button" Content="Add Selected Mod" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,89,0,0" Width="114" Height="23"
+                                    Style="{DynamicResource MMGC_Button}" Click="AddSelectedMod_Button_Click"/>
+                            <Button x:Name="CreateProfile_Button" Content="Create Profile"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="640,6,0,0"  Width="86" Height="23"
+                                    Style="{DynamicResource MMGC_Button}" Click="CreateProfile_Button_Click"/>
+                            <Button x:Name="SaveProfile_Button" Content="Save Profile"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="640,35,0,0" Width="86" Height="23"
+                                    Style="{DynamicResource MMGC_Button}" Click="SaveProfile_Button_Click"/>
+                            <Button x:Name="DeleteProfile_Button" Content="Delete Profile" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="731,6,0,0" Width="91" Height="23"
+                                    Style="{DynamicResource MMGC_Button}" Click="DeleteProfile_Button_Click"/>
+                            <Button x:Name="DuplicateProfile_Button" Content="Duplicate Profile" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="731,35,0,0" Width="91" Height="23"
+                                    Style="{DynamicResource MMGC_Button}" Click="DuplicateProfile_Button_Click"/>
+                        </Grid>
+                        <!-- Rioht Side of Top Grid -->
+                        <Grid Grid.Column="1">
+                            <Label Content="Last Installed Profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
+                            <Label x:Name="LastInstalledProfile_Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="154,0,0,0" Width="229" Height="53" HorizontalContentAlignment="Stretch"
+                                   FontSize="16" Style="{DynamicResource MMGC_Label}">
+                                <Label.Content>
+                                    <TextBlock Text="NA" TextWrapping="Wrap"/>
+                                </Label.Content>
+                            </Label>
+                            <Label Content="Mods used in this profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,58,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
+                            <Button x:Name="RemoveSelectedMod_Button" Content="Remove Selected Mod" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,89,0,0" Width="135" Height="23"
+                                Style="{DynamicResource MMGC_Button}" Click="RemoveSelectedMod_Button_Click"/>
+                            <Button x:Name="MoveModUp_Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="193,68,0,0" Width="90" Height="44"
+                                    Style="{DynamicResource MMGC_Button}" Click="MoveModUp_Button_Click">
+                                <Button.Content>
+                                    <TextBlock Text="Move Up Selected Mod" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
+                                </Button.Content>
+                            </Button>
+                            <Button x:Name="MoveModDown_Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="294,68,0,0" Width="89" Height="44"
+                                    Style="{DynamicResource MMGC_Button}" Click="MoveModDown_Button_Click">
+                                <Button.Content>
+                                    <TextBlock Text="Move Down Selected Mod" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
+                                </Button.Content>
+                            </Button>
+                            <Button x:Name="RandomizeMods_Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="417,3,0,0" Width="102" Height="44"
+                                    Style="{DynamicResource MMGC_Button}" Click="RandomizeMods_Button_Click">
+                                <Button.Content>
+                                    <TextBlock Text="Randomize Mods" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
+                                </Button.Content>
+                            </Button>
+                            <Button x:Name="DeleteAllInstalledMods_Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="545,3,0,0" Width="102" Height="44"
+                                    Style="{DynamicResource MMGC_Button}" Click="DeleteAllInstalledMods_Button_Click">
+                                <Button.Content>
+                                    <TextBlock Text="Delete All Installed Mods" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
+                                </Button.Content>
+                            </Button>
+                            <Button x:Name="InstallMods_Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="545,55,0,0" Width="102" Height="60"
+                                    Style="{DynamicResource MMGC_Button}" Click="InstallMods_Button_Click">
+                                <Button.Content>
+                                    <TextBlock Text="Install All Mods from Current Profile" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
+                                </Button.Content>
+                            </Button>
+                            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="671,0,0,0" Width="201" Height="109" Style="{StaticResource Transparent_Grid}">
+                                <Image x:Name="ProfileImage_Icon_Image" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"/>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                    <Button x:Name="CreateProfile_Button" Content="Create Profile"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="640,6,0,0"  Width="86" Height="23"
-                            Style="{DynamicResource MMGC_Button}" Click="CreateProfile_Button_Click"/>
-                    <Button x:Name="SaveProfile_Button" Content="Save Profile"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="640,35,0,0" Width="86" Height="23"
-                            Style="{DynamicResource MMGC_Button}" Click="SaveProfile_Button_Click"/>
-                    <Button x:Name="DeleteProfile_Button" Content="Delete Profile" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="731,6,0,0" Width="91" Height="23"
-                            Style="{DynamicResource MMGC_Button}" Click="DeleteProfile_Button_Click"/>
-                    <Button x:Name="DuplicateProfile_Button" Content="Duplicate Profile" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="731,35,0,0" Width="91" Height="23"
-                            Style="{DynamicResource MMGC_Button}" Click="DuplicateProfile_Button_Click"/>
-                    <Label Content="Last Installed Profile:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="822,0,0,0" FontSize="16" Style="{DynamicResource MMGC_Label}"/>
-                    <Label x:Name="LastInstalledProfile_Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="981,0,0,0" Width="284" Height="53" HorizontalContentAlignment="Stretch"
-                           FontSize="16" Style="{DynamicResource MMGC_Label}">
-                        <Label.Content>
-                            <TextBlock Text="NA" TextWrapping="Wrap"/>
-                        </Label.Content>
-                    </Label>
                 </Grid>
             </TabItem>
             <TabItem Header="Theme Manager" Template="{DynamicResource GGC_TabItem_Template}">
@@ -622,34 +650,34 @@
                     </GroupBox>
                 </Grid>
             </TabItem>
-            <TabItem Header="More Info" Template="{DynamicResource GGC_TabItem_Template}" >
+            <TabItem Header="More Info" Template="{DynamicResource GGC_TabItem_Template}">
                 <Grid Style="{DynamicResource GGC_Grid_Style}">
                     <TabControl TabStripPlacement="Left" FontSize="16">
                         <TabItem Header="App Info" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}">
                                 <Label Content="phd2mm v1.5 App Info" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
-                                <TextBox x:Name="MoreInfo_AppInfo_TextBox" Text="TextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Width="1630" Height="822"
+                                <TextBox x:Name="MoreInfo_AppInfo_TextBox" Text="TextBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,10,10" Width="Auto" Height="Auto"
                                          VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" IsReadOnly="True"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Themes Info" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}">
                                 <Label Content="Theme Manager Info" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
-                                <TextBox x:Name="MoreInfo_ThemeManagerInfo_TextBox" Text="TextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Width="1630" Height="822"
+                                <TextBox x:Name="MoreInfo_ThemeManagerInfo_TextBox" Text="TextBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,10,10" Width="Auto" Height="Auto"
                                          VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" IsReadOnly="True"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Changelogs" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}">
                                 <Label Content="Changelogs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
-                                <TextBox x:Name="MoreInfo_Changelogs_TextBox" Text="TextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Width="1630" Height="822"
+                                <TextBox x:Name="MoreInfo_Changelogs_TextBox" Text="TextBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,10,10" Width="Auto" Height="Auto"
                                          VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" IsReadOnly="True"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Credits" Template="{DynamicResource GGC_TabItem_Template}">
                             <Grid Style="{DynamicResource GGC_Grid_Style}">
                                 <Label Content="Credits" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
-                                <TextBox x:Name="MoreInfo_Credits_TextBox" Text="Credits" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,46,0,0" Width="1630" Height="822"
+                                <TextBox x:Name="MoreInfo_Credits_TextBox" Text="Credits" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,10,10" Width="Auto" Height="Auto"
                                          VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" IsReadOnly="True"/>
                             </Grid>
                         </TabItem>

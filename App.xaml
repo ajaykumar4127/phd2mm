@@ -70,7 +70,7 @@
         <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_AlternateRow_BackgroundColor" Color="White"/>
         <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_SelectedRow_BackgroundColor" Color="Black"/>
         <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_SelectedRow_TextColor" Color="LightGray"/>
-        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_ColumnHeader_BackgroundColor" Color="Black"/>
+        <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_ColumnHeader_BackgroundColor" Color="White"/>
         <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_ColumnHeader_BorderColor" Color="Black"/>
         <SolidColorBrush x:Key="MMTC_UnusedModsTable_DG_SortArrow_TextColor" Color="LightGray"/>
         <SolidColorBrush x:Key="MMTC_UsedModsTable_DG_DataGrid_BackgroundColor" Color="Black"/>
