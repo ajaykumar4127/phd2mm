@@ -11,7 +11,7 @@ I forgot to mention that if your mods are in compressed files such as zip and ra
 please uncompress/extract them first so that this app can detect and install mods properly. <br>
 Also, if you want to use your pre-phd2mm v1.5 registry file on phd2mm v1.5+, make sure you replace all instances of Item "Visual" with Item "Skin" and all "Modfolderpathname" with "ModFolderPathName". <br>
 Currently no integration with manifest.json files. <br>
-Mainly created and tested in Visual Studio 2022,
+Mainly created and tested in 1920x1080 screen resolution monitor (v1.5 app screen resolution is 1770x950), Visual Studio 2022,
 WPF C# (Formerly in Winforms Visual Basic (VB)), .NET 9 Framework, Windows 10 64-bit / x64. <br>
 This application is licensed under the GNU General Public License v3. <br>
 Feel free to copy, edit, and make your own version of this app! <br>
