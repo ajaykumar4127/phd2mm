@@ -644,7 +644,7 @@ namespace phd2mm_wpf
                 "-Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.\n" +
                 "-Added MIT License for PixiEditor ColorPicker.\n" +
                 "-Added Items from Warbond \"Masters of Ceremony\".\n" +
-                "-Added new Illuminate enemies to Items.\n"
+                "-Added new Illuminate enemies to Items, namely \"Stingray\", \"Crescent Overseer\", and \"Fleshmob\".\n"
                 ;
 
             public static string MoreInfo_Changelogs_v1_4 =
