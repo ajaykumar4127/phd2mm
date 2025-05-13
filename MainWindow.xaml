@@ -307,7 +307,7 @@
                                     <TextBlock Text="Install All Mods from Current Profile" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
                                 </Button.Content>
                             </Button>
-                            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="671,0,0,0" Width="201" Height="109" Style="{StaticResource Transparent_Grid}">
+                            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="660,0,0,0" Width="207" Height="109" Style="{StaticResource Transparent_Grid}">
                                 <Image x:Name="ProfileImage_Icon_Image" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"/>
                             </Grid>
                         </Grid>

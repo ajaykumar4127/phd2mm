@@ -563,13 +563,13 @@ namespace phd2mm_wpf
                 "The images must be in the phd2mm_themes folder before you can set them, as the app only accepts images from that folder.\n" +
                 "There are 4 images you can set: Mod Manager Background Image, Mod Manager Icon Image, Unused Mods Table Background Image, and Used Mods Table Background Image.\n" +
                 "1. Mod Manager Background Image is shown behind the entire Mod Manager Tab. " +
-                "The default resolution is 201x109.\n" +
+                "The default resolution is approximately 1753x884.08.\n" +
                 "2. Mod Manager Icon Image is shown in the top right of the Mod Manager Tab. " +
-                "The default resolution is 1753x884.08.\n" +
+                "The default resolution is approximately 207x109.\n" +
                 "3. Unused Mods Table Background Image is shown behind the Unused Mods Table. " +
-                "The default resolution is 861x754.42.\n" +
+                "The default resolution is approximately 861x754.42.\n" +
                 "4. Used Mods Table Background Image is shown behind the Used Mods Table. " +
-                "The default resolution is 861x754.42.\n" +
+                "The default resolution is approximately 861x754.42.\n" +
                 "All the images except Icon Image are stretched to fill the available space based on the specified default resolution, which may cause image distortion if " +
                 "the uploaded image does not match the the specified default resolution.\n" +
                 "Icon Image is stretched to Uniform, meaning it will still fill available space and won't cause distortion, but may leave empty space.\n" +
