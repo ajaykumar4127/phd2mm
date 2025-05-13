@@ -89,7 +89,8 @@ namespace phd2mm_wpf
             }},
             {"Illuminate_Skin_And_Audio", new List<string> {
                 "Voteless", "Watcher", "Overseer", "Elevated Overseer", "Harvester",
-                "Warp Ship", "Other"
+                "Warp Ship", "Stingray", "Crescent Overseer", "Fleshmob",
+                "Other"
             }},
             {"Other", new List<string> {
                 "Other"
@@ -617,6 +618,7 @@ namespace phd2mm_wpf
             public static string MoreInfo_Changelogs_v1_5 =
                 "v1.5\n" +
                 "-Migrated app framework from WinForms to WPF.\n" +
+                "Mod Manager and More Info tabs now resize depending on the window size. Note: may not properly work on resolutions below 1770x950.\n" +
                 "-Replaced \"Visual\" Category with \"Skin\" Category for consistency.\n" +
                 "WARNING: app may not work properly if your phd2mm_registry.json contains \"Visual\" Category, " +
                 "please replace them with \"Skin\" first before launching the app.\n" +
@@ -642,7 +644,7 @@ namespace phd2mm_wpf
                 "-Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.\n" +
                 "-Added MIT License for PixiEditor ColorPicker.\n" +
                 "-Added Items from Warbond \"Masters of Ceremony\".\n" +
-                "Mod Manager and More Info tabs now resize depending on the window size. Note: may not properly work on resolutions below 1770x950.\n"
+                "-Added new Illuminate enemies to Items.\n"
                 ;
 
             public static string MoreInfo_Changelogs_v1_4 =

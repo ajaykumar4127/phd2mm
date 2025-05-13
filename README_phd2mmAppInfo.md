@@ -232,6 +232,7 @@ TabItems, ComboBox, List, and Buttons.  <br>
 ### Changelogs
 v1.5  <br>
 -Migrated app framework from WinForms to WPF.  <br>
+-Mod Manager and More Info tabs now resize depending on the window size. Note: may not properly work on resolutions below 1770x950. <br>
 -Replaced "Visual" Category with "Skin" Category for consistency.  <br>
 WARNING: app may not work properly if your phd2mm_registry.json contains "Visual" Category,  <br>
 please replace them with "Skin" first before launching the app.  <br>
@@ -257,7 +258,7 @@ Please see Themes Info tab for more details.  <br>
 -Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.  <br>
 -Added MIT License for PixiEditor ColorPicker.  <br>
 -Added Items from Warbond "Masters of Ceremony". <br>
--Mod Manager and More Info tabs now resize depending on the window size. Note: may not properly work on resolutions below 1770x950. <br>
+-Added new Illuminate enemies to Items. <br>
 
 v1.4  <br>
 -Redesigned UI.  <br>
