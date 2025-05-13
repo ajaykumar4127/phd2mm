@@ -16,7 +16,7 @@ This application is licensed under the GNU General Public License v3. <br>
 Feel free to copy, edit, and make your own version of this app! <br>
 However, please do not submit changes or edits to this original repository. Instead, fork it and modify your own copy.
 There are some screenshots below on how the app looks like. <br>
-The information below starting from Table of Contents are also included in "More Info" inside the phd2mm app and README_phd2mmAppInfo.md in this repo. <br>
+The information below starting from Table of Contents are also included in "More Info" inside the phd2mm app and README_phd2mmAppInfo.md in this repository. <br>
 Anyway, I hope you enjoy using this app! <br>
 
 To download the app, click the Releases which should be on the right. <br>
