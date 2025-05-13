@@ -73,7 +73,7 @@ or v1.3.1 if you prefer something simpler and more reliable.
   Theme Manager Tab Page - Trepang2 Theme (trepang2) <br>
   ![phd2mm14_themetrepang2 (2)](https://github.com/user-attachments/assets/898686ec-5204-49d3-9d74-3e256c48375b) <br>
   Mod Manager Tab Page - Otxo Theme (otxo_test) <br>
-  ![phd2mm14_themeotxo (1)](https://github.com/user-attachments/assets/ce0c0bd7-6401-4319-a360-56eecd11eec6) <br>
+  ![phd2mm14_themeotxo (1)](https://github.com/user-attachments/assets/f53163ff-d134-4ef3-beb5-7070e3ee99d2) <br>
   Theme Manager Tab Page - Otxo Theme (otxo_test) <br>
   ![phd2mm14_themeotxo (2)](https://github.com/user-attachments/assets/284c7b7f-4838-4a6e-bc54-31f7507916e3) <br>
 
