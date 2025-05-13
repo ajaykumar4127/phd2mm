@@ -72,10 +72,10 @@ or v1.3.1 if you prefer something simpler and more reliable.
   ![phd2mm14_themetrepang2 (1)](https://github.com/user-attachments/assets/d080bcea-edb8-4a5a-9af9-5bc4942d0045) <br>
   Theme Manager Tab Page - Trepang2 Theme (trepang2) <br>
   ![phd2mm14_themetrepang2 (2)](https://github.com/user-attachments/assets/898686ec-5204-49d3-9d74-3e256c48375b) <br>
-  Mod Manager Tab Page - Trepang2 Theme (otxo_test) <br>
-  ![phd2mm14_themeotxo (1)](https://github.com/user-attachments/assets/e81cc55a-6495-4e3c-aebe-49ba0115621e)
-  Theme Manager Tab Page - Trepang2 Theme (otxo_test) <br>
-  ![phd2mm14_themeotxo (2)](https://github.com/user-attachments/assets/284c7b7f-4838-4a6e-bc54-31f7507916e3)
+  Mod Manager Tab Page - Otxo Theme (otxo_test) <br>
+  ![phd2mm14_themeotxo (1)](https://github.com/user-attachments/assets/ce0c0bd7-6401-4319-a360-56eecd11eec6) <br>
+  Theme Manager Tab Page - Otxo Theme (otxo_test) <br>
+  ![phd2mm14_themeotxo (2)](https://github.com/user-attachments/assets/284c7b7f-4838-4a6e-bc54-31f7507916e3) <br>
 
 
   Settings Tab
