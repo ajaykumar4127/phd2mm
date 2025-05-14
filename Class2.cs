@@ -16,6 +16,10 @@ namespace phd2mm_wpf
 {
     class Class2
     {
+        // Class2.cs
+        // This class file is used to manage the Items and Categories selections.
+        // It also contains the mod randomization functionality.
+        // It also contains text for the More Info tab.
         public class CategoryAndItemsManager
         {
             // Dictionary holding categories and their respective items

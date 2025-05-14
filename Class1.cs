@@ -19,6 +19,8 @@ namespace phd2mm_wpf
 {
     public class Class1
     {
+        // Class1.cs
+        // Majority of core functionality is in this class file.
         // Paths
         private static readonly string currentDirectoryPath = Directory.GetCurrentDirectory();
         private static readonly string modDirectoryPath = System.IO.Path.Combine(currentDirectoryPath, "phd2mm_mods");

@@ -20,7 +20,8 @@ namespace phd2mm_wpf
     /// </summary>
     public partial class Window2_InstallMods : Window
     {
-        //public ThemeInfo currentGlobalTheme;
+        // Window2.xaml.cs
+        // This window is responsible for installing mods in Helldivers 2.
         public string hd2DirectoryPath;
         public string modDirectoryPath;
         public string profileName;

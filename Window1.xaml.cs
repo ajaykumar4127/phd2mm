@@ -21,6 +21,8 @@ namespace phd2mm_wpf
     /// </summary>
     public partial class Window1_CreateOrDuplicateProfile : Window
     {
+        // Window1.xaml.cs
+        // This window is used to create or duplicate a profile.
         public string createOrDuplicateOption;
         public string profileToDuplicate;
         public string newProfileName;

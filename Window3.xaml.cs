@@ -20,6 +20,8 @@ namespace phd2mm_wpf
     /// </summary>
     public partial class Window3_CreateOrDuplicateTheme : Window
     {
+        // Window3.xaml.cs
+        // This window is responsible for creating or duplicating a theme.
         public string createOrDuplicateOption;
         public string themeToDuplicate;
         public string newThemeName;

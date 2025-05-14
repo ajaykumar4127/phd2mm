@@ -20,6 +20,8 @@ namespace phd2mm_wpf
 {
     public class Class3
     {
+        // Class3.cs
+        // This class file is used to manage themes for the application.
         public class ThemeInfo
         {
             public string ThemeName { get; set; }
