@@ -201,10 +201,14 @@ or v1.3.1 if you prefer something simpler and more reliable.
   <details>
    <summary> Illuminate Audio and Illuminate Skin</summary>
    In short, all Illuminate units only. Stuff like Illuminate Music are in Audio category. <br>
+   Crescent Overseer <br>
    Elevated Overseer <br>
+   Fleshmob <br>
    Harvester <br>
+   Leviathan <br>
    Other <br>
    Overseer <br>
+   Stingray <br>
    Voteless <br>
    Warp Ship <br>
    Watcher <br>

@@ -93,7 +93,7 @@ namespace phd2mm_wpf
             }},
             {"Illuminate_Skin_And_Audio", new List<string> {
                 "Voteless", "Watcher", "Overseer", "Elevated Overseer", "Harvester",
-                "Warp Ship", "Stingray", "Crescent Overseer", "Fleshmob",
+                "Warp Ship", "Stingray", "Crescent Overseer", "Fleshmob", "Leviathan",
                 "Other"
             }},
             {"Other", new List<string> {
@@ -648,7 +648,7 @@ namespace phd2mm_wpf
                 "-Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.\n" +
                 "-Added MIT License for PixiEditor ColorPicker.\n" +
                 "-Added Items from Warbond \"Masters of Ceremony\".\n" +
-                "-Added new Illuminate enemies to Items, namely \"Stingray\", \"Crescent Overseer\", and \"Fleshmob\".\n"
+                "-Added new Items to Illuminate Category, namely \"Stingray\", \"Crescent Overseer\", \"Fleshmob\", and \"Leviathan\".\n"
                 ;
 
             public static string MoreInfo_Changelogs_v1_4 =

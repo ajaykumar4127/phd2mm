@@ -258,7 +258,7 @@ Please see Themes Info tab for more details.  <br>
 -Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.  <br>
 -Added MIT License for PixiEditor ColorPicker.  <br>
 -Added Items from Warbond "Masters of Ceremony". <br>
--Added new Illuminate enemies to Items, namely "Stingray", "Crescent Overseer", and "Fleshmob". <br>
+-Added new Items to Illuminate Category, namely "Stingray", "Crescent Overseer", and "Fleshmob". <br>
 
 v1.4  <br>
 -Redesigned UI.  <br>
