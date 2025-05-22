@@ -59,7 +59,9 @@ namespace phd2mm_wpf
                 "Helldiver Voice 3", "Helldiver Voice 4", "Ship Map Music", "Death - Team", "Death - Yours",
                 "Ambient", "Ship PA System", "Democracy Officer", "Stim", "Experimental Infusion",
                 "Automaton Chant", "Automaton Music", "Illuminate Music", "Ship Music", "Ship",
-                "Stratagem Input", "Terminid Music", "Music Pack", "Democracy Space Station", "Other"
+                "Stratagem Input", "Terminid Music", "Music Pack", "Democracy Space Station",
+                "Planetary Defense Cannon",
+                "Other"
             }},
             {"Automaton_Skin_And_Audio", new List<string> {
                 "Trooper", "Brawler", "Marauder", "MG Raider", "Rocket Raider", "Commissar",
@@ -94,6 +96,7 @@ namespace phd2mm_wpf
             {"Illuminate_Skin_And_Audio", new List<string> {
                 "Voteless", "Watcher", "Overseer", "Elevated Overseer", "Harvester",
                 "Warp Ship", "Stingray", "Crescent Overseer", "Fleshmob", "Leviathan",
+                "Illuminate Overship",
                 "Other"
             }},
             {"Other", new List<string> {
@@ -147,7 +150,8 @@ namespace phd2mm_wpf
             }},
             {"Skin", new List<string> {
                 "Ship", "Title", "Icons", "Loading Screen", "Democracy Officer", "Eagle-1", "Pelican-1",
-                "Ship Interior", "Democracy Space Station", "Other"
+                "Ship Interior", "Democracy Space Station", "Planetary Defense Cannon",
+                "Other"
             }},
             {"Weapon_Skin_And_Audio", new List<string> {
                 "AR-23 Liberator", "AR-23P Liberator Penetrator", "AR-23C Liberator Concussive",
@@ -627,8 +631,8 @@ namespace phd2mm_wpf
                 "WARNING: app may not work properly if your phd2mm_registry.json contains \"Visual\" Category, " +
                 "please replace them with \"Skin\" first before launching the app.\n" +
                 "-Removed \"Ship TV\" Item from Category \"Audio\".\n" +
-                "-Added \"Ship\", \"Music Pack\" and \"Democracy Space Station\" Items in Category \"Audio\".\n" +
-                "-Added \"Ship Interior\" and \"Democracy Space Station\" Item in Category \"Visual\".\n" +
+                "-Added \"Ship\", \"Music Pack\", \"Democracy Space Station\", and \"Planetary Defense Cannon\" Items in Category \"Audio\".\n" +
+                "-Added \"Ship Interior\", \"Democracy Space Station\", and \"Planetary Defense Cannon\" Items in Category \"Skin\".\n" +
                 "-Removed row header (the leftmost cell in the row, which is just a square without text) from both DataGrids/Tables.\n" +
                 "You can now just double-click the cell that belongs to the Mod Folder Path + Name column to add or remove mods. " +
                 "To rearrange mod load order in Used Mods Table using drag and drop, you can just drag and drop the cell that belongs to " +
@@ -648,7 +652,7 @@ namespace phd2mm_wpf
                 "-Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.\n" +
                 "-Added MIT License for PixiEditor ColorPicker.\n" +
                 "-Added Items from Warbond \"Masters of Ceremony\".\n" +
-                "-Added new Items to Illuminate Category, namely \"Stingray\", \"Crescent Overseer\", \"Fleshmob\", and \"Leviathan\".\n"
+                "-Added new Items to Illuminate Category, namely \"Stingray\", \"Crescent Overseer\", \"Fleshmob\", \"Leviathan\", and \"Illuminate Overship\".\n"
                 ;
 
             public static string MoreInfo_Changelogs_v1_4 =

@@ -237,8 +237,8 @@ v1.5  <br>
 WARNING: app may not work properly if your phd2mm_registry.json contains "Visual" Category,  <br>
 please replace them with "Skin" first before launching the app.  <br>
 -Removed "Ship TV" Item from Category "Audio".  <br>
--Added "Ship", "Music Pack" and "Democracy Space Station" Items in Category "Audio".  <br>
--Added "Ship Interior" and "Democracy Space Station" Item in Category "Skin".  <br>
+-Added "Ship", "Music Pack", "Democracy Space Station", and "Planetary Defense Cannon" Items in Category "Audio".  <br>
+-Added "Ship Interior", "Democracy Space Station", and "Planetary Defense Cannon" Items in Category "Skin".  <br>
 -Removed row header (the leftmost cell in the row, which is just a square without text) from both DataGrids/Tables.  <br>
 You can now just double-click the cell that belongs to the Mod Folder Path + Name column to add or remove mods.  <br>
 To rearrange mod load order in Used Mods Table using drag and drop, you can just drag and drop the cell that belongs to  <br>
@@ -258,7 +258,7 @@ Please see Themes Info tab for more details.  <br>
 -Added Prism Launcher Team, PixiEditor ColorPicker Team, and WPF to Credits.  <br>
 -Added MIT License for PixiEditor ColorPicker.  <br>
 -Added Items from Warbond "Masters of Ceremony". <br>
--Added new Items to Illuminate Category, namely "Stingray", "Crescent Overseer", "Fleshmob", and "Leviathan". <br>
+-Added new Items to Illuminate Category, namely "Stingray", "Crescent Overseer", "Fleshmob", "Leviathan", and "Illuminate Overship". <br>
 
 v1.4  <br>
 -Redesigned UI.  <br>
